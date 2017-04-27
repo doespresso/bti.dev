@@ -1,11 +1,11 @@
 <?php
 
 // Path to your craft/ folder
-$craftPath = '../craft';
+$craftPath = '../../craft';
 
 // Do not edit below this line
 $path = rtrim($craftPath, '/').'/app/index.php';
-define('CRAFT_LOCALE', 'ru');
+define('CRAFT_LOCALE', 'en_us');
 
 if (!is_file($path))
 {

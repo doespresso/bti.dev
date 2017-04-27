@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+    <link rel="home" href="{{ siteUrl }}"/>
+    {% include 'inc/_head' %}
+    {% include 'inc/_meta' %}
+</head>
+<body>
+<header>
+    {% include 'inc/_footer' %}
+    <h1>{{ siteName }}</h1>
+</header>
+<page-content>
+    {% block page_content %}
+
+    {% endblock %}
+</page-content>
+<footer>
+    {% include 'inc/_footer' %}
+</footer>
+</body>
+</html>

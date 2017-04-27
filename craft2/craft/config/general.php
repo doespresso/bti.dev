@@ -9,11 +9,19 @@
 
 return array(
 
-	// Base site URL
-	'siteUrl' => null,
+
+
+	'siteUrl' => array(
+		'ru' => 'http://bti2.dev/',
+		'en_us' => 'http://bti2.dev/en/',
+	),
 
 	// Environment-specific variables (see https://craftcms.com/docs/multi-environment-configs#environment-specific-variables)
-	'environmentVariables' => array(),
+	'environmentVariables' => array(
+		'basePath' => '/users/jd/vh/bti.dev/craft2/public/',
+		'baseUrl' => 'http://bti2.dev/',
+	),
+
 
 	// Default Week Start Day (0 = Sunday, 1 = Monday...)
 	'defaultWeekStartDay' => 0,
@@ -22,7 +30,7 @@ return array(
 	'enableCsrfProtection' => true,
 
 	// Whether "index.php" should be visible in URLs (true, false, "auto")
-	'omitScriptNameInUrls' => 'auto',
+	'omitScriptNameInUrls' => true,
 
 	// Control Panel trigger word
 	'cpTrigger' => 'admin',
