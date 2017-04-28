@@ -8,17 +8,19 @@
     {% include 'inc/_meta' %}
 </head>
 <body>
-<header>
-    {% include 'inc/_footer' %}
-    <h1>{{ siteName }}</h1>
-</header>
-<page-content>
-    {% block page_content %}
-
-    {% endblock %}
-</page-content>
-<footer>
-    {% include 'inc/_footer' %}
-</footer>
+<div id="app">
+    <header>
+        {% include 'inc/_footer' %}
+        <h1>{{ siteName }}</h1>
+    </header>
+    <content>
+        {% block content %}
+        {% endblock %}
+    </content>
+    <footer>
+        {% include 'inc/_footer' %}
+    </footer>
+</div>
+{% include 'inc/_scripts' %}
 </body>
 </html>
