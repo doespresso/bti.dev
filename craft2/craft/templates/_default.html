@@ -6,13 +6,21 @@
     <link rel="home" href="{{ siteUrl }}"/>
     {% include 'inc/_head' %}
     {% include 'inc/_meta' %}
+    <style>
+        .md-layout{
+            border:1px grey solid!important;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
     <header>
         {% include 'inc/_footer' %}
-        <h1>{{ siteName }}</h1>
+        <md-toolbar>
+            <h1 class="md-title">{% if title is defined %}{{ title }}{% else %}{{ siteName }}{% endif %}</h1>
+        </md-toolbar>
     </header>
+    ${message}
     <content>
         {% block content %}
         {% endblock %}

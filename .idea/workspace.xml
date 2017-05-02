@@ -34,54 +34,53 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vue-material.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/craft2/public/assets/styles/vue-material.css">
+      <file leaf-file-name="_default.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/craft2/craft/templates/_default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-7.5">
+              <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/craft2/public/en/index.php">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/craft2/craft/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.875">
-              <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+            <state vertical-scroll-proportion="-14.375">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_category.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/craft2/craft/templates/persons/_category.html">
+      <file leaf-file-name="404.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/craft2/craft/templates/404.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.875">
-              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+            <state vertical-scroll-proportion="-13.125">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="25" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_entry.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/craft2/craft/templates/tester/_entry.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.13533835">
+              <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="32" />
               <folding>
-                <marker date="1493330464000" expanded="true" signature="25:52" placeholder="{% set title = &quot;Команда&quot; ...%}" />
-                <marker date="1493330464000" expanded="true" signature="53:92" placeholder="{% block content ...%}" />
+                <element signature="e#79#127#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_entry.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/craft2/craft/templates/news/_entry.html">
+      <file leaf-file-name="_card-simple.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/craft2/craft/templates/components/cards/_card-simple.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.625">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="23" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_default.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/craft2/craft/templates/_default.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49624062">
-              <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="57" selection-start-line="0" selection-start-column="57" selection-end-line="0" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -111,7 +110,7 @@
         <entry file="file://$PROJECT_DIR$/craft2/public/assets/scripts/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="19" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
+              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -140,10 +139,14 @@
         <option value="$PROJECT_DIR$/craft2/public/index.php" />
         <option value="$PROJECT_DIR$/craft2/public/en/index.php" />
         <option value="$PROJECT_DIR$/craft2/craft/templates/persons/_category.html" />
-        <option value="$PROJECT_DIR$/craft2/public/assets/scripts/app.js" />
         <option value="$PROJECT_DIR$/craft2/craft/templates/inc/_head.html" />
         <option value="$PROJECT_DIR$/craft2/craft/templates/inc/_scripts.html" />
+        <option value="$PROJECT_DIR$/craft2/craft/templates/index.html" />
+        <option value="$PROJECT_DIR$/craft2/craft/templates/404.html" />
         <option value="$PROJECT_DIR$/craft2/craft/templates/_default.html" />
+        <option value="$PROJECT_DIR$/craft2/public/assets/scripts/app.js" />
+        <option value="$PROJECT_DIR$/craft2/craft/templates/components/cards/_card-simple.html" />
+        <option value="$PROJECT_DIR$/craft2/craft/templates/tester/_entry.html" />
       </list>
     </option>
   </component>
@@ -374,7 +377,37 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="inc" />
+              <option name="myItemId" value="tester" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BTI CRAFT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bti.dev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="craft2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="craft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cards" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -708,14 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/craft2/craft/templates/404.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/craft2/craft/app/framework/i18n/data/en_us.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -753,8 +778,8 @@
         <state vertical-scroll-proportion="-1.875">
           <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
           <folding>
-            <marker date="1493330464000" expanded="true" signature="25:52" placeholder="{% set title = &quot;Команда&quot; ...%}" />
-            <marker date="1493330464000" expanded="true" signature="53:92" placeholder="{% block content ...%}" />
+            <marker date="1493330464000" expanded="true" signature="-1:-1" placeholder="{% set title = &quot;Команда&quot; ...%}" />
+            <marker date="1493330464000" expanded="true" signature="-1:-1" placeholder="{% block content ...%}" />
           </folding>
         </state>
       </provider>
@@ -785,14 +810,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/craft2/public/assets/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="19" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/craft2/craft/templates/inc/_head.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.1875">
@@ -809,11 +826,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/craft2/craft/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.375">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/craft2/craft/templates/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.125">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="25" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/craft2/craft/templates/_default.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49624062">
-          <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+        <state vertical-scroll-proportion="-7.5">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/craft2/public/assets/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/craft2/craft/templates/components/cards/_card-simple.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="57" selection-start-line="0" selection-start-column="57" selection-end-line="0" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/craft2/craft/templates/tester/_entry.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13533835">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="32" />
+          <folding>
+            <element signature="e#79#127#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
