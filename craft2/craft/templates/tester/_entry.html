@@ -1,45 +1,11 @@
 {% extends "_default.html" %}
 
 {% block content %}
+    <div class="container">
 
-    <h1>TEST</h1>
-    <div style="margin:0 30px; width:auto; display:block">
-        <div class="card-holder">
-            {% include "components/cards/_card-simple.html" with {'card_title': 'Это заголовок карточки'} %}
-            {% include "components/cards/_card-simple.html" with {'card_title': 'Это заголовок карточки'} %}
-        </div>
-        <md-layout md-gutter="40">
-            <md-layout md-flex-xsmall="100" md-flex-small="100" md-flex-medium="100">
-
-            </md-layout>
-
-            <md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33">
-                md-flex-xsmall <br>
-                md-flex-small="50" <br>
-                md-flex-medium="33"
-            </md-layout>
-
-            <md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33">
-                md-flex-xsmall <br>
-                md-flex-small="50" <br>
-                md-flex-medium="33"
-            </md-layout>
-
-            <md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33">
-                md-flex-xsmall <br>
-                md-flex-small="50" <br>
-                md-flex-medium="33"
-            </md-layout>
-
-            <md-layout md-flex-small="100" md-flex-medium="33" md-hide-xsmall>
-                md-flex-medium="33" <br>
-                md-hide-xsmall
-            </md-layout>
-
-            <md-layout md-flex md-flex-medium="33" md-hide-small>
-                md-flex-medium="33" <br>
-                md-hide-small
-            </md-layout>
-        </md-layout>
+        {#{% include "components/cards/_card-simple.html" with {'card_title': 'Это заголовок карточки'} %}#}
+        {#{% include "components/cards/_card-simple.html" with {'card_title': 'Это заголовок карточки'} %}#}
     </div>
+    </div>
+
 {% endblock %}

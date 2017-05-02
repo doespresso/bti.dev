@@ -7,8 +7,40 @@
     {% include 'inc/_head' %}
     {% include 'inc/_meta' %}
     <style>
-        .md-layout{
-            border:1px grey solid!important;
+        #app {
+            width: 100%;
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        content {
+            display: block;
+            height: 700px;
+        }
+
+        body {
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        footer {
+            display: block;
+            min-height: 240px;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media screen and (min-width: 1280px) {
+            .container {
+                width: 1200px;
+            }
         }
     </style>
 </head>
@@ -19,8 +51,15 @@
         <md-toolbar>
             <h1 class="md-title">{% if title is defined %}{{ title }}{% else %}{{ siteName }}{% endif %}</h1>
         </md-toolbar>
+        <div class="container">
+            <breadcrumbs>breadcrumbs > ... > ...</breadcrumbs>
+            <hr/>
+            <h1>{{ title | default('var is not defined')}}</h1>
+            <hr/>
+            <submenu>submenu</submenu>
+        </div>
     </header>
-    ${message}
+    {#${message}#}
     <content>
         {% block content %}
         {% endblock %}
