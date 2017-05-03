@@ -1,5 +1,13 @@
 {% extends "_default" %}
-{% set title = "Команда" %}
+
+{% set pageTitle = category.title %}
+
+{% set persons = craft.entries.section('persons').relatedTo(category) %}
+
 {% block content %}
-team
+    <h1>{{ category.title }}</h1>
+    <hr/>
+    {% for person in persons %}
+        <li>{{include ("components/card/_card-person-list.html")}}</li>
+    {% endfor %}
 {% endblock %}

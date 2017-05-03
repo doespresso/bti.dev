@@ -5,6 +5,7 @@
     <title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
     <link rel="home" href="{{ siteUrl }}"/>
     {% include 'inc/_head' %}
+    {% block styles %}{% endblock %}
     {% include 'inc/_meta' %}
     <style>
         #app {
@@ -46,27 +47,61 @@
 </head>
 <body>
 <div id="app">
+
     <header>
-        {% include 'inc/_footer' %}
         <md-toolbar>
             <h1 class="md-title">{% if title is defined %}{{ title }}{% else %}{{ siteName }}{% endif %}</h1>
         </md-toolbar>
-        <div class="container">
-            <breadcrumbs>breadcrumbs > ... > ...</breadcrumbs>
-            <hr/>
-            <h1>{{ title | default('var is not defined')}}</h1>
-            <hr/>
-            <submenu>submenu</submenu>
-        </div>
+
+        <hr/>
+
+        <div class="breadcrumbs">breadcrumbs</div>
+
+        <hr/>
+
+        <h1 class="title--page">{{ pageTitle | default('var is not defined') }}</h1>
+
+        <hr/>
+
+        <submenu>
+            {% if entry is defined %}
+                {% set currentCategoryIds = craft.categories.relatedTo(entry).ids() %}
+                {% set currentCategoryGroup = craft.categories.relatedTo(entry).first().getGroup() %}
+            {% elseif category is defined %}
+                {% set currentCategoryIds = [category.id] %}
+                {% set currentCategoryGroup = category.getGroup() %}
+            {% else %}
+                {% set currentCategoryIds = [] %}
+            {% endif %}
+
+            {% nav cat in craft.categories.group(currentCategoryGroup.handle) %}
+            {% set class = cat.id in currentCategoryIds ? 'active' : '' %}
+            {#{% set entryCount = craft.entries.relatedTo(cat).total() %}#}
+
+            <li><a href="{{ cat.url }}" class="{{ class }}">{{ cat.title }}</a></li>
+
+            {% endnav %}
+        </submenu>
+
     </header>
-    {#${message}#}
+
+
+    <hr/>
+
     <content>
         {% block content %}
         {% endblock %}
     </content>
+
+
+    <hr/>
+
+    <div class="pager"></div>
+
     <footer>
         {% include 'inc/_footer' %}
     </footer>
+
 </div>
 {% include 'inc/_scripts' %}
 </body>

@@ -1,1 +1,25 @@
 {% extends "_default.html" %}
+            {% block styles %}
+                <style>.ico svg {
+                        max-width: 200px;
+                    }</style>
+            {% endblock %}
+{% set pageTitle = entry.title %}
+{% block content %}
+    <section id="page-content">
+        <div class="container">
+
+            {#<div class="ico">{{ entry.iconHeader.inline }}</div>#}
+            <h1>{{ entry.title }}</h1>
+            <a href="{{ entry.personStatus.first.getUrl }}">{{ entry.personStatus.first.title }}</a>
+            {{ entry.personStatusOver ? entry.personStatusOver : entry.personStatus.first.groupTeamStatus ~ '.'}}
+            {{ entry.personPosition }}
+            <hr/>
+            {{ include ("categories/_list.html",{'catGroup':'groupTeam'}) }}
+            <hr/>
+            {{ include ("contacts/_contacts-person.html",{'tel1':entry.contactTel1,'tel2':entry.contactTel2,'email':entry.contactEmail,'skype':entry.contactSkype,}) }}
+            <hr/>
+            {{ entry.personBio }}
+        </div>
+    </section>
+{% endblock %}
