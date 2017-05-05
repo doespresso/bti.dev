@@ -1,6 +1,10 @@
 <?php
 
 return array(
+	'Select team'=>'Подобрать',
+	'Branch'=>'Отрасль',
+	'Service'=>'Сервисное направление',
+	'Navee'=>'Навигация',
 	'"{filename}" is not allowed in this field.' => '"{filename}" не допускается в этом поле.',
 	'(blank)' => '(пусто)',
 	'/path/to/folder/' => '/путь/к/папке/',
@@ -760,7 +764,7 @@ return array(
 	'Our site is temporarily unavailable. Please try again later.' => 'Наш сайт временно недоступен. Пожалуйста, попробуйте зайти позже.',
 	'Page Not Found' => 'Страница не найдена',
 	'Param “{name}” doesn’t exist.' => 'Параметр “{name}” не существует.',
-	'Parent' => 'Родительский',
+	'Parent' => 'Родитель',
 	'Passed' => 'Пройдено',
 	'Passed with warning' => 'Пройдено с предупреждением',
 	'Password' => 'Пароль',
