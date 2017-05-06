@@ -2,7 +2,7 @@
 
 {% set pageTitle = category.title %}
 
-{% set persons = craft.entries.section('persons').relatedTo(category) %}
+{% set persons = craft.entries.section('persons').relatedTo(category).order('personLastname') %}
 
 {% block content %}
     <h1>{{ category.title }}</h1>
