@@ -1,36 +1,16 @@
-
-#app {
-    width: 100%;
-    display: block;
-    margin: 0;
-    padding: 0;
-}
-
-content {
-    display: block;
-    height: 700px;
-}
-
-body {
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-footer {
-    display: block;
-    min-height: 240px;
-    background-color: #f0f0f0;
-}
-
-.container {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-@media screen and (min-width: 1280px) {
-    .container {
-        width: 1200px;
-    }
+.md-list-item-container a{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: inherit;
+    line-height: inherit;
+    min-height: inherit;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none!important;
+    color:inherit!important;
 }

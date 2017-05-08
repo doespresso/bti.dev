@@ -10,7 +10,7 @@
         <div class="container">
 
             {#<div class="ico">{{ entry.iconHeader.inline }}</div>#}
-            {{ include("components/filter/_filter-persons.html") }}
+            {{ include("inc/_filter-persons.html") }}
             <h1>{{ entry.title }}</h1>
             <a href="{{ entry.personStatus.first.getUrl }}">{{ entry.personStatus.first.title }}</a>
             {{ entry.personStatusOver ? entry.personStatusOver : entry.personStatus.first.groupTeamStatus ~ '.' }}

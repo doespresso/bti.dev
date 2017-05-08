@@ -1,0 +1,12 @@
+{% set items = craft.entries.section('menus') %}
+
+<md-sidenav class="md-left md-fixed" ref="leftSidenav" @open="open('Left')" @close="close('Left')" md-swipeable>
+    <md-toolbar class="md-medium">
+        <div class="md-toolbar-container">
+            <h3 class="md-title">{{ siteName }}</h3>
+        </div>
+    </md-toolbar>
+    <div class="main-sidebar-links">
+        {{ include("inc/_list-collapse.html") }}
+    </div>
+</md-sidenav>

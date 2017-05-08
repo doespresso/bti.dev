@@ -1,0 +1,51 @@
+{#<md-list>#}
+    {#{% nav item in items %}#}
+    {#<md-list-item>#}
+        {#<a _href="#0">{{ item.title }}</a>#}
+        {#{% ifchildren %}#}
+        {#<md-list-expand>#}
+            {#<md-list>#}
+                {#{% children %}#}
+            {#</md-list>#}
+        {#</md-list-expand>#}
+        {#{% endifchildren %}#}
+    {#</md-list-item>#}
+    {#{% endnav %}#}
+{#</md-list>#}
+
+
+<md-list>
+    {% set items = craft.entries.section('menus').id('not 1000000').level(1) %}
+    {% for item in items %}
+        {% if not item.hasDescendants %}
+            <md-list-item>
+                <a href="#LINK">{{ item.title }}</a>
+            </md-list-item>
+        {% else %}
+            <md-list-item>
+                <span>{{ item.title }}</span>
+                <md-list-expand>
+                    <md-list>
+                        {% set subitems = item.getChildren() %}
+                        {% for subitem in subitems %}
+                            {% if subitem.type=='typeMenuBranches' %}
+                                {% set branches = craft.entries.section('branches').level(1) %}
+                                {% for branch in branches %}
+                                    <md-list-item><a href="{{ branch.getUrl() }}">{{ branch.title }}</a></md-list-item>
+                                {% endfor %}
+                            {% elseif subitem.type=='typeMenuServices' %}
+                                {% set services = craft.entries.section('services').level(1) %}
+                                {% for service in services %}
+                                    <md-list-item><a href="{{ service.getUrl() }}">{{ service.title }}</a></md-list-item>
+                                {% endfor %}
+                            {% else %}
+                                <md-list-item><a href="#sublink">{{ subitem.title }}</a></md-list-item>
+                            {% endif %}
+                        {% endfor %}
+                    </md-list>
+                </md-list-expand>
+            </md-list-item>
+        {% endif %}
+    {% endfor %}
+</md-list>
+
