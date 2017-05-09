@@ -1,13 +1,67 @@
-{% extends "_default" %}
+{% extends "_page" %}
 
 {% set pageTitle = category.title %}
 
-{% set persons = craft.entries.section('persons').relatedTo(category).order('personLastname') %}
+{% set perPage = 30 %}
+
+{% paginate craft.entries.section('persons').relatedTo(category).limit(perPage).order('personLastname') as pageInfo, persons %}
+
 
 {% block content %}
-    <h1>{{ category.title }}</h1>
-    <hr/>
-    {% for person in persons %}
-        <li>{{include ("inc/_card-person-list.html")}}</li>
-    {% endfor %}
+    <md-layout class="md-container md-centered" md-gutter="40" md-row>
+        <h1 class="md-layout md-display-1">{{ category.title }}</h1>
+    </md-layout>
+
+    <md-layout class="md-container md-centered cards-holder-40" md-gutter="40" md-row>
+        {% for item in persons %}
+            <md-layout md-flex-xsmall="100" md-flex-medium="50" md-flex-large="25" md-flex-xlarge="25">
+                <md-theme>
+                    <md-card md-with-hover class="has-ripple">
+                        <md-card-area md-inset-0>
+                            <md-card-media md-ratio="3:4">
+                                {% if item.personPhoto|length %}
+                                    {% set photo = item.personPhoto.first() %}
+                                    <a href="{{ item.getUrl() }}">
+                                        <img src="{{ photo.getUrl('resizePersonsList') }}">
+                                        <md-ink-ripple/>
+                                    </a>
+                                {% else %}
+                                    <a href="{{ item.getUrl() }}">
+                                        <md-ink-ripple/>
+                                    </a>
+                                {% endif %}
+                            </md-card-media>
+                            <md-card-content>
+                                <h3 class="md-title">{{ item.personFirstname }} {{ item.personLastname }}</h3>
+
+                                <div class="md-subhead">{{ item.personStatusOver ? item.personStatusOver : item.personStatus.first().groupTeamStatus }}</div>
+                                {% if item.personDepartment|length %}
+                                    <div class="md-subhead">{{ item.personDepartment }}</div>
+                                {% endif %}
+                            </md-card-content>
+                        </md-card-area>
+                        <md-card-actions>
+                            <md-button href="">Профайл</md-button>
+                            <span class="md-flex"></span>
+                            <md-button class="md-icon-button" href="tel:{{ item.contactTel1 ? item.contactTel1 : globalContacts.contactTel1 | replace (' ','') }}">
+                                <md-icon>call</md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button" href="mailto:{{ item.contactEmail ? item.contactEmail ~ ',' | replace (' ','') }}{{ globalContacts.contactEmail | replace (' ','') }}">
+                                <md-icon>email</md-icon>
+                            </md-button>
+                        </md-card-actions>
+                    </md-card>
+                </md-theme>
+            </md-layout>
+        {% endfor %}
+    </md-layout>
+{% endblock %}
+
+
+{% block pager %}
+    <md-layout class="md-container md-centered" md-gutter="40" md-row>
+        {% if pageInfo.prevUrl %}<md-button href="{{ pageInfo.prevUrl }}" class="md-icon-button" title="{{ 'Previous Page' | translate }}"><md-icon>arrow_back</md-icon></md-button>{% endif %}
+        <span class="md-flex"></span>
+        {% if pageInfo.nextUrl %}<md-button href="{{ pageInfo.nextUrl }}" class="md-icon-button" title="{{ 'Next Page' | translate }}"><md-icon>arrow_forward</md-icon></md-button>{% endif %}
+    </md-layout>
 {% endblock %}

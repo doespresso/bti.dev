@@ -1,20 +1,16 @@
 Vue.use(VueMaterial);
-Vue.material.registerTheme({
-    app: {
-        primary: 'cyan'
-    },
-    about: {
-        primary: 'indigo'
-    },
-    contact: {
-        primary: 'teal'
-    }
-});
+Vue.material.registerTheme('default', {
+    primary: 'red',
+    accent: 'white',
+    warn: 'purple',
+    background: 'white'
+})
 var app = new Vue({
     delimiters: ['${', '}'],
     el: '#app',
     data: {
-        message: 'You loaded this page on ' + new Date()
+        message: 'You loaded this page on ' + new Date(),
+        show:false
     },
     methods: {
         toggleLeftSidenav: function () {

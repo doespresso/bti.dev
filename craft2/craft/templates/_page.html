@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include 'inc/_head' %}
+    {% include 'inc/_meta' %}
+
+</head>
+<body>
+<div id="app">
+    {{ include ("inc/_sidenav_list-collapse.html") }}
+    <header>
+        <md-toolbar class="md-large md-primary" style="height:300px">
+            <div class="md-toolbar-container">
+                <md-button class="md-icon-button" @click.native="toggleLeftSidenav">
+                    <md-icon>menu</md-icon>
+                </md-button>
+                <span style="flex: 1;"></span>
+                <md-button class="md-icon-button">
+                    <md-icon>search</md-icon>
+                </md-button>
+            </div>
+            <md-layout class="md-container md-centered md-gutter-40">
+                <md-layout>
+                    <h2 class="md-accent">{% if title is defined %}{{ title }}{% else %}{{ siteName }}{% endif %}</h2>
+                </md-layout>
+            </md-layout>
+
+
+        </md-toolbar>
+
+
+        {#<div class="submenu">#}
+        {#{% if entry is defined %}#}
+        {#{% set currentCategoryIds = craft.categories.relatedTo(entry).ids() %}#}
+        {#{% set currentCategoryGroup = craft.categories.relatedTo(entry).first().getGroup() %}#}
+        {#{% elseif category is defined %}#}
+        {#{% set currentCategoryIds = [category.id] %}#}
+        {#{% set currentCategoryGroup = category.getGroup() %}#}
+        {#{% else %}#}
+        {#{% set currentCategoryIds = [] %}#}
+        {#{% endif %}#}
+
+        {#{% nav cat in craft.categories.group(currentCategoryGroup.handle) %}#}
+        {#{% set class = cat.id in currentCategoryIds ? 'active' : '' %}#}
+        {#&#123;&#35;{% set entryCount = craft.entries.relatedTo(cat).total() %}&#35;&#125;#}
+
+        {#<li><a href="{{ cat.url }}" class="{{ class }}">{{ cat.title }}</a></li>#}
+
+        {#{% endnav %}#}
+        {#</div>#}
+
+    </header>
+
+    <md-button @click.native="show = !show">show</md-button>
+    {#<transition name="fade" appear>#}
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+    {#</transition>#}
+
+
+    {% block pager %}
+    {% endblock %}
+
+    {#{% include('inc/_speed-dial.html') %}#}
+
+    <footer>
+        {% include 'inc/_footer' %}
+    </footer>
+</div>
+{% include 'inc/_scripts' %}
+</body>
+</html>

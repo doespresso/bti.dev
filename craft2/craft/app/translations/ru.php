@@ -1,7 +1,9 @@
 <?php
 
 return array(
-	'Select team'=>'Подобрать',
+	'Next Page'=>'Раньше',
+	'Previous Page'=>'Назад',
+	'Select team'=>'Еще',
 	'Branch'=>'Отрасль',
 	'Service'=>'Сервисное направление',
 	'Navee'=>'Навигация',
