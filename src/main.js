@@ -1,7 +1,8 @@
-import Vue from 'vue'
-import App from './App.vue'
-import VueMaterial from 'vue-material'
 import './../app/styles/index.scss'
+
+import Vue from 'vue'
+import VueMaterial from 'vue-material/src/'
+
 
 Vue.use(VueMaterial)
 

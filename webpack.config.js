@@ -5,7 +5,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin")
 module.exports = {
     entry: './src/main.js',
     output: {
-        path: path.resolve(__dirname, './craft2/public/dist'),
+        path: path.resolve(__dirname, './dist'),
         publicPath: '/dist/',
         filename: '[name].js'
     },
@@ -15,23 +15,32 @@ module.exports = {
                 test: /\.scss$/,
                 //loader: 'css-loader!sass-loader',
                 loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'sass-loader']}),
-                exclude: /node_modules/
+                exclude: '/node_modules/'
             },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: {
                     loaders: {
-                        'scss': 'vue-style-loader!css-loader!sass-loader',
-                        'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+                        //'scss': 'vue-style-loader!css-loader!sass-loader',
+                        //'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+                        'scss':ExtractTextPlugin.extract({ fallback: 'vue-style-loader', use: ['css-loader', 'sass-loader']}),
                     }
-                    // other vue-loader options go here
                 }
+            },
+            {
+                test: /\.theme$/,
+                use: ['raw-loader', 'sass-loader']
             },
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
-                exclude: /node_modules/
+                exclude: '/node_modules/',
+                options: {
+                    presets: [
+                        'es2015'
+                    ]
+                }
             },
             {
                 test: /\.(png|jpg|gif|svg)$/,
