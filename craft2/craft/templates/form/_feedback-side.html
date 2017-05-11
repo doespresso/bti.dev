@@ -1,0 +1,9 @@
+<md-sidenav class="md-right" ref="rightSidenav" @open="open('Right')" @close="close('Right')">
+    <md-toolbar>
+        <div class="md-toolbar-container">
+            <h3 class="md-title">{{ 'Make Request' | translate }}</h3>
+        </div>
+    </md-toolbar>
+    -
+    <md-button class="md-raised md-accent" @click.native="closeRightSidenav">{{ 'Close' | translate }}</md-button>
+</md-sidenav>

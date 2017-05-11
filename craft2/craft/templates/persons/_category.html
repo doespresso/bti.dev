@@ -1,6 +1,6 @@
 {% extends "_page" %}
 
-{% set pageTitle = category.title %}
+{% set headerTitle = category.title %}
 
 {% set perPage = 30 %}
 
@@ -8,9 +8,9 @@
 
 
 {% block content %}
-    <md-layout class="md-container md-centered" md-gutter="40" md-row>
-        <h1 class="md-layout md-display-1">{{ category.title }}</h1>
-    </md-layout>
+    {#<md-layout class="md-container md-centered" md-gutter="40" md-row>#}
+        {#<h1 class="md-layout md-display-1">{{ category.title }}</h1>#}
+    {#</md-layout>#}
 
     <md-layout class="md-container md-centered cards-holder-40" md-gutter="40" md-row>
         {% for item in persons %}

@@ -1,12 +1,36 @@
+@import "./../node_modules/vue-material/src/core/stylesheets/variables.scss";
+
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease 0.2s;
+  //transform: translateY(0);
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active для <2.1.8 */
+{
+  opacity: 0;
+  //transform: translateY(200px);
+}
+
 @import "bti_colors";
+@import "section";
+@import "navbar";
+@import "sidebar";
+@import "card";
+@import "page";
+@import "titles";
+
+
 //@import "var";
 
-.abc{
-  transition:1s;
+html,
+body {
+  height: 100%;
+  overflow: hidden;
 }
 
-.img-clip {
-  position: absolute;
-  clip: rect(10px, 290px, 190px, 10px);
+.main-content{
+  overflow: auto;
+  flex:1;
+  height:100%;
 }
-

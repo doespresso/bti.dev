@@ -1,0 +1,27 @@
+.md-sidenav-content{
+  overflow: hidden;
+  display:flex;
+  flex-flow:column nowrap;
+}
+.main-sidebar-links{
+  flex:1;
+  overflow:auto;
+}
+
+
+.md-list-item-container a {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding: inherit;
+  line-height: inherit;
+  min-height: inherit;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none !important;
+  color: inherit !important;
+}

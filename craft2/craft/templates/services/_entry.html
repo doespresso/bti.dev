@@ -1,0 +1,11 @@
+{% extends "_page.html" %}
+{% set headerTitle = entry.title %}
+{% if entry.styleImg|length %}
+    {% set headerImg = entry.styleImg.first().getUrl('resizeHeader') %}
+{% endif %}
+{% if entry.styleIcon %}
+    {% set headerIcon = entry.styleIcon %}
+{% endif %}
+{% if entry.styleIconAlign %}
+    {% set headerIconAlign = entry.styleIconAlign %}
+{% endif %}

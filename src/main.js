@@ -1,4 +1,4 @@
-import './../app/styles/index.scss'
+
 
 import Vue from 'vue'
 import VueMaterial from 'vue-material/src/'
@@ -6,10 +6,10 @@ import VueMaterial from 'vue-material/src/'
 Vue.use(VueMaterial)
 
 Vue.material.registerTheme('default', {
-  primary: 'yellow',
+  primary: 'red',
   accent: 'black',
-  warn: 'purple',
-  background: 'white'
+  warn: 'black',
+  background: 'white',
 })
 
 
@@ -26,6 +26,7 @@ var app = new Vue({
     },
     toggleRightSidenav: function () {
       this.$refs.rightSidenav.toggle();
+      this.$refs.leftSidenav.close();
     },
     closeRightSidenav: function () {
       this.$refs.rightSidenav.close();
@@ -38,3 +39,5 @@ var app = new Vue({
     }
   }
 });
+
+import './../app/styles/index.scss'

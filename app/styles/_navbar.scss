@@ -1,0 +1,16 @@
+.page-header{
+  .md-toolbar{
+    flex-flow: column nowrap;
+    justify-content: space-between;
+  }
+  .title-container{
+    flex:0;
+  }
+}
+
+.toolbar-nav{
+  margin-right:40px;
+  .md-menu,.md-button{
+    margin:0;
+  }
+}
