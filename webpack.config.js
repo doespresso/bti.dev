@@ -23,12 +23,24 @@ module.exports = {
                 exclude: '/node_modules/'
             },
             {
+                test: /\.css$/,
+                //loader: 'css-loader!sass-loader',
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        'css-loader'
+                    ]
+                }),
+                exclude: '/node_modules/'
+            },
+            {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: {
                     loaders: {
                         //'scss': 'vue-style-loader!css-loader!sass-loader',
                         //'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+                        'css':ExtractTextPlugin.extract({ fallback: 'vue-style-loader', use: ['css-loader']}),
                         'scss':ExtractTextPlugin.extract({ fallback: 'vue-style-loader', use: ['css-loader', 'sass-loader']}),
                     }
                 }

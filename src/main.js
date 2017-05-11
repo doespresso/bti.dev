@@ -2,8 +2,10 @@
 
 import Vue from 'vue'
 import VueMaterial from 'vue-material/src/'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 
 Vue.use(VueMaterial)
+Vue.use(VueAwesomeSwiper)
 
 Vue.material.registerTheme('default', {
   primary: 'red',
