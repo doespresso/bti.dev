@@ -5,3 +5,8 @@
   transition:1s;
 }
 
+.img-clip {
+  position: absolute;
+  clip: rect(10px, 290px, 190px, 10px);
+}
+

@@ -14,7 +14,12 @@ module.exports = {
             {
                 test: /\.scss$/,
                 //loader: 'css-loader!sass-loader',
-                loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'sass-loader']}),
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        'css-loader', 'sass-loader'
+                    ]
+                }),
                 exclude: '/node_modules/'
             },
             {
@@ -58,7 +63,9 @@ module.exports = {
     },
     devServer: {
         historyApiFallback: true,
-        noInfo: true
+        noInfo: true,
+        //host:'0.0.0.0',
+        port: 3000
     },
     performance: {
         hints: false
