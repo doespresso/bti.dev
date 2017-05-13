@@ -1,0 +1,59 @@
+{#<nav class="toolbar-nav md-hide-small" role="navigation">#}
+    {#<a class="md-button" href="#0">Компания</a>#}
+    {#<md-button>Команда</md-button>#}
+    {#<md-menu md-size="6" md-direction="bottom left">#}
+        {#<md-button md-menu-trigger class="">Контакты</md-button>#}
+        {#<md-menu-content>#}
+            {#<md-menu-item href="http://yandex.ru">My Item 1</md-menu-item>#}
+            {#<md-menu-item>My Item 2</md-menu-item>#}
+            {#<md-menu-item>My Item 3</md-menu-item>#}
+        {#</md-menu-content>#}
+    {#</md-menu>#}
+    {#<md-button>Услуги</md-button>#}
+    {#<md-button>Отрасли</md-button>#}
+    {#<md-button>Публикации</md-button>#}
+    {#<md-button>Контакты</md-button>#}
+    {#<md-menu md-size="6" md-direction="bottom left">#}
+        {#<md-button md-menu-trigger class="">Контакты</md-button>#}
+        {#<md-menu-content>#}
+            {#<md-menu-item href="http://yandex.ru">My Item 1</md-menu-item>#}
+        {#</md-menu-content>#}
+    {#</md-menu>#}
+{#</nav>#}
+
+{% set topmenu_items = craft.entries.section('menus').search(('showTop:1')).level(1) %}
+<nav class="toolbar-nav md-hide-small" role="navigation">
+    {% for item in topmenu_items %}
+        {% if item.menuItem.block|length and item.getDescendants().total() == 0 %}
+            {% set cUrl = '' %}
+            {% if item.menuItem.blocks[0].type != "Url" %}
+                {% set cUrl = item.menuItem.blocks[0].obj[0].url %}
+                <md-button href="{{ cUrl }}">{{ item.title }}</md-button>
+            {% else %}
+                {% set cUrl = item.menuItem.blocks[0].obj %}
+                <md-button href="{{ cUrl }}">{{ item.title }}</md-button>
+            {% endif %}
+        {% elseif item.menuItem.block|length and item.getDescendants().total() != 0 %}
+            <md-menu md-size="6" md-direction="bottom left" md-offset-y="60">
+                <md-button md-menu-trigger class="">{{ item.title }}</md-button>
+                <md-menu-content>
+                    {% set subitems = item.getChildren() %}
+                    {% for subitem in subitems %}
+                        {% set cUrl = '' %}
+                        {% if subitem.menuItem.blocks[0].type != "Url" %}
+                            {% set cUrl = subitem.menuItem.blocks[0].obj[0].url %}
+                        {% else %}
+                            {% set cUrl = subitem.menuItem.blocks[0].obj %}
+                        {% endif %}
+                        <md-menu-item href="{{ cUrl }}">{{ subitem.title }}</md-menu-item>
+                    {% endfor %}
+                </md-menu-content>
+            </md-menu>
+        {% endif %}
+    {% endfor %}
+</nav>
+
+
+
+
+

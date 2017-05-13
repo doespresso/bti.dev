@@ -1,0 +1,82 @@
+.block-img {
+  position: absolute;
+  z-index: -2;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+    //stroke-dasharray: 0;
+  }
+}
+
+.block-icon {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
+  &.icon-align--left {
+    align-items: flex-start;
+  }
+  &.icon-align--right {
+    align-items: flex-end;
+  }
+  &.icon-align--center {
+    align-items: center;
+  }
+  &.icon-valign--top {
+    justify-content: flex-start;
+  }
+  &.icon-valign--bottom {
+    justify-content: flex-end;
+  }
+  &.icon-valign--center {
+    justify-content: center;
+  }
+  svg {
+    transform: scale(1.25);
+    height: auto !important;
+    width: 100% !important;
+    max-width: 150% !important;
+    @include layout-small-and-up {
+      stroke-width: 15px !important;
+      height: 100% !important;
+      width: auto !important;
+      max-width: none !important;
+    }
+    line, path, rect, circle, polygon, ellipse, polyline {
+      fill: none;
+      vector-effect: non-scaling-stroke !important;
+      stroke-width: 8px !important;
+      //stroke: $bti-purple !important;
+      @include layout-small-and-up {
+        stroke-width: 12px !important;
+      }
+    }
+
+  }
+}
+
+.path-animation {
+  svg {
+    line, path, rect, circle {
+      stroke-dasharray: 2400;
+      stroke-dashoffset: 2400;
+      animation: dash 5s ease-in forwards;
+    }
+  }
+}

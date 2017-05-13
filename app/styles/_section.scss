@@ -1,59 +1,9 @@
-.block-img {
-  position: absolute;
-  z-index: -2;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
-@keyframes dash {
-  to {
-    stroke-dashoffset: 0;
-    //stroke-dasharray: 0;
-  }
-}
-
-.block-icon {
-  position: absolute;
-  z-index: -1;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  &.icon-align--left{
-    justify-content: flex-start;
-  }
-  &.icon-align--right{
-    justify-content: flex-end;
-  }
-  svg {
-    //transform: scale(2);
-    height: 125% !important;
-    width: auto !important;
-    line, path, rect, circle, polygon,ellipse,polyline {
-      fill: none;
-      vector-effect: non-scaling-stroke !important;
-      stroke-width: 15px !important;
-      stroke: #eedc00 !important;
-    }
-  }
-}
-
-.path-animation {
-  svg {
-    line, path, rect, circle {
-      stroke-dasharray: 2400;
-      stroke-dashoffset: 2400;
-      animation: dash 5s ease-in forwards;
-    }
+.section {
+  display: block;
+  width: 100%;
+  background-color: #f7f7f7;
+  padding: 40px 0;
+  > .md-layout {
+    background-color: #ccc;
   }
 }

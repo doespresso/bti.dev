@@ -1,6 +1,16 @@
-{% extends "_page" %}
+{% extends "_page.html" %}
+{% set headerProvider = 'category' %}
 
-{% set headerTitle = category.title %}
+{#{% set headerTitle = headerProvider.title %}#}
+{#{% if headerProvider.styleImg|length %}#}
+    {#{% set headerImg = headerProvider.styleImg.first().getUrl('resizeHeader') %}#}
+{#{% endif %}#}
+{#{% if headerProvider.styleIcon %}#}
+    {#{% set headerIcon = headerProvider.styleIcon %}#}
+{#{% endif %}#}
+{#{% if headerProvider.styleIconAlign %}#}
+    {#{% set headerIconAlign = headerProvider.styleIconAlign %}#}
+{#{% endif %}#}
 
 {% set perPage = 30 %}
 
@@ -9,7 +19,7 @@
 
 {% block content %}
     {#<md-layout class="md-container md-centered" md-gutter="40" md-row>#}
-        {#<h1 class="md-layout md-display-1">{{ category.title }}</h1>#}
+    {#<h1 class="md-layout md-display-1">{{ category.title }}</h1>#}
     {#</md-layout>#}
 
     <md-layout class="md-container md-centered cards-holder-40" md-gutter="40" md-row>
@@ -60,8 +70,12 @@
 
 {% block pager %}
     <md-layout class="md-container md-centered" md-gutter="40" md-row>
-        {% if pageInfo.prevUrl %}<md-button href="{{ pageInfo.prevUrl }}" class="md-icon-button" title="{{ 'Previous Page' | translate }}"><md-icon>arrow_back</md-icon></md-button>{% endif %}
+        {% if pageInfo.prevUrl %}
+            <md-button href="{{ pageInfo.prevUrl }}" class="md-icon-button" title="{{ 'Previous Page' | translate }}">
+                <md-icon>arrow_back</md-icon></md-button>{% endif %}
         <span class="md-flex"></span>
-        {% if pageInfo.nextUrl %}<md-button href="{{ pageInfo.nextUrl }}" class="md-icon-button" title="{{ 'Next Page' | translate }}"><md-icon>arrow_forward</md-icon></md-button>{% endif %}
+        {% if pageInfo.nextUrl %}
+            <md-button href="{{ pageInfo.nextUrl }}" class="md-icon-button" title="{{ 'Next Page' | translate }}">
+                <md-icon>arrow_forward</md-icon></md-button>{% endif %}
     </md-layout>
 {% endblock %}

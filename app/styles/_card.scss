@@ -1,4 +1,26 @@
+.cards-b-20{
+  .md-card{
+    margin-bottom:20px;
+  }
+}
+.cards-t-20{
+  .md-card{
+    margin-bottom:20px;
+  }
+}
+.cards-v-20{
+  .md-card{
+    margin-bottom:20px;
+    margin-top:20px;
+  }
+}
+
+
 .md-card{
   width:100%;
   border-radius:0px;
+  a{
+    color:inherit!important;
+    text-decoration: none!important;
+  }
 }

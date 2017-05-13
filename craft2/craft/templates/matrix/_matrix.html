@@ -1,0 +1,14 @@
+{% if entry.pageMatrix is defined %}
+    {% for block in entry.pageMatrix %}
+        <section class="p-h p-v m-h m-v bg-color text-color">
+            {% if block.type == "sectionHtml" %}
+                <md-layout class="md-container md-centered" md-gutter="40">
+                    <md-layout>
+                        {% if block.blockTitle %}<div class="md-title section-title">{{ block.blockTitle }}</div>{% endif %}
+                        {{ block.blockContent }}
+                    </md-layout>
+                </md-layout>
+            {% endif %}
+        </section>
+    {% endfor %}
+{% endif %}

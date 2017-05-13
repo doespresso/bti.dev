@@ -1,0 +1,32 @@
+<md-whiteframe md-elevation="6">
+
+    <header class="page-header has-ripple-0">
+        <md-toolbar class="md-large">
+            {% if headerImg is defined %}
+                <div class="block-img" style="background-image:url({{ headerImg }})"></div>
+            {% endif %}
+            {% if headerIcon is defined %}
+                <div class="block-icon path-animation icon-align--{{ headerIconAlign }}">{{ headerIcon.inline }}</div>
+            {% endif %}
+            <div class="md-toolbar-container">
+                <md-button class="md-icon-button md-hide-medium-and-up-0" @click.native="toggleLeftSidenav">
+                    <md-icon>menu</md-icon>
+                </md-button>
+                <span class="md-flex"></span>
+                {{ include("inc/_navbar-menu.html") }}
+                <md-button class="md-icon-button">
+                    <md-icon>search</md-icon>
+                </md-button>
+                <md-menu md-direction="bottom left" md-size="3">
+                    {{ include("inc/_lang.html") }}
+                </md-menu>
+            </div>
+            <md-layout class="md-container title-container md-centered md-gutter-40">
+                <md-layout>
+                    <h1 class="md-display-2 title--header">{% if headerTitle is defined %}{{ headerTitle }}{% else %}{{ siteName }}{% endif %}</h1>
+                </md-layout>
+            </md-layout>
+        </md-toolbar>
+    </header>
+
+</md-whiteframe>

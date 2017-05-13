@@ -1,125 +1,83 @@
-<!DOCTYPE html>
-<html>
-{% block settings %}{% endblock %}
-<head>
-    {% include 'inc/_head' %}
-    {% include 'inc/_meta' %}
+{#{% spaceless %}#}
+    <!DOCTYPE html>
+    <html>
+    {#{% cache %}#}
+    {% if headerProvider =='entry' %}
+        {% set prov = entry %}
+    {% elseif headerProvider =='category' %}
+        {% set prov = category %}
+    {% else %}
+    {% endif %}
 
-</head>
-<body>
-<div class="main-content" id="app">
+    {% set headerTitle = prov.title %}
 
-    {{ include ("inc/_sidenav_list-collapse.html") }}
-    {{ include ("form/_feedback-side.html") }}
-    <transition name="fade" appear>
-        <md-whiteframe md-elevation="10">
-            <header class="page-header has-ripple-0">
-                <md-toolbar class="md-large">
-                    {% if headerImg is defined %}
-                        <div class="block-img" style="background-image:url({{ headerImg }})"></div>
-                    {% endif %}
-                    {% if headerIcon is defined %}
-                        <div class="block-icon path-animation icon-align--{{ headerIconAlign }}">{{ headerIcon.inline }}</div>
-                    {% endif %}
-                    <div class="md-toolbar-container">
-                        <md-button class="md-icon-button md-hide-medium-and-up" @click.native="toggleLeftSidenav">
-                            <md-icon>menu</md-icon>
-                        </md-button>
-                        <span class="md-flex"></span>
-                        <nav class="toolbar-nav md-hide-small" role="navigation">
-                            <a class="md-button" href="#0">Компания</a>
-                            <md-button>Команда</md-button>
-                            <md-button>Услуги</md-button>
-                            <md-button>Отрасли</md-button>
-                            <md-button>Публикации</md-button>
-                            <md-button>Контакты</md-button>
-                            <md-menu md-align-trigger md-size="6">
-                                <md-button md-menu-trigger>Size 7</md-button>
-                                <md-menu-content>
-                                    <md-menu-item><a href="#0">My Item 1</a></md-menu-item>
-                                    <md-menu-item>My Item 2</md-menu-item>
-                                    <md-menu-item>My Item 3</md-menu-item>
-                                </md-menu-content>
-                            </md-menu>
-                        </nav>
-                        <md-button class="md-icon-button">
-                            <md-icon>search</md-icon>
-                        </md-button>
-                        <md-menu md-direction="bottom left" md-size="3">
-                            {{ include("inc/_lang.html") }}
-                        </md-menu>
-                    </div>
-                    <md-layout class="md-container title-container md-centered md-gutter-40">
-                        <md-layout>
-                            <h1 class="md-display-2 title--header">{% if headerTitle is defined %}{{ headerTitle }}{% else %}{{ siteName }}{% endif %}</h1>
-                        </md-layout>
-                    </md-layout>
-                </md-toolbar>
+    {% if prov.styleImg|length %}
+        {% set headerImg = prov.styleImg.first().getUrl('resizeHeader') %}
+    {% endif %}
 
+    {% if prov.styleIcon %}
+        {% set headerIcon = prov.styleIcon %}
+    {% endif %}
 
-                {#<div class="submenu">#}
-                {#{% if entry is defined %}#}
-                {#{% set currentCategoryIds = craft.categories.relatedTo(entry).ids() %}#}
-                {#{% set currentCategoryGroup = craft.categories.relatedTo(entry).first().getGroup() %}#}
-                {#{% elseif category is defined %}#}
-                {#{% set currentCategoryIds = [category.id] %}#}
-                {#{% set currentCategoryGroup = category.getGroup() %}#}
-                {#{% else %}#}
-                {#{% set currentCategoryIds = [] %}#}
-                {#{% endif %}#}
+    {% if prov.styleIconAlign %}
+        {% set headerIconAlign = prov.styleIconAlign %}
+    {% endif %}
+    {#{% endcache %}#}
+    {% cache %}
+    <head>
+        {% include 'inc/_head' %}
+        {% include 'inc/_meta' %}
+    </head>
+    {% endcache %}
+    <body>
 
-                {#{% nav cat in craft.categories.group(currentCategoryGroup.handle) %}#}
-                {#{% set class = cat.id in currentCategoryIds ? 'active' : '' %}#}
-                {#&#123;&#35;{% set entryCount = craft.entries.relatedTo(cat).total() %}&#35;&#125;#}
+    <div class="main-content" id="app">
 
-                {#<li><a href="{{ cat.url }}" class="{{ class }}">{{ cat.title }}</a></li>#}
+        {{ include ("inc/_sidenav_list-collapse.html") }}
+        {{ include ("form/_feedback-side.html") }}
+        <transition name="fade" appear>
+            {{ include ("header/_header.html") }}
+        </transition>
+        {#<md-button @click.native="show = !show">show</md-button>#}
 
-                {#{% endnav %}#}
-                {#</div>#}
-
-
-                {#<md-ink-ripple/>#}
-            </header>
-        </md-whiteframe>
-    </transition>
-    {#<md-button @click.native="show = !show">show</md-button>#}
-
-    <transition name="fade" appear>
+        {#<transition name="fade" appear>#}
         <div class="page-content">
-            <swiper>
-                <swiper-slide>Slide 1</swiper-slide>
-                <swiper-slide>Slide 2</swiper-slide>
-                <swiper-slide>Slide 3</swiper-slide>
-                <swiper-slide>Slide 4</swiper-slide>
-                <swiper-slide>Slide 5</swiper-slide>
-                <swiper-slide>Slide 6</swiper-slide>
-                <swiper-slide>Slide 7</swiper-slide>
-                <swiper-slide>Slide 8</swiper-slide>
-                <swiper-slide>Slide 9</swiper-slide>
-                <swiper-slide>Slide 10</swiper-slide>
-            </swiper>
-
-            <swiper>
-                <swiper-slide>Slide 1688</swiper-slide>
-                <swiper-slide>Slide 2</swiper-slide>
-                <swiper-slide>Slide 3</swiper-slide>
-                <swiper-slide>Slide 4</swiper-slide>
-            </swiper>
             {% block content %}
             {% endblock %}
         </div>
-    </transition>
+        {#</transition>#}
 
-    {% block pager %}
-    {% endblock %}
+        {#<swiper>#}
+        {#<swiper-slide>Slide 1</swiper-slide>#}
+        {#<swiper-slide>Slide 2</swiper-slide>#}
+        {#<swiper-slide>Slide 3</swiper-slide>#}
+        {#<swiper-slide>Slide 4</swiper-slide>#}
+        {#<swiper-slide>Slide 5</swiper-slide>#}
+        {#<swiper-slide>Slide 6</swiper-slide>#}
+        {#<swiper-slide>Slide 7</swiper-slide>#}
+        {#<swiper-slide>Slide 8</swiper-slide>#}
+        {#<swiper-slide>Slide 9</swiper-slide>#}
+        {#<swiper-slide>Slide 10</swiper-slide>#}
+        {#</swiper>#}
 
-    {#{% include('inc/_speed-dial.html') %}#}
 
-    <footer class="page-footer">
-        {% include 'inc/_footer' %}
-    </footer>
+        {% block pager %}
+        {% endblock %}
 
-</div>
-{% include 'inc/_scripts' %}
-</body>
-</html>
+        {% block aside %}
+            <section>
+
+            </section>
+        {% endblock %}
+
+        {#{% include('inc/_speed-dial.html') %}#}
+
+        <footer class="page-footer">
+            {% include 'inc/_footer' %}
+        </footer>
+
+    </div>
+    {% include 'inc/_scripts' %}
+    </body>
+    </html>
+{#{% endspaceless %}#}

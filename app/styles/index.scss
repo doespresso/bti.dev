@@ -1,4 +1,5 @@
 @import "./../node_modules/vue-material/src/core/stylesheets/variables.scss";
+@import "./../node_modules/vue-material/src/core/stylesheets/mixins.scss";
 
 
 .fade-enter-active, .fade-leave-active {
@@ -14,6 +15,7 @@
 
 @import "bti_colors";
 @import "section";
+@import "blocks";
 @import "navbar";
 @import "sidebar";
 @import "card";
@@ -31,6 +33,13 @@ body {
 
 .main-content{
   overflow: auto;
-  flex:1;
+  //flex:1;
   height:100%;
+  //display:flex;
+  //flex-direction:column;
+  //flex-wrap: nowrap;
+}
+
+.page-content{
+  flex:1;
 }
