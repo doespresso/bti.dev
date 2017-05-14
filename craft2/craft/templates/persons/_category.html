@@ -22,25 +22,22 @@
     {#<h1 class="md-layout md-display-1">{{ category.title }}</h1>#}
     {#</md-layout>#}
 
-    <md-layout class="md-container md-centered cards-holder-40" md-gutter="40" md-row>
+    <md-layout class="md-container md-centered cards-v-20" md-gutter="40" md-row>
         {% for item in persons %}
             <md-layout md-flex-xsmall="100" md-flex-medium="50" md-flex-large="25" md-flex-xlarge="25">
                 <md-theme>
                     <md-card md-with-hover class="has-ripple">
-                        <md-card-area md-inset-0>
-                            <md-card-media md-ratio="3:4">
-                                {% if item.personPhoto|length %}
+                        <md-card-area class="md-flex">
+                            {% if item.personPhoto|length %}
+                                <md-card-media>
                                     {% set photo = item.personPhoto.first() %}
                                     <a href="{{ item.getUrl() }}">
                                         <img src="{{ photo.getUrl('resizePersonsList') }}">
                                         <md-ink-ripple/>
                                     </a>
-                                {% else %}
-                                    <a href="{{ item.getUrl() }}">
-                                        <md-ink-ripple/>
-                                    </a>
-                                {% endif %}
-                            </md-card-media>
+
+                                </md-card-media>
+                            {% endif %}
                             <md-card-content>
                                 <h3 class="md-title">{{ item.personFirstname }} {{ item.personLastname }}</h3>
 
@@ -71,11 +68,11 @@
 {% block pager %}
     <md-layout class="md-container md-centered" md-gutter="40" md-row>
         {% if pageInfo.prevUrl %}
-            <md-button href="{{ pageInfo.prevUrl }}" class="md-icon-button" title="{{ 'Previous Page' | translate }}">
+        <md-button href="{{ pageInfo.prevUrl }}" class="md-icon-button" title="{{ 'Previous Page' | translate }}">
                 <md-icon>arrow_back</md-icon></md-button>{% endif %}
         <span class="md-flex"></span>
         {% if pageInfo.nextUrl %}
-            <md-button href="{{ pageInfo.nextUrl }}" class="md-icon-button" title="{{ 'Next Page' | translate }}">
+        <md-button href="{{ pageInfo.nextUrl }}" class="md-icon-button" title="{{ 'Next Page' | translate }}">
                 <md-icon>arrow_forward</md-icon></md-button>{% endif %}
     </md-layout>
 {% endblock %}

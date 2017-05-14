@@ -21,6 +21,7 @@
 @import "card";
 @import "page";
 @import "titles";
+@import "lists";
 
 
 //@import "var";
@@ -29,6 +30,10 @@ html,
 body {
   height: 100%;
   overflow: hidden;
+}
+
+body{
+  background-color:#fcfcfc;
 }
 
 .main-content{
@@ -42,4 +47,8 @@ body {
 
 .page-content{
   flex:1;
+}
+
+.page-footer{
+  margin-top:100px;
 }

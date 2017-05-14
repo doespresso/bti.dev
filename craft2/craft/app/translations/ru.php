@@ -1,6 +1,9 @@
 <?php
 
 return array(
+	'Biography'=>'Биография',
+	'Industry expertise'=>'Отраслевая экспертиза',
+	'Service line'=>'Сервисная линия',
 	'Next Page'=>'Раньше',
 	'Previous Page'=>'Назад',
 	'Select team'=>'Еще',

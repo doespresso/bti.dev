@@ -10,41 +10,30 @@
 {% block content %}
 
     <section class="section">
+        <md-layout class="md-container md-centered cards-v-20" md-row md-gutter="40">
+            {#if CONTAINER#}
+            <md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33" md-flex-large="33" md-flex-xlarge="33">
 
+                <md-card class="md-primary md-theme-red">
+                    <md-card-header>
+                        <div class="md-title"><a href="#0">Европарламент проголосует за открытый доступ к информации о бенефициарах компаний и трастов</a></div>
+                        <div class="md-subhead"><a href="#0">Subtitle here</a></div>
+                    </md-card-header>
+                    <md-card-actions>
+                        <md-button href="#0">Новости</md-button>
+                        <span style="flex:1"></span>
+                        <md-button href="#0" class="md-icon-button">
+                            <md-icon>chevron_right</md-icon>
+                        </md-button>
+                    </md-card-actions>
+                </md-card>
 
-            <md-layout class="md-container md-centered cards-v-20" md-row md-gutter="40">
-                <md-layout md-flex-xsmall="100" md-flex="33" md-theme="yellow">
-
-                    <md-card class="md-primary card-ripple">
-                        <md-card-media>
-
-                            <md-ink-ripple />
-                        </md-card-media>
-                        <md-card-header>
-                            <div class="md-title"><a href="#0">Европарламент проголосует за открытый доступ к информации о бенефициарах компаний и трастов</a></div>
-                            <div class="md-subhead"><a href="#0">Subtitle here</a></div>
-                        </md-card-header>
-                        <md-card-actions>
-                            <md-button href="#0">Новости</md-button>
-                            <span style="flex:1"></span>
-                            <md-button href="#0" class="md-icon-button">
-                                <md-icon>chevron_right</md-icon>
-                            </md-button>
-                        </md-card-actions>
-
-                    </md-card>
-
-                </md-layout>
-                <md-layout md-flex="33" md-theme="yellow">
-
-                </md-layout>
-                <md-layout md-flex="33" md-theme="yellow">
-
-                </md-layout>
-                <md-layout md-flex="33" md-theme="yellow">
-
-                </md-layout>
             </md-layout>
+
+
+            </md-layout>
+
+        </md-layout>
 
 
     </section>

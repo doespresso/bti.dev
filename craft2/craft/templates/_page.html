@@ -1,83 +1,88 @@
 {#{% spaceless %}#}
-    <!DOCTYPE html>
-    <html>
-    {#{% cache %}#}
-    {% if headerProvider =='entry' %}
-        {% set prov = entry %}
-    {% elseif headerProvider =='category' %}
-        {% set prov = category %}
-    {% else %}
-    {% endif %}
+<!DOCTYPE html>
+<html>
 
-    {% set headerTitle = prov.title %}
+{% if headerProvider =='entry' %}
+    {% set prov = entry %}
+{% elseif headerProvider =='category' %}
+    {% set prov = category %}
+{% elseif headerProvider =='section' %}
+    {% set prov = object %}
+{% endif %}
 
-    {% if prov.styleImg|length %}
-        {% set headerImg = prov.styleImg.first().getUrl('resizeHeader') %}
-    {% endif %}
+{% set headerTitle = prov.title %}
 
-    {% if prov.styleIcon %}
-        {% set headerIcon = prov.styleIcon %}
-    {% endif %}
+{% if prov.styleImg|length %}
+    {% set headerImg = prov.styleImg.first().getUrl('resizeHeader') %}
+{% endif %}
 
-    {% if prov.styleIconAlign %}
-        {% set headerIconAlign = prov.styleIconAlign %}
-    {% endif %}
-    {#{% endcache %}#}
-    {% cache %}
-    <head>
-        {% include 'inc/_head' %}
-        {% include 'inc/_meta' %}
-    </head>
-    {% endcache %}
-    <body>
+{% if prov.styleIcon %}
+    {% set headerIcon = prov.styleIcon %}
+{% endif %}
 
-    <div class="main-content" id="app">
-
-        {{ include ("inc/_sidenav_list-collapse.html") }}
-        {{ include ("form/_feedback-side.html") }}
-        <transition name="fade" appear>
-            {{ include ("header/_header.html") }}
-        </transition>
-        {#<md-button @click.native="show = !show">show</md-button>#}
-
-        {#<transition name="fade" appear>#}
-        <div class="page-content">
-            {% block content %}
-            {% endblock %}
-        </div>
-        {#</transition>#}
-
-        {#<swiper>#}
-        {#<swiper-slide>Slide 1</swiper-slide>#}
-        {#<swiper-slide>Slide 2</swiper-slide>#}
-        {#<swiper-slide>Slide 3</swiper-slide>#}
-        {#<swiper-slide>Slide 4</swiper-slide>#}
-        {#<swiper-slide>Slide 5</swiper-slide>#}
-        {#<swiper-slide>Slide 6</swiper-slide>#}
-        {#<swiper-slide>Slide 7</swiper-slide>#}
-        {#<swiper-slide>Slide 8</swiper-slide>#}
-        {#<swiper-slide>Slide 9</swiper-slide>#}
-        {#<swiper-slide>Slide 10</swiper-slide>#}
-        {#</swiper>#}
+{% if prov.styleIconAlign %}
+    {% set headerIconAlign = prov.styleIconAlign %}
+{% endif %}
 
 
-        {% block pager %}
+
+{% cache %}
+<head>
+    {% include 'inc/_head' %}
+    {% include 'inc/_meta' %}
+</head>
+{% endcache %}
+<body>
+
+<div class="main-content" id="app">
+    {{ include ("inc/_sidenav_list-collapse.html") }}
+    {{ include ("form/_feedback-side.html") }}
+    <transition name="fade" appear>
+        {{ include ("header/_header.html") }}
+    </transition>
+    {#<md-button @click.native="show = !show">show</md-button>#}
+
+    {#<transition name="fade" appear>#}
+    <div class="page-content">
+        {% block content %}
         {% endblock %}
-
-        {% block aside %}
-            <section>
-
-            </section>
-        {% endblock %}
-
-        {#{% include('inc/_speed-dial.html') %}#}
-
-        <footer class="page-footer">
-            {% include 'inc/_footer' %}
-        </footer>
-
     </div>
-    {% include 'inc/_scripts' %}
-    </body>
-    </html>
+    {#</transition>#}
+
+    {#<swiper>#}
+    {#<swiper-slide>Slide 1</swiper-slide>#}
+    {#<swiper-slide>Slide 2</swiper-slide>#}
+    {#<swiper-slide>Slide 3</swiper-slide>#}
+    {#<swiper-slide>Slide 4</swiper-slide>#}
+    {#<swiper-slide>Slide 5</swiper-slide>#}
+    {#<swiper-slide>Slide 6</swiper-slide>#}
+    {#<swiper-slide>Slide 7</swiper-slide>#}
+    {#<swiper-slide>Slide 8</swiper-slide>#}
+    {#<swiper-slide>Slide 9</swiper-slide>#}
+    {#<swiper-slide>Slide 10</swiper-slide>#}
+    {#</swiper>#}
+
+
+    {% block pager %}
+    {% endblock %}
+
+    {% block aside %}
+        <section>
+
+        </section>
+    {% endblock %}
+
+    {#{% include('inc/_speed-dial.html') %}#}
+
+    <footer class="page-footer">
+        {% include 'inc/_footer' %}
+    </footer>
+
+</div>
+{% include 'inc/_scripts' %}
+</body>
+<script>
+    console.log('-----------------------');
+</script>
+</html>
 {#{% endspaceless %}#}

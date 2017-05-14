@@ -1,9 +1,21 @@
+.wrapper{
+  width:100%;
+  display:block;
+  &:before,&:after{
+    display: table;
+    content:''
+  }
+}
 .section {
   display: block;
   width: 100%;
-  background-color: #f7f7f7;
-  padding: 40px 0;
-  > .md-layout {
-    background-color: #ccc;
+  &:before,&:after{
+    display: table;
+    content:''
   }
+  //background-color: #f7f7f7;
+  //padding: 40px 0;
+  //> .md-layout {
+  //  background-color: #ccc;
+  //}
 }

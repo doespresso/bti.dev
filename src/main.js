@@ -16,6 +16,16 @@ Vue.material.registerTheme({
             hue: 400
         },
     },
+    red: {
+        primary: {
+            color: 'red',
+            hue: 500
+        },
+        accent: {
+            color: 'grey',
+            hue: 400
+        },
+    },
 })
 
 

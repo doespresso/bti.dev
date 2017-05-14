@@ -1,26 +1,94 @@
-{% extends "_default.html" %}
-            {% block styles %}
-                <style>.ico svg {
-                        max-width: 200px;
-                    }</style>
-            {% endblock %}
-{% set pageTitle = entry.title %}
-{% block content %}
-    <section id="page-content">
-        <div class="container">
+{% extends "_page.html" %}
+{% set headerProvider = 'entry' %}
 
-            {#<div class="ico">{{ entry.iconHeader.inline }}</div>#}
-            {{ include("inc/_filter-persons.html") }}
-            <h1>{{ entry.title }}</h1>
-            <a href="{{ entry.personStatus.first.getUrl }}">{{ entry.personStatus.first.title }}</a>
-            {{ entry.personStatusOver ? entry.personStatusOver : entry.personStatus.first.groupTeamStatus ~ '.' }}
-            {{ entry.personPosition }}
-            <hr/>
-            {{ include ("categories/_list.html",{'catGroup':'groupPersons'}) }}
-            <hr/>
-            {{ include ("contacts/_contacts-person.html",{'tel1':entry.contactTel1,'tel2':entry.contactTel2,'email':entry.contactEmail,'skype':entry.contactSkype,}) }}
-            <hr/>
-            {{ entry.personBio }}
-        </div>
+{#{% set headerTitle = headerProvider.title %}#}
+{#{% if headerProvider.styleImg|length %}#}
+    {#{% set headerImg = headerProvider.styleImg.first().getUrl('resizeHeader') %}#}
+{#{% endif %}#}
+{#{% if headerProvider.styleIcon %}#}
+    {#{% set headerIcon = headerProvider.styleIcon %}#}
+{#{% endif %}#}
+{#{% if headerProvider.styleIconAlign %}#}
+    {#{% set headerIconAlign = headerProvider.styleIconAlign %}#}
+{#{% endif %}#}
+
+{% set perPage = 30 %}
+
+{#{% paginate craft.entries.section('persons').relatedTo(category).limit(perPage).order('personLastname') as pageInfo, persons %}#}
+
+
+{#<section id="page-content">#}
+    {#<div class="container">#}
+
+        {#&#123;&#35;<div class="ico">{{ entry.iconHeader.inline }}</div>&#35;&#125;#}
+        {#{{ include("inc/_filter-persons.html") }}#}
+        {#<h1>{{ entry.title }}</h1>#}
+        {#<a href="{{ entry.personStatus.first.getUrl }}">{{ entry.personStatus.first.title }}</a>#}
+        {#{{ entry.personStatusOver ? entry.personStatusOver : entry.personStatus.first.groupTeamStatus ~ '.' }}#}
+        {#{{ entry.personPosition }}#}
+        {#<hr/>#}
+        {#{{ include ("categories/_list.html",{'catGroup':'groupPersons'}) }}#}
+        {#<hr/>#}
+        {#{{ include ("contacts/_contacts-person.html",{'tel1':entry.contactTel1,'tel2':entry.contactTel2,'email':entry.contactEmail,'skype':entry.contactSkype,}) }}#}
+        {#<hr/>#}
+        {#{{ entry.personBio }}#}
+    {#</div>#}
+{#</section>#}
+
+
+{% block content %}
+    <section class="section">
+        <md-layout class="md-container md-centered" md-gutter="40" md-row>
+            <md-layout md-flex-xsmall="100" md-flex-small="40" md-flex-medium="33" md-flex-large="30" md-flex-xlarge="33">
+                <div class="wrapper">
+                    <md-card class="person-card">
+                        {% if entry.personPhoto|length %}
+                            {% set photo = entry.personPhoto.first() %}
+                            <md-card-media class="foto">
+                                <img src="{{ photo.getUrl('resizePersonsList') }}">
+                            </md-card-media>
+                        {% endif %}
+                        <md-card-area>
+                            <md-card-header>
+                                <h1 class="md-title">{{ entry.personFirstname }} {{ entry.personLastname }}</h1>
+
+                                <div class="md-subhead">{{ entry.personStatusOver ? entry.personStatusOver : entry.personStatus.first().groupTeamStatus }}</div>
+                                <div class="md-subhead">{{ entry.personPosition }}</div>
+                            </md-card-header>
+                            <md-card-content class="no-p md-dense">
+                                {{ include ("contacts/_contacts-person.html",{'tel1':entry.contactTel1,'tel2':entry.contactTel2,'email':entry.contactEmail,'skype':entry.contactSkype,}) }}
+                            </md-card-content>
+                        </md-card-area>
+                    </md-card>
+                </div>
+            </md-layout>
+            <md-layout>
+                <div class="wrapper">
+                    {#<div class="md-display-1">{{ entry.personFirstname }} {{ entry.personLastname }}</div>#}
+                    {#<div class="md-title">{{ entry.personStatusOver ? entry.personStatusOver : entry.personStatus.first().groupTeamStatus }}</div>#}
+                    {#{% if entry.personDepartment|length %}#}
+                    {#<div class="md-title">{{ entry.personDepartment }}</div>#}
+                    {#{% endif %}#}
+
+                    <md-tabs class="md-transparent no-h-p">
+                        {% if entry.personBio|length %}
+                            <md-tab id="p_bio" md-label="{{ 'Biography' | t }}">
+                                <div class="html-content person-bio">{{ entry.personBio }}</div>
+                            </md-tab>
+                        {% endif %}
+                        {% if entry.relatedServices|length %}
+                            <md-tab id="p_services" md-label="{{ 'Service line' | t }}">
+                                {{ include ("lists/_list-simple.html",{'items':entry.relatedServices,'classes':'md-dense','links':true, 'divider':true}) }}
+                            </md-tab>
+                        {% endif %}
+                        {% if entry.relatedBranches|length %}
+                            <md-tab id="p_branches" md-label="{{ 'Industry expertise' | t }}">
+                                {{ include ("lists/_list-simple.html",{'items':entry.relatedBranches,'classes':'md-dense','links':true, 'divider':true}) }}
+                            </md-tab>
+                        {% endif %}
+                    </md-tabs>
+                </div>
+            </md-layout>
+        </md-layout>
     </section>
 {% endblock %}
