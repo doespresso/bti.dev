@@ -11,7 +11,7 @@
 .md-toolbar {
   .toolbar-nav {
     margin-right: 40px;
-    .md-button{
+    .md-button {
       margin: 0 8px;
       padding: 0;
       min-width: auto;
@@ -28,5 +28,17 @@
       }
     }
 
+  }
+}
+
+.md-tabs.tab-links {
+  .md-tabs-navigation {
+    background-color: transparent !important;
+  }
+  .md-tabs-navigation-container {
+    -webkit-overflow-scrolling: touch;
+  }
+  .md-tabs-content {
+    display: none !important;
   }
 }

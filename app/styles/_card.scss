@@ -17,6 +17,13 @@
   }
 }
 
+.cards-h-20 {
+  .md-card {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
 .md-card {
   .foto {
     overflow: hidden !important;
@@ -38,4 +45,15 @@
 
 .md-card .md-card-content.no-p{
   padding:0;
+}
+
+.card-icon{
+  //display:block;
+  //height:80px;
+  //padding:16px;
+  //margin-bottom:40px;
+  svg{
+    height:100%!important;
+    width:auto!important;
+  }
 }

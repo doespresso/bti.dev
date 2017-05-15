@@ -33,8 +33,8 @@
 </head>
 {% endcache %}
 <body>
-
-<div class="main-content" id="app">
+<div class="main-content" id="app" v-cloak>
+    <div v-if="!loaded" style="position:absolute; left:0; top:0; right:0; bottom:0; background-color: white; z-index:1000;"></div>
     {{ include ("inc/_sidenav_list-collapse.html") }}
     {{ include ("form/_feedback-side.html") }}
     <transition name="fade" appear>
@@ -80,9 +80,19 @@
 
 </div>
 {% include 'inc/_scripts' %}
-</body>
 <script>
-    console.log('-----------------------');
+    Vue.material.registerTheme('my', {
+        primary: {
+            color: 'red',
+            hue: '500'
+        },
+        accent: {
+            color: 'grey',
+            hue: 300
+        }
+    });
+    Vue.material.setCurrentTheme('my');
 </script>
+</body>
 </html>
 {#{% endspaceless %}#}

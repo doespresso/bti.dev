@@ -9,24 +9,14 @@ Vue.material.registerTheme({
     default: {
         primary: {
             color: 'blue',
-            hue: 500
+            hue: 100
         },
         accent: {
             color: 'grey',
-            hue: 400
+            hue: 200
         },
-    },
-    red: {
-        primary: {
-            color: 'red',
-            hue: 500
-        },
-        accent: {
-            color: 'grey',
-            hue: 400
-        },
-    },
-})
+    }
+});
 
 
 var app = new Vue({
@@ -34,7 +24,12 @@ var app = new Vue({
     el: '#app',
     data: {
         message: 'You loaded this page on ' + new Date(),
-        show: false
+        show: false,
+        loaded:false,
+    },
+    created: function () {
+        this.loaded=true;
+        console.log('LOADED');
     },
     methods: {
         toggleLeftSidenav: function () {
@@ -56,4 +51,10 @@ var app = new Vue({
     }
 });
 
+
+//Vue.material.setCurrentTheme('red');
+
 import './../app/styles/index.scss'
+
+window.Vue = Vue;
+

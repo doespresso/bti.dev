@@ -22,6 +22,7 @@
 @import "page";
 @import "titles";
 @import "lists";
+@import "text";
 
 
 //@import "var";
@@ -33,7 +34,8 @@ body {
 }
 
 body{
-  background-color:#fcfcfc;
+  position:relative;
+  background-color:#fcfcfc!important;
 }
 
 .main-content{

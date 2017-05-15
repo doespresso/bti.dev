@@ -51,7 +51,6 @@
                         <md-card-area>
                             <md-card-header>
                                 <h1 class="md-title">{{ entry.personFirstname }} {{ entry.personLastname }}</h1>
-
                                 <div class="md-subhead">{{ entry.personStatusOver ? entry.personStatusOver : entry.personStatus.first().groupTeamStatus }}</div>
                                 <div class="md-subhead">{{ entry.personPosition }}</div>
                             </md-card-header>
@@ -78,11 +77,13 @@
                         {% endif %}
                         {% if entry.relatedServices|length %}
                             <md-tab id="p_services" md-label="{{ 'Service line' | t }}">
+                                {#<p>{{ entry.personFirstname }} оказывает следующие услуги:</p>#}
                                 {{ include ("lists/_list-simple.html",{'items':entry.relatedServices,'classes':'md-dense','links':true, 'divider':true}) }}
                             </md-tab>
                         {% endif %}
                         {% if entry.relatedBranches|length %}
                             <md-tab id="p_branches" md-label="{{ 'Industry expertise' | t }}">
+                                {#<p>{{ entry.personFirstname }} обладает расширенной отраслевой экспертизой:</p>#}
                                 {{ include ("lists/_list-simple.html",{'items':entry.relatedBranches,'classes':'md-dense','links':true, 'divider':true}) }}
                             </md-tab>
                         {% endif %}

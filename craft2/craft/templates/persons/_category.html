@@ -18,50 +18,13 @@
 
 
 {% block content %}
-    {#<md-layout class="md-container md-centered" md-gutter="40" md-row>#}
-    {#<h1 class="md-layout md-display-1">{{ category.title }}</h1>#}
-    {#</md-layout>#}
-
+<section class="section">
     <md-layout class="md-container md-centered cards-v-20" md-gutter="40" md-row>
         {% for item in persons %}
-            <md-layout md-flex-xsmall="100" md-flex-medium="50" md-flex-large="25" md-flex-xlarge="25">
-                <md-theme>
-                    <md-card md-with-hover class="has-ripple">
-                        <md-card-area class="md-flex">
-                            {% if item.personPhoto|length %}
-                                <md-card-media>
-                                    {% set photo = item.personPhoto.first() %}
-                                    <a href="{{ item.getUrl() }}">
-                                        <img src="{{ photo.getUrl('resizePersonsList') }}">
-                                        <md-ink-ripple/>
-                                    </a>
-
-                                </md-card-media>
-                            {% endif %}
-                            <md-card-content>
-                                <h3 class="md-title">{{ item.personFirstname }} {{ item.personLastname }}</h3>
-
-                                <div class="md-subhead">{{ item.personStatusOver ? item.personStatusOver : item.personStatus.first().groupTeamStatus }}</div>
-                                {% if item.personDepartment|length %}
-                                    <div class="md-subhead">{{ item.personDepartment }}</div>
-                                {% endif %}
-                            </md-card-content>
-                        </md-card-area>
-                        <md-card-actions>
-                            <md-button href="">Профайл</md-button>
-                            <span class="md-flex"></span>
-                            <md-button class="md-icon-button" href="tel:{{ item.contactTel1 ? item.contactTel1 : globalContacts.contactTel1 | replace (' ','') }}">
-                                <md-icon>call</md-icon>
-                            </md-button>
-                            <md-button class="md-icon-button" href="mailto:{{ item.contactEmail ? item.contactEmail ~ ',' | replace (' ','') }}{{ globalContacts.contactEmail | replace (' ','') }}">
-                                <md-icon>email</md-icon>
-                            </md-button>
-                        </md-card-actions>
-                    </md-card>
-                </md-theme>
-            </md-layout>
+            {% include "persons/_card.html" %}
         {% endfor %}
     </md-layout>
+</section>
 {% endblock %}
 
 
