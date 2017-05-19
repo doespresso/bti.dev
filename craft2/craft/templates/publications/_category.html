@@ -1,35 +1,14 @@
 {% extends "_page.html" %}
 {% set headerProvider = 'category' %}
-
-
-{% set perPage = 3 %}
+{% set perPage = 10 %}
 
 {% paginate craft.entries.section('publications').relatedTo(category).limit(perPage) as pageInfo, news %}
 
-
 {% block content %}
     <section class="section">
-        {#<md-layout class="md-container md-centered" md-gutter="40">#}
-            {#<md-layout>#}
-                {#<div class="wrapper">#}
-                    {#{% if true %}#}
-                        {#<div class="md-title section-title">{{ category.title }}</div>#}
-                    {#{% endif %}#}
-                {#</div>#}
-            {#</md-layout>#}
-        {#</md-layout>#}
         {% if news|length %}
             {% include "publications/_list-cards.html" %}
         {% endif %}
-        <md-layout class="md-container md-centered" md-gutter="40">
-            <md-layout>
-                <div class="wrapper m-t-40">
-                    {% if true %}
-                        <md-button href="#0" class="md-raised md-white">Подобрать команду</md-button>
-                    {% endif %}
-                </div>
-            </md-layout>
-        </md-layout>
     </section>
 {% endblock %}
 

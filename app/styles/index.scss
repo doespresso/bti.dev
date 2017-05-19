@@ -14,6 +14,7 @@
 }
 
 @import "bti_colors";
+@import "grid/gridlex.scss";
 @import "paddings";
 @import "section";
 @import "blocks";
@@ -29,6 +30,7 @@
 @import "swiper";
 @import "quotes";
 @import "ani";
+@import "article";
 
 
 svg {
@@ -52,15 +54,8 @@ body {
 
 body{
   position:relative;
-  background-color:#fafafa!important;
+  //background-color:#fafafa!important;
 }
 
-.main-content{
-  overflow: auto;
-  //flex:1;
-  height:100%;
-  //display:flex;
-  //flex-direction:column;
-  //flex-wrap: nowrap;
-}
+
 

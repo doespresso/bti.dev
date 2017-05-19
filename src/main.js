@@ -6,6 +6,7 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 Vue.use(VueMaterial)
 Vue.use(VueAwesomeSwiper)
 
+
 Vue.material.registerTheme(window.themes);
 Vue.material.setCurrentTheme(window.theme);
 

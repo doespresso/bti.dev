@@ -1,1 +1,14 @@
 {% extends "_page.html" %}
+{% block content %}
+    <md-layout class="md-container md-centered publication-top p-v-20" md-gutter="40">
+        <md-layout><span class="md-caption">{{ entry.publicationCategory[0] }}</span></md-layout>
+        <md-layout><span class="md-caption">{{ entry.postDate.localeDate() }}</span></md-layout>
+        <md-layout><span class="md-caption">Автор</span></md-layout>
+    </md-layout>
+    {% include('matrix/_matrix.html') %}
+    <md-layout class="md-container md-centered publication-top p-v-20" md-gutter="40">
+        <md-layout><span class="md-caption">{{ entry.publicationCategory[0] }}</span></md-layout>
+        <md-layout><span class="md-caption">{{ entry.postDate.localeDate() }}</span></md-layout>
+        <md-layout><span class="md-caption">Автор</span></md-layout>
+    </md-layout>
+{% endblock %}

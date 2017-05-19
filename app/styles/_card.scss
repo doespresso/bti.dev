@@ -43,7 +43,13 @@
   }
 }
 
-
+.card-holder{
+  flex:1;
+  display:flex;
+  flex-direction:row;
+  align-items: stretch;
+  width:100%;
+}
 
 .md-card {
   width: 100%;
@@ -108,31 +114,35 @@ a.md-subhead,a.md-title{
   }
 }
 
-.card--news {
+.md-card {
   .md-card-media {
-    height: 200px;
+    min-height: 220px;
   }
   .md-title {
-    //font-size:16px;
+
   }
 }
 
 .card-icon {
   width:80px;
   height:80px;
-  //background:#eee;
+  margin:24px 16px;
   flex:0;
   display:inline-block;
   text-align:center;
-}
-
-.card-icon svg {
-  height: 100% !important;
-  width: auto !important;
-  line, path, rect, circle, polygon, ellipse, polyline {
-    stroke-width: 3px !important;
-    stroke: #ccc !important;
+  svg {
+    height: 100% !important;
+    width: auto !important;
+    * {
+      stroke-width: 3px !important;
+      stroke: #ccc !important;
+    }
   }
+  //.md-card.md-primary &{
+  //  * {
+  //    stroke: rgba(#fff,0.97) !important;
+  //  }
+  //}
 }
 
 .swiper--cards {

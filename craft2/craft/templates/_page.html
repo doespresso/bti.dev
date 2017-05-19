@@ -235,24 +235,29 @@
         {#<transition name="fade" appear>#}
         {{ include ("header/_header.html") }}
         {#</transition>#}
+
         {#<md-button @click.native="show = !show">show</md-button>#}
 
-        {#<transition name="fade" appear>#}
+        <div class="page-subheader">
+            {% block subheader%}
+            {% endblock %}
+        </div>
+
         <div class="page-content">
             {% block content %}
             {% endblock %}
         </div>
-        {#</transition>#}
-        {% block pager %}
-        {% endblock %}
+
+        <div class="page-pager">
+            {% block pager %}
+            {% endblock %}
+        </div>
 
         {% block aside %}
-            <section>
 
-            </section>
         {% endblock %}
 
-        {#{% include('inc/_speed-dial.html') %}#}
+        {% include('inc/_speed-dial.html') %}
         {{ include ("form/_feedback-side.html") }}
         <footer class="page-footer">
             {% include 'inc/_footer' %}
