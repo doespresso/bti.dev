@@ -1,0 +1,33 @@
+{% if banner.styleThemeObject|length %}
+    {% set bannerTheme = 'ct' ~  banner.styleThemeObject[0].id %}
+    {% set bannerIconTheme = '' %}
+{% else %}
+    {% set bannerIconTheme = headerTheme %}
+    {% set bannerTheme = '' %}
+{% endif %}
+
+<div class="block banner md-theme-{{ bannerTheme }} height--{{ banner.styleHeight | default('50vh') }}">
+    <div class="block-img md-primary"></div>
+    {% if banner.styleImg|length %}
+        <div class="block-img" style="background-image:url({{ banner.styleImg[0].getUrl() }})"></div>
+    {% endif %}
+    {% if banner.styleIcon %}
+        <div class="block-icon {{ bannerIconTheme }} icon-color--{{ banner.styleIconColor | default('2c') }} icon-ani--{{ banner.styleIconAnimation | default('draw') }} {{ not many ? 'animated' }} align--{{ banner.styleIconAlign | default('center') }} valign--{{ banner.styleIconAlignV | default('center') }} scale--{{ banner.styleIconSize | default('x1') }} icon-sw--{{ banner.styleIconLine | default('x2') }}">{{ banner.styleIcon.inline }}</div>
+    {% endif %}
+
+    <md-layout class="md-container md-centered" md-gutter="40">
+        <md-layout>
+            <div class="block-content height--{{ banner.styleHeight | default('50vh') }}">
+                <div class="block-content-wrapper">
+                    <div class="banner-title">{{ banner.blockTitle }}</div>
+                    <div class="banner-short">{{ banner.blockShort }}</div>
+                    {% if banner.blockLink|length %}
+                        <div class="block-actions">
+                            <md-button class="md-raised" href="{{ banner.blockLink[0].url }}">{{ banner.blockButtonText|default('Show more'|t) }}</md-button>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </md-layout>
+    </md-layout>
+</div>

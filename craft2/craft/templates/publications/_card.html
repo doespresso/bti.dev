@@ -1,0 +1,39 @@
+{#{% if item.cardWidth2 is not defined %}#}
+    {#{% set csize = '33' %}#}
+{#{% else %}#}
+    {#{% set csize = item.cardWidth2 %}#}
+{#{% endif %}#}
+<md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="50" md-flex-large="33" md-flex-xlarge="33">
+    <md-card class="has-ripple card--news" md-with-hover>
+        <md-card-area class="md-flex">
+            {% if item.styleImg|length or item.styleIcon %}
+                {% if item.styleImg|length %}
+                    {% set photo = item.styleImg[0].getUrl('resizePersonsList') %}
+                {% else %}
+                    {% set photo = '' %}
+                {% endif %}
+                <md-card-media class="md-primary-0" style="background-image:url({{ photo }})">
+
+                    <a class="cover-link" href="{{ item.url }}">
+                        {#<img src="{{ photo }}">#}
+                        {% if item.styleIcon %}
+                            <div class="card-icon">{{ item.styleIcon.inline }}</div>
+                        {% endif %}
+                    </a>
+                    <md-ink-ripple/>
+                </md-card-media>
+            {% endif %}
+            <md-card-content>
+                <h3 class="md-title">{{ item.title }}</h3>
+                {#<div class="md-subhead">{{ item.postDate.localeDate() }}</div>#}
+            </md-card-content>
+        </md-card-area>
+        <md-card-actions>
+            <md-button href="{{ item.publicationCategory[0].url }}">{{ item.publicationCategory[0] }}</md-button>
+            <span class="md-flex"></span>
+            <md-button class="md-icon-button" href="{{ item.url }}">
+                <md-icon>chevron_right</md-icon>
+            </md-button>
+        </md-card-actions>
+    </md-card>
+</md-layout>

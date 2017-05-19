@@ -1,41 +1,83 @@
 .block {
+  display: block;
   position: relative;
-  //display:flex;
   width: 100%;
   z-index: 1;
-  //@include layout-medium-and-up {
-  //  @include image-aspect-ratio(16,7);
-  //}
-  //@include layout-large-and-up {
-  //  @include image-aspect-ratio(16,5);
-  //}
+}
+
+.block.banner {
+  background-color: #fff;
+  color: rgba(#000, 0.78);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.block.image{
+  @include image-aspect-ratio(16,9);
+  @include layout-medium-and-up{
+    @include image-aspect-ratio(16,7);
+  }
+  @include layout-large-and-up{
+    @include image-aspect-ratio(16,5);
+  }
+  .md-container &{
+    @include image-aspect-ratio(16,9);
+    @include layout-medium-and-up{
+      @include image-aspect-ratio(16,9);
+    }
+    @include layout-large-and-up{
+      @include image-aspect-ratio(16,7);
+    }
+  }
 }
 
 .block-content {
-  padding: 80px 0;
-  min-height: 400px;
   z-index: 1;
   display: flex;
+  height: 100%;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  .md-button {
-    margin-left: 0;
-    margin-right: 0;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  .block-content-wrapper {
+    @include layout-medium-and-up {
+      max-width: 50%;
+    }
+  }
+}
+
+.banner-title {
+  text-shadow: 1px 0 1px rgba(#000, 0.05);
+  font-size: 28px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  @include layout-large-and-up {
+    font-weight: 500;
+    font-size: 36px;
+    margin-bottom: 24px;
   }
 }
 
 .block-actions {
-  margin-top: 20px;
+  margin-top: 24px;
+  @include layout-medium-and-up {
+    .md-button:first-child {
+      margin-left: 0;
+    }
+    .md-button:last-child {
+      margin-right: 0;
+    }
+  }
 }
 
-.contents {
-  align-items: center;
-}
+//.contents {
+//  align-items: center;
+//}
 
-.no-flex {
-  justify-content: center;
-}
+//.no-flex {
+//  justify-content: center;
+//}
 
 .block-img {
   position: absolute;
@@ -49,14 +91,8 @@
   background-repeat: no-repeat;
 }
 
-@keyframes dash {
-  to {
-    stroke-dashoffset: 0;
-    //stroke-dasharray: 0;
-  }
-}
-
 .block-icon {
+  overflow: hidden;
   position: absolute;
   z-index: -1;
   left: 0;
@@ -66,75 +102,158 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
-  align-items: center;
   overflow: hidden;
-  &.icon-align--left {
-    align-items: flex-start;
-  }
-  &.icon-align--right {
-    align-items: flex-end;
-  }
-  &.icon-align--center {
-    align-items: center;
-  }
-  &.icon-valign--top {
-    justify-content: flex-start;
-  }
-  &.icon-valign--bottom {
-    justify-content: flex-end;
-  }
-  &.icon-valign--center {
-    justify-content: center;
-  }
   svg {
-    transform: scale(1.25);
-    height: auto !important;
-    width: 100% !important;
-    max-width: 150% !important;
+    transform: scale(1.1);
+    height: 100% !important;
+    width: auto !important;
     @include layout-small-and-up {
-      stroke-width: 15px !important;
-      height: 100% !important;
-      width: auto !important;
-      max-width: none !important;
     }
-    line, path, rect, circle, polygon, ellipse, polyline {
+    *:not(g) {
       fill: none;
       vector-effect: non-scaling-stroke !important;
       stroke-width: 8px !important;
-      //stroke: $bti-purple !important;
       @include layout-small-and-up {
-        stroke-width: 12px !important;
-      }
-    }
-
-  }
-}
-
-.block-icon-inline {
-  svg {
-    //transform: scale(1.25);
-    height: auto !important;
-    width: 100px !important;
-    stroke-width: 5px !important;
-    margin-bottom:40px;
-    line, path, rect, circle, polygon, ellipse, polyline {
-      fill: none!important;
-      vector-effect: non-scaling-stroke !important;
-      stroke-width: 8px !important;
-      stroke:#fff!important;
-      @include layout-small-and-up {
-        stroke-width: 8px !important;
       }
     }
   }
-}
+  @include layout-small {
 
-.path-animation {
-  svg {
-    line, path, rect, circle {
-      stroke-dasharray: 2400;
-      stroke-dashoffset: 2400;
-      animation: dash 5s ease-in forwards;
-    }
   }
 }
+
+.height--mini {
+  min-height: 232px !important;
+}
+
+.height--standart {
+  min-height: 340px !important;
+}
+
+.height--big {
+  min-height: 480px !important;
+}
+
+.height--50vh {
+  min-height: 50vh !important;
+}
+
+.height--60vh {
+  min-height: 60vh !important;
+}
+
+.height--75vh {
+  min-height: 75vh !important;
+}
+
+.align--left {
+  align-items: flex-start;
+}
+
+.align--right {
+  align-items: flex-end;
+}
+
+.align--center {
+  align-items: center;
+}
+
+.valign--top {
+  justify-content: flex-start;
+}
+
+.valign--bottom {
+  justify-content: flex-end;
+}
+
+.valign--center {
+  justify-content: center;
+}
+
+.scale--x025 {
+  svg {
+    transform: scale(0.25);
+  }
+}
+
+.scale--x05 {
+  svg {
+    transform: scale(0.5);
+  }
+}
+
+.scale--x2 {
+  svg {
+    transform: scale(2);
+  }
+}
+
+.scale--x3 {
+  svg {
+    transform: scale(3);
+  }
+}
+
+.icon-sw--x1 svg *:not(g) {
+  stroke-width: 4px !important;
+}
+
+.icon-sw--x2 svg *:not(g) {
+  stroke-width: 8px !important;
+}
+
+.icon-sw--x4 svg *:not(g) {
+  stroke-width: 16px !important;
+}
+
+//.block-icon-inline {
+//  svg {
+//    //transform: scale(2.25);
+//    height: auto !important;
+//    width: 100px !important;
+//    stroke-width: 5px !important;
+//    margin-bottom: 40px;
+//    //line, path, rect, circle, polygon, ellipse, polyline {
+//    *:not(g) {
+//      &:nth-child(even) {
+//
+//      }
+//      fill: none !important;
+//      vector-effect: non-scaling-stroke !important;
+//      stroke-width: 8px !important;
+//      stroke: #fff !important;
+//      @include layout-medium-and-up {
+//        stroke-width: 7px !important;
+//      }
+//    }
+//  }
+//}
+
+
+.icon-color--ht{
+  svg{opacity:0.25;}
+}
+
+.icon--mono{
+  svg *{stroke:#000!important;}
+  svg{opacity:0.1;}
+}
+
+//.page-content {
+//  .section {
+//    &:nth-child(even) {
+//      .icon--mono {
+//        svg {
+//          align-items: flex-end;
+//        }
+//      }
+//    }
+//    &:nth-child(odd) {
+//      .icon--mono {
+//        svg {
+//          align-items: flex-start;
+//        }
+//      }
+//    }
+//  }
+//}

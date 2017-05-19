@@ -2,99 +2,45 @@
 {% set headerProvider = 'category' %}
 
 
-{% set perPage = 30 %}
+{% set perPage = 3 %}
 
-{#{% paginate craft.entries.section('publications').relatedTo(category).limit(perPage) as pageInfo, news %}#}
+{% paginate craft.entries.section('publications').relatedTo(category).limit(perPage) as pageInfo, news %}
 
 
 {% block content %}
-
     <section class="section">
-        <md-layout class="md-container md-centered cards-v-20" md-row md-gutter="40">
-            {#if CONTAINER#}
-            <md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33" md-flex-large="33" md-flex-xlarge="33">
-
-                <md-card class="md-primary md-theme-red">
-                    <md-card-header>
-                        <div class="md-title"><a href="#0">Европарламент проголосует за открытый доступ к информации о бенефициарах компаний и трастов</a></div>
-                        <div class="md-subhead"><a href="#0">Subtitle here</a></div>
-                    </md-card-header>
-                    <md-card-actions>
-                        <md-button href="#0">Новости</md-button>
-                        <span style="flex:1"></span>
-                        <md-button href="#0" class="md-icon-button">
-                            <md-icon>chevron_right</md-icon>
-                        </md-button>
-                    </md-card-actions>
-                </md-card>
-
+        {#<md-layout class="md-container md-centered" md-gutter="40">#}
+            {#<md-layout>#}
+                {#<div class="wrapper">#}
+                    {#{% if true %}#}
+                        {#<div class="md-title section-title">{{ category.title }}</div>#}
+                    {#{% endif %}#}
+                {#</div>#}
+            {#</md-layout>#}
+        {#</md-layout>#}
+        {% if news|length %}
+            {% include "publications/_list-cards.html" %}
+        {% endif %}
+        <md-layout class="md-container md-centered" md-gutter="40">
+            <md-layout>
+                <div class="wrapper m-t-40">
+                    {% if true %}
+                        <md-button href="#0" class="md-raised md-white">Подобрать команду</md-button>
+                    {% endif %}
+                </div>
             </md-layout>
-
-
-            </md-layout>
-
         </md-layout>
-
-
     </section>
-    {#<md-layout class="md-container md-centered" md-gutter="40" md-row>#}
-    {#<h1 class="md-layout md-display-1">{{ category.title }}</h1>#}
-    {#</md-layout>#}
-
-    {#<md-layout class="md-container md-centered cards-holder-40" md-gutter="40" md-row>#}
-    {#{% for item in news %}#}
-    {#<md-layout md-flex-xsmall="100" md-flex-medium="50" md-flex-large="25" md-flex-xlarge="25">#}
-    {#<md-theme>#}
-    {#<md-card md-with-hover class="has-ripple">#}
-    {#<md-card-area md-inset-0>#}
-    {#<md-card-media md-ratio="3:4">#}
-    {#{% if item.personPhoto|length %}#}
-    {#{% set photo = item.personPhoto.first() %}#}
-    {#<a href="{{ item.getUrl() }}">#}
-    {#<img src="{{ photo.getUrl('resizePersonsList') }}">#}
-    {#<md-ink-ripple/>#}
-    {#</a>#}
-    {#{% else %}#}
-    {#<a href="{{ item.getUrl() }}">#}
-    {#<md-ink-ripple/>#}
-    {#</a>#}
-    {#{% endif %}#}
-    {#</md-card-media>#}
-    {#<md-card-content>#}
-    {#<h3 class="md-title">{{ item.personFirstname }} {{ item.personLastname }}</h3>#}
-
-    {#<div class="md-subhead">{{ item.personStatusOver ? item.personStatusOver : item.personStatus.first().groupTeamStatus }}</div>#}
-    {#{% if item.personDepartment|length %}#}
-    {#<div class="md-subhead">{{ item.personDepartment }}</div>#}
-    {#{% endif %}#}
-    {#</md-card-content>#}
-    {#</md-card-area>#}
-    {#<md-card-actions>#}
-    {#<md-button href="">Профайл</md-button>#}
-    {#<span class="md-flex"></span>#}
-    {#<md-button class="md-icon-button" href="tel:{{ item.contactTel1 ? item.contactTel1 : globalContacts.contactTel1 | replace (' ','') }}">#}
-    {#<md-icon>call</md-icon>#}
-    {#</md-button>#}
-    {#<md-button class="md-icon-button" href="mailto:{{ item.contactEmail ? item.contactEmail ~ ',' | replace (' ','') }}{{ globalContacts.contactEmail | replace (' ','') }}">#}
-    {#<md-icon>email</md-icon>#}
-    {#</md-button>#}
-    {#</md-card-actions>#}
-    {#</md-card>#}
-    {#</md-theme>#}
-    {#</md-layout>#}
-    {#{% endfor %}#}
-    {#</md-layout>#}
 {% endblock %}
 
-
 {% block pager %}
-    {#<md-layout class="md-container md-centered" md-gutter="40" md-row>#}
-    {#{% if pageInfo.prevUrl %}#}
-    {#<md-button href="{{ pageInfo.prevUrl }}" class="md-icon-button" title="{{ 'Previous Page' | translate }}">#}
-    {#<md-icon>arrow_back</md-icon></md-button>{% endif %}#}
-    {#<span class="md-flex"></span>#}
-    {#{% if pageInfo.nextUrl %}#}
-    {#<md-button href="{{ pageInfo.nextUrl }}" class="md-icon-button" title="{{ 'Next Page' | translate }}">#}
-    {#<md-icon>arrow_forward</md-icon></md-button>{% endif %}#}
-    {#</md-layout>#}
+    <md-layout class="md-container md-centered" md-gutter="40" md-row>
+        {% if pageInfo.prevUrl %}
+        <md-button href="{{ pageInfo.prevUrl }}" class="md-icon-button" title="{{ 'Previous Page' | translate }}">
+                <md-icon>arrow_back</md-icon></md-button>{% endif %}
+        <span class="md-flex"></span>
+        {% if pageInfo.nextUrl %}
+        <md-button href="{{ pageInfo.nextUrl }}" class="md-icon-button" title="{{ 'Next Page' | translate }}">
+                <md-icon>arrow_forward</md-icon></md-button>{% endif %}
+    </md-layout>
 {% endblock %}

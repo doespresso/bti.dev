@@ -1,4 +1,4 @@
-<md-list class="md-dense">
+<md-list class="md-dense-no">
     {% if not (tel1 or tel2) %}
         <md-divider class="md-inset"></md-divider>
         <md-list-item href="tel:{{ globalContacts.contactTel1 | replace (' ','') }}">
@@ -20,7 +20,7 @@
     {% endif %}
     <md-divider class="md-inset"></md-divider>
     <md-list-item href="mailto:{{ email ? email ~ ',' | replace (' ','') }}{{ globalContacts.contactEmail | replace (' ','') }}">
-        <md-icon>skype</md-icon>
+        <md-icon>send</md-icon>
         <span>{{ email ? email : globalContacts.contactEmail }}</span>
     </md-list-item>
 </md-list>

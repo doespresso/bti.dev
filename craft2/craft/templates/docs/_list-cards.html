@@ -1,0 +1,9 @@
+<md-layout class="md-container md-centered cards-v-20" md-gutter="40" md-row>
+    {% for item in docs %}
+        <md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33" md-flex-large="25" md-flex-xlarge="25">
+            <md-theme>
+                {% include "docs/_card.html" %}
+            </md-theme>
+        </md-layout>
+    {% endfor %}
+</md-layout>

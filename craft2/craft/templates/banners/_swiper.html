@@ -1,0 +1,19 @@
+<swiper class="swiper--banners cards-v-20 arrows--t-25p" :options="{
+        roundLengths: true,
+        slidesPerView:1,
+        effect:fade,
+        centeredSlides:true,
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',}">
+    {% set many = true %}
+    {% for banner in banners %}
+        <swiper-slide class="height--">
+            {% include "banners/_block.html" %}
+        </swiper-slide>
+    {% endfor %}
+    <div class="swiper-pagination" slot="pagination"></div>
+    <div class="swiper-button-prev" slot="button-prev"></div>
+    <div class="swiper-button-next" slot="button-next"></div>
+</swiper>

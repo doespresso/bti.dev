@@ -1,0 +1,7 @@
+{#<md-layout class="md-container md-centered" md-gutter="40">#}
+    {% for item in persons %}
+        <md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33" md-flex-large="25" md-flex-xlarge="25">
+                {% include "persons/_card.html" %}
+        </md-layout>
+    {% endfor %}
+{#</md-layout>#}

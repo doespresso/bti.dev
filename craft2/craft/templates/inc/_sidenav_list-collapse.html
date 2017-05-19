@@ -1,5 +1,5 @@
+{% cache %}
 {% set items = craft.entries.section('menus') %}
-
 <md-sidenav class="md-left md-fixed" ref="leftSidenav" @open="open('Left')" @close="close('Left')" md-swipeable>
     <md-toolbar class="md-medium">
         <div class="md-toolbar-container">
@@ -18,3 +18,4 @@
         <md-bottom-bar-item md-icon="language" href="http://bakertilly.com" target="_blank">{{ 'World'|translate }}</md-bottom-bar-item>
     </md-bottom-bar>
 </md-sidenav>
+{% endcache %}

@@ -18,13 +18,12 @@
 
 
 {% block content %}
-<section class="section">
-    <md-layout class="md-container md-centered cards-v-20" md-gutter="40" md-row>
-        {% for item in persons %}
-            {% include "persons/_card.html" %}
-        {% endfor %}
-    </md-layout>
-</section>
+    <section class="section">
+        {% include "persons/_filter.html" %}
+    </section>
+    <section class="section">
+        {% include "persons/_list-cards.html" %}
+    </section>
 {% endblock %}
 
 

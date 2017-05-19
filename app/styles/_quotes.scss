@@ -1,0 +1,31 @@
+.quote {
+  opacity:0.2;
+  transition:opacity 1s ease-in-out;
+  margin-top: 20px;
+  padding: 0 20px;
+  .swiper-slide-active &{
+    opacity:1;
+  }
+  .quote-text {
+    text-align: center;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 2em;
+    margin-bottom: 40px;
+    color:#777;
+    //font-family: Georgia,Times;
+  }
+  .author {
+    color:#555;
+    display: block;
+    text-align: right;
+    font-weight: bold;
+  }
+  @include layout-small-and-up {
+    .quote-text {
+      font-size: 22px;
+    }
+    max-width: 740px;
+    margin: 20px auto 0 auto;
+  }
+}

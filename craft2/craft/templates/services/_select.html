@@ -1,0 +1,9 @@
+{% set sfilter = craft.entries.section('services').level(1) %}
+<md-input-container>
+    <label for="movie">{{ 'Service'|t }}</label>
+    <md-select name="fservice" id="fservice" v-model="fservice">
+        {% for item in sfilter %}
+        <md-option value="s_{{ item.id }}">{{ item.title }}</md-option>
+        {% endfor %}
+    </md-select>
+</md-input-container>

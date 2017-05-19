@@ -1,10 +1,41 @@
+//.page-header {
+//  .md-toolbar {
+//    flex-flow: column nowrap;
+//    justify-content: space-between;
+//  }
+//  .title-container {
+//    flex: 0;
+//  }
+//}
+
+#navbar {
+  width: 100%;
+  height: 64px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  @include layout-medium-and-up {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
 .page-header {
   .md-toolbar {
-    flex-flow: column nowrap;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 256px;
   }
-  .title-container {
-    flex: 0;
+}
+
+.header-container {
+  //height: 128px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 12px;
+  @include layout-small-and-up {
+    padding: 0 20px;
   }
 }
 
@@ -17,8 +48,10 @@
       min-width: auto;
       flex-grow: 0;
       border-radius: 0;
+      font-family: 'Roboto Mono', monospace;
     }
     .md-button:not([disabled]):not(.md-raised):not(.md-icon-button):not(.md-fab) {
+      font-family: 'Roboto Mono', monospace;
       box-sizing: border-box;
       transition: border 0s;
       border-bottom: 2px solid transparent;
@@ -27,7 +60,9 @@
         border-bottom: 2px solid white;
       }
     }
-
+    .md-menu-contanet {
+      font-size: 14px;
+    }
   }
 }
 
@@ -40,5 +75,63 @@
   }
   .md-tabs-content {
     display: none !important;
+  }
+}
+
+.header-title, h1.header-title{
+  color:rgba(#fff,0.99)!important;
+  text-shadow:1px 0 1px rgba(#000,0.05);
+  font-size:28px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  @include layout-large-and-up{
+    font-weight: 500;
+    font-size: 48px;
+    margin-bottom: 24px;
+  }
+}
+
+.header-submenu {
+  min-height: 64px;
+  //background-color: red;
+  margin-left: -20px;
+  margin-right: -20px;
+  @include layout-small-and-up {
+    margin-left: -28px;
+    margin-right: -28px;
+  }
+  @include layout-medium-and-up {
+    margin:0;
+  }
+}
+
+.nav-menu {
+  display: none;
+  @include layout-medium-and-up {
+    display: flex;
+  }
+  height: 64px;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  align-content: center;
+  margin: 0 40px;
+  > a, > .md-menu {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    cursor: pointer;
+  }
+  > a, > .md-menu > [md-menu-trigger] {
+    font-family: 'Roboto Mono', Roboto, sans-serif;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    color: rgba(255, 255, 255, 0.98);
+    &:hover {
+      color: rgba(255, 255, 255, 0.98);
+    }
   }
 }

@@ -14,8 +14,11 @@
 }
 
 @import "bti_colors";
+@import "paddings";
 @import "section";
 @import "blocks";
+@import "height";
+@import "promo";
 @import "navbar";
 @import "sidebar";
 @import "card";
@@ -23,7 +26,17 @@
 @import "titles";
 @import "lists";
 @import "text";
+@import "swiper";
+@import "quotes";
+@import "ani";
 
+
+svg {
+  line, path, rect, circle, polygon, ellipse, polyline {
+    fill: none!important;
+    vector-effect: non-scaling-stroke !important;
+  }
+}
 
 //@import "var";
 
@@ -33,9 +46,13 @@ body {
   overflow: hidden;
 }
 
+.swiper-slide{
+  *{box-sizing: border-box}
+}
+
 body{
   position:relative;
-  background-color:#fcfcfc!important;
+  background-color:#fafafa!important;
 }
 
 .main-content{
@@ -47,10 +64,3 @@ body{
   //flex-wrap: nowrap;
 }
 
-.page-content{
-  flex:1;
-}
-
-.page-footer{
-  margin-top:100px;
-}

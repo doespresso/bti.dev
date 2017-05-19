@@ -1,23 +1,13 @@
 import Vue from 'vue'
+window.Vue = Vue;
 import VueMaterial from 'vue-material/src/'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
 Vue.use(VueMaterial)
 Vue.use(VueAwesomeSwiper)
 
-Vue.material.registerTheme({
-    default: {
-        primary: {
-            color: 'blue',
-            hue: 100
-        },
-        accent: {
-            color: 'grey',
-            hue: 200
-        },
-    }
-});
-
+Vue.material.registerTheme(window.themes);
+Vue.material.setCurrentTheme(window.theme);
 
 var app = new Vue({
     delimiters: ['${', '}'],
@@ -52,9 +42,9 @@ var app = new Vue({
 });
 
 
-//Vue.material.setCurrentTheme('red');
+
 
 import './../app/styles/index.scss'
 
-window.Vue = Vue;
+
 

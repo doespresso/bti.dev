@@ -1,18 +1,21 @@
 <md-whiteframe md-elevation="6">
-        <header class="page-header">
-            <md-toolbar class="md-large">
-                {% if headerImg is defined %}
-                    <div class="block-img" style="background-image:url({{ headerImg }})"></div>
-                {% endif %}
-                {% if headerIcon is defined %}
-                    <div class="block-icon path-animation icon-align--{{ headerIconAlign }}">{{ headerIcon.inline }}</div>
-                {% endif %}
+    <header class="page-header has-ripple">
+        <md-toolbar class="height--{{ headerHeight }}">
+
+            {% if headerImg is defined%}
+                <div class="block-img" style="background-image:url({{ headerImg.getUrl() }})"></div>
+            {% endif %}
+            {% if headerIcon %}
+                <div class="block-icon icon-color--{{ headerIconColor }} icon-ani--{{ headerIconAnimation }} animated align--{{ headerIconAlign }} valign--{{ headerIconAlignV }} scale--{{ headerIconSize }} icon-sw--{{ headerIconLine }}">{{ headerIcon.inline }}</div>
+            {% endif %}
+
+            <div id="navbar">
                 <div class="md-toolbar-container">
-                    <md-button class="md-icon-button md-hide-medium-and-up-0" @click.native="toggleLeftSidenav">
+                    <md-button class="md-icon-button md-hide-medium-and-up" @click.native="toggleLeftSidenav">
                         <md-icon>menu</md-icon>
                     </md-button>
                     <span class="md-flex"></span>
-                    {{ include("inc/_navbar-menu.html") }}
+                    {{ include("menus/_navbar-menu.html") }}
                     <md-button class="md-icon-button">
                         <md-icon>search</md-icon>
                     </md-button>
@@ -20,26 +23,18 @@
                         {{ include("inc/_lang.html") }}
                     </md-menu>
                 </div>
-                <md-layout class="md-container title-container md-centered md-gutter-40">
-                    <md-layout>
-                        <h1 class="md-display-2 title--header">{% if headerTitle is defined %}{{ headerTitle }}{% else %}{{ siteName }}{% endif %}</h1>
-                    </md-layout>
-                </md-layout>
-                <md-layout md-column class="md-container title-container md-centered">
-                    {#<md-layout>#}
-                        <md-tabs class="tab-links">
-                            <md-tab id="t1" md-label="Movies"></md-tab>
-                            <md-tab id="t2" md-label="Music"></md-tab>
-                            <md-tab id="t3" md-label="Music"></md-tab>
-                            <md-tab id="t4" md-label="Music"></md-tab>
-                            <md-tab id="t5" md-label="Music"></md-tab>
-                            <md-tab id="t6" md-label="Music"></md-tab>
-                            <md-tab id="t7" md-label="Music"></md-tab>
-                        </md-tabs>
-                    {#</md-layout>#}
-                </md-layout>
-            </md-toolbar>
-        </header>
+            </div>
 
+            <div class="header-container header-top">
+                {#logo#}
+            </div>
+            <div class="header-container header-bottom">
+                <h1 class="header-title">{% if headerTitle is defined %}{{ headerTitle }}{% else %}{{ siteName }}{% endif %}</h1>
+                {{ include("menus/_submenu-header.html") }}
+            </div>
 
+            {#<md-ink-ripple/>#}
+
+        </md-toolbar>
+    </header>
 </md-whiteframe>

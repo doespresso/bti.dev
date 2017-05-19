@@ -39,22 +39,23 @@
 {% block content %}
     <section class="section">
         <md-layout class="md-container md-centered" md-gutter="40" md-row>
-            <md-layout md-flex-xsmall="100" md-flex-small="40" md-flex-medium="33" md-flex-large="30" md-flex-xlarge="33">
+            <md-layout md-flex-xsmall="100" md-flex-small="40" md-flex-medium="33" md-flex-large="30" md-flex-xlarge="30">
                 <div class="wrapper">
-                    <md-card class="person-card">
+                    <md-card class="card--person m-b-40">
+                        <md-card-area>
                         {% if entry.personPhoto|length %}
                             {% set photo = entry.personPhoto.first() %}
                             <md-card-media class="foto">
                                 <img src="{{ photo.getUrl('resizePersonsList') }}">
                             </md-card-media>
                         {% endif %}
-                        <md-card-area>
+
                             <md-card-header>
                                 <h1 class="md-title">{{ entry.personFirstname }} {{ entry.personLastname }}</h1>
                                 <div class="md-subhead">{{ entry.personStatusOver ? entry.personStatusOver : entry.personStatus.first().groupTeamStatus }}</div>
                                 <div class="md-subhead">{{ entry.personPosition }}</div>
                             </md-card-header>
-                            <md-card-content class="no-p md-dense">
+                            <md-card-content class="no-p">
                                 {{ include ("contacts/_contacts-person.html",{'tel1':entry.contactTel1,'tel2':entry.contactTel2,'email':entry.contactEmail,'skype':entry.contactSkype,}) }}
                             </md-card-content>
                         </md-card-area>

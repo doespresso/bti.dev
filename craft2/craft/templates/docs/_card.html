@@ -1,0 +1,32 @@
+<md-card class="has-ripple card--doc" md-with-hover>
+    <md-card-area class="md-flex">
+
+        {#{% if item.personPhoto|length %}#}
+        {% set photo = item.styleImg.first() %}
+        <md-card-media style="background-image:url('{{ photo.getUrl('resizePersonsList') | default('') }}')">
+            {#<md-icon class="card-icon md-size-4x">attach_file</md-icon>#}
+            {% if item.styleIcon %}
+                <div class="card-icon">{{ item.styleIcon.inline }}</div>
+            {% endif %}
+            {#<a class="cover-link" href="{{ item.url }}">#}
+            {#<img src="{{ photo.getUrl('resizePersonsList') }}">#}
+            {#</a>#}
+
+        </md-card-media>
+        {#{% endif %}#}
+        <md-card-content>
+            <h3 class="md-title">{{ item.title }}</h3>
+            {% if item.docShort|length %}
+                <div class="md-subhead">{{ item.docShort }}</div>
+            {% endif %}
+        </md-card-content>
+        <md-ink-ripple/>
+    </md-card-area>
+    <md-card-actions>
+        <md-button href="{{ item.url }}">{{ 'Download'|t }} {{ item.kind }}</md-button>
+        <span class="md-flex"></span>
+        <md-button class="md-icon-button" href="{{ item.url }}">
+            <md-icon>file_download</md-icon>
+        </md-button>
+    </md-card-actions>
+</md-card>

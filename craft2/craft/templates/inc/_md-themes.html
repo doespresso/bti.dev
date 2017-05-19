@@ -1,0 +1,40 @@
+{#{% cache %}#}
+{% set cthemes =  craft.entries.section('themes') %}
+{% spaceless %}
+    <script>
+        window.themes = {
+            default: {
+                primary: {
+                    color: 'grey',
+                    hue: 700
+                },
+                accent: {
+                    color: 'blue',
+                    hue: 400
+                }
+            },
+            {% for t in cthemes %}
+            ct{{ t.id }}: {
+                primary: {
+                    {% if t.primaryColor|length %} color: '{{ t.primaryColor }}', {% endif %}
+                    {% if t.primaryColor|length %} hue: {{ t.primaryHue }} {% endif %}
+                },
+                accent: {
+                    {% if t.accentColor|length %} color: '{{ t.accentColor }}', {% endif %}
+                    {% if t.accentColor|length %} hue: {{ t.accentHue }} {% endif %}
+                },
+                warn: {
+                    {% if t.warnColor|length %} color: '{{ t.warnColor }}', {% endif %}
+                    {% if t.warnHue|length %} hue: {{ t.warnHue }} {% endif %}
+                },
+                {#background: {#}
+                    {#{% if t.backgroundColor|length %} color: '{{ t.backgroundColor }}', {% endif %}#}
+                    {#{% if t.backgroundHue|length %} hue: {{ t.backgroundHue }} {% endif %}#}
+                {#}#}
+            },
+            {% endfor %}
+        };
+        window.theme = '{{ headerTheme }}';
+    </script>
+{% endspaceless %}
+{#{% endcache %}#}
