@@ -1,4 +1,4 @@
-<md-card class="has-ripple m-b-20 m-t-20" md-with-hover>
+<md-card class="has-ripple" md-with-hover>
     <md-card-area class="md-flex">
         {% if item.personPhoto|length %}
             {% set photo = item.personPhoto.first() %}
@@ -11,11 +11,7 @@
         {% endif %}
         <md-card-content>
             <h3 class="md-title">{{ item.personFirstname }} {{ item.personLastname }}</h3>
-
-            <div class="md-subhead">{{ item.personStatusOver ? item.personStatusOver : item.personStatus.first().groupTeamStatus }}</div>
-            {% if item.personDepartment|length %}
-                <div class="md-subhead">{{ item.personDepartment }}</div>
-            {% endif %}
+            <div class="md-subhead">{{ item.personStatusOver ? item.personStatusOver : item.personStatus.first().groupTeamStatus }}. {{ item.personDepartment }}</div>
         </md-card-content>
         {#<md-ink-ripple/>#}
     </md-card-area>

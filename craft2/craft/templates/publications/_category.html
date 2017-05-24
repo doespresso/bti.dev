@@ -1,6 +1,6 @@
 {% extends "_page.html" %}
-{% set headerProvider = 'category' %}
-{% set perPage = 10 %}
+{% set perPage = category.listPerPage ? category.listPerPage : 10 %}
+
 
 {% paginate craft.entries.section('publications').relatedTo(category).limit(perPage) as pageInfo, news %}
 
@@ -13,13 +13,34 @@
 {% endblock %}
 
 {% block pager %}
-    <md-layout class="md-container md-centered" md-gutter="40" md-row>
-        {% if pageInfo.prevUrl %}
-        <md-button href="{{ pageInfo.prevUrl }}" class="md-icon-button" title="{{ 'Previous Page' | translate }}">
-                <md-icon>arrow_back</md-icon></md-button>{% endif %}
-        <span class="md-flex"></span>
-        {% if pageInfo.nextUrl %}
-        <md-button href="{{ pageInfo.nextUrl }}" class="md-icon-button" title="{{ 'Next Page' | translate }}">
-                <md-icon>arrow_forward</md-icon></md-button>{% endif %}
-    </md-layout>
+    {% if pageInfo is defined %}
+        <div class="ctr actions">
+            <div class="grid-middle">
+
+                <div class="col text-left">
+                    {% if pageInfo.prevUrl %}
+                        <md-button href="{{ pageInfo.prevUrl }}" class="md-icon-button md-raised" title="{{ 'Previous Page' | translate }}">
+                            <md-icon>arrow_back</md-icon>
+                        </md-button>
+                    {% endif %}
+                </div>
+
+
+                {% if pageInfo.totalPages > 1 %}
+                    <div class="col pages-counter text-center">{{ pageInfo.currentPage }} {{ 'of' | t }} {{ pageInfo.totalPages }}</div>
+                {% endif %}
+
+
+                <div class="col text-right">
+                    {% if pageInfo.nextUrl %}
+                        <md-button href="{{ pageInfo.nextUrl }}" class="md-icon-button md-raised" title="{{ 'Next Page' | translate }}">
+                            <md-icon>arrow_forward</md-icon>
+                        </md-button>
+                    {% endif %}
+                </div>
+
+
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}

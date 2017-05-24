@@ -1,0 +1,46 @@
+<div class="col">
+    <md-card class="has-ripple" md-with-hover>
+        <md-card-area class="md-flex">
+            <md-card-header>
+                <md-card-header-text>
+                    <h3 class="md-title">{{ item.title }}</h3>
+
+                    <div class="md-subhead">{{ item.contactAddress }}</div>
+                </md-card-header-text>
+                <md-menu md-size="4" md-direction="bottom left">
+                    <md-button class="md-icon-button" md-menu-trigger>
+                        <md-icon>more_vert</md-icon>
+                    </md-button>
+
+                    <md-menu-content>
+                        <md-menu-item>
+                            <span>Call</span>
+                            <md-icon>phone</md-icon>
+                        </md-menu-item>
+
+                        <md-menu-item>
+                            <span>Send a message</span>
+                            <md-icon>message</md-icon>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+            </md-card-header>
+            <md-card-media class="md-16-9">
+                {#<a class="cover-link" href="{{ item.url }}"></a>#}
+            </md-card-media>
+
+
+            <md-card-content class="no-p">
+                {% set contact = item %}
+                {% include "contacts/_list.html" %}
+            </md-card-content>
+        </md-card-area>
+        {#<md-card-actions>#}
+        {#<md-button href="{{ item.url }}" target="_blank">{{ 'Show on map' }}</md-button>#}
+        {#<span class="md-flex"></span>#}
+        {#<md-button class="md-icon-button" href="#0">#}
+        {#<md-icon>place</md-icon>#}
+        {#</md-button>#}
+        {#</md-card-actions>#}
+    </md-card>
+</div>

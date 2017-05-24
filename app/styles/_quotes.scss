@@ -7,23 +7,34 @@
     opacity:1;
   }
   .quote-text {
-    text-align: center;
+    //text-align: center;
+    color:#777;
+    position:relative;
     font-style: italic;
     font-size: 16px;
     line-height: 2em;
-    margin-bottom: 40px;
-    color:#777;
-    //font-family: Georgia,Times;
+    margin-bottom: 20px;
+    &:before{
+      //content:'"';
+      //font-family:times;
+      //position:absolute;
+      //left:0px;
+      //top:-20px;
+      //color:rgba(#000,0.075);
+      //z-index:-1;
+      //font-size:200px;
+      //line-height:1;
+    }
   }
   .author {
-    color:#555;
+    font-size:13px;
     display: block;
-    text-align: right;
-    font-weight: bold;
+    //text-align: right;
+    font-weight: 400;
   }
   @include layout-small-and-up {
     .quote-text {
-      font-size: 22px;
+      font-size: 18px;
     }
     max-width: 740px;
     margin: 20px auto 0 auto;

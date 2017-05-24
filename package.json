@@ -29,6 +29,8 @@
     "element.scrollintoviewifneeded-polyfill": "^1.0.1",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.9.0",
+    "material-design-icons": "^3.0.1",
+    "mdi": "^1.9.33",
     "node-sass": "^4.5.0",
     "postcss-load-config": "^1.2.0",
     "postcss-loader": "^2.0.5",

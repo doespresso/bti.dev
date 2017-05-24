@@ -2,8 +2,10 @@
     {% for block in entry.pageMatrix %}
 
         {% set bTheme = block['blockTheme'] is defined and block.blockTheme|length ? 'md-theme-ct' ~ block.blockTheme[0].id : '' %}
-        {% set bPadding = block['blockPaddingV'] is defined and block.blockPaddingV is not empty ? 'p-v-' ~ block.blockPaddingV : 'p-v-s' %}
-        {% set bMargin = block['blockMarginV'] is defined and block.blockMarginV is not empty ? 'm-v-' ~ block.blockMarginV : 'm-v-s' %}
+        {% set pTheme = block['blockPad'] is defined and block.blockPad|length ? block.blockPad[0] %}
+
+        {#{% set bPadding = block['blockPaddingV'] is defined and block.blockPaddingV is not empty ? 'p-v-' ~ block.blockPaddingV : 'p-v-s' %}#}
+        {#{% set bMargin = block['blockMarginV'] is defined and block.blockMarginV is not empty ? 'm-v-' ~ block.blockMarginV : 'm-v-s' %}#}
         {% set bIcon = block['blockIcon'] is defined and block.blockIcon is not empty ? block.blockIcon %}
         {% set bTitle = block['blockTitle'] is defined and block.blockTitle is not empty ? block.blockTitle %}
         {% set bContainer = block['blockContainer'] is defined and block.blockContainer == 1 ? 1 : 0 %}
@@ -12,29 +14,95 @@
         {% set iconTheme = block['blockIconTheme'] is defined and block.blockIconTheme|length ? block.blockIconTheme[0] %}
         {% set mono = block['blockTheme'] is defined and block.blockTheme|length ? 'multi' : 'icon--mono' %}
 
-        <section class="section {{ bPadding }} {{ bMargin }} {{ bTheme }}">
+        <section class="section p-v{{ pTheme.paddingV is defined ? '-' ~ pTheme.paddingV }} m-v{{ pTheme.marginV is defined ? '-' ~ pTheme.marginV }} {{ bTheme }}">
 
             {% if iconTheme %}
                 <div class="block-icon bg-icon {{ mono }} icon-color--{{ iconTheme.styleIconColor and bTheme != '' ? iconTheme.styleIconColor : 'ht' }} scale--{{ iconTheme.styleIconSize | default('x1') }} icon-sw--{{ iconTheme.styleIconLine | default('x1') }} icon-ani--{{ iconTheme.styleIconAnimation | default('draw') }} animated align--{{ iconTheme.styleIconAlign | default('left') }} valign--{{ iconTheme.styleIconAlignV | default('bottom') }}">{{ iconTheme.styleIcon ? iconTheme.styleIcon.inline }}</div>
             {% endif %}
 
             {% if bTitle %}
-            <md-layout class="md-container md-centered" md-gutter="40">
-                <md-layout>
-                    <div class="wrapper t-color">
-                        <div class="md-title section-title">{{ bTitle }}</div>
-                    </div>
-                </md-layout>
-            </md-layout>
+                <div class="ctr wrapper t-color">
+                    <div class="section-title md-body-2">{{ bTitle }}</div>
+                </div>
             {% endif %}
 
             {% if bContainer == 1 %}
-            <md-layout class="md-container md-centered" md-gutter="40">
-            {% endif %}
+            <div class="ctr">
+                {% endif %}
 
+                {% if block.type == "sectionDocs" %}
+                    {% set docs = block.blockContent|length ? block.blockContent %}
+                    {% if docs is defined %}
+                        {% set templ = "docs/" ~ block.blockTemplate %}
+                        {% include templ %}
+                    {% endif %}
+                {% endif %}
+
+                {% if block.type == "sectionPublications" %}
+                    {% if block.blockSource == 'last' %}
+                        {% set news = craft.entries.section('publications').limit(block.blockPerPage) %}
+                    {% elseif block.blockSource == 'related' and entry.relatedPublications|length %}
+                        {% set news = entry['relatedPublications'] is defined and entry.relatedPublications|length ? entry.relatedPublications %}
+                    {% elseif block.blockSource == 'added' and block.blockContent|length %}
+                        {% set news = block.blockContent|length ? block.blockContent %}
+                    {% endif %}
+
+                    {% if news is defined %}
+                        {% set templ = "publications/" ~ block.blockTemplate %}
+                        {% include templ %}
+                    {% endif %}
+                {% endif %}
+
+                {% if block.type == "sectionQuotes" %}
+                    {% if block.blockSource == 'external' %}
+                        {% set quotes = craft.entries.section('qqq').relatedTo(entry) %}
+                    {% elseif block.blockSource == 'related' and entry.relatedQuotes|length %}
+                        {% set quotes = entry['relatedQuotes'] is defined and entry.relatedQuotes|length ? entry.relatedQuotes %}
+                    {% elseif block.blockSource == 'added' and block.blockContent|length %}
+                        {% set quotes = block.blockContent|length ? block.blockContent %}
+                    {% endif %}
+
+                    {% if quotes is defined %}
+                        {% set templ = "quotes/_swiper.html" %}
+                        {% include templ %}
+                    {% endif %}
+                {% endif %}
+
+                {% if block.type == "sectionServices" %}
+                    {% if block.blockSource == 'related' and entry.relatedQuotes|length %}
+                        {% set services = entry['relatedServices'] is defined and entry.relatedServices|length ? entry.relatedServices %}
+                    {% elseif block.blockSource == 'added' and block.blockContent|length %}
+                        {% set services = block.blockContent|length ? block.blockContent %}
+                    {% endif %}
+
+                    {% if services is defined %}
+                        {% set templ = "services/" ~ block.blockTemplate %}
+                        {% include templ %}
+                    {% endif %}
+                {% endif %}
+
+                {% if block.type == "sectionExperts" and block.blockContent|length %}
+                    {% if block.blockSource == 'related' and entry.relatedPublications|length %}
+                        {% set persons = entry['relatedPersons'] is defined and entry.relatedPersons|length ? entry.relatedPersons %}
+                    {% elseif block.blockSource == 'added' and block.blockContent|length %}
+                        {% set persons = block.blockContent|length ? block.blockContent %}
+                    {% endif %}
+
+                    {% if persons is defined %}
+                        {% set templ = "persons/" ~ block.blockTemplate %}
+                        {% include templ %}
+                    {% endif %}
+                {% endif %}
+
+                {% if block.type == "sectionOffices" and block.blockContent|length %}
+                    {% set offices = block.blockContent|length ? block.blockContent %}
+                    {% if offices is defined %}
+                        {% set templ = "offices/_list-cards.html" %}
+                        {% include templ %}
+                    {% endif %}
+                {% endif %}
 
                 {% if block.type == "sectionBanners" %}
-                    {#{% include "block/_section-start.html" %}#}
                     {% set banners = block.relatedItems|length ? block.relatedItems %}
                     {% if banners is defined and banners|length > 1 %}
                         {% include "banners/_swiper.html" with {'banners':banners} %}
@@ -43,35 +111,23 @@
                         {% set banner = banners[0] %}
                         {% include "banners/_block.html" with {'banner':banner} %}
                     {% endif %}
-                    {#{% include "block/_section-stop.html" %}#}
                 {% endif %}
 
 
                 {% if block.type == "sectionHtml" and (block.blockTitle or block.blockContent) %}
-                    {#{% include "block/_section-start.html" %}#}
                     {% if block.blockContent %}
-                        <md-layout>
-                            <div class="wrapper">
-                                <div class="section-content html-content t-color">{{ block.blockContent }}</div>
-                            </div>
-                        </md-layout>
+                        <div class="wrapper">
+                            <div class="section-content html-content t-color">{{ block.blockContent }}</div>
+                        </div>
                     {% endif %}
-                    {#{% include "block/_section-stop.html" %}#}
                 {% endif %}
 
-                {% if block.type == "sectionExperts" and block.blockContent|length %}
-                    {#{% include "block/_section-start.html" %}#}
-                    {% if block.blockContent|length %}
-                        {% set persons = block.blockContent %}
-                            {% include "persons/_list-cards.html" %}
-                        {#{% include('persons/_swiper-cards.html') %}#}
-                    {% endif %}
-                    {#{% include "block/_section-stop.html" %}#}
-                {% endif %}
+
 
                 {% if block.type == "sectionImages" and block.blockContent|length %}
                     {% set images = block.blockContent %}
-                    {% include "block/_section-start.html" %}
+                    {% set labels = block.blockLabels %}
+                    {% set backdrop = block.blockBackdrop %}
                     <div class="wrapper">
                         {% if block.blockContent|length == 1 %}
                             {% set img = images[0] %}
@@ -80,52 +136,59 @@
                             {% include "images/_swiper.html" %}
                         {% endif %}
                     </div>
-                    {% include "block/_section-stop.html" %}
+                {% endif %}
+
+                {% if block.type == "sectionVideo" and block.blockContent|length %}
+                    {% set videos = block.blockContent %}
+                    {% set labels = block.blockLabels %}
+                    <div class="wrapper">
+                        {% set video = videos[0] %}
+                        {% include "video/_simple.html" %}
+                    </div>
                 {% endif %}
 
 
-                {% if block.type == "sectionServices" %}
-                    <md-layout class="md-container md-centered" md-gutter="40">
-                        <md-layout>
-                            {% if block.blockTitle %}
-                                <div class="md-title section-title">{{ block.blockTitle }}</div>{% endif %}
-                            {% if block.blockServices == 1 and entry.relatedServices|length %}
-                                {% set services = entry.relatedServices %}
-                                <md-layout class="cards-m-v" md-gutter="40" md-row>
-                                    {% for item in services %}
-                                        <md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="50" md-flex-large="33" md-flex-xlarge="33">
-                                            <md-card class="card-ripple" md-with-hover>
-                                                <md-card-header>
-                                                    {#<md-ink-ripple/>#}
-                                                    <md-card-header-text>
-                                                        <a class="md-title" href="{{ item.url }}">{{ item.title }}</a>
-                                                        <a class="md-subhead" href="{{ item.url }}">Description</a>
-                                                    </md-card-header-text>
-                                                    <md-card-media>
-                                                        {% if item.styleIcon %}
-                                                            <a class="card-icon" href="{{ item.url }}">{{ item.styleIcon.inline }}</a>
-                                                        {% endif %}
-                                                    </md-card-media>
-                                                </md-card-header>
-                                                <md-card-actions>
-                                                    {#<md-button href="{{ item.url }}">Ознакомиться</md-button>#}
-                                                    <md-button href="{{ item.url }}" class="md-icon-button">
-                                                        <md-icon>chevron_right</md-icon>
-                                                    </md-button>
-                                                </md-card-actions>
-                                            </md-card>
-                                        </md-layout>
-                                    {% endfor %}
-                                </md-layout>
-                            {% endif %}
-                        </md-layout>
-                    </md-layout>
-                {% endif %}
+                {#{% if block.type == "sectionServices" %}#}
+                {#<md-layout class="md-container md-centered" md-gutter="40">#}
+                {#<md-layout>#}
+                {#{% if block.blockTitle %}#}
+                {#<div class="md-title section-title">{{ block.blockTitle }}</div>{% endif %}#}
+                {#{% if block.blockServices == 1 and entry.relatedServices|length %}#}
+                {#{% set services = entry.relatedServices %}#}
+                {#<md-layout class="cards-m-v" md-gutter="40" md-row>#}
+                {#{% for item in services %}#}
+                {#<md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="50" md-flex-large="33" md-flex-xlarge="33">#}
+                {#<md-card class="card-ripple" md-with-hover>#}
+                {#<md-card-header>#}
+                {#&#123;&#35;<md-ink-ripple/>&#35;&#125;#}
+                {#<md-card-header-text>#}
+                {#<a class="md-title" href="{{ item.url }}">{{ item.title }}</a>#}
+                {#<a class="md-subhead" href="{{ item.url }}">Description</a>#}
+                {#</md-card-header-text>#}
+                {#<md-card-media>#}
+                {#{% if item.styleIcon %}#}
+                {#<a class="card-icon" href="{{ item.url }}">{{ item.styleIcon.inline }}</a>#}
+                {#{% endif %}#}
+                {#</md-card-media>#}
+                {#</md-card-header>#}
+                {#<md-card-actions>#}
+                {#&#123;&#35;<md-button href="{{ item.url }}">Ознакомиться</md-button>&#35;&#125;#}
+                {#<md-button href="{{ item.url }}" class="md-icon-button">#}
+                {#<md-icon>chevron_right</md-icon>#}
+                {#</md-button>#}
+                {#</md-card-actions>#}
+                {#</md-card>#}
+                {#</md-layout>#}
+                {#{% endfor %}#}
+                {#</md-layout>#}
+                {#{% endif %}#}
+                {#</md-layout>#}
+                {#</md-layout>#}
+                {#{% endif %}#}
 
 
                 {% if bContainer == 1 %}
-            </md-layout>
-            </md-layout>
+            </div>
             {% endif %}
             {% if bLink|length or bRequest == 1 %}
             <md-layout class="md-container md-centered" md-gutter="40">

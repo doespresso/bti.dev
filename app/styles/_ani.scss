@@ -27,8 +27,8 @@
     svg {
       line, path, rect, circle {
         animation-name: dash-out;
-        animation-duration: 1s;
-        animation-timing-function: ease-in-out;
+        animation-duration: 2s;
+        animation-timing-function: ease;
         animation-fill-mode: forwards;
         animation-delay: 0s;
       }
@@ -42,7 +42,7 @@
       line, path, rect, circle {
         animation-name: dash-in;
         animation-duration: 4s;
-        animation-timing-function: ease-in-out;
+        animation-timing-function: easeInQuart;
         animation-fill-mode: forwards;
         animation-delay: 0.7s;
       }
@@ -55,7 +55,7 @@
     line, path, rect, circle {
       animation-name: dash-in;
       animation-duration: 4s;
-      animation-timing-function: ease-in-out;
+      animation-timing-function: ease;
       animation-fill-mode: forwards;
       animation-delay: 0.7s;
     }

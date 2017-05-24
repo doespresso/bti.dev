@@ -1,40 +1,18 @@
 {% extends "_page.html" %}
 {% set headerProvider = 'category' %}
 
-{#{% set headerTitle = headerProvider.title %}#}
-{#{% if headerProvider.styleImg|length %}#}
-    {#{% set headerImg = headerProvider.styleImg.first().getUrl('resizeHeader') %}#}
-{#{% endif %}#}
-{#{% if headerProvider.styleIcon %}#}
-    {#{% set headerIcon = headerProvider.styleIcon %}#}
-{#{% endif %}#}
-{#{% if headerProvider.styleIconAlign %}#}
-    {#{% set headerIconAlign = headerProvider.styleIconAlign %}#}
-{#{% endif %}#}
-
 {% set perPage = 30 %}
 
-{% paginate craft.entries.section('persons').relatedTo(category).limit(perPage).order('personLastname') as pageInfo, persons %}
+{% set persons = craft.entries.section('persons').relatedTo(category).limit(perPage).order('personLastname') %}
 
 
+{% block subheader %}
+    {% include "persons/_filter.html" %}
+{% endblock %}
 {% block content %}
     <section class="section">
-        {% include "persons/_filter.html" %}
+        <div class="ctr">
+            {% include "persons/_list-cards.html" %}
+        </div>
     </section>
-    <section class="section">
-        {% include "persons/_list-cards.html" %}
-    </section>
-{% endblock %}
-
-
-{% block pager %}
-    <md-layout class="md-container md-centered" md-gutter="40" md-row>
-        {% if pageInfo.prevUrl %}
-        <md-button href="{{ pageInfo.prevUrl }}" class="md-icon-button" title="{{ 'Previous Page' | translate }}">
-                <md-icon>arrow_back</md-icon></md-button>{% endif %}
-        <span class="md-flex"></span>
-        {% if pageInfo.nextUrl %}
-        <md-button href="{{ pageInfo.nextUrl }}" class="md-icon-button" title="{{ 'Next Page' | translate }}">
-                <md-icon>arrow_forward</md-icon></md-button>{% endif %}
-    </md-layout>
 {% endblock %}

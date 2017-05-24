@@ -12,7 +12,7 @@
                 <a href="{{ cUrl }}">{{ item.title }}</a>
             {% endif %}
         {% elseif item.menuItem.block|length and item.getDescendants().total() != 0 %}
-            <md-menu md-size="6" md-direction="bottom left" md-offset-y="60">
+            <md-menu md-size="auto" md-direction="bottom left" md-offset-y="60">
                 <a md-menu-trigger>{{ item.title }}</a>
                 <md-menu-content>
                     {% set subitems = item.getChildren() %}

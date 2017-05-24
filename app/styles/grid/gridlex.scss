@@ -171,21 +171,21 @@
 [#{$gl-attributeName}*="#{$gl-colName}-"][#{$gl-attributeName}*="#{$gl-colName}-0"] {
   display: none;
 }
-
-@media #{$gl-xlg}{
-  [#{$gl-attributeName}*="#{$gl-gridName}"] {
-    > :not([#{$gl-attributeName}*="_xlg-0"]){
-      display: block;
-    }
-    &:not([#{$gl-attributeName}*="_xlg-0"]) {
-      display: flex;
-    }
-    >[#{$gl-attributeName}*="_xlg-0"],
-    &[#{$gl-attributeName}*="-equalHeight"] > [#{$gl-attributeName}*="_xlg-0"]{
-      display: none;
-    }
-  }
-}
+//
+//@media #{$gl-xlg}{
+//  [#{$gl-attributeName}*="#{$gl-gridName}"] {
+//    > :not([#{$gl-attributeName}*="_xlg-0"]){
+//      display: block;
+//    }
+//    &:not([#{$gl-attributeName}*="_xlg-0"]) {
+//      display: flex;
+//    }
+//    >[#{$gl-attributeName}*="_xlg-0"],
+//    &[#{$gl-attributeName}*="-equalHeight"] > [#{$gl-attributeName}*="_xlg-0"]{
+//      display: none;
+//    }
+//  }
+//}
 
 @media #{$gl-lg}{
   [#{$gl-attributeName}*="#{$gl-gridName}"] {

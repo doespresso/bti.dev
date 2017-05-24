@@ -1,4 +1,106 @@
-.md-tabs.no-h-p .md-tab{
-  padding-left:0;
-  padding-right:0;
+.md-tabs.no-h-p .md-tab {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.doc-type {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+a.md-list-text-container {
+  text-decoration: none !important;
+}
+
+@include layout-xsmall {
+  .md-divider {
+    //margin-right: -$gl-gutter/2;
+  }
+}
+
+.md-avatar {
+  background-size: cover;
+  background-position: center top;
+}
+
+.md-list-item.md-inset .md-list-item-container {
+  @include layout-xsmall {
+    padding-left: 16px;
+  }
+}
+
+//
+//.md-list {
+//
+//  &.big-icons {
+//    .md-list-item .md-list-item-container {
+//      padding-left: 0;
+//      min-height: 102px;
+//    }
+//    .list-title{
+//      font-weight:500;
+//      font-size: 18px;
+//      margin-bottom:16px;
+//    }
+//    //.md-list-item .md-list-item-container .md-avatar:first-child, .md-list-item .md-list-item-container .md-list-action:first-child{}
+//    .md-list-item .md-list-item-container .md-avatar:first-child {
+//      margin-right: 24px;
+//      width: 80px;
+//      height: 80px;
+//      min-width: 80px;
+//      min-height: 80px;
+//      border-radius: 40px;
+//      background-color: #ccc;
+//      .md-icon {
+//        width: 48px;
+//        height: 48px;
+//        min-width: 48px;
+//        min-height: 48px;
+//        font-size: 48px;
+//      }
+//    }
+//    .md-divider.md-inset {
+//      margin-left: 104px;
+//    }
+//  }
+//}
+
+
+.md-list.content-list {
+  .md-list-item.md-inset .md-list-item-container{
+    @include layout-small-and-up {
+      padding-left: 62px;
+    }
+  }
+  .md-list-text-container{
+    padding-right:62px;
+    @include layout-small-and-up{
+      span{
+        white-space: normal;
+      }
+    }
+  }
+  .md-avatar.md-large {
+    @include layout-small-and-up {
+      margin-right: 24px;
+    }
+  }
+  &.avatars-mediium {
+    .md-list-item {
+      min-height: 88px;
+    }
+    .md-list-item-content {
+      padding: 40px 24px;
+      @include layout-small-and-up {
+        padding: 0px 80px 40px 88px + 62px;
+      }
+
+    }
+  }
+  .md-list-item-content {
+    .html-content {
+      padding: 0;
+      margin: 0;
+    }
+  }
 }

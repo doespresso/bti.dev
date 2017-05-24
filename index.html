@@ -9,7 +9,73 @@
 <div id="app">
 
     <section class="section">
+
+
+        <div class="grid">
+            <div class="col-6">
+                col-6
+            </div>
+            <div class="col-6 grid">
+                <div class="col-4">
+                    col-4
+                </div>
+                <div class="col-8 grid">
+                    <div class="col-6">
+                        col-6
+                    </div>
+                    <div class="col-6">
+                        col-6
+                    </div>
+                    <div class="col-4">
+                        col-4
+                    </div>
+                    <div class="col-4">
+                        col-4
+                    </div>
+                    <div class="col-4">
+                        col-4
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
         <md-layout class="md-container md-centered" md-gutter="40">
+            <md-layout md-flex="50">1</md-layout>
+            <md-layout>2</md-layout>
+            <md-layout>2</md-layout>
+            <md-layout>2</md-layout>
+        </md-layout>
+
+        <md-layout md-gutter="40">
+            <md-layout md-flex="33"></md-layout>
+            <md-layout></md-layout>
+        </md-layout>
+
+        <md-layout md-gutter="40">
+            <md-layout></md-layout>
+            <md-layout md-flex="33" md-flex-offset="33"></md-layout>
+        </md-layout>
+
+        <md-layout md-gutter="40">
+            <md-layout md-flex="75"></md-layout>
+            <md-layout></md-layout>
+        </md-layout>
+
+        <md-layout md-gutter="40">
+            <md-layout md-flex="50"></md-layout>
+            <md-layout></md-layout>
+            <md-layout></md-layout>
+        </md-layout>
+
+        <md-layout md-gutter="40">
+            <md-layout md-flex="25" md-flex-offset="25"></md-layout>
+            <md-layout md-flex="25"></md-layout>
+        </md-layout>
+
+
+
+
+        <md-layout class="md-container md-centered hide-large" md-gutter="40">
             <md-layout md-flex="33">
                 <div class="wrapper align--center">
                     <div class="promo-item primary-bg-0">
@@ -192,5 +258,19 @@
 <link href="/dist/main.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="/dist/main.js"></script>
+<style>
+    [class*='grid'] [class*='col']{
+        background:#f0f0f0;
+    }
+    .md-layout{
+        border:3px red solid;
+    }
+    .md-layout .md-layout{
+        border:3px green solid;
+    }
+    .md-layout .md-layout .md-layout{
+        border:3px blue solid;
+    }
+</style>
 </body>
 </html>

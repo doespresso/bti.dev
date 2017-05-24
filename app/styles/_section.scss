@@ -1,3 +1,37 @@
+.height--mini {
+  min-height: 232px !important;
+}
+
+.height--standart {
+  min-height: 340px !important;
+}
+
+.height--big {
+  min-height: 480px !important;
+}
+
+.height--50vh {
+  min-height: 50vh !important;
+}
+
+.height--60vh {
+  min-height: 60vh !important;
+}
+
+.height--75vh {
+  min-height: 75vh !important;
+}
+
+
+.divider-line{
+  width:100%;
+  min-width:100%;
+  height:1px;
+  border:0!important;
+  display:block;
+  background:rgba(#000,0.075);
+}
+
 .wrapper {
   width: 100%;
   display: block;
@@ -8,6 +42,8 @@
 }
 
 .section {
+  //border-top:#ccc 1px solid;
+  //border-bottom:#ccc 1px solid;
   display: block;
   width: 100%;
   position:relative;
@@ -24,10 +60,12 @@
 
 
 .section-title {
-  margin-bottom: 20px;
+  //margin-bottom: 20px;
 }
 
-
+.actions {
+  margin-top: 24px;
+}
 
 .page-footer{
   margin-top:100px;

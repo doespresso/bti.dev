@@ -1,0 +1,19 @@
+<md-list-item class="md-inset">
+    {% if item.personPhoto|length %}
+        {% set photo = item.personPhoto.first() %}
+        <md-avatar class="md-large" style="background-image:url('{{ photo.getUrl('resizePersonsList') }}')" alt="{{ item.personFirstname }} {{ item.personLastname }}')"></md-avatar>
+    {% endif %}
+    <div class="md-list-text-container">
+        <span>{{ item.personFirstname }} {{ item.personLastname }}</span>
+        <span>{{ item.personSpeakerShort }}</span>
+    </div>
+    {% if item.personSpeakerBio %}
+    <md-list-expand>
+        <md-list>
+            <div class="md-list-item-content">
+                <div class="html-content">{{ item.personSpeakerBio }}</div>
+            </div>
+        </md-list>
+    </md-list-expand>
+    {% endif %}
+</md-list-item>

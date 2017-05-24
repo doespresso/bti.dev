@@ -3,35 +3,11 @@
     <!DOCTYPE html>
     <html>
 
-    {#{% if headerProvider =='entry' %}#}
-    {#{% set prov = entry %}#}
-    {#{% elseif headerProvider =='category' %}#}
-    {#{% set prov = category %}#}
-    {#{% elseif headerProvider =='section' %}#}
-    {#{% set prov = object %}#}
-    {#{% endif %}#}
-
-    {#{% set headerTitle = prov.title %}#}
-
-    {#{% if prov.styleImg|length %}#}
-    {#{% set headerImg = prov.styleImg.first().getUrl('resizeHeader') %}#}
-    {#{% endif %}#}
-
-    {#{% if prov.styleIcon %}#}
-    {#{% set headerIcon = prov.styleIcon %}#}
-    {#{% endif %}#}
-
-    {#{% if prov.styleIconAlign %}#}
-    {#{% set headerIconAlign = prov.styleIconAlign %}#}
-    {#{% endif %}#}
-
-    {#-------------#}
-
-
     {% set headerTitle =  siteName %}
     {% set headerTheme = 'ct' ~ globalDesign.styleThemeObject[0].id %}
 
     {% set headerHeight = globalDesign.styleHeight %}
+    {% set hBanners = false %}
 
     {% set headerIcon = globalDesign.styleIcon %}
     {% set headerIconAlign = globalDesign.styleIconAlign %}
@@ -76,7 +52,9 @@
             {% set headerIcon =  '' %}
         {% endif %}
 
+
     {% elseif entry is defined %}
+
         {% if entry.publicationCategory|length %}
             {% set ep = entry.publicationCategory[0] %}
         {% elseif entry.personStatus|length %}
@@ -93,7 +71,7 @@
             {% if ep.styleHeight is not empty %}
                 {% set headerHeight = ep.styleHeight %}
             {% endif %}
-            {% if ep.styleIcon%}
+            {% if ep.styleIcon %}
                 {% set headerIcon = ep.styleIcon %}
             {% endif %}
             {% if ep.styleIconAlign is not empty %}
@@ -120,8 +98,11 @@
             {% endif %}
 
         {% endif %}
-        
+
+
         {% set headerTitle =  entry.title %}
+
+
         {% if entry.styleThemeObject|length %}
             {% set headerTheme = 'ct' ~ entry.styleThemeObject[0].id %}
         {% endif %}
@@ -154,72 +135,10 @@
             {% set headerIcon =  '' %}
         {% endif %}
 
+        {% set hBanners = entry['styleHeaderBanners'] is defined and entry.styleHeaderBanners|length ? entry.styleHeaderBanners : false %}
+
     {% else %}
     {% endif %}
-
-
-    {#&#123;&#35;если есть запись&#35;&#125;#}
-    {#{% if entry is defined %}#}
-    {#{% if entry.type == 'typePublication' and entry.publicationCategory|length %}#}
-    {#&#123;&#35;если тип публикация и задана категория&#35;&#125;#}
-    {#{% set headerTitle = entry.publicationCategory[0].title %}#}
-    {#{% if entry.publicationCategory[0].styleThemeObject|length %}#}
-    {#{% set headerTheme = 'ct' ~ entry.publicationCategory[0].styleThemeObject[0].id %}#}
-    {#{% endif %}#}
-    {#{% elseif entry.type == 'typePerson' and entry.personStatus|length %}#}
-    {#&#123;&#35;если тип персона и задана категория&#35;&#125;#}
-    {#{% set headerTitle = entry.personStatus[0].title %}#}
-    {#{% if entry.personStatus.styleThemeObject|length %}#}
-    {#{% set headerTheme = 'ct' ~ entry.personStatus.styleThemeObject[0].id %}#}
-    {#{% endif %}#}
-    {#{% else %}#}
-    {#{% set headerTitle = entry.title %}#}
-    {#{% if entry.styleImg|length %}#}
-    {#{% set headerImg = entry.styleImg[0] %}#}
-    {#{% endif %}#}
-    {#{% endif %}#}
-
-    {#&#123;&#35;если нет записи но есть категория&#35;&#125;#}
-    {#{% elseif category is defined %}#}
-    {#{% set headerTitle = category.title %}#}
-
-    {#{% if category.styleThemeObject %}#}
-    {#{% set headerTheme = 'ct' ~ category.styleThemeObject[0].id %}#}
-    {#{% endif %}#}
-
-    {#{% if category.styleIcon %}#}
-    {#{% set headerIcon = category.styleIcon %}#}
-    {#{% endif %}#}
-
-    {#{% if category.styleImg|length %}#}
-    {#{% set headerImg = category.styleImg[0] %}#}
-    {#{% set headerIcon = null %}#}
-    {#{% endif %}#}
-
-    {#{% endif %}#}
-
-    {#-------------#}
-
-    {#{% if headerProvider =='entry' %}#}
-    {#{% set prov = entry %}#}
-    {#{% elseif headerProvider =='category' %}#}
-    {#{% set prov = category %}#}
-    {#{% else %}#}
-    {#{% endif %}#}
-
-    {#{% set headerTitle = 'asds' %}#}
-
-    {#{% if prov.styleImg|length %}#}
-    {#{% set headerImg = prov.styleImg.first().getUrl('resizeHeader') %}#}
-    {#{% endif %}#}
-
-    {#{% if prov.styleIcon %}#}
-    {#{% set headerIcon = prov.styleIcon %}#}
-    {#{% endif %}#}
-
-    {#{% if prov.styleIconAlign %}#}
-    {#{% set headerIconAlign = prov.styleIconAlign %}#}
-    {#{% endif %}#}
 
 
     <head>
@@ -232,16 +151,17 @@
     <div class="main-content" id="app" v-cloak>
         <div v-if="!loaded" style="position:fixed; left:0; top:0; right:0; bottom:0; background-color: white; z-index:1000;"></div>
         {{ include ("inc/_sidenav_list-collapse.html") }}
-        {#<transition name="fade" appear>#}
-        {{ include ("header/_header.html") }}
-        {#</transition>#}
+        {{ include ("form/_feedback-side.html") }}
+        <transition appear name="fade">
+            {{ include ("header/_header.html") }}
+        </transition>
 
         {#<md-button @click.native="show = !show">show</md-button>#}
 
-        <div class="page-subheader">
-            {% block subheader%}
-            {% endblock %}
-        </div>
+        {#<div class="page-subheader">#}
+            {#{% block subheader %}#}
+            {#{% endblock %}#}
+        {#</div>#}
 
         <div class="page-content">
             {% block content %}
@@ -253,15 +173,17 @@
             {% endblock %}
         </div>
 
-        {% block aside %}
+        <aside class="aside">
+            {% block aside %}
+            {% endblock %}
+        </aside>
 
-        {% endblock %}
+        {#{% include('inc/_speed-dial.html') %}#}
 
-        {% include('inc/_speed-dial.html') %}
-        {{ include ("form/_feedback-side.html") }}
-        <footer class="page-footer">
-            {% include 'inc/_footer' %}
-        </footer>
+
+
+        {% include 'inc/_footer' %}
+
 
     </div>
     {% include 'inc/_scripts' %}

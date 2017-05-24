@@ -1,40 +1,33 @@
-{#{% if item.cardWidth2 is not defined %}#}
-    {#{% set csize = '33' %}#}
-{#{% else %}#}
-    {#{% set csize = item.cardWidth2 %}#}
-{#{% endif %}#}
-<md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="50" md-flex-large="33" md-flex-xlarge="33">
-    {#<div class="card-holder {{ item.cardColor|length ? 'md-theme-ct'~item.cardColor[0].id}}">#}
-        <md-card class="card--news {{ item.cardColor|length and item.cardFullColor ? 'md-primary'}}" md-with-hover md-theme="{{ item.cardColor|length ? 'ct'~item.cardColor[0].id }}">
-            <md-card-area class="md-flex has-ripple">
-                {% if item.cardImg|length or item.styleIcon %}
-                    {% if item.cardImg|length %}
-                        {% set photo = item.cardImg[0].getUrl('resizeNewsList') %}
-                    {% else %}
-                        {% set photo = '' %}
-                    {% endif %}
-                    <md-card-media style="background-image:url({{ photo }})">
-                        <a class="cover-link" href="{{ item.url }}">
-                            {#<img src="{{ photo }}">#}
-                            {% if item.styleIcon %}
-                                <div class="card-icon">{{ item.styleIcon.inline }}</div>
-                            {% endif %}
-                        </a>
-                    </md-card-media>
+<div class="col">
+    <md-card class="card--news {{ item.cardColor|length and item.cardFullColor ? 'md-primary' }} {{ item.cardColor|length ? 'themed' }}" md-with-hover
+             md-theme="{{ item.cardColor|length ? 'ct'~item.cardColor[0].id }}">
+        <md-card-area class="md-flex">
+            {% if item.cardImg|length or item.styleIcon %}
+                {% if item.cardImg|length %}
+                    {% set photo = item.cardImg[0].getUrl('resizeNewsList') %}
+                {% else %}
+                    {% set photo = '' %}
                 {% endif %}
-                <md-card-content>
-                    <h3 class="md-title"><a href="{{ item.url }}">{{ item.title }}</a></h3>
-                    {#<div class="md-subhead">{{ item.postDate.localeDate() }}</div>#}
-                </md-card-content>
-                <md-ink-ripple/>
-            </md-card-area>
-            <md-card-actions>
-                <md-button href="{{ item.publicationCategory[0].url }}">{{ item.publicationCategory[0] }}</md-button>
-                <span class="md-flex"></span>
-                <md-button class="md-icon-button" href="{{ item.url }}">
-                    <md-icon>chevron_right</md-icon>
-                </md-button>
-            </md-card-actions>
-        </md-card>
-    {#</div>#}
-</md-layout>
+                <md-card-media class="has-ripple backdrop-1" style="background-image:url({{ photo }})">
+                    <a class="cover-link" href="{{ item.url }}">
+                        {% if item.styleIcon %}
+                            <div class="card-icon">{{ item.styleIcon.inline }}</div>
+                        {% endif %}
+                    </a>
+                    <md-ink-ripple/>
+                </md-card-media>
+            {% endif %}
+            <md-card-content>
+                <h3 class="md-title"><a href="{{ item.url }}">{{ item.title }}</a></h3>
+                {#<div class="md-subhead">{{ item.postDate.localeDate() }}</div>#}
+            </md-card-content>
+        </md-card-area>
+        <md-card-actions>
+            <md-button href="{{ item.publicationCategory[0].url }}">{{ item.publicationCategory[0] }}</md-button>
+            <span class="md-flex"></span>
+            <md-button class="md-icon-button" href="{{ item.url }}">
+                <md-icon>chevron_right</md-icon>
+            </md-button>
+        </md-card-actions>
+    </md-card>
+</div>

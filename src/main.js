@@ -22,6 +22,9 @@ var app = new Vue({
         this.loaded=true;
         console.log('LOADED');
     },
+    mounted:function(){
+        //this.$refs.rightSidenav.open();
+    },
     methods: {
         toggleLeftSidenav: function () {
             this.$refs.leftSidenav.toggle();

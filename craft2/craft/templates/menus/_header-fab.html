@@ -1,0 +1,24 @@
+<md-menu md-direction="bottom left" md-size="4">
+    <md-button class="md-fab md-raised md-fab-header" md-theme="white" md-menu-trigger>
+        <md-icon>more_vertical</md-icon>
+    </md-button>
+    <md-menu-content>
+        <md-menu-item  @click.native="toggleRightSidenav">
+            <span>{{ 'Send Request' | t }}</span>
+            <md-icon>send</md-icon>
+        </md-menu-item>
+        <md-menu-item>
+            <span>{{ 'Call' | t }}</span>
+            <md-icon>phone</md-icon>
+        </md-menu-item>
+        <md-menu-item>
+            <span>{{ 'Offices' | t }}</span>
+            <md-icon>place</md-icon>
+        </md-menu-item>
+        {#<md-divider></md-divider>#}
+        {#<md-menu-item>#}
+            {#<span>{{ 'Global website' | t }}</span>#}
+            {#<md-icon>language</md-icon>#}
+        {#</md-menu-item>#}
+    </md-menu-content>
+</md-menu>

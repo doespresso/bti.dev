@@ -1,12 +1,107 @@
 // #app
-.main-content{
+.main-content {
   overflow: auto;
-  height:100%;
+  height: 100%;
 }
 
-.page-header{}
+.page-header {
+}
 
+.header-title, h1.header-title, .banner-title {
+  //color: rgba(#fff, 0.99) !important;
+  text-shadow: 1px 0 1px rgba(#000, 0.05);
+  font-size: 28px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  font-weight: 500;
+  @include layout-small-and-up {
+    font-weight: 400;
+    font-size: 48px;
+    margin-bottom: 24px;
+  }
+}
 
-.page-subheader{
-  min-height:64px;
+.publication-title, h1.publication-title, .publication-title.header-title{
+  //color: rgba(#fff, 0.99) !important;
+  text-shadow: 1px 0 1px rgba(#000, 0.04);
+  font-size: 28px;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  @include layout-small-and-up {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+}
+
+//.banner-title {
+//  text-shadow: 1px 0 1px rgba(#000, 0.05);
+//  font-size: 28px;
+//  line-height: 1.2;
+//  margin-bottom: 8px;
+//  @include layout-large-and-up {
+//    font-weight: 500;
+//    font-size: 36px;
+//    margin-bottom: 24px;
+//  }
+//}
+
+.page-subheader {
+  background-color: #f8f8f8;
+  min-height: 64px;
+  margin-bottom: 40px;
+}
+
+.page-pager {
+  .pages-counter {
+    font-size: 14px;
+    line-height: 1;
+    opacity: .5;
+    font-weight: 500;
+    margin: 0 !important;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+}
+
+.actions {
+  .md-button {
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+
+  }
+}
+
+.page-footer {
+  min-height: 200px;
+  background-color: #f7f7f7;
+  color:#999;
+  padding-top:40px;
+}
+
+.nav-list--inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  a {
+    color: #000;
+    text-decoration:none;
+    opacity: 0.8;
+    font-weight: 500;
+  }
+  span:not(:last-child){
+    width:20px;
+    text-align: center;
+    &:after{
+      color:rgba(#000,0.2);
+      font-size: 24px;
+      line-height:1px;
+      content:'.';
+    }
+  }
 }

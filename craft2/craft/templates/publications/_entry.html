@@ -1,14 +1,78 @@
 {% extends "_page.html" %}
 {% block content %}
-    <md-layout class="md-container md-centered publication-top p-v-20" md-gutter="40">
-        <md-layout><span class="md-caption">{{ entry.publicationCategory[0] }}</span></md-layout>
-        <md-layout><span class="md-caption">{{ entry.postDate.localeDate() }}</span></md-layout>
-        <md-layout><span class="md-caption">Автор</span></md-layout>
-    </md-layout>
-    {% include('matrix/_matrix.html') %}
-    <md-layout class="md-container md-centered publication-top p-v-20" md-gutter="40">
-        <md-layout><span class="md-caption">{{ entry.publicationCategory[0] }}</span></md-layout>
-        <md-layout><span class="md-caption">{{ entry.postDate.localeDate() }}</span></md-layout>
-        <md-layout><span class="md-caption">Автор</span></md-layout>
-    </md-layout>
+    <div class="ctr">
+        <div class="grid">
+            <div class="col-9_xs-12_sm-12_md-9">
+
+                <article class="article article-list md-whiteframe-16dp">
+
+                    {#<div class="ctr">#}
+                    {#<div class="grid-middle article-info">#}
+                    {#<div class="col"><a href="{{ entry.publicationCategory[0].url }}">Новости</a></div>#}
+                    {#<div class="col text-right">{{ entry.postDate.localeDate() }}</div>#}
+                    {#</div>#}
+                    {#</div>#}
+
+                    {#<section class="section event-options">#}
+                        {#<md-list class="md-double-line">#}
+                            {#<md-list-item>#}
+                                {#&#123;&#35;<md-icon class="md-primary md-size-2x">today</md-icon>&#35;&#125;#}
+                                {#<div class="md-list-text-container">#}
+                                    {#<span>12 Июня 2017</span>#}
+                                    {#<span>13:00 - 18:00</span>#}
+                                {#</div>#}
+                                {#&#123;&#35;<md-button href="#0" class="md-raised">{{ 'Registration'|t }}</md-button>&#35;&#125;#}
+                                {#<md-divider class="md-inset"></md-divider>#}
+                            {#</md-list-item>#}
+                            {#<md-list-item>#}
+                                {#&#123;&#35;<md-icon class="md-primary md-size-2x">place</md-icon>&#35;&#125;#}
+
+                                {#<div class="md-list-text-container">#}
+                                    {#<span>Radisson Blue Moscow</span>#}
+                                    {#<span>Mobile</span>#}
+                                {#</div>#}
+
+                                {#<md-button class="md-icon-button md-list-action">#}
+                                    {#<md-icon>sms</md-icon>#}
+                                {#</md-button>#}
+
+                            {#</md-list-item>#}
+                        {#</md-list>#}
+                    {#</section>#}
+
+                    <div class="article-content">
+                        {% include "matrix/_matrix.html" %}
+                    </div>
+                    <div class="divider-line"></div>
+                    <div class="ctr">
+                        <div class="grid-noWrap-middle article-info">
+                            <div class="col-6">
+                            <span><md-icon>access_time</md-icon>{{ entry.postDate.localeDate() }}</span>
+                            {#<span><a href="{{ entry.publicationCategory[0].url }}">{{ entry.publicationCategory[0].title }}</a></span>#}
+                            </div>
+                            <div class="col-6 text-right">
+                            <span><a href="{{ entry.publicationCategory[0].url }}">{{ entry.publicationCategory[0].title }}</a></span>
+                            </div>
+                            {#<div class="col-6 text-right">#}
+                                {#<md-button class="md-icon-button">#}
+                                    {#<md-icon>share</md-icon>#}
+                                {#</md-button>#}
+                            {#</div>#}
+                        </div>
+                    </div>
+
+                </article>
+
+            </div>
+            <aside class="col-3_xs-12_sm-12_md-3 m-t-40">
+                <div class="grid">
+                    <div class="col">
+                        <md-icon class="md-primary">link</md-icon> related
+                    </div>
+                </div>
+                {% set news = craft.entries.section('publications').id('not ' ~ entry.id).limit(4) %}
+                {% include "publications/_list-cards-mini.html" %}
+            </aside>
+        </div>
+    </div>
 {% endblock %}

@@ -8,6 +8,10 @@
 //  }
 //}
 
+#navbar.is-fixed{
+  position:fixed;
+}
+
 #navbar {
   width: 100%;
   height: 64px;
@@ -20,22 +24,56 @@
   }
 }
 
+#logo {
+  position: relative;
+  //background: red;
+  display: block;
+  min-height: 64px;
+  min-width: 64px;
+}
+
+.logo {
+  position: absolute;
+  left: 18px;
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 64px;
+  z-index: 5;
+  display: block;
+  //background-color: green;
+}
+
+.logo-m {
+  width: 64px;
+  height: 64px;
+  top: 4px;
+}
+
+.logo-l {
+  width: 128px;
+  top: 12px;
+}
+
+@include layout-medium-and-up {
+
+}
+
 .page-header {
   .md-toolbar {
     flex-direction: column;
     justify-content: flex-end;
     min-height: 256px;
   }
+  display: block;
 }
 
 .header-container {
-  //height: 128px;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 12px;
-  @include layout-small-and-up {
-    padding: 0 20px;
+  position: relative;
+  min-height: 64px;
+  [class*='col']{
+    padding-bottom:0;
+    padding-top:0;
   }
 }
 
@@ -78,19 +116,6 @@
   }
 }
 
-.header-title, h1.header-title{
-  color:rgba(#fff,0.99)!important;
-  text-shadow:1px 0 1px rgba(#000,0.05);
-  font-size:28px;
-  line-height: 1.2;
-  margin-bottom: 8px;
-  @include layout-large-and-up{
-    font-weight: 500;
-    font-size: 48px;
-    margin-bottom: 24px;
-  }
-}
-
 .header-submenu {
   min-height: 64px;
   //background-color: red;
@@ -101,7 +126,7 @@
     margin-right: -28px;
   }
   @include layout-medium-and-up {
-    margin:0;
+    margin: 0;
   }
 }
 
@@ -134,4 +159,20 @@
       color: rgba(255, 255, 255, 0.98);
     }
   }
+}
+
+.md-menu-content.md-size-auto{
+  width:auto;
+  max-width:none;
+  min-width:240px;
+  font-size: 15px!important;
+}
+
+
+
+.md-fab-header{
+  position:absolute;
+  z-index:10;
+  right:0;
+  bottom:-34px;
 }
