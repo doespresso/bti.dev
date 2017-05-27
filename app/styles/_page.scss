@@ -15,7 +15,7 @@
   margin-bottom: 8px;
   font-weight: 500;
   @include layout-small-and-up {
-    font-weight: 400;
+    font-weight: 500;
     font-size: 48px;
     margin-bottom: 24px;
   }
@@ -65,17 +65,7 @@
   }
 }
 
-.actions {
-  .md-button {
-    &:first-child {
-      margin-left: 0;
-    }
-    &:last-child {
-      margin-right: 0;
-    }
 
-  }
-}
 
 .page-footer {
   min-height: 200px;

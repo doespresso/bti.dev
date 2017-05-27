@@ -42,7 +42,7 @@
       line, path, rect, circle {
         animation-name: dash-in;
         animation-duration: 4s;
-        animation-timing-function: easeInQuart;
+        animation-timing-function: ease;
         animation-fill-mode: forwards;
         animation-delay: 0.7s;
       }

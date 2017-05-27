@@ -2,6 +2,7 @@ import Vue from 'vue'
 window.Vue = Vue;
 import VueMaterial from 'vue-material/src/'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+//AIzaSyBBrn0a7rWAu93NAFSXQtV1Hkvjv_pIiHo
 
 Vue.use(VueMaterial)
 Vue.use(VueAwesomeSwiper)
@@ -10,22 +11,26 @@ Vue.use(VueAwesomeSwiper)
 Vue.material.registerTheme(window.themes);
 Vue.material.setCurrentTheme(window.theme);
 
+
 var app = new Vue({
     delimiters: ['${', '}'],
     el: '#app',
     data: {
         message: 'You loaded this page on ' + new Date(),
         show: false,
-        loaded:false,
+        loaded: false,
     },
     created: function () {
-        this.loaded=true;
+        this.loaded = true;
         console.log('LOADED');
     },
-    mounted:function(){
+    mounted: function () {
         //this.$refs.rightSidenav.open();
     },
     methods: {
+        //tabb:function(){
+        //    console.log('tab')
+        //},
         toggleLeftSidenav: function () {
             this.$refs.leftSidenav.toggle();
         },
@@ -36,16 +41,20 @@ var app = new Vue({
         closeRightSidenav: function () {
             this.$refs.rightSidenav.close();
         },
-        open: function (ref) {
-            console.log('Opened: ' + ref);
+        //open: function (ref) {
+        //    console.log('Opened: ' + ref);
+        //},
+        //close: function (ref) {
+        //    console.log('Closed: ' + ref);
+        //},
+        openDialog: function (ref) {
+            this.$refs[ref].open();
         },
-        close: function (ref) {
-            console.log('Closed: ' + ref);
+        closeDialog: function (ref) {
+            this.$refs[ref].close();
         }
     }
 });
-
-
 
 
 import './../app/styles/index.scss'

@@ -1,0 +1,13 @@
+<a href="{{ item.url }}" class="nav-link">
+    {% if item.styleIcon %}
+        <div class="nav-link-icon icon-ani--draw-0 animated-0">{{ item.styleIcon ? item.styleIcon.inline }}</div>
+    {% endif %}
+
+        {#<hr class="line"/>#}
+        <div class="nav-link-text b-color">
+            <div class="md-title t-color">{{ item.title }}</div>
+            {#<md-icon>chevron_right</md-icon>#}
+            {#<date class="description md-subhead">{{ item.title }}</date>#}
+        </div>
+
+</a>

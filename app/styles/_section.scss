@@ -23,14 +23,7 @@
 }
 
 
-.divider-line{
-  width:100%;
-  min-width:100%;
-  height:1px;
-  border:0!important;
-  display:block;
-  background:rgba(#000,0.075);
-}
+
 
 .wrapper {
   width: 100%;
@@ -60,11 +53,20 @@
 
 
 .section-title {
-  //margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .actions {
   margin-top: 24px;
+  .md-button {
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+
+  }
 }
 
 .page-footer{
@@ -72,4 +74,13 @@
   width:100%;
   background-color:#eee;
   min-height:100px;
+}
+
+
+.section[class*="md-theme-"] {
+  .b-color{
+    &:before{
+      opacity:0.15;
+    }
+  }
 }

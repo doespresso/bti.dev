@@ -1,0 +1,126 @@
+.navs {
+  [class*='col'] {
+    padding-bottom: 16px;
+  }
+}
+
+$isize: 100px;
+
+.navs--circle {
+  .nav-link-icon {
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      background-color: #fff;
+      opacity: 0.2;
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 50%;
+      transform: scale(1.2);
+    }
+  }
+}
+
+.nav-link {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+
+  @include layout-medium-and-up {
+    margin-bottom: 40px;
+    .nav-link-icon {
+      margin-right: 36px;
+      padding: 0;
+    }
+    .nav-link-text {
+      &:before {
+        display: none;
+      }
+      .md-title {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.4;
+        max-width: 75%;
+      }
+    }
+  }
+
+
+}
+
+.nav-link-text {
+  flex: 1;
+  position: relative;
+  padding-top: 16px;
+  &:before {
+    content: '';
+    height: 1px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: -20px;
+    background-color: $divider-color;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  .md-title {
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 500;
+    width:150px;
+  }
+}
+
+.nav-link-icon {
+  padding: 24px 0;
+  width: $isize;
+  min-width: $isize;
+  height: $isize;
+  text-align: center;
+  margin-right: 8px;
+  opacity: 0.25;
+  transition: opacity 0.2s ease;
+  svg {
+    height: 100% !important;
+    width: auto;
+    * {
+      stroke-width: 2px !important;
+      fill: none !important;
+      stroke: #000 !important;
+    }
+  }
+}
+
+.section[class*="md-theme-"] {
+  .nav-link {
+    .nav-link-icon {
+      opacity: 0.87;
+    }
+    &:hover {
+      .nav-link-icon {
+        opacity: 0.99;
+      }
+    }
+  }
+}
+
+.nav-link {
+  &:hover {
+    .nav-link-icon {
+      //opacity: 0.35;
+      svg *{
+        //stroke-width: 3px!important;
+      }
+    }
+  }
+}
+

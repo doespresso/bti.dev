@@ -36,38 +36,42 @@
                 </div>
             </div>
 
-            <div class="header-container header-top">
-                {#logo#}
-            </div>
-            <div class="ctr header-bottom">
-                <div class="grid header-container">
-                    <div class="col-11_xs-12_sm-12">
-                        {% if not hBanners %}
-                            <h1 class="header-title {{ entry is defined and (entry.type == 'typePublication' or entry.type == 'typeEvent') ? 'publication-title' }}">{% if headerTitle is defined %}{{ headerTitle }}{% else %}{{ siteName }}{% endif %}</h1>
-                        {% endif %}
+
+            <div class="header-bottom">
+                <div class="ctr">
+                    <div class="grid">
+                        <div class="col-11_xs-12_sm-12">
+                            {% if not hBanners %}
+                                <h1 class="header-title {{ entry is defined and (entry.type == 'typePublication' or entry.type == 'typeEvent') ? 'publication-title' }}">{% if headerTitle is defined %}{{ headerTitle }}{% else %}{{ siteName }}{% endif %}</h1>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
 
                 {#<div class="divider-line"></div>#}
                 {##}
                 {#<div class="grid header-container grid-noWrap-middle article-info">#}
-                    {#<div class="col-6">#}
-                        {#<span><md-icon>access_time</md-icon>{{ entry.postDate.localeDate() }}</span>#}
-                        {#<span><a href="{{ entry.publicationCategory[0].url }}">{{ entry.publicationCategory[0].title }}</a></span>#}
-                    {#</div>#}
-                    {#<div class="col-6 text-right">#}
-                        {#<md-button class="md-icon-button">#}
-                            {#<md-icon>share</md-icon>#}
-                        {#</md-button>#}
-                    {#</div>#}
+                {#<div class="col-6">#}
+                {#<span><md-icon>access_time</md-icon>{{ entry.postDate.localeDate() }}</span>#}
+                {#<span><a href="{{ entry.publicationCategory[0].url }}">{{ entry.publicationCategory[0].title }}</a></span>#}
                 {#</div>#}
-
-                <div class="grid header-container">
-                    <div class="col-12">
-                        {#{{ include("menus/_submenu-header.html") }}#}
-                        {#{{ include("menus/_header-fab.html") }}#}
+                {#<div class="col-6 text-right">#}
+                {#<md-button class="md-icon-button">#}
+                {#<md-icon>share</md-icon>#}
+                {#</md-button>#}
+                {#</div>#}
+                {#</div>#}
+                <div class="header-submenu-container">
+                    <div class="ctr">
+                        <div class="grid">
+                            <div class="col-12">
+                                {{ include("menus/_submenu-header.html") }}
+                                {#{{ include("menus/_header-fab.html") }}#}
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
             {#<md-ink-ripple/>#}

@@ -19,6 +19,8 @@
 
 
     {% if category is defined %}
+        {% set current = category %}
+        {% set cot = 'category' %}
         {% set headerTitle =  category.title %}
         {% if category.styleThemeObject|length %}
             {% set headerTheme = 'ct' ~ category.styleThemeObject[0].id %}
@@ -54,7 +56,8 @@
 
 
     {% elseif entry is defined %}
-
+        {% set current = entry %}
+        {% set cot = 'entry' %}
         {% if entry.publicationCategory|length %}
             {% set ep = entry.publicationCategory[0] %}
         {% elseif entry.personStatus|length %}
@@ -159,10 +162,11 @@
         {#<md-button @click.native="show = !show">show</md-button>#}
 
         {#<div class="page-subheader">#}
-            {#{% block subheader %}#}
-            {#{% endblock %}#}
+        {#{% block subheader %}#}
+        {#{% endblock %}#}
         {#</div>#}
 
+        {#{% cache %}#}
         <div class="page-content">
             {% block content %}
             {% endblock %}
@@ -177,6 +181,7 @@
             {% block aside %}
             {% endblock %}
         </aside>
+        {#{% endcache %}#}
 
         {#{% include('inc/_speed-dial.html') %}#}
 

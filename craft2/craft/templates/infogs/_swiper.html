@@ -1,0 +1,19 @@
+<swiper class="swiper--cards arrows--t-25p i-digit-{{ block.blockDigitSize is not empty ? block.blockDigitSize : 'lg' }} i-icon-{{ block.blockIconSize is not empty ? block.blockIconSize : 'no'}} i-center-{{ block.blockCenter }} i-line-{{ block.blockLine }} i-actions-{{ block.blockShowLink }} i-icon-ani-0 i-icon-color-0" :options="{
+        roundLengths: true,
+        slidesPerView:'auto',
+        centeredSlides:true,
+        autoplay:5000,
+        loop:true,
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',}">
+    {% for item in infogs %}
+        <swiper-slide>
+            {% include "infogs/_item.html" %}
+        </swiper-slide>
+    {% endfor %}
+    <div class="swiper-pagination" slot="pagination"></div>
+    <div class="swiper-button-prev" slot="button-prev"></div>
+    <div class="swiper-button-next" slot="button-next"></div>
+</swiper>

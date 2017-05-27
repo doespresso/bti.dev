@@ -14,7 +14,17 @@
         {% set iconTheme = block['blockIconTheme'] is defined and block.blockIconTheme|length ? block.blockIconTheme[0] %}
         {% set mono = block['blockTheme'] is defined and block.blockTheme|length ? 'multi' : 'icon--mono' %}
 
-        <section class="section p-v{{ pTheme.paddingV is defined ? '-' ~ pTheme.paddingV }} m-v{{ pTheme.marginV is defined ? '-' ~ pTheme.marginV }} {{ bTheme }}">
+
+
+        {% if block.type == "sectionDivider" %}
+            {% set pv = '0' %}
+            {% set mv = '0' %}
+        {% else %}
+            {% set pv = pTheme.paddingV is defined ?  pTheme.paddingV %}
+            {% set mv = pTheme.marginV is defined ?  pTheme.marginV %}
+        {% endif %}
+
+        <section class="section p-v{{ pv is defined ? '-' ~ pv }} m-v{{ mv is defined ? '-' ~ mv }} {{ bTheme }}">
 
             {% if iconTheme %}
                 <div class="block-icon bg-icon {{ mono }} icon-color--{{ iconTheme.styleIconColor and bTheme != '' ? iconTheme.styleIconColor : 'ht' }} scale--{{ iconTheme.styleIconSize | default('x1') }} icon-sw--{{ iconTheme.styleIconLine | default('x1') }} icon-ani--{{ iconTheme.styleIconAnimation | default('draw') }} animated align--{{ iconTheme.styleIconAlign | default('left') }} valign--{{ iconTheme.styleIconAlignV | default('bottom') }}">{{ iconTheme.styleIcon ? iconTheme.styleIcon.inline }}</div>
@@ -38,6 +48,14 @@
                     {% endif %}
                 {% endif %}
 
+                {% if block.type == "sectionNav" %}
+                    {% set navs = block.blockContent|length ? block.blockContent %}
+                    {% if navs is defined %}
+                        {% set templ = "nav/" ~ block.blockTemplate %}
+                        {% include templ %}
+                    {% endif %}
+                {% endif %}
+
                 {% if block.type == "sectionPublications" %}
                     {% if block.blockSource == 'last' %}
                         {% set news = craft.entries.section('publications').limit(block.blockPerPage) %}
@@ -53,20 +71,20 @@
                     {% endif %}
                 {% endif %}
 
-                {% if block.type == "sectionQuotes" %}
-                    {% if block.blockSource == 'external' %}
-                        {% set quotes = craft.entries.section('qqq').relatedTo(entry) %}
-                    {% elseif block.blockSource == 'related' and entry.relatedQuotes|length %}
-                        {% set quotes = entry['relatedQuotes'] is defined and entry.relatedQuotes|length ? entry.relatedQuotes %}
-                    {% elseif block.blockSource == 'added' and block.blockContent|length %}
-                        {% set quotes = block.blockContent|length ? block.blockContent %}
-                    {% endif %}
+                {#{% if block.type == "sectionQuotes" %}#}
+                {#{% if block.blockSource == 'external' %}#}
+                {#{% set quotes = craft.entries.section('qqq').relatedTo(entry) %}#}
+                {#{% elseif block.blockSource == 'related' and entry.relatedQuotes|length %}#}
+                {#{% set quotes = entry['relatedQuotes'] is defined and entry.relatedQuotes|length ? entry.relatedQuotes %}#}
+                {#{% elseif block.blockSource == 'added' and block.blockContent|length %}#}
+                {#{% set quotes = block.blockContent|length ? block.blockContent %}#}
+                {#{% endif %}#}
 
-                    {% if quotes is defined %}
-                        {% set templ = "quotes/_swiper.html" %}
-                        {% include templ %}
-                    {% endif %}
-                {% endif %}
+                {#{% if quotes is defined %}#}
+                {#{% set templ = "quotes/_swiper.html" %}#}
+                {#{% include templ %}#}
+                {#{% endif %}#}
+                {#{% endif %}#}
 
                 {% if block.type == "sectionServices" %}
                     {% if block.blockSource == 'related' and entry.relatedQuotes|length %}
@@ -79,6 +97,35 @@
                         {% set templ = "services/" ~ block.blockTemplate %}
                         {% include templ %}
                     {% endif %}
+                {% endif %}
+
+                {% if block.type == "sectionInfogs" %}
+                    {#{% if block.blockSource == 'related' and entry.relatedQuotes|length %}#}
+                        {#{% set services = entry['relatedServices'] is defined and entry.relatedServices|length ? entry.relatedServices %}#}
+                    {#{% elseif block.blockSource == 'added' and block.blockContent|length %}#}
+                        {% set infogs = block.blockContent|length ? block.blockContent %}
+                    {#{% endif %}#}
+
+                    {% if infogs is defined %}
+                        {% set templ = "infogs/" ~ block.blockTemplate %}
+                        {% include templ %}
+                    {% endif %}
+                {% endif %}
+
+                {% if block.type == "sectionSubservices" and entry.descendants().total() > 0%}
+                    {#{% if block.blockSource == 'related' and entry.relatedQuotes|length %}#}
+                    {#{% set services = entry['relatedServices'] is defined and entry.relatedServices|length ? entry.relatedServices %}#}
+                    {#{% elseif block.blockSource == 'added' and block.blockContent|length %}#}
+                    {#{% set services = block.blockContent|length ? block.blockContent %}#}
+                    {#{% endif %}#}
+
+                    {% set subservices = entry.descendants() %}
+
+
+                    {#{% if services is defined %}#}
+                    {% set templ = "services/" ~ "_sub-list.html" %}
+                    {% include templ %}
+                    {#{% endif %}#}
                 {% endif %}
 
                 {% if block.type == "sectionExperts" and block.blockContent|length %}
@@ -147,63 +194,31 @@
                     </div>
                 {% endif %}
 
+                {% if block.type == "sectionDivider" %}
+                    <hr class="line-{{ block.blockContainer }}"/>
+                {% endif %}
 
-                {#{% if block.type == "sectionServices" %}#}
-                {#<md-layout class="md-container md-centered" md-gutter="40">#}
-                {#<md-layout>#}
-                {#{% if block.blockTitle %}#}
-                {#<div class="md-title section-title">{{ block.blockTitle }}</div>{% endif %}#}
-                {#{% if block.blockServices == 1 and entry.relatedServices|length %}#}
-                {#{% set services = entry.relatedServices %}#}
-                {#<md-layout class="cards-m-v" md-gutter="40" md-row>#}
-                {#{% for item in services %}#}
-                {#<md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="50" md-flex-large="33" md-flex-xlarge="33">#}
-                {#<md-card class="card-ripple" md-with-hover>#}
-                {#<md-card-header>#}
-                {#&#123;&#35;<md-ink-ripple/>&#35;&#125;#}
-                {#<md-card-header-text>#}
-                {#<a class="md-title" href="{{ item.url }}">{{ item.title }}</a>#}
-                {#<a class="md-subhead" href="{{ item.url }}">Description</a>#}
-                {#</md-card-header-text>#}
-                {#<md-card-media>#}
-                {#{% if item.styleIcon %}#}
-                {#<a class="card-icon" href="{{ item.url }}">{{ item.styleIcon.inline }}</a>#}
-                {#{% endif %}#}
-                {#</md-card-media>#}
-                {#</md-card-header>#}
-                {#<md-card-actions>#}
-                {#&#123;&#35;<md-button href="{{ item.url }}">Ознакомиться</md-button>&#35;&#125;#}
-                {#<md-button href="{{ item.url }}" class="md-icon-button">#}
-                {#<md-icon>chevron_right</md-icon>#}
-                {#</md-button>#}
-                {#</md-card-actions>#}
-                {#</md-card>#}
-                {#</md-layout>#}
-                {#{% endfor %}#}
-                {#</md-layout>#}
-                {#{% endif %}#}
-                {#</md-layout>#}
-                {#</md-layout>#}
-                {#{% endif %}#}
 
 
                 {% if bContainer == 1 %}
             </div>
             {% endif %}
+
             {% if bLink|length or bRequest == 1 %}
-            <md-layout class="md-container md-centered" md-gutter="40">
-                <md-layout>
-                    <div class="wrapper block-actions">
-                        {% for item in bLink %}
-                            <md-button class="md-raised" href="{{ item.url }}">{{ item.title }}</md-button>
-                        {% endfor %}
-                        {% if bRequest ==1 %}
-                            <md-button class="md-raised" @click.native="toggleRightSidenav">{{ 'Send Request'|t }}</md-button>
-                        {% endif %}
+                <div class="ctr">
+                    <div class="grid">
+                        <div class="col-12 actions">
+                            {% for item in bLink %}
+                                <md-button class="md-raised" href="{{ item.url }}">{{ item.title }}</md-button>
+                            {% endfor %}
+                            {% if bRequest ==1 %}
+                                {% include 'inc/_request-button.html' %}
+                            {% endif %}
+                        </div>
                     </div>
-                </md-layout>
-                {#</md-layout>#}
-                {% endif %}
+                </div>
+            {% endif %}
+
         </section>
 
 

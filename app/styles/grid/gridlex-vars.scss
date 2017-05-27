@@ -42,6 +42,49 @@ $gl-lg:        "screen and (max-width: #{$breakpoint-large})" !default; // max 1
     max-width:1200px;
   }
 }
+
+$divider-color:rgba(#000,0.075);
+
+hr.line-0,hr.line,hr.line-{
+  width:100%;
+  min-width:100%;
+  height:1px;
+  border:0!important;
+  display:block;
+  background:$divider-color;
+}
+hr.line-1{
+  max-width:480px - $gl-gutter;
+  margin-left:auto;
+  margin-right:auto;
+  @include layout-small-and-up{
+    max-width:540px - $gl-gutter;
+  }
+  @include layout-small-and-up{
+    max-width:800px - $gl-gutter;
+  }
+  @include layout-medium-and-up{
+    max-width:1000px - $gl-gutter;
+  }
+  @include layout-large-and-up{
+    max-width:1200px - $gl-gutter;
+  }
+  height:1px;
+  border:0!important;
+  display:block;
+  background:$divider-color;
+}
+[class*="col"]{
+  hr.line-1{
+    max-width: 100%;
+  }
+}
+
+hr.line.strong{
+  height:5px;
+}
+
+
 //[class*='-equalHeight']{
 //  [class*='col']{
 //    background-color:red;

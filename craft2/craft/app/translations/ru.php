@@ -1,6 +1,8 @@
 <?php
 
 return array(
+	'Close'=>'Закрыть',
+	'Show map'=>'Показать на карте',
 	'Speakers'=>'Спикеры',
 	'Registration'=>'Регистрация',
 	'Confidentiality'=>'Соглашение о конфиденциальности',
@@ -16,7 +18,7 @@ return array(
 	'Offices'=>'Офисы',
 	'of'=>'из',
 	'Page'=>'Страница',
-	'Send Request'=>'Отправить запрос',
+	'Send Request'=>'Запрос',
 	'Make Request'=>'Запрос на услуги',
 	'Request'=>'Запрос',
 	'Show More'=>'Подробности',

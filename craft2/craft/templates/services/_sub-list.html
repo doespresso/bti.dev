@@ -1,0 +1,34 @@
+{#<md-list>#}
+    {#{% for item in subservices %}#}
+    {#<md-list-item>#}
+        {#<md-icon>subdirectory_arrow_right</md-icon>#}
+        {#<div class="md-list-text-container">#}
+            {#<span class="md-title">{{ item.title }}</span>#}
+            {#&#123;&#35;<span>desc</span>&#35;&#125;#}
+        {#</div>#}
+        {#{% if true %}#}
+            {#<md-list-expand>#}
+                {#<md-list>#}
+                    {#<div class="md-list-item-content">#}
+                        {#<div class="html-content">info</div>#}
+                    {#</div>#}
+                {#</md-list>#}
+            {#</md-list-expand>#}
+        {#{% endif %}#}
+    {#</md-list-item>#}
+    {#{% endfor %}#}
+{#</md-list>#}
+
+<md-card>
+    <md-card-expand>
+        {#<md-card-header>#}
+            {#<div class="md-title">Заголовок<br>asdasdas<br/>asdsada</div>#}
+        {#</md-card-header>#}
+        <md-button class="md-icon-button" md-expand-trigger>
+            <md-icon>keyboard_arrow_down</md-icon>
+        </md-button>
+        <md-card-content>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
+        </md-card-content>
+    </md-card-expand>
+</md-card>

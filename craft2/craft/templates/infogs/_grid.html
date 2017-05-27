@@ -1,0 +1,9 @@
+<div class="i-digit-{{ block.blockDigitSize is not empty ? block.blockDigitSize : 'lg' }} i-icon-{{ block.blockIconSize is not empty ? block.blockIconSize : 'no' }} i-center-{{ block.blockCenter }} i-line-{{ block.blockLine }} i-actions-{{ block.blockShowLink }} i-icon-ani-0 i-icon-color-0">
+    <div class="grid-3_xs-1_sm-1_md-2-lg-3-equalHeight">
+        {% for item in infogs %}
+            <div class="col">
+                {% include "infogs/_item.html" %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
