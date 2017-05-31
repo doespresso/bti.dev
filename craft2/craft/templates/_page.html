@@ -56,6 +56,7 @@
 
 
     {% elseif entry is defined %}
+        {% set tagged = entry.taglist %}
         {% set current = entry %}
         {% set cot = 'entry' %}
         {% if entry.publicationCategory|length %}
@@ -154,7 +155,7 @@
     <div class="main-content" id="app" v-cloak>
         <div v-if="!loaded" style="position:fixed; left:0; top:0; right:0; bottom:0; background-color: white; z-index:1000;"></div>
         {{ include ("inc/_sidenav_list-collapse.html") }}
-        {{ include ("form/_feedback-side.html") }}
+        {#{{ include ("form/_feedback-side.html") }}#}
         <transition appear name="fade">
             {{ include ("header/_header.html") }}
         </transition>
@@ -177,15 +178,14 @@
             {% endblock %}
         </div>
 
-        <aside class="aside">
-            {% block aside %}
-            {% endblock %}
-        </aside>
         {#{% endcache %}#}
 
         {#{% include('inc/_speed-dial.html') %}#}
 
-
+        <aside class="aside">
+            {% set matrix = pageBottom.pageMatrix %}
+            {% include "matrix/_matrix.html" %}
+        </aside>
 
         {% include 'inc/_footer' %}
 

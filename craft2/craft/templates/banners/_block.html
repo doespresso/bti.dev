@@ -12,7 +12,7 @@
         <div class="block-img" style="background-image:url({{ banner.styleImg|length ? banner.styleImg[0].getUrl() }})"></div>
     {% endif %}
     {% if banner.styleIcon and not banner.styleImg|length %}
-        <div class="block-icon {{ bannerIconTheme }} icon-color--{{ banner.styleIconColor | default('2c') }} icon-ani--{{ banner.styleIconAnimation | default('draw') }} {{ not many ? 'animated' }} align--{{ banner.styleIconAlign | default('center') }} valign--{{ banner.styleIconAlignV | default('center') }} scale--{{ banner.styleIconSize | default('x1') }} icon-sw--{{ banner.styleIconLine | default('x2') }}">{{ banner.styleIcon.inline }}</div>
+        <div class="block-icon icons--themed {{ bannerIconTheme }} icon-color--{{ banner.styleIconColor | default('2c') }} icon-ani--{{ banner.styleIconAnimation | default('draw') }} {{ not many ? 'animated' }} align--{{ banner.styleIconAlign | default('center') }} valign--{{ banner.styleIconAlignV | default('center') }} scale--{{ banner.styleIconSize | default('x1') }} icon-sw--{{ banner.styleIconLine | default('x2') }}">{{ banner.styleIcon.inline }}</div>
     {% endif %}
 
 

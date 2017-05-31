@@ -1,5 +1,5 @@
 .navs {
-  [class*='col'] {
+  [class^="col"], [class*="col-"] {
     padding-bottom: 16px;
   }
 }
@@ -93,7 +93,7 @@ $isize: 100px;
     height: 100% !important;
     width: auto;
     * {
-      stroke-width: 2px !important;
+      stroke-width: 3px !important;
       fill: none !important;
       stroke: #000 !important;
     }

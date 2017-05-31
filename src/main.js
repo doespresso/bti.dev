@@ -2,10 +2,12 @@ import Vue from 'vue'
 window.Vue = Vue;
 import VueMaterial from 'vue-material/src/'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import Collapse from 'vue-collapse'
 //AIzaSyBBrn0a7rWAu93NAFSXQtV1Hkvjv_pIiHo
 
 Vue.use(VueMaterial)
 Vue.use(VueAwesomeSwiper)
+Vue.use(Collapse)
 
 
 Vue.material.registerTheme(window.themes);
@@ -13,6 +15,7 @@ Vue.material.setCurrentTheme(window.theme);
 
 
 var app = new Vue({
+    components:{Collapse},
     delimiters: ['${', '}'],
     el: '#app',
     data: {

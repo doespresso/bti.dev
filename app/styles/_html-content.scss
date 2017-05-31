@@ -1,6 +1,17 @@
+.section-title {
+  margin-bottom: 0px;
+  //font-weight: 500;
+  font-size: 18px;
+  @include layout-large-and-up{
+    //max-width:95%;
+  }
+  line-height: 1.8;
+}
+
 .html-content {
-  color: #616161;
+  //color: #616161;
   //font-size:16px;
+  color:rgba(#000,0.78);
   p {
     line-height: 1.8;
   }

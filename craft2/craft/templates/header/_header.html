@@ -6,7 +6,7 @@
                 <div class="block-img backdrop-1" style="background-image:url({{ headerImg.getUrl() }})"></div>
             {% endif %}
             {% if headerIcon and not hBanners %}
-                <div class="block-icon icon-color--{{ headerIconColor }} icon-ani--{{ headerIconAnimation }} animated align--{{ headerIconAlign }} valign--{{ headerIconAlignV }} scale--{{ headerIconSize }} icon-sw--{{ headerIconLine }}">{{ headerIcon.inline }}</div>
+                <div class="block-icon icons--themed icon-color--{{ headerIconColor }} icon-ani--{{ headerIconAnimation }} animated align--{{ headerIconAlign }} valign--{{ headerIconAlignV }} scale--{{ headerIconSize }} icon-sw--{{ headerIconLine }}">{{ headerIcon.inline }}</div>
             {% endif %}
 
             {% if hBanners|length %}
@@ -38,29 +38,29 @@
 
 
             <div class="header-bottom">
-                <div class="ctr">
+                {% if not hBanners %}
+                <div class="ctr header-title-container">
                     <div class="grid">
-                        <div class="col-11_xs-12_sm-12">
-                            {% if not hBanners %}
+                        <div class="col-12_xs-12_sm-12">
                                 <h1 class="header-title {{ entry is defined and (entry.type == 'typePublication' or entry.type == 'typeEvent') ? 'publication-title' }}">{% if headerTitle is defined %}{{ headerTitle }}{% else %}{{ siteName }}{% endif %}</h1>
-                            {% endif %}
                         </div>
                     </div>
                 </div>
-
-                {#<div class="divider-line"></div>#}
-                {##}
-                {#<div class="grid header-container grid-noWrap-middle article-info">#}
-                {#<div class="col-6">#}
-                {#<span><md-icon>access_time</md-icon>{{ entry.postDate.localeDate() }}</span>#}
-                {#<span><a href="{{ entry.publicationCategory[0].url }}">{{ entry.publicationCategory[0].title }}</a></span>#}
-                {#</div>#}
-                {#<div class="col-6 text-right">#}
-                {#<md-button class="md-icon-button">#}
-                {#<md-icon>share</md-icon>#}
-                {#</md-button>#}
-                {#</div>#}
-                {#</div>#}
+                {% endif %}
+                {% if entry is defined and entry.type == 'typePublication' %}
+                    <div class="ctr">
+                        <div class="grid-noWrap-middle article-info">
+                            <div class="col-9">
+                                <span class="date">{{ entry.postDate.localeDate() }}</span><a href="{{ entry.publicationCategory[0].url }}">{{ entry.publicationCategory[0].title }}</a>
+                            </div>
+                            <div class="col-3 text-right">
+                                <md-button class="md-icon-button">
+                                    <md-icon>share</md-icon>
+                                </md-button>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
                 <div class="header-submenu-container">
                     <div class="ctr">
                         <div class="grid">

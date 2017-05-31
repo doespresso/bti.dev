@@ -1,8 +1,11 @@
-<swiper class="swiper--cards arrows--t-25p i-digit-{{ block.blockDigitSize is not empty ? block.blockDigitSize : 'lg' }} i-icon-{{ block.blockIconSize is not empty ? block.blockIconSize : 'no'}} i-center-{{ block.blockCenter }} i-line-{{ block.blockLine }} i-actions-{{ block.blockShowLink }} i-icon-ani-0 i-icon-color-0" :options="{
+<swiper class="section-content swiper--items arrows--t-25p i-digit-{{ block.blockDigitSize is not empty ? block.blockDigitSize : 'lg' }} i-icon-{{ block.blockIconSize is not empty ? block.blockIconSize : 'no'}} i-center-{{ block.blockCenter }} i-line-{{ block.blockLine }} i-actions-{{ block.blockShowLink }} i-icon-ani-0 i-icon-color-0" :options="{
         roundLengths: true,
-        slidesPerView:'auto',
+        slidesPerView:{{ block.blockSwiperCount ? block.blockSwiperCount : '1' }},
         centeredSlides:true,
-        autoplay:5000,
+        effect:'{{ block.blockSwiperEffect is not empty ?  block.blockSwiperEffect : 'slide'}}',
+        {% if block.blockSwiperAutoplay.value != 'false' and  block.blockSwiperAutoplay is not empty %}
+        autoplay:{{ block.blockSwiperAutoplay }},
+        {% endif %}
         loop:true,
         pagination: '.swiper-pagination',
         paginationClickable: true,

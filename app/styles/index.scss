@@ -37,9 +37,11 @@
 @import "nav-link";
 @import "infographic";
 @import "html-content";
+@import "chip";
+@import "collapse";
 
 
-[class*='-icon'] svg {
+[class*='-icon']:not(.md-icon) svg {
   line, path, rect, circle, polygon, ellipse, polyline {
     fill: none!important;
     vector-effect: non-scaling-stroke !important;
@@ -68,7 +70,13 @@ a{
   text-decoration: none;
   &:hover,&:active,&:focus{
     text-decoration: none;
+    opacity:1!important;
   }
+}
+
+.md-sec{
+  font-size:14px;
+  opacity:0.54;
 }
 
 

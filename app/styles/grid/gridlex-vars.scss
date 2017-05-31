@@ -43,8 +43,13 @@ $gl-lg:        "screen and (max-width: #{$breakpoint-large})" !default; // max 1
   }
 }
 
-$divider-color:rgba(#000,0.075);
+$divider-color:rgba(#000,0.12);
 
+hr{
+  margin-top:0;
+  margin-bottom:0;
+  padding:0;
+}
 hr.line-0,hr.line,hr.line-{
   width:100%;
   min-width:100%;
@@ -52,6 +57,7 @@ hr.line-0,hr.line,hr.line-{
   border:0!important;
   display:block;
   background:$divider-color;
+
 }
 hr.line-1{
   max-width:480px - $gl-gutter;
@@ -74,7 +80,7 @@ hr.line-1{
   display:block;
   background:$divider-color;
 }
-[class*="col"]{
+[class^="col"], [class*="col-"]{
   hr.line-1{
     max-width: 100%;
   }
@@ -86,7 +92,7 @@ hr.line.strong{
 
 
 //[class*='-equalHeight']{
-//  [class*='col']{
+//  [class^="col"], [class*="col-"]{
 //    background-color:red;
 //    display:flex;
 //    flex-direction:row;
@@ -95,7 +101,7 @@ hr.line.strong{
 //}
 
 [class*='-nostretch']{
-  [class*='col']{
+  [class^="col"], [class*="col-"]{
     flex-grow:0;
   }
 }

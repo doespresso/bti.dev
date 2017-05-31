@@ -1,6 +1,10 @@
 <?php
 
 return array(
+	'Baker Tilly International offices'=>'Офисы Baker Tilly International',
+	'On the topic'=>'Материалы по теме',
+	'Related content'=>'Связанное содержание',
+	'Schedule'=>'Программа',
 	'Close'=>'Закрыть',
 	'Show map'=>'Показать на карте',
 	'Speakers'=>'Спикеры',

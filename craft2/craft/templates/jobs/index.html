@@ -1,0 +1,14 @@
+
+
+{% extends "_page.html" %}
+
+{% set jobs = craft.entries.section('jobs') %}
+
+{% block content %}
+    {#<section class="section">#}
+        {#{% if jobs|length %}#}
+            {#{% include "jobs/_list-cards.html" %}#}
+        {#{% endif %}#}
+    {#</section>#}
+    jobs
+{% endblock %}

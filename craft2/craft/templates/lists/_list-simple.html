@@ -1,8 +1,9 @@
 <md-list class="{{ classes }} md-transparent">
     {% for item in items %}
-        <md-list-item {{ "href=#{item.url}" }} class="md-inset">
+        <md-list-item {{ "href=#{item.url}" }}>
             {% if divider is defined %}
-                <md-divider></md-divider>{% endif %}
+                {#<md-divider class="md-inset"></md-divider>#}
+            {% endif %}
             <div class="md-list-text-container">{{ item.title }}</div>
             {% if item.url is defined %}
                 <md-button class="md-icon-button md-list-action">

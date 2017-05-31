@@ -1,5 +1,9 @@
-{% if entry.pageMatrix is defined %}
-    {% for block in entry.pageMatrix %}
+{% if matrix is not defined %}
+    {% set isbottom = true %}
+    {% set matrix = entry.pageMatrix %}
+{% endif %}
+{% if matrix is defined %}
+    {% for block in matrix %}
 
         {% set bTheme = block['blockTheme'] is defined and block.blockTheme|length ? 'md-theme-ct' ~ block.blockTheme[0].id : '' %}
         {% set pTheme = block['blockPad'] is defined and block.blockPad|length ? block.blockPad[0] %}
@@ -13,6 +17,7 @@
         {% set bLink = block['blockLink'] is defined and block.blockLink|length ? block.blockLink %}
         {% set iconTheme = block['blockIconTheme'] is defined and block.blockIconTheme|length ? block.blockIconTheme[0] %}
         {% set mono = block['blockTheme'] is defined and block.blockTheme|length ? 'multi' : 'icon--mono' %}
+        {#{% set tagged = entry.taglist %}#}
 
 
 
@@ -27,12 +32,12 @@
         <section class="section p-v{{ pv is defined ? '-' ~ pv }} m-v{{ mv is defined ? '-' ~ mv }} {{ bTheme }}">
 
             {% if iconTheme %}
-                <div class="block-icon bg-icon {{ mono }} icon-color--{{ iconTheme.styleIconColor and bTheme != '' ? iconTheme.styleIconColor : 'ht' }} scale--{{ iconTheme.styleIconSize | default('x1') }} icon-sw--{{ iconTheme.styleIconLine | default('x1') }} icon-ani--{{ iconTheme.styleIconAnimation | default('draw') }} animated align--{{ iconTheme.styleIconAlign | default('left') }} valign--{{ iconTheme.styleIconAlignV | default('bottom') }}">{{ iconTheme.styleIcon ? iconTheme.styleIcon.inline }}</div>
+                <div class="block-icon bg-icon icons--themed {{ mono }} icon-color--{{ iconTheme.styleIconColor and bTheme != '' ? iconTheme.styleIconColor : 'ht' }} scale--{{ iconTheme.styleIconSize | default('x1') }} icon-sw--{{ iconTheme.styleIconLine | default('x1') }} icon-ani--{{ iconTheme.styleIconAnimation | default('draw') }} animated align--{{ iconTheme.styleIconAlign | default('left') }} valign--{{ iconTheme.styleIconAlignV | default('bottom') }}">{{ iconTheme.styleIcon ? iconTheme.styleIcon.inline }}</div>
             {% endif %}
 
             {% if bTitle %}
                 <div class="ctr wrapper t-color">
-                    <div class="section-title md-body-2">{{ bTitle }}</div>
+                    <div class="section-title">{{ bTitle }}</div>
                 </div>
             {% endif %}
 
@@ -71,6 +76,23 @@
                     {% endif %}
                 {% endif %}
 
+                {% if block.type == "sectionProjects" %}
+                    {% if block.blockSource == 'bytag' %}
+                        {% set projects = craft.entries.section('projects').relatedTo(tagged).limit(10) %}
+                    {% elseif block.blockSource == 'related' and entry.relatedProjects|length %}
+                        {% set projects = entry['relatedProjects'] is defined and entry.relatedProjects|length ? entry.relatedProjects %}
+                    {% elseif block.blockSource == 'added' and block.blockContent|length %}
+                        {% set projects = block.blockContent|length ? block.blockContent %}
+                    {% else %}
+                        {% set projects = craft.entries.section('projects').relatedTo(tagged).limit(10) %}
+                    {% endif %}
+
+                    {% if projects is defined %}
+                        {% set templ = block.blockTemplate is not empty ? "projects/" ~ block.blockTemplate : "projects/_list-collapse.html" %}
+                        {% include templ %}
+                    {% endif %}
+                {% endif %}
+
                 {#{% if block.type == "sectionQuotes" %}#}
                 {#{% if block.blockSource == 'external' %}#}
                 {#{% set quotes = craft.entries.section('qqq').relatedTo(entry) %}#}
@@ -101,9 +123,9 @@
 
                 {% if block.type == "sectionInfogs" %}
                     {#{% if block.blockSource == 'related' and entry.relatedQuotes|length %}#}
-                        {#{% set services = entry['relatedServices'] is defined and entry.relatedServices|length ? entry.relatedServices %}#}
+                    {#{% set services = entry['relatedServices'] is defined and entry.relatedServices|length ? entry.relatedServices %}#}
                     {#{% elseif block.blockSource == 'added' and block.blockContent|length %}#}
-                        {% set infogs = block.blockContent|length ? block.blockContent %}
+                    {% set infogs = block.blockContent|length ? block.blockContent %}
                     {#{% endif %}#}
 
                     {% if infogs is defined %}
@@ -112,7 +134,7 @@
                     {% endif %}
                 {% endif %}
 
-                {% if block.type == "sectionSubservices" and entry.descendants().total() > 0%}
+                {% if block.type == "sectionSubservices" and entry.descendants().total() > 0 %}
                     {#{% if block.blockSource == 'related' and entry.relatedQuotes|length %}#}
                     {#{% set services = entry['relatedServices'] is defined and entry.relatedServices|length ? entry.relatedServices %}#}
                     {#{% elseif block.blockSource == 'added' and block.blockContent|length %}#}
@@ -128,8 +150,8 @@
                     {#{% endif %}#}
                 {% endif %}
 
-                {% if block.type == "sectionExperts" and block.blockContent|length %}
-                    {% if block.blockSource == 'related' and entry.relatedPublications|length %}
+                {% if block.type == "sectionExperts"%}
+                    {% if block.blockSource == 'related' and entry.relatedPersons|length %}
                         {% set persons = entry['relatedPersons'] is defined and entry.relatedPersons|length ? entry.relatedPersons %}
                     {% elseif block.blockSource == 'added' and block.blockContent|length %}
                         {% set persons = block.blockContent|length ? block.blockContent %}

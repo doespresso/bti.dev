@@ -1,0 +1,11 @@
+{% for item in _related %}
+    <a href="{{ item.url }}" class="chip">
+        {% if item.type == 'typePerson' %}
+            {% if item.personPhoto|length %}
+                {% set photo = item.personPhoto.first() %}
+                <img src="{{ photo.getUrl('resizeMicro') }}"/>
+            {% endif %}
+        {% endif %}
+        {{ item.title }}
+    </a>
+{% endfor %}

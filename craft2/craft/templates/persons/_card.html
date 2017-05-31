@@ -2,18 +2,16 @@
     <md-card-area class="md-flex">
         {% if item.personPhoto|length %}
             {% set photo = item.personPhoto.first() %}
-            <md-card-media class="md-4-5" style="background-image:url('{{ photo.getUrl('resizePersonsList') }}')">
+            <md-card-media class="photo-aspect has-ripple" style="background-image:url('{{ photo.getUrl('resizePersonsList') }}')">
                 <a class="cover-link" href="{{ item.url }}">
-                    {#<img src="{{ photo.getUrl('resizePersonsList') }}">#}
                 </a>
-                {#<md-ink-ripple/>#}
+                <md-ink-ripple/>
             </md-card-media>
         {% endif %}
         <md-card-content>
             <h3 class="md-title">{{ item.personFirstname }} {{ item.personLastname }}</h3>
             <div class="md-subhead">{{ item.personStatusOver ? item.personStatusOver : item.personStatus.first().groupTeamStatus }}. {{ item.personDepartment }}</div>
         </md-card-content>
-        {#<md-ink-ripple/>#}
     </md-card-area>
     <md-card-actions>
         <md-button href="{{ item.url }}">Профайл</md-button>

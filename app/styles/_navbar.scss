@@ -75,7 +75,7 @@
 .header-submenu-container {
   position: relative;
   min-height: 48px;
-  [class*='col'] {
+  [class^="col"], [class*="col-"] {
     padding: 0;
     @include layout-small-and-up {
       padding-left: $gl-gutter/2;
@@ -142,6 +142,12 @@
 
 .header-bottom {
   width: 100%;
+}
+
+.header-title-container{
+  [class^="col"], [class*="col-"]{
+    padding-bottom: 8px;
+  }
 }
 
 .nav-menu {

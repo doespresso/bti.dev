@@ -1,0 +1,5 @@
+<div class="nav-list--inline" role="navigation">
+    {% for item in craft.entries.section('menus').showFooter('1') %}
+    <a href="{{ item.url }}">{{ item.title }}</a>
+    {% endfor %}
+</div>

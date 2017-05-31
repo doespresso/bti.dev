@@ -3,31 +3,12 @@
 
 {% block content %}
     <section class="section">
-        <div class="ctr">
+        <div class="ctr section-content">
             <div class="grid">
                 <div class="col-4_xs-12_sm-5">
                     <div class="wrapper">
-                        <md-card class="card--person m-b-40">
-                            <md-card-area>
-                                {% if entry.personPhoto|length %}
-                                    {% set photo = entry.personPhoto.first() %}
-                                    <md-card-media class="foto">
-                                        <img src="{{ photo.getUrl('resizePersonsList') }}">
-                                    </md-card-media>
-                                {% endif %}
-
-                                <md-card-header>
-                                    <h1 class="md-title">{{ entry.personFirstname }} {{ entry.personLastname }}</h1>
-
-                                    <div class="md-subhead">{{ entry.personStatusOver ? entry.personStatusOver : entry.personStatus.first().groupTeamStatus }}</div>
-                                    <div class="md-subhead">{{ entry.personPosition }}</div>
-                                </md-card-header>
-                                <md-card-content class="no-p">
-                                    {% set contact = entry %}
-                                    {% include "contacts/_list.html" %}
-                                </md-card-content>
-                            </md-card-area>
-                        </md-card>
+                        {% set person = entry %}
+                        {% include "persons/_person-card.html" %}
                     </div>
                 </div>
                 <div class="col-8_xs-12_sm-7">
@@ -45,13 +26,13 @@
                                 </md-tab>
                             {% endif %}
                             {% if entry.relatedServices|length %}
-                                <md-tab id="p_services" md-label="{{ 'Service line' | t }}">
+                                <md-tab id="p_services" md-label="{{ 'Services' | t }}">
                                     {#<p>{{ entry.personFirstname }} оказывает следующие услуги:</p>#}
                                     {{ include ("lists/_list-simple.html",{'items':entry.relatedServices,'classes':'md-dense','links':true, 'divider':true}) }}
                                 </md-tab>
                             {% endif %}
                             {% if entry.relatedBranches|length %}
-                                <md-tab id="p_branches" md-label="{{ 'Industry expertise' | t }}">
+                                <md-tab id="p_branches" md-label="{{ 'Industries' | t }}">
                                     {#<p>{{ entry.personFirstname }} обладает расширенной отраслевой экспертизой:</p>#}
                                     {{ include ("lists/_list-simple.html",{'items':entry.relatedBranches,'classes':'md-dense','links':true, 'divider':true}) }}
                                 </md-tab>

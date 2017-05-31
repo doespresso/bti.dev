@@ -9,13 +9,23 @@
   .line, .line-, .line-0, .line-1 {
     display: none;
   }
-  .actions{
-    display:none;
+  .actions {
+    display: none;
+  }
+  //max-width:320px;
+  .swiper-slide & {
+    width: 280px;
+    margin-bottom: 80px;
+    @include layout-small-and-up {
+      width: 520px;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
   }
   margin-bottom: 40px;
 }
 
-.swiper-slide{
+.swiper-slide {
   //.teaser{
   //  text-align: center!important;
   //  max-width:280px;
@@ -43,6 +53,7 @@
   opacity: 0.78;
   margin-top: 16px;
   line-height: 1.8;
+  flex: 1;
 }
 
 .teaser-icon {
@@ -54,10 +65,10 @@
   height: 200px;
   display: none;
   //background-color: red;
+  opacity: 0.085;
   svg {
     height: 100% !important;
     width: auto;
-    opacity: 0.085;
     * {
       stroke-width: 6px !important;
       fill: none !important;
@@ -67,9 +78,9 @@
 }
 
 //actions
-.i-actions-1{
-  .teaser .actions{
-    display:block;
+.i-actions-1 {
+  .teaser .actions {
+    display: block;
   }
 }
 
@@ -95,14 +106,11 @@
   }
 }
 
-
-
 .i-icon-1 {
   .teaser-icon {
     display: block;
   }
 }
-
 
 //icon show
 .i-icon-0, .i-icon-, .i-icon {
@@ -113,37 +121,37 @@
 
 //icon size
 .i-icon-sm {
-  .teaser{
-    padding-top:100px;
+  .teaser {
+    padding-top: 100px;
   }
   .teaser-icon {
     height: 120px;
-    padding:2px;
+    padding: 2px;
     display: block;
     //margin:0 24px;
-    svg *{
-      stroke-width:3px!important;
+    svg * {
+      stroke-width: 3px !important;
     }
   }
 }
 
 .i-icon-md {
-  .teaser{
-    padding-top:120px;
+  .teaser {
+    padding-top: 120px;
   }
   .teaser-icon {
     height: 160px;
     display: block;
-    svg *{
-      stroke-width:5px!important;
+    svg * {
+      stroke-width: 5px !important;
     }
   }
 }
 
 .i-icon-lg {
-  .teaser{
+  .teaser {
     //min-height: 300px;
-    padding-top:180px;
+    padding-top: 180px;
   }
   .teaser-icon {
     height: 200px;
@@ -159,31 +167,39 @@
 }
 
 //digit size
-.i-digit-sm .teaser-title{
+.i-digit-sm .teaser-title {
   font-size: 20px;
   font-weight: 400;
   margin-bottom: 8px;
 }
 
-.i-digit-md .teaser-title{
+.i-digit-md .teaser-title {
   font-size: 48px;
-  margin-bottom:24px;
+  margin-bottom: 24px;
   font-weight: 400;
 }
 
-.i-digit-lg .teaser-title{
+.i-digit-lg .teaser-title {
   font-size: 96px;
-  margin-bottom:48px;
+  margin-bottom: 48px;
   font-weight: 300;
 }
 
 //line
 .i-line-1 {
-  .line,.line-1,.line-,.line-0{
-    display:block;
+  .line, .line-1, .line-, .line-0 {
+    display: block;
   }
 }
 
 //slider single
 //slider many
 
+.section[class*="md-theme-"] {
+  .teaser-icon {
+    opacity:0.99;
+    &.icon-mono{
+      opacity:0.3;
+    }
+  }
+}

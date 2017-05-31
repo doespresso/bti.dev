@@ -82,6 +82,17 @@
     }
   }
 }
+
+.swiper--items {
+  .swiper-slide {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+  }
+}
+
 .swiper-container.swiper--cards {
   padding-bottom:20px;
   .swiper-pagination {

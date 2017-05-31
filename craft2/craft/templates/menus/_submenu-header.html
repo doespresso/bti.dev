@@ -29,7 +29,7 @@
             {% set subitems =  menu_item_parent.children %}
             <md-tabs>
                 {% for menu_subitem in subitems %}
-                    <md-tab id="{{ 'm'~menu_subitem.id }}" md-label="{{ menu_subitem.title }}" {{ menu_subitem.id == menu_item.id ? 'md-active' }}
+                    <md-tab href="{{ menu_subitem.url }}" id="{{ 'm'~menu_subitem.id }}" md-label="{{ menu_subitem.title }}" {{ menu_subitem.id == menu_item.id ? 'md-active' }}
                             href="{{ menu_subitem.menuItem.blocks[0].obj[0].url is defined ? menu_subitem.menuItem.blocks[0].obj[0].url : menu_subitem.menuItem.blocks[0].obj }}"></md-tab>
                 {% endfor %}
             </md-tabs>
