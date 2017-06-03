@@ -1,4 +1,26 @@
 {% extends "_page.html" %}
 {% block content %}
-    {% include('matrix/_matrix.html') %}
+    <section class="section">
+        <div class="ctr">
+            {% if entry.asideMatrix is defined and entry.asideMatrix.blocks|length %}
+            {% set matrix = entry.asideMatrix  %}
+                <div class="grid">
+                    <div class="col-8_xs-12_sm-12_md-9">
+                        <div class="section-title">{{ entry.Short }}</div>
+                        <div class="section-content html-content">{{ entry.fullText }}</div>
+                        {#{% include('matrix/_matrix.html') %}#}
+                    </div>
+                    <div class="col-4_xs-12_sm-12_md-3 aside aside-right">
+                        {% include('matrix/_matrix.html') %}
+                    </div>
+                </div>
+
+            {% else %}
+                <div class="section-title">{{ entry.Short }}</div>
+                <div class="section-content html-content">{{ entry.fullText }}</div>
+            {% endif %}
+        </div>
+        {% set matrix = entry.pageMatrix  %}
+        {% include('matrix/_matrix.html') %}
+    </section>
 {% endblock %}

@@ -1,18 +1,44 @@
-.section-title {
-  margin-bottom: 0px;
-  //font-weight: 500;
-  font-size: 18px;
-  @include layout-large-and-up{
-    //max-width:95%;
-  }
-  line-height: 1.8;
-}
 
 .html-content {
-  //color: #616161;
-  //font-size:16px;
-  color:rgba(#000,0.78);
+  color:#000;
+  opacity: 0.78;
+
   p {
     line-height: 1.8;
+  }
+
+  h2, .h2 {
+    color:inherit;
+    //opacity: 0.97;
+    margin-top: 40px;
+    margin-bottom: 24px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  h3, .h3 {
+    color:inherit;
+    //opacity: 0.97;
+    margin-top: 40px;
+    padding-top: 16px;
+    margin-bottom: 24px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.8;
+    border-top: 1px solid $divider-color;
+  }
+
+  ul,ol{
+    padding-left:16px;
+    @include layout-medium-and-up{
+      padding-left:24px;
+    }
+    @include layout-large-and-up{
+      padding-left:40px;
+    }
+    li{
+      margin-bottom: 8px;
+    }
   }
 }

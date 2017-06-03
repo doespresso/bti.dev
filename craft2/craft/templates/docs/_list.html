@@ -1,14 +1,9 @@
-<div class="ctr m-v-40">
-    <div class="grid-1">
-        <div class="col">
-            <md-list class="custom-list md-triple-line md-transparent">
-                {% for item in docs %}
-                    {% include "docs/_list-item.html" %}
-                {% endfor %}
-            </md-list>
-        </div>
-    </div>
-</div>
+<md-list class="custom-list md-triple-line">
+    <md-subheader class="md-inset">{{ 'Downloads' | t }}</md-subheader>
+    {% for item in docs %}
+        {% include "docs/_list-item.html" %}
+    {% endfor %}
+</md-list>
 
 
 

@@ -17,30 +17,34 @@
     }) %}
 {% endif %}
 
-{% if menu_item|length>0 %}
-    {#{{ menu_item.count }}#}
-    {% set menu_item = menu_item.last() %}
-    {#| current: {{ menu_item.title }}#}
-    {#{{ menu_item.level }}#}
-    {% if menu_item.parent|length %}
-        {% set menu_item_parent = menu_item.parent %}
-        {#| parent: {{ menu_item_parent.title }} / {{ menu_item_parent.showInSub}}#}
-        {% if menu_item_parent.showInSub == 'children' %}
-            {% set subitems =  menu_item_parent.children %}
-            <md-tabs>
-                {% for menu_subitem in subitems %}
-                    <md-tab href="{{ menu_subitem.url }}" id="{{ 'm'~menu_subitem.id }}" md-label="{{ menu_subitem.title }}" {{ menu_subitem.id == menu_item.id ? 'md-active' }}
-                            href="{{ menu_subitem.menuItem.blocks[0].obj[0].url is defined ? menu_subitem.menuItem.blocks[0].obj[0].url : menu_subitem.menuItem.blocks[0].obj }}"></md-tab>
-                {% endfor %}
-            </md-tabs>
+
+{% set top_menu %}
+    {% if menu_item|length>0 %}
+        {#{{ menu_item.count }}#}
+        {% set menu_item = menu_item.last() %}
+        {#| current: {{ menu_item.title }}#}
+        {#{{ menu_item.level }}#}
+        {% if menu_item.parent|length %}
+            {% set menu_item_parent = menu_item.parent %}
+            {#| parent: {{ menu_item_parent.title }} / {{ menu_item_parent.showInSub}}#}
+            {% if menu_item_parent.showInSub == 'children' %}
+                {% set subitems =  menu_item_parent.children.menuHideTop({id: 'not 1' }) %}
+                <md-tabs @goto="submenuClicked">
+                    {% for menu_subitem in subitems %}
+                        <md-tab id="{{ 'm'~menu_subitem.id }}" md-label="{{ menu_subitem.title }}" {{ menu_subitem.id == menu_item.id ? 'md-active' }}
+                                md-href="{{ menu_subitem.menuItem.blocks[0].obj[0].url is defined ? menu_subitem.menuItem.blocks[0].obj[0].url : menu_subitem.menuItem.blocks[0].obj }}"></md-tab>
+                    {% endfor %}
+                </md-tabs>
+            {% endif %}
+        {% else %}
+            {#no parent#}
         {% endif %}
     {% else %}
-        {#no parent#}
+        {#no menu item#}
     {% endif %}
-{% else %}
-    {#no menu item#}
-{% endif %}
+{% endset %}
 
+{% if currentType!='typePublication' %}{{ top_menu }}{% endif %}
 
 {#<md-tabs>#}
     {#<md-tab id="movies" md-label="Movies" v-on:click.capture="tabb()">#}

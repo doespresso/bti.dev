@@ -38,6 +38,30 @@
             {% endfor %}
         };
         window.theme = '{{ headerTheme }}';
+
+
+
+        {% set persons = craft.entries.section('persons') %}
+        window.persons=[
+        {% for person in persons %}
+        {"id":{{ person.id }},"fname":"{{ person.personFirstname }}","url":"{{ person.url }}"},
+        {% endfor %}
+        ];
+
+        {% set branches = craft.entries.section('branches') %}
+        window.branches=[
+            {% for item in branches %}
+            {"id":{{ item.id }},"fname":"{{ item.title }}"},
+            {% endfor %}
+        ];
+
+        {% set services = craft.entries.section('services').level(1) %}
+        window.services=[
+            {% for item in services %}
+            {"id":{{ item.id }},"fname":"{{ item.title }}"},
+            {% endfor %}
+        ];
+
     </script>
 {% endspaceless %}
 {#{% endcache %}#}

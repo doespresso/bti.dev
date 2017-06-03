@@ -1,32 +1,41 @@
-<div class="col">
+<div class="col{{ item.cardWidth2 }}">
     <md-card class="card--news {{ item.cardColor|length and item.cardFullColor ? 'md-primary' }} {{ item.cardColor|length ? 'themed' }}" md-with-hover
              md-theme="{{ item.cardColor|length ? 'ct'~item.cardColor[0].id }}">
         <md-card-area class="md-flex">
-            {% if item.cardImg|length or item.styleIcon %}
+            {% if item.cardImg|length or item.cardIcon %}
                 {% if item.cardImg|length %}
                     {% set photo = item.cardImg[0].getUrl('resizeNewsList') %}
                 {% else %}
                     {% set photo = '' %}
                 {% endif %}
-                <md-card-media class="has-ripple backdrop-1" style="background-image:url({{ photo }})">
+                <md-card-media class="has-ripple backdrop-{{ item.cardImg|length ? '0' }}" style="background-image:url({{ photo }})">
                     <a class="cover-link" href="{{ item.url }}">
-                        {% if item.styleIcon %}
-                            <div class="card-icon">{{ item.styleIcon.inline }}</div>
+                        {% if item.cardIcon %}
+                            <div class="card-icon">{{ item.cardIcon.inline }}</div>
                         {% endif %}
                     </a>
                     <md-ink-ripple/>
                 </md-card-media>
             {% endif %}
             <md-card-content>
+                <div class="md-subhead date">{{ item.postDate.localeDate() }}</div>
                 <h3 class="md-title"><a href="{{ item.url }}">{{ item.title }}</a></h3>
-                {#<div class="md-subhead">{{ item.postDate.localeDate() }}</div>#}
+                <div class="md-subhead">{{ item.cardAnons }}</div>
             </md-card-content>
         </md-card-area>
         <md-card-actions>
             <md-button href="{{ item.publicationCategory[0].url }}">{{ item.publicationCategory[0] }}</md-button>
             <span class="md-flex"></span>
             <md-button class="md-icon-button" href="{{ item.url }}">
+                {% if item.videoCodeYT|length %}
+                <md-icon>play_arrow</md-icon>
+                {% elseif item.eventOn=='1' %}
+                <md-icon>event</md-icon>
+                {% elseif item.pageMatrix.type('sectionDocs')|length %}
+                <md-icon>attach_file</md-icon>
+                {% else %}
                 <md-icon>chevron_right</md-icon>
+                {% endif %}
             </md-button>
         </md-card-actions>
     </md-card>

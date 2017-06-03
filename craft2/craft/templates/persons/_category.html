@@ -6,10 +6,11 @@
 {% set persons = craft.entries.section('persons').relatedTo(category).limit(perPage).order('personLastname') %}
 
 
-{% block subheader %}
-    {% include "persons/_filter.html" %}
-{% endblock %}
+{#{% block subheader %}#}
+
+{#{% endblock %}#}
 {% block content %}
+    {% include "persons/_filter.html" %}
     <section class="section p-v- m-v-">
         <div class="ctr section-content">
             {% include "persons/_list-cards.html" %}

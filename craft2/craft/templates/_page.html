@@ -20,50 +20,52 @@
 
     {% if category is defined %}
         {% set current = category %}
+        {% set currentType = current.group %}
         {% set cot = 'category' %}
-        {% set headerTitle =  category.title %}
-        {% if category.styleThemeObject|length %}
-            {% set headerTheme = 'ct' ~ category.styleThemeObject[0].id %}
+        {% set headerTitle =  current.title %}
+        {% if current.styleThemeObject|length %}
+            {% set headerTheme = 'ct' ~ current.styleThemeObject[0].id %}
         {% endif %}
-        {% if category.styleHeight is not empty %}
-            {% set headerHeight = category.styleHeight %}
+        {% if current.styleHeight is not empty %}
+            {% set headerHeight = current.styleHeight %}
         {% endif %}
-        {% if category.styleIcon %}
-            {% set headerIcon = category.styleIcon %}
+        {% if current.styleIcon %}
+            {% set headerIcon = current.styleIcon %}
         {% endif %}
-        {% if category.styleIconAlign is not empty %}
-            {% set headerIconAlign = category.styleIconAlign %}
+        {% if current.styleIconAlign is not empty %}
+            {% set headerIconAlign = current.styleIconAlign %}
         {% endif %}
-        {% if category.styleIconAlignV is not empty %}
-            {% set headerIconAlignV = category.styleIconAlignV %}
+        {% if current.styleIconAlignV is not empty %}
+            {% set headerIconAlignV = current.styleIconAlignV %}
         {% endif %}
-        {% if category.styleIconSize is not empty %}
-            {% set headerIconSize = category.styleIconSize %}
+        {% if current.styleIconSize is not empty %}
+            {% set headerIconSize = current.styleIconSize %}
         {% endif %}
-        {% if category.styleIconAnimation is not empty %}
-            {% set headerIconAnimation = category.styleIconAnimation %}
+        {% if current.styleIconAnimation is not empty %}
+            {% set headerIconAnimation = current.styleIconAnimation %}
         {% endif %}
-        {% if category.styleIconColor is not empty %}
-            {% set headerIconColor = category.styleIconColor %}
+        {% if current.styleIconColor is not empty %}
+            {% set headerIconColor = current.styleIconColor %}
         {% endif %}
-        {% if category.styleIconLine is not empty %}
-            {% set headerIconLine = category.styleIconLine %}
+        {% if current.styleIconLine is not empty %}
+            {% set headerIconLine = current.styleIconLine %}
         {% endif %}
-        {% if category.styleImg|length %}
-            {% set headerImg =  category.styleImg[0] %}
+        {% if current.styleImg|length %}
+            {% set headerImg =  current.styleImg[0] %}
             {% set headerIcon =  '' %}
         {% endif %}
 
 
     {% elseif entry is defined %}
-        {% set tagged = entry.taglist %}
         {% set current = entry %}
+        {% set currentType = current.type %}
+        {% set tagged = current.taglist %}
         {% set cot = 'entry' %}
-        {% if entry.publicationCategory|length %}
-            {% set ep = entry.publicationCategory[0] %}
-        {% elseif entry.personStatus|length %}
-            {% set ep = entry.personStatus[0] %}
-        {% elseif entry.type == 'typePage' and entry.ancestors|length %}
+        {% if current.publicationCategory|length %}
+            {% set ep = current.publicationCategory[0] %}
+        {% elseif current.personStatus|length %}
+            {% set ep = current.personStatus[0] %}
+        {% elseif current.type == 'typePage' and current.ancestors|length %}
             {% set ep = craft.entries.ancestorOf(entry).first() %}
         {% endif %}
         {% if ep is defined %}
@@ -104,42 +106,42 @@
         {% endif %}
 
 
-        {% set headerTitle =  entry.title %}
+        {% set headerTitle =  current.title %}
 
 
-        {% if entry.styleThemeObject|length %}
-            {% set headerTheme = 'ct' ~ entry.styleThemeObject[0].id %}
+        {% if current.styleThemeObject|length %}
+            {% set headerTheme = 'ct' ~ current.styleThemeObject[0].id %}
         {% endif %}
-        {% if entry.styleHeight is not empty %}
-            {% set headerHeight = entry.styleHeight %}
+        {% if current.styleHeight is not empty %}
+            {% set headerHeight = current.styleHeight %}
         {% endif %}
-        {% if entry.styleIcon %}
-            {% set headerIcon = entry.styleIcon %}
+        {% if current.styleIcon %}
+            {% set headerIcon = current.styleIcon %}
         {% endif %}
-        {% if entry.styleIconAlign is not empty %}
-            {% set headerIconAlign = entry.styleIconAlign %}
+        {% if current.styleIconAlign is not empty %}
+            {% set headerIconAlign = current.styleIconAlign %}
         {% endif %}
-        {% if entry.styleIconAlignV is not empty %}
-            {% set headerIconAlignV = entry.styleIconAlignV %}
+        {% if current.styleIconAlignV is not empty %}
+            {% set headerIconAlignV = current.styleIconAlignV %}
         {% endif %}
-        {% if entry.styleIconSize is not empty %}
-            {% set headerIconSize = entry.styleIconSize %}
+        {% if current.styleIconSize is not empty %}
+            {% set headerIconSize = current.styleIconSize %}
         {% endif %}
-        {% if entry.styleIconAnimation is not empty %}
-            {% set headerIconAnimation = entry.styleIconAnimation %}
+        {% if current.styleIconAnimation is not empty %}
+            {% set headerIconAnimation = current.styleIconAnimation %}
         {% endif %}
-        {% if entry.styleIconColor is not empty %}
-            {% set headerIconColor = entry.styleIconColor %}
+        {% if current.styleIconColor is not empty %}
+            {% set headerIconColor = current.styleIconColor %}
         {% endif %}
-        {% if entry.styleIconLine is not empty %}
-            {% set headerIconLine = entry.styleIconLine %}
+        {% if current.styleIconLine is not empty %}
+            {% set headerIconLine = current.styleIconLine %}
         {% endif %}
-        {% if entry.styleImg|length %}
-            {% set headerImg =  entry.styleImg[0] %}
+        {% if current.styleImg|length %}
+            {% set headerImg =  current.styleImg[0] %}
             {% set headerIcon =  '' %}
         {% endif %}
 
-        {% set hBanners = entry['styleHeaderBanners'] is defined and entry.styleHeaderBanners|length ? entry.styleHeaderBanners : false %}
+        {% set hBanners = entry['styleHeaderBanners'] is defined and current.styleHeaderBanners|length ? current.styleHeaderBanners : false %}
 
     {% else %}
     {% endif %}
@@ -148,6 +150,8 @@
     <head>
         {% include 'inc/_head' %}
         {% include 'inc/_meta' %}
+        {% block scripted %}
+        {% endblock %}
         {% include "inc/_md-themes.html" %}
     </head>
 
@@ -168,11 +172,11 @@
         {#</div>#}
 
         {#{% cache %}#}
+        {% set left_column=true %}
         <div class="page-content">
             {% block content %}
             {% endblock %}
         </div>
-
         <div class="page-pager">
             {% block pager %}
             {% endblock %}
@@ -182,9 +186,9 @@
 
         {#{% include('inc/_speed-dial.html') %}#}
 
-        <aside class="aside">
-            {% set matrix = pageBottom.pageMatrix %}
-            {% include "matrix/_matrix.html" %}
+        <aside class="aside-bottom">
+            {#{% set matrix = pageBottom.pageMatrix %}#}
+            {#{% include "matrix/_matrix.html" %}#}
         </aside>
 
         {% include 'inc/_footer' %}

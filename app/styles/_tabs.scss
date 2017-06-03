@@ -1,0 +1,19 @@
+.md-tabs {
+  &.tabs-inline {
+
+    .md-tabs-navigation-scroll-container{
+      width:100%;
+      //min-width:100%;
+      max-width:1160px;
+      justify-content: center;
+    }
+    .md-tab-header {
+      max-width:50%;
+      white-space: none !important;
+      span{white-space: none!important;}
+    }
+  }
+  .md-tab{
+    padding:0;
+  }
+}

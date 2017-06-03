@@ -1,19 +1,12 @@
-<md-list-item>
+<md-list-item href="{{ item.url }}" target="_blank">
 
-    <md-avatar>
-        <a href="{{ item.url }}"><md-icon>insert_drive_file</md-icon></a>
-        {#<img src="https://placeimg.com/40/40/people/1" alt="People">#}
-    </md-avatar>
-
-    <a class="md-list-text-container" href="{{ item.url }}" target="_blank">
+    <md-icon>insert_drive_file</md-icon>
+    <div class="md-list-text-container">
         <span class="md-title">{{ item.title }}</span>
         <span>{{ item.docShort }}</span>
-        <span class="doc-type">{{ item.kind }} {{ item.size|filesize }}</span>
-    </a>
 
-    <md-button href="{{ item.url }}" target="_blank" class="md-icon-button md-list-action">
-        <md-icon>file_download</md-icon>
-    </md-button>
-    <md-divider class="md-inset"></md-divider>
-
+        <p class="file-info">{{ item.kind }} {{ item.size|filesize }}</p>
+    </div>
+    <md-icon>file_download</md-icon>
+    <md-divider></md-divider>
 </md-list-item>

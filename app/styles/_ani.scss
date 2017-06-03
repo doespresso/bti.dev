@@ -23,6 +23,10 @@
 }
 
 .swiper-slide {
+  .teaser-title{
+    opacity:0;
+    transition: 1s 0.5s;
+  }
   .icon-ani--draw, .ani--draw {
     svg {
       line, path, rect, circle {
@@ -37,6 +41,9 @@
 }
 
 .swiper-slide-active {
+  .teaser-title{
+    opacity:1;
+  }
   .icon-ani--draw, .ani--draw {
     svg {
       line, path, rect, circle {

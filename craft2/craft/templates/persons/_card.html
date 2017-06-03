@@ -10,7 +10,8 @@
         {% endif %}
         <md-card-content>
             <h3 class="md-title">{{ item.personFirstname }} {{ item.personLastname }}</h3>
-            <div class="md-subhead">{{ item.personStatusOver ? item.personStatusOver : item.personStatus.first().groupTeamStatus }}. {{ item.personDepartment }}</div>
+            {#<div class="md-subhead">{{ item.personStatusOver ? item.personStatusOver : item.personStatus.first().groupTeamStatus }}. {{ item.personDepartment }}</div>#}
+            <div class="md-subhead">{{ item.personStatusOver ? item.personStatusOver : item.personStatus[0].groupTeamStatus }}</div>
         </md-card-content>
     </md-card-area>
     <md-card-actions>

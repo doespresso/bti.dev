@@ -1,5 +1,5 @@
 <swiper class="swiper--quotes arrows--t-25p" :options="{
-{#'effect':'fade',#}
+'effect':'fade',
 {#'crossfade':'true',#}
 'loop':true,
 'roundLengths': true,
@@ -11,7 +11,7 @@
 {#prevButton: '.swiper-button-prev',#}
 autoplay:7000,
 speed:500}">
-    {% for item in quotes %}
+    {% for item in qts %}
         <swiper-slide>
             <div class="quote">
                 <div class="quote-text t-color">{{ item.quoteText }}</div>

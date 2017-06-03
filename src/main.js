@@ -15,13 +15,15 @@ Vue.material.setCurrentTheme(window.theme);
 
 
 var app = new Vue({
-    components:{Collapse},
+    components: {Collapse},
     delimiters: ['${', '}'],
     el: '#app',
     data: {
         message: 'You loaded this page on ' + new Date(),
         show: false,
         loaded: false,
+        fservice:[],
+        fbranch:[]
     },
     created: function () {
         this.loaded = true;
@@ -31,9 +33,10 @@ var app = new Vue({
         //this.$refs.rightSidenav.open();
     },
     methods: {
-        //tabb:function(){
-        //    console.log('tab')
-        //},
+        submenuClicked: function (tab) {
+            console.log("TABB");
+            window.location.href = tab;
+        },
         toggleLeftSidenav: function () {
             this.$refs.leftSidenav.toggle();
         },

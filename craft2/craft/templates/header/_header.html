@@ -2,7 +2,7 @@
     <header class="page-header has-ripple">
         <md-toolbar class="height--{{ headerHeight }}">
 
-            {% if headerImg is defined and not hBanners %}
+            {% if headerImg is defined and not hBanners and not (currentType == 'typePublication' and current.publicationImgInList == '1') %}
                 <div class="block-img backdrop-1" style="background-image:url({{ headerImg.getUrl() }})"></div>
             {% endif %}
             {% if headerIcon and not hBanners %}

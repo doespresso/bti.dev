@@ -1,9 +1,12 @@
 <div class="teaser">
-    <div class="teaser-icon icons--themed {{ block.styleIconColor is empty ? 'icon-mono' }} icon-color--{{ block.styleIconColor }} icon-ani--draw-0 animated-0">{{ item.infogIcon ? item.infogIcon.inline }}</div>
-    <div class="teaser-title t-color">{{ item.infogBig|length ? item.infogBig }}</div>
+    <div class="teaser-icon icons--themed {{ block is defined and block.styleIconColor is empty ? 'icon-mono' }} icon-color--{{block is defined and  block.styleIconColor }} icon-ani--draw animated-0">{{ item.infogIcon ? item.infogIcon.inline }}</div>
+    <div class="teaser-title t-color">
+        {{ item.infogBig|length ? item.infogBig }}
+        {% if item.infogM|length %}<span>{{ item.infogM }}</span>{% endif %}
+    </div>
     <hr class="line"/>
     <div class="teaser-text t-color">{{ item.infogText|length ? item.infogText }}</div>
-    {% if block.blockShowLink == 1 %}
+    {% if block is defined and block.blockShowLink == 1 %}
     <div class="actions">
         <md-button class="md-raised">{{ 'Show More'|t }}</md-button>
     </div>

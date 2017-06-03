@@ -23,7 +23,7 @@
                         {% else %}
                             {% set cUrl = subitem.menuItem.blocks[0].obj %}
                         {% endif %}
-                        <md-menu-item href="{{ cUrl }}">{{ subitem.title }}</md-menu-item>
+                        {% if subitem.showTop == '1' %}<md-menu-item href="{{ cUrl }}">{{ subitem.title }}</md-menu-item>{% endif %}
                     {% endfor %}
                 </md-menu-content>
             </md-menu>

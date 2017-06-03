@@ -21,6 +21,7 @@ video {
 }
 
 .video-container {
+  background-color: #555;
   @include aspect-ratio(16, 9);
 }
 

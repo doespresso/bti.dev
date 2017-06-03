@@ -1,6 +1,6 @@
 <a href="{{ item.url }}">
-    <md-card class="has-ripple-0">
-        <md-card-header>
+    <md-card>
+        <md-card-header class="md-flex">
             {% if item.styleIcon %}
             <md-card-media class="media-left"><div class="card-icon">{{ item.styleIcon ? item.styleIcon.inline }}</div></md-card-media>
             {% endif %}
@@ -13,8 +13,7 @@
         <md-card-actions>
             {#<md-button>{{ 'Show More'|t }}</md-button>#}
             <span class="md-flex"></span>
-            {#<md-icon>chevron_right</md-icon>#}
+            <md-icon>chevron_right</md-icon>
         </md-card-actions>
-        {#<md-ink-ripple/>#}
     </md-card>
 </a>

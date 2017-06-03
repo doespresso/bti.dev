@@ -28,7 +28,7 @@
                             {% if entry.relatedServices|length %}
                                 <md-tab id="p_services" md-label="{{ 'Services' | t }}">
                                     {#<p>{{ entry.personFirstname }} оказывает следующие услуги:</p>#}
-                                    {{ include ("lists/_list-simple.html",{'items':entry.relatedServices,'classes':'md-dense','links':true, 'divider':true}) }}
+                                    {{ include ("lists/_list-simple.html",{'items':entry.relatedServices.level(1),'classes':'md-dense','links':true, 'divider':true}) }}
                                 </md-tab>
                             {% endif %}
                             {% if entry.relatedBranches|length %}

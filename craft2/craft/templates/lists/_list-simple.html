@@ -2,7 +2,7 @@
     {% for item in items %}
         <md-list-item {{ "href=#{item.url}" }}>
             {% if divider is defined %}
-                {#<md-divider class="md-inset"></md-divider>#}
+                <md-divider></md-divider>
             {% endif %}
             <div class="md-list-text-container">{{ item.title }}</div>
             {% if item.url is defined %}
