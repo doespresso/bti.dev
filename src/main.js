@@ -22,8 +22,8 @@ var app = new Vue({
         message: 'You loaded this page on ' + new Date(),
         show: false,
         loaded: false,
-        fservice:[],
-        fbranch:[]
+        fservice:String,
+        fbranch:String,
     },
     created: function () {
         this.loaded = true;

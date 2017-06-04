@@ -1,7 +1,7 @@
 {% if matrix is not defined %}
-    {% set isbottom = true %}
     {% set matrix = entry.pageMatrix %}
 {% endif %}
+
 {% if matrix is defined %}
     {% for block in matrix %}
 
@@ -17,7 +17,11 @@
         {% set bLink = block['blockLink'] is defined and block.blockLink|length ? block.blockLink %}
         {% set iconTheme = block['blockIconTheme'] is defined and block.blockIconTheme|length ? block.blockIconTheme[0] %}
         {% set mono = block['blockTheme'] is defined and block.blockTheme|length ? 'multi' : 'icon--mono' %}
+        {% set tmpl =  block['blockTemplate'] is defined and block.blockTemplate is not empty ? block.blockTemplate : '' %}
         {#{% set tagged = entry.taglist %}#}
+
+        {% set hideDate= block['blockHideDate'] is defined and block.blockHideDate == 1 ? 1 : 0 %}
+        {% set hideShort= block['blockHideShort'] is defined and block.blockHideShort == 1 ? 1 : 0 %}
 
 
 
@@ -40,20 +44,19 @@
                     <div class="block-icon bg-icon icons--themed {{ mono }} icon-color--{{ iconTheme.styleIconColor and bTheme != '' ? iconTheme.styleIconColor : 'ht' }} scale--{{ iconTheme.styleIconSize | default('x1') }} icon-sw--{{ iconTheme.styleIconLine | default('x1') }} icon-ani--{{ iconTheme.styleIconAnimation | default('draw') }} animated align--{{ iconTheme.styleIconAlign | default('left') }} valign--{{ iconTheme.styleIconAlignV | default('bottom') }}">{{ iconTheme.styleIcon ? iconTheme.styleIcon.inline }}</div>
                 {% endif %}
 
-                {% if bTitle %}
+                {% if bTitle|length and not (tmpl == '_list.html') %}
                     <div class="ctr wrapper t-color">
                         <div class="section-title">{{ bTitle }}</div>
                     </div>
                 {% endif %}
 
                 {% if bContainer == 1 or block.type == "sectionJobs" %}
-                <div class="ctr section-content">
-                    {% endif %}
+                <div class="ctr section-content">{% endif %}
 
                     {% if block.type == "sectionDocs" %}
                         {% set docs = block.blockContent|length ? block.blockContent %}
                         {% if docs is defined %}
-                            {% set templ = "docs/" ~ block.blockTemplate %}
+                            {% set templ = "docs/" ~ tmpl %}
                             {% include templ %}
                         {% endif %}
                     {% endif %}
@@ -61,25 +64,34 @@
                     {% if block.type == "sectionNav" %}
                         {% set navs = block.blockContent|length ? block.blockContent %}
                         {% if navs is defined %}
-                            {% set templ = "nav/" ~ block.blockTemplate %}
+                            {% set list_subhead=bTitle %}
+                            {% set templ = "nav/" ~ tmpl %}
                             {% include templ %}
                         {% endif %}
                     {% endif %}
 
-                    {% if block.type == "sectionPublications" %}
-                        {% set perpage = block.blockPerPage is not empty ? block.blockPerPage : 5 %}
+                    {% if block.type == "sectionPublications" and cot != 'category'%}
+                        {% set perpage = block.blockPerPage is not empty ? block.blockPerPage : 3 %}
                         {% if block.blockSource == 'last' %}
                             {% set news = craft.entries.section('publications').limit(perpage) %}
-                        {% elseif block.blockSource == 'related' and entry.relatedPublications|length %}
-                            {% set news = entry['relatedPublications'] is defined and entry.relatedPublications|length ? entry.relatedPublications %}
                         {% elseif block.blockSource == 'added' and block.blockContent|length %}
                             {% set news = block.blockContent|length ? block.blockContent %}
-                        {% elseif block.blockSource == 'tagged' and block.blockContent|length %}
-                            {% set news = craft.entries.section('publications').relatedTo(tagged).limit(2) %}
-                        {% endif %}
+                        {% elseif block.blockSource == 'tagged' %}
+                            {% set news = craft.entries.section('publications').relatedTo(tagged).id('not ' ~ entry.id).limit(perpage) %}
+                            {% if news|length<2 %}
+                                {#{% set news = craft.entries.section('publications').relatedTo('not',tagged).id('not ' ~ entry.id).limit(3) %}#}
+                                {#{% set news = news|merge(lastnews) %}#}
+                                {% set news = craft.entries.section('publications').id('not ' ~ entry.id).limit(3) %}
 
+                            {% endif %}
+                        {% endif %}
                         {% if news is defined %}
-                            {% set templ = "publications/" ~ block.blockTemplate %}
+                            {% set nox2 = true %}
+                            {% if news|length<4 %}
+                                {% set templ = "publications/_list-cards.html" %}
+                            {% else %}
+                                {% set templ = "publications/" ~ tmpl %}
+                            {% endif %}
                             {% include templ %}
                         {% endif %}
                     {% endif %}
@@ -96,7 +108,7 @@
                         {% endif %}
 
                         {% if projects is defined %}
-                            {% set templ = block.blockTemplate is not empty ? "projects/" ~ block.blockTemplate : "projects/_list-collapse.html" %}
+                            {% set templ = tmpl is not empty ? "projects/" ~ tmpl : "projects/_list-collapse.html" %}
                             {% include templ %}
                         {% endif %}
                     {% endif %}
@@ -105,7 +117,7 @@
                     {% if block.type == "sectionJobs" %}
                         {% set jobs = block.blockContent|length ? block.blockContent %}
                         {% if jobs is defined %}
-                            {% set templ = block.blockTemplate is defined and block.blockTemplate is not empty ? "jobs/" ~ block.blockTemplate : "jobs/_list-collapse.html" %}
+                            {% set templ = tmpl is defined and tmpl is not empty ? "jobs/" ~ tmpl : "jobs/_list-collapse.html" %}
                             {% include templ %}
                         {% endif %}
                     {% endif %}
@@ -133,7 +145,7 @@
                         {% endif %}
 
                         {% if services is defined %}
-                            {% set templ = "services/" ~ block.blockTemplate %}
+                            {% set templ = "services/" ~ tmpl %}
                             {% include templ %}
                         {% endif %}
                     {% endif %}
@@ -146,7 +158,7 @@
                         {#{% endif %}#}
 
                         {% if infogs is defined %}
-                            {% set templ = "infogs/" ~ block.blockTemplate %}
+                            {% set templ = "infogs/" ~ tmpl %}
                             {% include templ %}
                         {% endif %}
                     {% endif %}
@@ -175,7 +187,7 @@
                         {% endif %}
 
                         {% if persons is defined %}
-                            {% set templ = "persons/" ~ block.blockTemplate %}
+                            {% set templ = "persons/" ~ tmpl %}
                             {% include templ %}
                         {% endif %}
                     {% endif %}
@@ -233,7 +245,7 @@
 
 
 
-                    {% if bContainer == 1 %}
+                {% if bContainer == 1 or block.type == "sectionJobs"%}
                 </div>
                 {% endif %}
 

@@ -7,8 +7,7 @@
 
 @keyframes dash-out {
   to {
-    stroke-dashoffset: 3000;
-    //stroke-dasharray: 0;
+    stroke-dashoffset: 4000;
   }
 }
 
@@ -16,8 +15,8 @@
 .ani--draw {
   svg {
     line, path, rect, circle {
-      stroke-dasharray: 3000;
-      stroke-dashoffset: 3000;
+      stroke-dasharray: 4000;
+      stroke-dashoffset: 4000;
     }
   }
 }

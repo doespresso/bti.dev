@@ -1,4 +1,4 @@
-<md-list>
+<md-list class="contacts-list">
     {% if not (contact.contactTel1 or contact.contactTel2 or contact.contactTel3) %}
         <md-list-item href="tel:{{ globalContacts.contactTel1 | replace (' ','') }}">
             <md-icon>phone</md-icon>
@@ -29,7 +29,7 @@
     {% if contact.contactFax %}
         <md-divider class="md-inset"></md-divider>
         <md-list-item href="tel:{{ contact.contactFax }}">
-            <md-icon>phone</md-icon>
+            <md-icon>settings_phone</md-icon>
             <span>{{ contact.contactFax }}</span>
         </md-list-item>
     {% endif %}
@@ -42,29 +42,48 @@
     {% endif %}
     <md-divider class="md-inset"></md-divider>
     <md-list-item href="mailto:{{ contact.contactEmail ? contact.contactEmail ~ ',' | replace (' ','') }}{{ globalContacts.contactEmail | replace (' ','') }}">
-        <md-icon>send</md-icon>
+        <md-icon>email</md-icon>
         <span>{{ contact.contactEmail ? contact.contactEmail : globalContacts.contactEmail }}</span>
     </md-list-item>
 
     {% if contact.facebook %}
         <md-divider class="md-inset"></md-divider>
-        <md-list-item href="{{ contact.facebook }}">
+        <md-list-item href="{{ contact.facebook }}" target="_blank">
             <md-icon md-src="{{ craft.config.environmentVariables.baseUrl }}assets/icons/facebook.svg"></md-icon>
             <span>{{ contact.facebook|trim("/")|split('/')|last }}</span>
+            <md-icon>open_in_new</md-icon>
         </md-list-item>
     {% endif %}
     {% if contact.twitter %}
         <md-divider class="md-inset"></md-divider>
-        <md-list-item href="{{ contact.twitter }}">
+        <md-list-item href="{{ contact.twitter }}" target="_blank">
             <md-icon md-src="{{ craft.config.environmentVariables.baseUrl }}assets/icons/twitter.svg"></md-icon>
             <span>{{ contact.twitter|trim("/")|split('/')|last }}</span>
+            <md-icon>open_in_new</md-icon>
         </md-list-item>
     {% endif %}
     {% if contact.linkedin %}
         <md-divider class="md-inset"></md-divider>
-        <md-list-item href="{{ contact.linkedin }}">
+        <md-list-item href="{{ contact.linkedin }}" target="_blank">
             <md-icon md-src="{{ craft.config.environmentVariables.baseUrl }}assets/icons/linkedin.svg"></md-icon>
             <span>{{ contact.linkedin|trim("/")|split('/')|last }}</span>
+            <md-icon>open_in_new</md-icon>
+        </md-list-item>
+    {% endif %}
+    {% if contact.youtube %}
+        <md-divider class="md-inset"></md-divider>
+        <md-list-item href="{{ contact.youtube }}" target="_blank">
+            <md-icon md-src="{{ craft.config.environmentVariables.baseUrl }}assets/icons/youtube.svg"></md-icon>
+            <span>{{ contact.youtube|trim("/")|split('/')|last }}</span>
+            <md-icon>open_in_new</md-icon>
+        </md-list-item>
+    {% endif %}
+    {% if contact.linkUrl and contact.linkText %}
+        <md-divider class="md-inset"></md-divider>
+        <md-list-item href="{{ contact.linkUrl }}" target="_blank">
+            <md-icon>link</md-icon>
+            <span>{{ contact.linkText  }}</span>
+            <md-icon>open_in_new</md-icon>
         </md-list-item>
     {% endif %}
 </md-list>

@@ -17,8 +17,12 @@
     {% set headerIconColor = globalDesign.styleIconColor %}
     {% set headerIconLine = globalDesign.styleIconLine %}
 
+    {% set nox2 = false %}
+
 
     {% if category is defined %}
+        {% set hideDate= 0 %}
+        {% set hideShort= 0 %}
         {% set current = category %}
         {% set currentType = current.group %}
         {% set cot = 'category' %}
@@ -156,44 +160,70 @@
     </head>
 
     <body>
-    <div class="main-content" id="app" v-cloak>
-        <div v-if="!loaded" style="position:fixed; left:0; top:0; right:0; bottom:0; background-color: white; z-index:1000;"></div>
-        {{ include ("inc/_sidenav_list-collapse.html") }}
-        {#{{ include ("form/_feedback-side.html") }}#}
-        <transition appear name="fade">
-            {{ include ("header/_header.html") }}
-        </transition>
 
-        {#<md-button @click.native="show = !show">show</md-button>#}
+    <div id="app" v-cloak>
 
-        {#<div class="page-subheader">#}
-        {#{% block subheader %}#}
-        {#{% endblock %}#}
+        {#<div id="navbar" class="is-fixed">#}
+            {#<md-toolbar class="md-transparent">#}
+                {#<div class="md-toolbar-container">#}
+                    {#<div id="logo">#}
+                        {#<a href="{{ siteUrl }}" class="logo logo-l" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/logo_full-w.svg')"></a>#}
+                        {#&#123;&#35;<a href="{{ siteUrl }}" class="logo logo-m" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/logo-w.svg')"></a>&#35;&#125;#}
+                    {#</div>#}
+                    {#<span class="md-flex"></span>#}
+                    {#{{ include("menus/_navbar-menu.html") }}#}
+                    {#<md-button class="md-icon-button">#}
+                        {#<md-icon>search</md-icon>#}
+                    {#</md-button>#}
+                    {#<md-menu md-direction="bottom left" md-size="3">#}
+                        {#{{ include("inc/_lang.html") }}#}
+                    {#</md-menu>#}
+                    {#<md-button class="md-icon-button md-hide-medium-and-up" @click.native="toggleLeftSidenav">#}
+                        {#<md-icon>menu</md-icon>#}
+                    {#</md-button>#}
+                {#</div>#}
+            {#</md-toolbar>#}
         {#</div>#}
 
-        {#{% cache %}#}
-        {% set left_column=true %}
-        <div class="page-content">
-            {% block content %}
-            {% endblock %}
+        <div class="app-content">
+            <div v-if="!loaded" style="position:fixed; left:0; top:0; right:0; bottom:0; background-color: white; z-index:1000;"></div>
+            {{ include ("inc/_sidenav_list-collapse.html") }}
+            {#{{ include ("form/_feedback-side.html") }}#}
+            <transition appear name="fade">
+                {{ include ("header/_header.html") }}
+            </transition>
+
+            {#<md-button @click.native="show = !show">show</md-button>#}
+
+            {#<div class="page-subheader">#}
+            {#{% block subheader %}#}
+            {#{% endblock %}#}
+            {#</div>#}
+
+            {#{% cache %}#}
+            {% set left_column=true %}
+            <div class="page-content">
+                {% block content %}
+                {% endblock %}
+            </div>
+            <div class="page-pager">
+                {% block pager %}
+                {% endblock %}
+            </div>
+
+            {#{% endcache %}#}
+
+            {#{% include('inc/_speed-dial.html') %}#}
+
+            <aside class="aside-bottom">
+                {% set matrix = globalBottom.bottomMatrix %}
+                {{ include ("matrix/_matrix-bottom.html") }}
+            </aside>
+
+            {% include 'inc/_footer' %}
+
+
         </div>
-        <div class="page-pager">
-            {% block pager %}
-            {% endblock %}
-        </div>
-
-        {#{% endcache %}#}
-
-        {#{% include('inc/_speed-dial.html') %}#}
-
-        <aside class="aside-bottom">
-            {#{% set matrix = pageBottom.pageMatrix %}#}
-            {#{% include "matrix/_matrix.html" %}#}
-        </aside>
-
-        {% include 'inc/_footer' %}
-
-
     </div>
     {% include 'inc/_scripts' %}
     </body>

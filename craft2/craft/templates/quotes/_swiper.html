@@ -1,12 +1,12 @@
-<swiper class="swiper--quotes arrows--t-25p" :options="{
+<swiper class="swiper--quotes section-content arrows--t-25p" :options="{
 'effect':'fade',
 {#'crossfade':'true',#}
 'loop':true,
 'roundLengths': true,
 'slidesPerView':1,
 'centeredSlides':true,
-{#pagination: '.swiper-pagination',#}
-{#paginationClickable: true,#}
+pagination: '.swiper-pagination',
+paginationClickable: true,
 {#nextButton: '.swiper-button-next',#}
 {#prevButton: '.swiper-button-prev',#}
 autoplay:7000,
@@ -15,7 +15,10 @@ speed:500}">
         <swiper-slide>
             <div class="quote">
                 <div class="quote-text t-color">{{ item.quoteText }}</div>
-                <div class="author t-color">{{ item.quoteAuthor }}{{  item.quotePosition ? '. '~item.quotePosition }}<br/>{{ item.quoteCompany }}</div>
+                <div class="author t-color">{{ item.quoteAuthor }}
+                    {% if item.quotePosition|length %}<br/>{{ item.quotePosition }}<br/>{% endif %}
+                    {{ item.quoteCompany }}
+                </div>
             </div>
         </swiper-slide>
     {% endfor %}

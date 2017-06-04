@@ -1,9 +1,7 @@
 {% extends "_page.html" %}
-{% set headerProvider = 'category' %}
 
-{% set perPage = 30 %}
 
-{% set persons = craft.entries.section('persons').relatedTo(category).limit(perPage).order('personLastname') %}
+{% set persons = craft.entries.section('persons').relatedTo(category).order('personLastname') %}
 
 
 {#{% block subheader %}#}
@@ -11,7 +9,7 @@
 {#{% endblock %}#}
 {% block content %}
     {% include "persons/_filter.html" %}
-    <section class="section p-v- m-v-">
+    <section class="section">
         <div class="ctr section-content">
             {% include "persons/_list-cards.html" %}
         </div>

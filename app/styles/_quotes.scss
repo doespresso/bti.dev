@@ -1,16 +1,16 @@
 .quote {
   opacity:0;
   transition:opacity 1s ease-in-out;
-  margin-top: 20px;
-  padding: 0 20px;
+  margin: 0;
+  padding: 40px 20px;
   .swiper-slide-active &{
     opacity:1;
   }
   .quote-text {
-    text-align: center;
-    //color:#777;
-    position:relative;
     font-family: Georgia,"Times New Roman";
+    border-left:3px solid #eee;
+    padding:0 24px;
+    position:relative;
     font-style: italic;
     font-size: 16px;
     line-height: 2em;
@@ -30,8 +30,8 @@
   .author {
     font-size:13px;
     display: block;
-    text-align: right;
     font-weight: 400;
+    padding-left:27px;
   }
   @include layout-small-and-up {
     .quote-text {

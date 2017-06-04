@@ -1,4 +1,4 @@
-<div class="col{{ item.cardWidth2 }}">
+<div class="col{{ item.cardWidth2 == 1 and not nox2 ? '-8_xs-12_sm-6_md_4_lg-8' : '-4_xs-12_sm-6_md_4_lg-4' }}">
     <md-card class="card--news {{ item.cardColor|length and item.cardFullColor ? 'md-primary' }} {{ item.cardColor|length ? 'themed' }}" md-with-hover
              md-theme="{{ item.cardColor|length ? 'ct'~item.cardColor[0].id }}">
         <md-card-area class="md-flex">
@@ -18,9 +18,9 @@
                 </md-card-media>
             {% endif %}
             <md-card-content>
-                <div class="md-subhead date">{{ item.postDate.localeDate() }}</div>
+                {% if hideDate != 1 %}<div class="md-subhead date">{{ item.postDate.localeDate() }}</div>{% endif %}
                 <h3 class="md-title"><a href="{{ item.url }}">{{ item.title }}</a></h3>
-                <div class="md-subhead">{{ item.cardAnons }}</div>
+                {% if hideShort != 1 %}<div class="md-subhead">{{ item.cardAnons }}</div>{% endif %}
             </md-card-content>
         </md-card-area>
         <md-card-actions>

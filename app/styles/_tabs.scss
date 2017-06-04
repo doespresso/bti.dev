@@ -3,8 +3,8 @@
 
     .md-tabs-navigation-scroll-container{
       width:100%;
-      //min-width:100%;
-      max-width:1160px;
+      min-width:100%;
+      //max-width:1160px;
       justify-content: center;
     }
     .md-tab-header {
@@ -13,7 +13,36 @@
       span{white-space: none!important;}
     }
   }
+  &.tabs-full{
+    min-width: 100%;
+    max-width:100%;
+  }
+  &.tabs-no-border{
+    .md-tabs-navigation{
+      border-bottom:0!important;
+    }
+  }
   .md-tab{
     padding:0;
+  }
+
+  &.tabs-mono{
+    .md-active{
+      color:inherit!important;
+    }
+    .md-tab-indicator{
+      background-color:#fff!important;
+    }
+  }
+  .md-tab-indicator{
+    height:4px;
+  }
+}
+
+
+
+.service-block{
+  .section{
+    background-color: #eee;
   }
 }

@@ -1,0 +1,17 @@
+{% set persons = craft.entries.section('persons').order('personLastname') %}
+
+{% block content %}
+    {% include "persons/_filter.html" %}
+    <div>
+        ${fservice}
+        ${fbranch}
+    </div>
+    <section class="section">
+        <div class="ctr section-content">
+            {#{% include "persons/_list-cards-filter.html" %}#}
+            <div>
+                <span v-for="n in 10">${ n } </span>
+            </div>
+        </div>
+    </section>
+{% endblock %}

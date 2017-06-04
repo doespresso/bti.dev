@@ -39,6 +39,7 @@ return array(
 	'Experts'=>'Эксперты',
 	'Biography'=>'Биография',
 	'Industry expertise'=>'Отраслевая экспертиза',
+	'Service Line'=>'Сервисная линия',
 	'Service line'=>'Сервисная линия',
 	'Next Page'=>'Раньше',
 	'Previous Page'=>'Назад',

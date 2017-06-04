@@ -7,32 +7,48 @@
         <div class="ctr">
             <div class="section-content html-content t-color">{{ entry.fullText }}</div>
         </div>
+        <div class="ctr">
+            <div class="section-content p-t-40">
+                <div class="grid">
+                    <div class="col-6_xs-12_sm-12_md-12">
+                        {% set subservices = entry.children().level(2) %}
+                        {% include "services/_list-collapse.html" %}
+                    </div>
+                    <div class="col-6_xs-12_sm-12_md-12">
+
+
+                        {% set infogs = craft.entries.section('infogs').relatedTo(tagged) %}
+                        {% if infogs|length>0 %}
+                            {#<hr class="line-"/>#}
+                            <section class="section">
+                                {#<div class="ctr t-color">#}
+                                    {#<div class="section-title">{{ 'What about Values'|t }}</div>#}
+                                {#</div>#}
+                                {% include "infogs/_swiper.html" %}
+                            </section>
+                            {#<div class="ctr">#}
+                            {#<div class="grid">#}
+                            {#<div class="col-12 actions">#}
+                            {#&#123;&#35;{% for item in bLink %}&#35;&#125;#}
+                            {#&#123;&#35;<md-button class="md-raised" href="{{ item.url }}">{{ item.title }}</md-button>&#35;&#125;#}
+                            {#&#123;&#35;{% endfor %}&#35;&#125;#}
+                            {#&#123;&#35;{% if bRequest ==1 %}&#35;&#125;#}
+                            {#{% include 'inc/_request-button.html' with {'label':'More Details'} %}#}
+                            {#&#123;&#35;{% endif %}&#35;&#125;#}
+                            {#</div>#}
+                            {#</div>#}
+                            {#</div>#}
+                        {% endif %}
+
+
+                    </div>
+                </div>
+            </div>
     </section>
 
-    {% set infogs = craft.entries.section('infogs').relatedTo(tagged) %}
-    {% if infogs|length>0 %}
-        <hr class="line-"/>
-        <section class="section">
-            <div class="ctr t-color">
-                <div class="section-title">{{ 'What about Values'|t }}</div>
-            </div>
-            {% include "infogs/_swiper.html" %}
-        </section>
-        {#<div class="ctr">#}
-        {#<div class="grid">#}
-        {#<div class="col-12 actions">#}
-        {#&#123;&#35;{% for item in bLink %}&#35;&#125;#}
-        {#&#123;&#35;<md-button class="md-raised" href="{{ item.url }}">{{ item.title }}</md-button>&#35;&#125;#}
-        {#&#123;&#35;{% endfor %}&#35;&#125;#}
-        {#&#123;&#35;{% if bRequest ==1 %}&#35;&#125;#}
-        {#{% include 'inc/_request-button.html' with {'label':'More Details'} %}#}
-        {#&#123;&#35;{% endif %}&#35;&#125;#}
-        {#</div>#}
-        {#</div>#}
-        {#</div>#}
-    {% endif %}
+
     {#<section class="section p-v- m-v- ">#}
-    <md-tabs class="md-transparent tabs-inline" md-fixed>
+    <md-tabs class="md-transparent tabs-inline service-block" md-fixed>
         <md-tab id="t_experts" md-label="{{ 'Experts'|t }}">
             {% set persons = entry.relatedPersons %}
             {% if persons|length %}
@@ -78,7 +94,7 @@
                         {#{% endfor %}#}
                         {#</div>#}
                         {% set navs = services %}
-                        {% include "nav/_list-icons.html" %}
+                        {% include "nav/_list-cards-icons.html" %}
                     </div>
                     <div class="ctr">
                         <div class="grid">
@@ -132,29 +148,26 @@
     {#</section>#}
 
 
-
+    {% set docs = entry.relatedDocs %}
+    {% if docs|length>0 %}
+        <hr class="line-"/>
+        <section class="section">
+            <div class="ctr wrapper t-color">
+                <div class="section-title">{{ 'Downloads'|t }}</div>
+            </div>
+            {% include "docs/_list-cards.html" %}
+        </section>
+    {% endif %}
 
 
     {% set qts = craft.entries.section('qts').relatedTo(tagged) %}
     {% if qts|length>0 %}
         <hr class="line-"/>
-        <section class="section" style="">
+        <section class="section">
             <div class="ctr wrapper t-color">
                 <div class="section-title">{{ 'Opinion'|t }}</div>
             </div>
             {% include "quotes/_swiper.html" %}
-        </section>
-    {% endif %}
-
-    {% set docs = entry.relatedDocs %}
-    {% if docs|length %}
-        <hr class="line-"/>
-        <section class="section p-v- m-v- " style="">
-            <div class="ctr wrapper t-color">
-                <div class="section-title">{{ 'Downloads'|t }}</div>
-            </div>
-            {% set templ = "docs/_list.html" %}
-            {% include templ %}
         </section>
     {% endif %}
 

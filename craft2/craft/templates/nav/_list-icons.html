@@ -1,7 +1,15 @@
 <div class="grid-2_xs-1_sm-1_md-2_lg-2-equalHeight navs navs--circle-">
     {% for item in navs %}
         <div class="col">
-            {% include "nav/_icon-item.html" %}
+            <a href="{{ item.url }}" class="nav-link">
+                {% if item.styleIcon %}
+                    <div class="nav-link-icon icon-ani--draw-0 animated-0">{{ item.styleIcon ? item.styleIcon.inline }}</div>
+                {% endif %}
+                <div class="nav-link-text b-color">
+                    <div class="md-title t-color">{{ item.title }}</div>
+                    {% if item.navShort|length %}<date class="description md-subhead">{{ item.navShort }}</date>{% endif %}
+                </div>
+            </a>
         </div>
     {% endfor %}
 </div>

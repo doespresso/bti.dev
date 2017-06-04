@@ -12,6 +12,12 @@
   }
 }
 
+.md-card{
+  .md-card-actions{
+    opacity:0.5;
+  }
+}
+
 .cards--fluid {
   [class^="col"], [class*="col-"] {
     &:first-child {
@@ -155,7 +161,7 @@
         width: auto !important;
         * {
           stroke-width: 2px !important;
-          stroke: #e2e2e2 !important;
+          stroke: #ccc !important;
         }
       }
     }
@@ -180,7 +186,7 @@
       min-height: auto;
       &.media-left {
         margin-left: 0;
-        margin-right: 24px;
+        margin-right: 40px;
         //align-self:flex-start;
       }
       &.media-right {
@@ -235,7 +241,14 @@ a.md-subhead, a.md-title {
     flex-direction: row;
     justify-content: center;
     align-items: stretch;
-    padding: 10px;
+    padding: 2px;
+    [class^='col-'],[class^='col']{
+      width:100%;
+      display:flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+    }
     .md-card {
       transform: translateZ(0);
       width: 280px;

@@ -8,16 +8,22 @@
 //  }
 //}
 
-#navbar.is-fixed {
-  position: fixed;
-}
+
 
 #navbar {
-  width: 100%;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index:100;
+}
+
+#navbar.is-fixed {
+  //background-color: red;
   height: 64px;
   position: absolute;
   left: 0;
   top: 0;
+  right:0;
   @include layout-medium-and-up {
     padding-left: 8px;
     padding-right: 8px;
