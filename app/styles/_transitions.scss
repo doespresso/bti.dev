@@ -7,7 +7,7 @@
 }
 
 .fadetoleft-enter-active, .fadetoleft-leave-active {
-  transition: all 0.5s ease 3s;
+  transition: all 0.5s ease 2.2s;
 }
 
 .fadetoleft-enter, .fadetoleft-leave-to {
@@ -28,9 +28,18 @@
 
 
 .zoomin-enter-active, .zoomin-leave-active {
-  transition: all 0.3s ease 2s;
+  transition: all 0.2s ease 2s;
 }
 
 .zoomin-enter, .zoomin-leave-to {
   transform: scale(0);
+}
+
+
+.appear{
+  opacity:0;
+  transition:opacity 0.3s ease;
+  &.in-viewport{
+    opacity:1;
+  }
 }

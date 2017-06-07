@@ -37,8 +37,7 @@
             <hr class="line-{{ block.blockContainer }}"/>
         {% else %}
 
-            <section
-                    class="section {{ currentType == 'typePublication' ? 'article-section' : 'page-section' }} {{ pv is defined and pv is not empty ? 'p-v-' ~ pv }} {{ mv is defined and mv is not empty ? 'm-v-' ~ mv }} {{ bTheme }}">
+            <section class="section {{ currentType == 'typePublication' ? 'article-section' : 'page-section' }} {{ pv is defined and pv is not empty ? 'p-v-' ~ pv }} {{ mv is defined and mv is not empty ? 'm-v-' ~ mv }} {{ bTheme }}">
 
                 {% if iconTheme %}
                     <div class="block-icon bg-icon icons--themed {{ mono }} icon-color--{{ iconTheme.styleIconColor and bTheme != '' ? iconTheme.styleIconColor : 'ht' }} scale--{{ iconTheme.styleIconSize | default('x1') }} icon-sw--{{ iconTheme.styleIconLine | default('x1') }} icon-ani--{{ iconTheme.styleIconAnimation | default('draw') }} animated align--{{ iconTheme.styleIconAlign | default('left') }} valign--{{ iconTheme.styleIconAlignV | default('bottom') }}">{{ iconTheme.styleIcon ? iconTheme.styleIcon.inline }}</div>

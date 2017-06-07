@@ -194,6 +194,8 @@
 
 
 {% set noSubmenu = false %}
+{% set addLast = true %}
+
 
 {% if cot != 'category' and current.type == 'typePerson' %}
     {% set pcat = current.personStatus[0] %}
@@ -213,6 +215,7 @@
     targetElement: current,
     field: 'menuItem.obj'
     }).first %}
+    {% set addLast = false %}
 {% endif %}
 
 
@@ -274,6 +277,7 @@
         {% else %}
             {% set cUrl = m_current.menuItem.blocks[0].obj %}
         {% endif %}
+        {#{% set oUrl = cUrl %}#}
         {% set ci = [] %}
         {% set ci = ci|merge([m_current]) %}
         {% set ci = ci|merge([cUrl]) %}
@@ -293,10 +297,13 @@
                 {% else %}
                     {% set cUrl = m_current.menuItem.blocks[0].obj %}
                 {% endif %}
-                {% set ci = [] %}
-                {% set ci = ci|merge([m_current]) %}
-                {% set ci = ci|merge([cUrl]) %}
-                {% set bc = bc|merge([ci]) %}
+                {#{% if cUrl != oUrl %}#}
+                    {% set ci = [] %}
+                    {% set ci = ci|merge([m_current]) %}
+                    {% set ci = ci|merge([cUrl]) %}
+                    {% set bc = bc|merge([ci]) %}
+                    {#{% set oUrl = cUrl %}#}
+                {#{% endif %}#}
             {% endif %}
         {% endif %}
     {% endfor %}
@@ -312,20 +319,20 @@
                 <div id="back-nav">
                     <md-menu md-size="5" md-disabled="true">
                         <md-button class="md-icon-button" md-menu-trigger>
-                            <md-icon class="md-size-2x">arrow_back</md-icon>
+                            <md-icon class="md-size-1x">arrow_back</md-icon>
                         </md-button>
                         <md-menu-content class="back-nav">
                             <md-menu-item href="{{ siteUrl }}">
                                 <md-icon>home</md-icon>
-                                <span>{{ 'Homepage'|t }}</span>
+                                {#<span>{{ 'Homepage'|t }}</span>#}
                             </md-menu-item>
                             {% for item in bc | reverse %}
-                                {% if not loop.last %}
-                                    <md-menu-item href="{{ item[1] }}">
-                                        <md-icon>chevron_left</md-icon>
-                                        <span>{{ item[0].title }}</span>
-                                    </md-menu-item>
-                                {% endif %}
+                                {#{% if not loop.last or not addLast %}#}
+                                <md-menu-item href="{{ item[1] }}">
+                                    <span>{{ item[0].title }}</span>
+                                    <md-icon>chevron_left</md-icon>
+                                </md-menu-item>
+                                {#{% endif %}#}
                             {% endfor %}
                         </md-menu-content>
                     </md-menu>

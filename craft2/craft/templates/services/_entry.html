@@ -8,7 +8,7 @@
             <div class="section-content html-content t-color">{{ entry.fullText }}</div>
         </div>
         <div class="ctr">
-            <div class="section-content p-t-40">
+            <div class="section-content">
                 <div class="grid">
                     <div class="col-6_xs-12_sm-12_md-12">
                         {% set subservices = entry.children().level(2) %}
@@ -47,7 +47,8 @@
     </section>
 
 
-    {#<section class="section p-v- m-v- ">#}
+
+    <section class="section appear" v-in-viewport>
     <md-tabs class="md-transparent tabs-inline service-block" md-fixed>
         <md-tab id="t_experts" md-label="{{ 'Experts'|t }}">
             {% set persons = entry.relatedPersons %}
@@ -145,7 +146,7 @@
             </md-tab>
         {% endif %}
     </md-tabs>
-    {#</section>#}
+    </section>
 
 
     {% set docs = entry.relatedDocs %}

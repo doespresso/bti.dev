@@ -31,6 +31,7 @@
 @import "tabs";
 @import "header";
 @import "filter";
+@import "typo";
 
 
 [class*='-icon']:not(.md-icon) svg {
@@ -46,11 +47,7 @@
 
 //@import "var";
 
-html,
-body {
-  height: 100%;
-  overflow: hidden;
-}
+
 
 .swiper-slide{
   *{box-sizing: border-box}
