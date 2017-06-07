@@ -1,6 +1,9 @@
 <?php
 
 return array(
+	'Our offices'=>'Наши офисы',
+	'Homepage'=>'Главная',
+	'Date & place'=>'Время и место проведения',
 	'Social'=>'Мы в социальных сетях',
 	'Baker Tilly International offices'=>'Офисы Baker Tilly International',
 	'On the topic'=>'В тему',
@@ -561,7 +564,7 @@ return array(
 	'Helper text to guide the author.' => 'Вспомогательный текст для помощи автору.',
 	'Hide' => 'Скрыть',
 	'High' => 'Высоко',
-	'Homepage' => 'Домашняя страница',
+//	'Homepage' => 'Домашняя страница',
 	'Host Name' => 'Имя хоста',
 	'hour' => 'час',
 	'hours' => 'часов',

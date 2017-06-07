@@ -1,0 +1,10 @@
+{% set persons = craft.entries.section('persons').order('personLastname') %}
+
+{% block content %}
+    {% include "_filter/_filter.html" %}
+    <section class="section">
+        <div class="ctr section-content filtered">
+            {% include "persons/_list-cards.html" %}
+        </div>
+    </section>
+{% endblock %}

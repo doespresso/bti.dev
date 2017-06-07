@@ -3,8 +3,8 @@
 
     .md-tabs-navigation-scroll-container{
       width:100%;
-      min-width:100%;
-      //max-width:1160px;
+      //min-width:100%;
+      max-width:1160px;
       justify-content: center;
     }
     .md-tab-header {
@@ -43,6 +43,6 @@
 
 .service-block{
   .section{
-    background-color: #eee;
+    background-color: $divider-color;
   }
 }

@@ -4,8 +4,8 @@
     {% for item in topmenu_items %}
         {% if item.getDescendants().total() == 0 %}
             {% set cUrl = '' %}
-            {% if item.menuItem.blocks[0].type != "Url" %}
-                {% set cUrl = item.menuItem.blocks[0].obj[0].url %}
+            {% if subitem.menuItem.blocks[0].type != "Url" and item.menuItem.blocks[0].obj %}
+                {% set cUrl = subitem.menuItem.blocks[0].obj[0] is defined ? subitem.menuItem.blocks[0].obj[0].url %}
                 <a href="{{ cUrl }}">{{ item.title }}</a>
             {% else %}
                 {% set cUrl = item.menuItem.blocks[0].obj %}
@@ -18,8 +18,8 @@
                     {% set subitems = item.getChildren() %}
                     {% for subitem in subitems %}
                         {% set cUrl = '' %}
-                        {% if subitem.menuItem.blocks[0].type != "Url" %}
-                            {% set cUrl = subitem.menuItem.blocks[0].obj[0].url %}
+                        {% if subitem.menuItem.blocks[0].type != "Url" and item.menuItem.blocks[0].obj %}
+                            {% set cUrl = subitem.menuItem.blocks[0].obj[0] is defined ? subitem.menuItem.blocks[0].obj[0].url %}
                         {% else %}
                             {% set cUrl = subitem.menuItem.blocks[0].obj %}
                         {% endif %}

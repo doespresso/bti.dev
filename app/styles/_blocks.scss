@@ -16,52 +16,52 @@
 .image {
   background-size: cover;
   background-position: center center;
-  min-height:300px;
-  @include layout-small-and-up{
-    min-height:400px;
-    .article &{
-      min-height:360px;
+  min-height: 300px;
+  @include layout-small-and-up {
+    min-height: 400px;
+    .article & {
+      min-height: 360px;
     }
   }
-  @include layout-medium-and-up{
-    min-height:480px;
-    .article &{
-      min-height:420px;
+  @include layout-medium-and-up {
+    min-height: 480px;
+    .article & {
+      min-height: 420px;
     }
   }
-  @include layout-large-and-up{
-    min-height:560px;
-    .article &{
-      min-height:480px;
+  @include layout-large-and-up {
+    min-height: 560px;
+    .article & {
+      min-height: 480px;
     }
   }
 }
 
-.backdrop-1{
-  &:after{
-    content:'';
-    position:absolute;
-    left:0;
-    top:0;
-    right:0;
-    bottom:0;
+.backdrop-1 {
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.24) 80%, rgba(0, 0, 0, 0.48) 100%) !important;
-    z-index:1;
+    z-index: 1;
   }
 }
 
-.img-label{
-  position:absolute;
-  color:rgba(#fff,0.97);
-  font-size:12px;
-  left:24px;
-  bottom:80px;
-  max-width:280px;
-  @include layout-small-and-up{
-    left:64px;
-    bottom:80px;
+.img-label {
+  position: absolute;
+  color: rgba(#fff, 0.97);
+  font-size: 12px;
+  left: 24px;
+  bottom: 80px;
+  max-width: 280px;
+  @include layout-small-and-up {
+    left: 64px;
+    bottom: 80px;
   }
-  z-index:2;
+  z-index: 2;
 }
 
 .block-content {
@@ -84,7 +84,6 @@
   flex-direction: column;
   flex-wrap: nowrap;
 }
-
 
 .block-banners {
   position: absolute;
@@ -114,16 +113,17 @@
   position: absolute;
   z-index: -1;
   left: 0;
-  top: 0;
+  top: -20px;
   right: 0;
-  bottom: 0;
+  bottom: -40px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
+  transform-origin: 50% 100%;
   align-items: center;
   overflow: hidden;
   svg {
-    transform: scale(1.1);
+    //transform: scale(1.1);
     height: 100% !important;
     width: auto !important;
     * {
@@ -134,9 +134,12 @@
       }
     }
   }
+  @include layout-xsmall{
+    transform: none!important;
+    align-items: center!important;
+    justify-content: flex-end!important;
+  }
 }
-
-
 
 .align--left {
   align-items: flex-start;
@@ -148,17 +151,45 @@
 
 .align--center {
   align-items: center;
-  svg{transform-origin: 50% 50%;}
+  //svg {
+    transform-origin: 50% 50%;
+  //}
 }
+
+.valign--top {transform-origin: 0 50%;}
+.valign--bottom {transform-origin: 100% 50%;}
+.valign--center {transform-origin: 50% 50%;}
+
+.align--left {transform-origin: 0 50%;}
+.align--right {transform-origin: 100% 50%;}
+.align--center {transform-origin: 50% 50%;}
+
+.align--left.valign--top {transform-origin: 0 0;}
+.align--left.valign--center {transform-origin: 0 50%;}
+.align--left.valign--bottom {transform-origin: 0 100%;}
+
+.align--right.valign--top {transform-origin: 100% 0;}
+.align--right.valign--center {transform-origin: 100% 50%;}
+.align--right.valign--bottom {transform-origin: 100% 100%;}
+
+.align--center.valign--top {transform-origin: 50% 0;}
+.align--center.valign--center {transform-origin: 50% 50%;}
+.align--center.valign--bottom {transform-origin: 50% 100%;}
+
 
 .valign--top {
   justify-content: flex-start;
-  svg{transform-origin: 0 0; margin-top: -20px;}
+  //svg {
+  //  margin-top: -20px;
+  //}
 }
 
 .valign--bottom {
   justify-content: flex-end;
-  svg{transform-origin: 0 100%; margin-bottom: -20px;}
+  //svg {
+  //  transform-origin: 0 100%;
+    margin-bottom: -20px;
+  //}
 }
 
 .valign--center {
@@ -166,27 +197,27 @@
 }
 
 .scale--x025 {
-  svg {
-    transform: scale(0.25);
-  }
+  //svg {
+  transform: scale(0.25);
+  //}
 }
 
 .scale--x05 {
-  svg {
-    transform: scale(0.5);
-  }
+  //svg {
+  transform: scale(0.5);
+  //}
 }
 
 .scale--x2 {
-  svg {
-    transform: scale(2);
-  }
+  //svg {
+  transform: scale(2);
+  //}
 }
 
 .scale--x3 {
-  svg {
-    transform: scale(3);
-  }
+  //svg {
+  transform: scale(3);
+  //}
 }
 
 .icon-sw--x1 svg *:not(g) {
@@ -201,7 +232,9 @@
   stroke-width: 16px !important;
 }
 
-
+.icon-sw--x8 svg *:not(g) {
+  stroke-width: 32px !important;
+}
 
 .icon-color--ht {
   svg {

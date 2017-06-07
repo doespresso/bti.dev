@@ -13,6 +13,8 @@
                             </div>
                         {% endif %}
 
+
+
                         {% if entry.styleImg|length and entry.publicationImgInList == '1' and not entry.videoCodeYT %}
                             <div class="article-image">
                                 <img src="{{ entry.styleImg[0].getUrl('resizePublicationBody') }}"/>
@@ -20,37 +22,6 @@
                         {% endif %}
 
 
-                        {% if entry.eventDate is defined and entry.eventDate is not empty and entry.eventOn == '1' %}
-                            <section class="section event-options">
-                                <md-list class="md-double-line event-info md-transparent">
-                                    <md-list-item {{ entry.eventLink|length ? 'href="'~ entry.eventLink ~ '"' }}>
-                                        <md-icon>today</md-icon>
-                                        <div class="md-list-text-container">
-                                            <span>{{ entry.eventDate | date('j M Y') }}</span>
-                                            <span>регистрация открыта</span>
-                                        </div>
-                                        <md-icon>open_in_new</md-icon>
-                                        <md-divider></md-divider>
-                                    </md-list-item>
-                                    {% if entry.eventPlace|length %}
-                                        <md-list-item
-                                                href="https://www.google.com/maps/place/{{ entry.eventAddress.lat }},{{ entry.eventAddress.lng }}/@{{ entry.eventAddress.lat }},{{ entry.eventAddress.lng }}"
-                                                target="_blank">
-                                            <md-icon class="md-size-x">map</md-icon>
-                                            <div class="md-list-text-container">
-                                                <span>{{ entry.eventPlace }}</span>
-                                                <span>{{ entry.eventAddress is defined ? entry.eventAddress.address }}</span>
-                                            </div>
-                                            {% if entry.eventAddress is defined %}
-                                                {#<md-button class="md-icon-button md-list-action" href="#0" target="_blank">#}
-                                                <md-icon>open_in_new</md-icon>
-                                                {#</md-button>#}
-                                            {% endif %}
-                                        </md-list-item>
-                                    {% endif %}
-                                </md-list>
-                            </section>
-                        {% endif %}
 
                         {% if entry.Short is defined and entry.Short is not empty %}
                             <section class="section article-short">
@@ -58,10 +29,68 @@
                             </section>
                         {% endif %}
 
+                        {% if entry.eventDate is defined and entry.eventDate is not empty and entry.eventOn == '1' %}
+                            <section class="section event-options">
+                                <md-list class="md-double-line event-info md-primary">
+                                    {#<md-subheader>{{ 'Date & place'|t }}:</md-subheader>#}
+                                    <md-list-item {{ entry.eventLink|length ? 'href="'~ entry.eventLink ~ '"' }}>
+                                        <md-icon>today</md-icon>
+                                        <div class="md-list-text-container">
+                                            <span>{{ entry.eventDate | date('j M Y') }}</span>
+                                            {% if entry.eventRegEnd < now %}
+                                                <span>мероприятие проведено</span>
+                                            {% elseif entry.eventDate < now %}
+                                                <span>регистрация завешена</span>
+                                            {% else %}
+                                                <span class="primary-color">регистрация открыта</span>
+                                            {% endif %}
+                                        </div>
+                                        {#<md-icon>open_in_new</md-icon>#}
+                                        <md-divider></md-divider>
+                                    </md-list-item>
+                                    {% if entry.eventPlace|length %}
+                                        <md-list-item
+                                                href="https://www.google.com/maps/place/{{ entry.eventAddress.lat }},{{ entry.eventAddress.lng }}/@{{ entry.eventAddress.lat }},{{ entry.eventAddress.lng }}"
+                                                target="_blank">
+                                            <md-icon class="md-size-x">place</md-icon>
+                                            <div class="md-list-text-container">
+                                                <span>{{ entry.eventPlace }}</span>
+                                                <span>{{ entry.eventAddress is defined ? entry.eventAddress.address }}</span>
+                                            </div>
+                                            {% if entry.eventAddress is defined %}
+                                                <md-icon>open_in_new</md-icon>
+                                            {% endif %}
+                                        </md-list-item>
+                                    {% endif %}
+                                    {% if entry.eventRegEnd > now and entry.eventLink|length%}
+                                        <md-list-item>
+                                            <md-icon></md-icon>
+                                            <div class="md-list-text-container">
+                                                <div class="actions">
+                                                    <md-button class="md-primary md-raised" href="{{entry.eventLink}}" target="_blank">Регистрация</md-button>
+                                                </div>
+                                            </div>
+                                        </md-list-item>
+                                    {% endif %}
+                                </md-list>
+                            </section>
+                        {% endif %}
+
+                        {% if entry.fullText is defined and entry.fullText is not empty %}
+                            <section class="section article-full">
+                                <div class="html-content">{{ entry.fullText }}</div>
+                            </section>
+                        {% endif %}
+                        {% include "matrix/_matrix.html" %}
+
+
+
+
+
                         {% if entry.eventTimetable is defined and entry.eventTimetable is not empty and entry.eventOn == '1' %}
-                            <section class="section section-timetable">
+                            <section class="section event-timetable">
                                 <md-table>
-                                    <md-subheader>{{ 'Schedule'|t }}</md-subheader>
+                                    <md-subheader>{{ 'Schedule'|t }}:</md-subheader>
                                     <md-table-body>
                                         {% for item in entry.eventTimetable %}
                                             <md-table-row>
@@ -80,13 +109,6 @@
                                 {% include "persons/_list-avatar.html" %}
                             </section>
                         {% endif %}
-
-                        {% if entry.fullText is defined and entry.fullText is not empty %}
-                            <section class="section article-full">
-                                <div class="html-content">{{ entry.fullText }}</div>
-                            </section>
-                        {% endif %}
-                        {% include "matrix/_matrix.html" %}
                     </div>
 
                     <hr class="line m-t-40"/>

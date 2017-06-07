@@ -1,5 +1,5 @@
 <md-card class="card--person m-b-40">
-    <md-card-area>
+    <md-card-area v-cloak>
         {% if person.personPhoto|length %}
             {% set photo = person.personPhoto.first() %}
             <md-card-media class="photo-aspect" style="background-image:url('{{ photo.getUrl('resizePersonsList') }}')"></md-card-media>

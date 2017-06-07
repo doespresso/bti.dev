@@ -1,232 +1,94 @@
 {#{% cache %}#}
-{% spaceless %}
-    <!DOCTYPE html>
-    <html>
+{% extends "_var.html" %}
 
-    {% set headerTitle =  siteName %}
-    {% set headerTheme = 'ct' ~ globalDesign.styleThemeObject[0].id %}
+{% block all %}
 
-    {% set headerHeight = globalDesign.styleHeight %}
-    {% set hBanners = false %}
+    {% spaceless %}
+        <!DOCTYPE html>
+        <html>
+        <head>
+            {% include 'inc/_head' %}
+            {% include 'inc/_meta' %}
+            {% block scripted %}
+            {% endblock %}
+            {% include "inc/_md-themes.html" %}
+        </head>
 
-    {% set headerIcon = globalDesign.styleIcon %}
-    {% set headerIconAlign = globalDesign.styleIconAlign %}
-    {% set headerIconAlignV = globalDesign.styleIconAlignV %}
-    {% set headerIconSize = globalDesign.styleIconSize %}
-    {% set headerIconAnimation = globalDesign.styleIconAnimation %}
-    {% set headerIconColor = globalDesign.styleIconColor %}
-    {% set headerIconLine = globalDesign.styleIconLine %}
+        <body>
 
-    {% set nox2 = false %}
-
-
-    {% if category is defined %}
-        {% set hideDate= 0 %}
-        {% set hideShort= 0 %}
-        {% set current = category %}
-        {% set currentType = current.group %}
-        {% set cot = 'category' %}
-        {% set headerTitle =  current.title %}
-        {% if current.styleThemeObject|length %}
-            {% set headerTheme = 'ct' ~ current.styleThemeObject[0].id %}
-        {% endif %}
-        {% if current.styleHeight is not empty %}
-            {% set headerHeight = current.styleHeight %}
-        {% endif %}
-        {% if current.styleIcon %}
-            {% set headerIcon = current.styleIcon %}
-        {% endif %}
-        {% if current.styleIconAlign is not empty %}
-            {% set headerIconAlign = current.styleIconAlign %}
-        {% endif %}
-        {% if current.styleIconAlignV is not empty %}
-            {% set headerIconAlignV = current.styleIconAlignV %}
-        {% endif %}
-        {% if current.styleIconSize is not empty %}
-            {% set headerIconSize = current.styleIconSize %}
-        {% endif %}
-        {% if current.styleIconAnimation is not empty %}
-            {% set headerIconAnimation = current.styleIconAnimation %}
-        {% endif %}
-        {% if current.styleIconColor is not empty %}
-            {% set headerIconColor = current.styleIconColor %}
-        {% endif %}
-        {% if current.styleIconLine is not empty %}
-            {% set headerIconLine = current.styleIconLine %}
-        {% endif %}
-        {% if current.styleImg|length %}
-            {% set headerImg =  current.styleImg[0] %}
-            {% set headerIcon =  '' %}
-        {% endif %}
-
-
-    {% elseif entry is defined %}
-        {% set current = entry %}
-        {% set currentType = current.type %}
-        {% set tagged = current.taglist %}
-        {% set cot = 'entry' %}
-        {% if current.publicationCategory|length %}
-            {% set ep = current.publicationCategory[0] %}
-        {% elseif current.personStatus|length %}
-            {% set ep = current.personStatus[0] %}
-        {% elseif current.type == 'typePage' and current.ancestors|length %}
-            {% set ep = craft.entries.ancestorOf(entry).first() %}
-        {% endif %}
-        {% if ep is defined %}
-
-            {% set headerTitle =  ep.title %}
-            {% if ep.styleThemeObject|length %}
-                {% set headerTheme = 'ct' ~ ep.styleThemeObject[0].id %}
-            {% endif %}
-            {% if ep.styleHeight is not empty %}
-                {% set headerHeight = ep.styleHeight %}
-            {% endif %}
-            {% if ep.styleIcon %}
-                {% set headerIcon = ep.styleIcon %}
-            {% endif %}
-            {% if ep.styleIconAlign is not empty %}
-                {% set headerIconAlign = ep.styleIconAlign %}
-            {% endif %}
-            {% if ep.styleIconAlignV is not empty %}
-                {% set headerIconAlignV = ep.styleIconAlignV %}
-            {% endif %}
-            {% if ep.styleIconSize is not empty %}
-                {% set headerIconSize = ep.styleIconSize %}
-            {% endif %}
-            {% if ep.styleIconAnimation is not empty %}
-                {% set headerIconAnimation = ep.styleIconAnimation %}
-            {% endif %}
-            {% if ep.styleIconColor is not empty %}
-                {% set headerIconColor = ep.styleIconColor %}
-            {% endif %}
-            {% if ep.styleIconLine is not empty %}
-                {% set headerIconLine = ep.styleIconLine %}
-            {% endif %}
-            {% if ep.styleImg|length %}
-                {% set headerImg =  ep.styleImg[0] %}
-                {% set headerIcon =  '' %}
-            {% endif %}
-
-        {% endif %}
-
-
-        {% set headerTitle =  current.title %}
-
-
-        {% if current.styleThemeObject|length %}
-            {% set headerTheme = 'ct' ~ current.styleThemeObject[0].id %}
-        {% endif %}
-        {% if current.styleHeight is not empty %}
-            {% set headerHeight = current.styleHeight %}
-        {% endif %}
-        {% if current.styleIcon %}
-            {% set headerIcon = current.styleIcon %}
-        {% endif %}
-        {% if current.styleIconAlign is not empty %}
-            {% set headerIconAlign = current.styleIconAlign %}
-        {% endif %}
-        {% if current.styleIconAlignV is not empty %}
-            {% set headerIconAlignV = current.styleIconAlignV %}
-        {% endif %}
-        {% if current.styleIconSize is not empty %}
-            {% set headerIconSize = current.styleIconSize %}
-        {% endif %}
-        {% if current.styleIconAnimation is not empty %}
-            {% set headerIconAnimation = current.styleIconAnimation %}
-        {% endif %}
-        {% if current.styleIconColor is not empty %}
-            {% set headerIconColor = current.styleIconColor %}
-        {% endif %}
-        {% if current.styleIconLine is not empty %}
-            {% set headerIconLine = current.styleIconLine %}
-        {% endif %}
-        {% if current.styleImg|length %}
-            {% set headerImg =  current.styleImg[0] %}
-            {% set headerIcon =  '' %}
-        {% endif %}
-
-        {% set hBanners = entry['styleHeaderBanners'] is defined and current.styleHeaderBanners|length ? current.styleHeaderBanners : false %}
-
-    {% else %}
-    {% endif %}
-
-
-    <head>
-        {% include 'inc/_head' %}
-        {% include 'inc/_meta' %}
-        {% block scripted %}
-        {% endblock %}
-        {% include "inc/_md-themes.html" %}
-    </head>
-
-    <body>
-
-    <div id="app" v-cloak>
-
-        {#<div id="navbar" class="is-fixed">#}
+        <div id="app" v-cloak>
+            {#<div id="navbar" class="is-fixed">#}
             {#<md-toolbar class="md-transparent">#}
-                {#<div class="md-toolbar-container">#}
-                    {#<div id="logo">#}
-                        {#<a href="{{ siteUrl }}" class="logo logo-l" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/logo_full-w.svg')"></a>#}
-                        {#&#123;&#35;<a href="{{ siteUrl }}" class="logo logo-m" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/logo-w.svg')"></a>&#35;&#125;#}
-                    {#</div>#}
-                    {#<span class="md-flex"></span>#}
-                    {#{{ include("menus/_navbar-menu.html") }}#}
-                    {#<md-button class="md-icon-button">#}
-                        {#<md-icon>search</md-icon>#}
-                    {#</md-button>#}
-                    {#<md-menu md-direction="bottom left" md-size="3">#}
-                        {#{{ include("inc/_lang.html") }}#}
-                    {#</md-menu>#}
-                    {#<md-button class="md-icon-button md-hide-medium-and-up" @click.native="toggleLeftSidenav">#}
-                        {#<md-icon>menu</md-icon>#}
-                    {#</md-button>#}
-                {#</div>#}
+            {#<div class="md-toolbar-container">#}
+            {#<div id="logo">#}
+            {#<a href="{{ siteUrl }}" class="logo logo-l" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/logo_full-w.svg')"></a>#}
+            {#&#123;&#35;<a href="{{ siteUrl }}" class="logo logo-m" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/logo-w.svg')"></a>&#35;&#125;#}
+            {#</div>#}
+            {#<span class="md-flex"></span>#}
+            {#{{ include("menus/_navbar-menu.html") }}#}
+            {#<md-button class="md-icon-button">#}
+            {#<md-icon>search</md-icon>#}
+            {#</md-button>#}
+            {#<md-menu md-direction="bottom left" md-size="3">#}
+            {#{{ include("inc/_lang.html") }}#}
+            {#</md-menu>#}
+            {#<md-button class="md-icon-button md-hide-medium-and-up" @click.native="toggleLeftSidenav">#}
+            {#<md-icon>menu</md-icon>#}
+            {#</md-button>#}
+            {#</div>#}
             {#</md-toolbar>#}
-        {#</div>#}
-
-        <div class="app-content">
-            <div v-if="!loaded" style="position:fixed; left:0; top:0; right:0; bottom:0; background-color: white; z-index:1000;"></div>
-            {{ include ("inc/_sidenav_list-collapse.html") }}
-            {#{{ include ("form/_feedback-side.html") }}#}
-            <transition appear name="fade">
-                {{ include ("header/_header.html") }}
-            </transition>
-
-            {#<md-button @click.native="show = !show">show</md-button>#}
-
-            {#<div class="page-subheader">#}
-            {#{% block subheader %}#}
-            {#{% endblock %}#}
             {#</div>#}
 
-            {#{% cache %}#}
-            {% set left_column=true %}
-            <div class="page-content">
-                {% block content %}
-                {% endblock %}
+            <div class="app-content">
+                {{ include ("inc/_sidenav_list-collapse.html") }}
+                {{ include ("form/_feedback-side.html") }}
+                {{ include ("inc/_searchbar.html") }}
+
+                <div v-if="!loaded" style="position:fixed; left:0; top:0; right:0; bottom:0; background-color: white; z-index:1000;"></div>
+
+                <transition appear name="fade">
+                    {{ include ("header/_header.html") }}
+                </transition>
+                {#<md-button @click.native="toggleRightSidenav">side</md-button>#}
+
+
+
+
+                {#{% cache %}#}
+
+                {% set left_column=true %}
+                <div class="page-content">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+
+                <div class="page-pager">
+                    {% block pager %}
+                    {% endblock %}
+                </div>
+
+                {#{% endcache %}#}
+
+
+                <aside class="aside-bottom">
+                    {% set matrix = globalBottom.bottomMatrix %}
+                    {{ include ("matrix/_matrix-bottom.html") }}
+                </aside>
+
+                {% cache %}
+                {% include 'inc/_footer' %}
+                {% endcache %}
+
+
             </div>
-            <div class="page-pager">
-                {% block pager %}
-                {% endblock %}
-            </div>
-
-            {#{% endcache %}#}
-
-            {#{% include('inc/_speed-dial.html') %}#}
-
-            <aside class="aside-bottom">
-                {% set matrix = globalBottom.bottomMatrix %}
-                {{ include ("matrix/_matrix-bottom.html") }}
-            </aside>
-
-            {% include 'inc/_footer' %}
-
-
+            {% cache %}
+            {% include('inc/_speed-dial.html') %}
+            {% endcache %}
         </div>
-    </div>
-    {% include 'inc/_scripts' %}
-    </body>
-    </html>
-{% endspaceless %}
+        {% include 'inc/_scripts' %}
+        </body>
+        </html>
+    {% endspaceless %}
+{% endblock %}
+
 {#{% endcache %}#}

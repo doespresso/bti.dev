@@ -1,4 +1,4 @@
-<md-sidenav class="md-right md-sidenav-big" ref="rightSidenav" @open="open('Right')" @close="close('Right')">
+<md-sidenav class="md-right md-sidenav-big md-fixed" ref="rightSidenav" @open="open('Right')" @close="close('Right')">
     <md-toolbar>
         <div class="md-toolbar-container">
             <h3 class="md-title">{{ 'Make Request' | translate }}</h3>
@@ -28,24 +28,14 @@
             </md-input-container>
             <md-input-container>
                 <label>{{ 'Services you are interested'|t }}</label>
-                <md-select name="users" id="users" multiple>
-                    {#<md-subheader>Managers</md-subheader>#}
-                    <md-option value="jim_halpert">Jim Halpert</md-option>
-                    <md-option value="dwight_schrute">Dwight Schrute</md-option>
-                    <md-option value="michael_scott">Michael Scott</md-option>
-                    {#<md-subheader>Employees</md-subheader>#}
-                    <md-option value="pam_beesly">Pam Beesly</md-option>
-                    <md-option value="angela_martin">Angela Martin</md-option>
-                    <md-option value="kelly_kapoor">Kelly Kapoor</md-option>
-                    <md-option value="ryan_howard">Ryan Howard</md-option>
-                    <md-option value="kevin_malone">Kevin Malone</md-option>
-                    <md-option value="creed_bratton">Creed Bratton</md-option>
-                    <md-option value="oscar_nunez">Oscar Nunez</md-option>
-                    <md-option value="toby_flenderson">Toby Flenderson</md-option>
-                    <md-option value="stanley_hudson">Stanley Hudson</md-option>
-                    <md-option value="meredith_palmer">Meredith Palmer</md-option>
-                    <md-option value="phyllis_lapin_vance">Phyllis Lapin-Vance</md-option>
+                {% cache %}
+                {% set sfeedback = craft.entries.section('services').level(1) %}
+                <md-select name="feedback_services" id="feedback_services" v-model="feedbackServices" multiple>
+                        {% for item in sfeedback %}
+                            <md-option value="s_{{ item.id }}">{{ item.title }}</md-option>
+                        {% endfor %}
                 </md-select>
+                {% endcache %}
             </md-input-container>
             <md-input-container>
                 {#<md-icon>settings_phone</md-icon>#}
@@ -58,7 +48,7 @@
                 <md-input placeholder="{{ 'Your E-mail'|t }}"></md-input>
             </md-input-container>
             <div class="actions">
-                <md-button class="md-primary md-raised">{{ 'Submit'| t }}</md-button>
+                <md-button class="md-primary md-raised" @click.native="closeRightSidenav">{{ 'Submit'| t }}</md-button>
             </div>
         </form>
     </div>

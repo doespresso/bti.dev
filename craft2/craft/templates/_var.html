@@ -1,0 +1,339 @@
+{#page#}
+{#page#}
+{#page#}
+{#page#}
+{#page#}
+{#page#}
+{#page#}
+{#page#}
+{#page#}
+{#page#}
+{#page#}
+{#page#}
+{#page#}
+{#page#}
+{#page#}
+{#page#}
+
+
+
+    {% set homepage = craft.entries.slug('homepage').first() %}
+
+    {% set headerTitle =  siteName %}
+    {% set headerTheme = 'ct' ~ globalDesign.styleThemeObject[0].id %}
+    {% set headerHeight = globalDesign.styleHeight %}
+    {% set hBanners = false %}
+    {% set headerIcon = globalDesign.styleIcon %}
+    {% set headerIconAlign = globalDesign.styleIconAlign %}
+    {% set headerIconAlignV = globalDesign.styleIconAlignV %}
+    {% set headerIconSize = globalDesign.styleIconSize %}
+    {% set headerIconAnimation = globalDesign.styleIconAnimation %}
+    {% set headerIconColor = globalDesign.styleIconColor %}
+    {% set headerIconLine = globalDesign.styleIconLine %}
+
+    {% set nox2 = false %}
+    {% set hideBottom = false %}
+
+    {% if category is defined %}
+
+        {% set cot = 'category' %}
+        {% set hideDate= 0 %}
+        {% set hideShort= 0 %}
+        {% set current = category %}
+        {% set currentType = current.group %}
+
+
+        {% if current.styleThemeObject|length %}
+            {% set headerTheme = 'ct' ~ current.styleThemeObject[0].id %}
+        {% endif %}
+        {% if current.styleHeight is not empty %}
+            {% set headerHeight = current.styleHeight %}
+        {% endif %}
+        {% if current.styleIcon %}
+            {% set headerIcon = current.styleIcon %}
+        {% endif %}
+        {% if current.styleIconAlign is not empty %}
+            {% set headerIconAlign = current.styleIconAlign %}
+        {% endif %}
+        {% if current.styleIconAlignV is not empty %}
+            {% set headerIconAlignV = current.styleIconAlignV %}
+        {% endif %}
+        {% if current.styleIconSize is not empty %}
+            {% set headerIconSize = current.styleIconSize %}
+        {% endif %}
+        {% if current.styleIconAnimation is not empty %}
+            {% set headerIconAnimation = current.styleIconAnimation %}
+        {% endif %}
+        {% if current.styleIconColor is not empty %}
+            {% set headerIconColor = current.styleIconColor %}
+        {% endif %}
+        {% if current.styleIconLine is not empty %}
+            {% set headerIconLine = current.styleIconLine %}
+        {% endif %}
+        {% if current.styleImg|length %}
+            {% set headerImg =  current.styleImg[0] %}
+            {% set headerIcon =  '' %}
+        {% endif %}
+
+
+    {% elseif entry is defined %}
+        {% set ishomepage = (entry.slug == 'homepage') %}
+
+        {% set cot = 'entry' %}
+        {% set current = entry %}
+        {% set currentType = current.type %}
+
+        {% if current.publicationCategory|length %}
+            {% set ep = current.publicationCategory[0] %}
+        {% elseif current.personStatus|length %}
+            {% set ep = current.personStatus[0] %}
+        {% elseif current.type == 'typePage' and current.ancestors|length %}
+            {% set ep = craft.entries.ancestorOf(entry).first() %}
+        {% endif %}
+        {% if ep is defined %}
+
+            {% set headerTitle =  ep.title %}
+            {% if ep.styleThemeObject|length %}
+                {% set headerTheme = 'ct' ~ ep.styleThemeObject[0].id %}
+            {% endif %}
+            {% if ep.styleHeight is not empty %}
+                {% set headerHeight = ep.styleHeight %}
+            {% endif %}
+            {% if ep.styleIcon %}
+                {% set headerIcon = ep.styleIcon %}
+            {% endif %}
+            {% if ep.styleIconAlign is not empty %}
+                {% set headerIconAlign = ep.styleIconAlign %}
+            {% endif %}
+            {% if ep.styleIconAlignV is not empty %}
+                {% set headerIconAlignV = ep.styleIconAlignV %}
+            {% endif %}
+            {% if ep.styleIconSize is not empty %}
+                {% set headerIconSize = ep.styleIconSize %}
+            {% endif %}
+            {% if ep.styleIconAnimation is not empty %}
+                {% set headerIconAnimation = ep.styleIconAnimation %}
+            {% endif %}
+            {% if ep.styleIconColor is not empty %}
+                {% set headerIconColor = ep.styleIconColor %}
+            {% endif %}
+            {% if ep.styleIconLine is not empty %}
+                {% set headerIconLine = ep.styleIconLine %}
+            {% endif %}
+            {% if ep.styleImg|length %}
+                {% set headerImg =  ep.styleImg[0] %}
+                {% set headerIcon =  '' %}
+            {% endif %}
+
+        {% endif %}
+
+
+        {% set tagged = current['taglist'] is defined ? current.taglist %}
+        {% set headerTitle =  current.title %}
+
+
+
+        {% if current.styleThemeObject|length %}
+            {% set headerTheme = 'ct' ~ current.styleThemeObject[0].id %}
+        {% endif %}
+        {% if current.styleHeight is not empty %}
+            {% set headerHeight = current.styleHeight %}
+        {% endif %}
+        {% if current.styleIcon %}
+            {% set headerIcon = current.styleIcon %}
+        {% endif %}
+        {% if current.styleIconAlign is not empty %}
+            {% set headerIconAlign = current.styleIconAlign %}
+        {% endif %}
+        {% if current.styleIconAlignV is not empty %}
+            {% set headerIconAlignV = current.styleIconAlignV %}
+        {% endif %}
+        {% if current.styleIconSize is not empty %}
+            {% set headerIconSize = current.styleIconSize %}
+        {% endif %}
+        {% if current.styleIconAnimation is not empty %}
+            {% set headerIconAnimation = current.styleIconAnimation %}
+        {% endif %}
+        {% if current.styleIconColor is not empty %}
+            {% set headerIconColor = current.styleIconColor %}
+        {% endif %}
+        {% if current.styleIconLine is not empty %}
+            {% set headerIconLine = current.styleIconLine %}
+        {% endif %}
+        {% if current.styleImg|length %}
+            {% set headerImg =  current.styleImg[0] %}
+            {% set headerIcon =  '' %}
+        {% endif %}
+
+        {% set hBanners = entry['styleHeaderBanners'] is defined and current.styleHeaderBanners|length ? current.styleHeaderBanners : false %}
+
+    {% else %}
+    {% endif %}
+
+
+{#nav#}
+{#nav#}
+{#nav#}
+{#nav#}
+{#nav#}
+{#nav#}
+{#nav#}
+{#nav#}
+{#nav#}
+{#nav#}
+{#nav#}
+{#nav#}
+{#nav#}
+{#nav#}
+{#nav#}
+{#nav#}
+{#nav#}
+{#nav#}
+{#nav#}
+{#nav#}
+
+
+{% set noSubmenu = false %}
+
+{% if cot != 'category' and current.type == 'typePerson' %}
+    {% set pcat = current.personStatus[0] %}
+    {% set m_current = craft.entries.section('menus').relatedTo({
+    targetElement: pcat,
+    field: 'menuItem.obj'
+    }).first %}
+{% elseif cot != 'category' and current.type == 'typePublication' %}
+    {% set pcat = current.publicationCategory[0] %}
+    {% set m_current = craft.entries.section('menus').relatedTo({
+    targetElement: pcat,
+    field: 'menuItem.obj'
+    }).first %}
+    {% set noSubmenu = true %}
+{% else %}
+    {% set m_current = craft.entries.section('menus').relatedTo({
+    targetElement: current,
+    field: 'menuItem.obj'
+    }).first %}
+{% endif %}
+
+
+
+{% set bc = [] %}
+
+{% if m_current %}
+    {% if not noSubmenu %}
+        {#SUBMENU#}
+        {#SUBMENU#}
+        {#SUBMENU#}
+        {#{{ m_current.level }}#}
+        {#{{ m_current.showSub }}#}
+        {% if m_current.parent %}
+            {#CURRENT: {{ m_current.title }}<br/>#}
+            {#PARENT: {{ m_current.parent.title }}<br/>#}
+            {% set m_parent =  m_current.parent %}
+            {% set tosub = m_parent.showInSub %}
+            {% set plevel = m_parent.level %}
+            {% set clevel = m_current.level %}
+            {#{{ m_parent.title }} {{ m_parent.showInSub }}<br/>#}
+            {% if tosub == "children" %}
+                {% set submenu = m_parent.children.level(clevel) %}
+            {% elseif tosub == "parent" %}
+                {% if m_parent.parent %}
+                    {% set submenu =  m_parent.parent.children.level(plevel) %}
+                {% else %}
+                    {% set submenu =  craft.entries.section('menus').level(plevel) %}
+                {% endif %}
+            {% endif %}
+            {#<hr>#}
+            {#{% if submenu|length %}#}
+            {#{% for s in submenu %}#}
+            {#{{ s.title }}#}
+            {#{% endfor %}#}
+            {#{% endif %}#}
+            {#<hr>#}
+        {% elseif m_current.level == 1 and m_current.showSub == 1 %}
+            {% set clevel = m_current.level %}
+            {% set submenu = m_current.children.level(clevel+1) %}
+            {#current children#}
+            {#<hr>#}
+            {#{% if submenu|length %}#}
+            {#{% for s in submenu %}#}
+            {#{{ s.title }}#}
+            {#{% endfor %}#}
+            {#{% endif %}#}
+            {#<hr>#}
+        {% endif %}
+    {% endif %}
+
+    {#ADD TO BC#}
+    {#ADD TO BC#}
+    {#ADD TO BC#}
+
+    {% if m_current.hideBc !=1 %}
+        {% if m_current.menuItem.blocks[0].type != "Url" %}
+            {% set cUrl = m_current.menuItem.blocks[0].obj[0] is defined ? m_current.menuItem.blocks[0].obj[0].url %}
+        {% else %}
+            {% set cUrl = m_current.menuItem.blocks[0].obj %}
+        {% endif %}
+        {% set ci = [] %}
+        {% set ci = ci|merge([m_current]) %}
+        {% set ci = ci|merge([cUrl]) %}
+        {% set bc = bc|merge([ci]) %}
+    {% endif %}
+
+    {% set menu_level = m_current.level %}
+    {% set m_level = m_current.level %}
+    {#<b>{{ m_current.title }}</b> / initial level: {{ menu_level }}<br/>#}
+
+    {% for l in 1 .. m_level-1 if m_level>1 %}
+        {% set m_current = m_current.parent is defined ? m_current.parent %}
+        {% if m_current is defined %}
+            {% if m_current.hideBc !=1 %}
+                {% if m_current.menuItem.blocks[0].type != "Url" %}
+                    {% set cUrl = m_current.menuItem.blocks[0].obj[0] is defined ? m_current.menuItem.blocks[0].obj[0].url %}
+                {% else %}
+                    {% set cUrl = m_current.menuItem.blocks[0].obj %}
+                {% endif %}
+                {% set ci = [] %}
+                {% set ci = ci|merge([m_current]) %}
+                {% set ci = ci|merge([cUrl]) %}
+                {% set bc = bc|merge([ci]) %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+    {#ADD TO BC#}
+    {#ADD TO BC#}
+    {#ADD TO BC#}
+
+{% endif %}
+
+        {% if bc|length>0 %}
+            {% set backNav %}
+                <div id="back-nav">
+                    <md-menu md-size="5" md-disabled="true">
+                        <md-button class="md-icon-button" md-menu-trigger>
+                            <md-icon class="md-size-2x">arrow_back</md-icon>
+                        </md-button>
+                        <md-menu-content class="back-nav">
+                            <md-menu-item href="{{ siteUrl }}">
+                                <md-icon>home</md-icon>
+                                <span>{{ 'Homepage'|t }}</span>
+                            </md-menu-item>
+                            {% for item in bc | reverse %}
+                                {% if not loop.last %}
+                                    <md-menu-item href="{{ item[1] }}">
+                                        <md-icon>chevron_left</md-icon>
+                                        <span>{{ item[0].title }}</span>
+                                    </md-menu-item>
+                                {% endif %}
+                            {% endfor %}
+                        </md-menu-content>
+                    </md-menu>
+                </div>
+            {% endset %}
+        {% endif %}
+
+
+
+{% block all %}
+{% endblock %}

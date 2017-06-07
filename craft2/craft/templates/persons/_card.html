@@ -1,3 +1,4 @@
+<div class="col" {% include "persons/_for-filter.html" %}>
 <md-card class="has-ripple" md-with-hover>
     <md-card-area class="md-flex">
         {% if item.personPhoto|length %}
@@ -10,8 +11,8 @@
         {% endif %}
         <md-card-content>
             <h3 class="md-title">{{ item.personFirstname }} {{ item.personLastname }}</h3>
-            {#<div class="md-subhead">{{ item.personStatusOver ? item.personStatusOver : item.personStatus.first().groupTeamStatus }}. {{ item.personDepartment }}</div>#}
-            <div class="md-subhead">{{ item.personStatusOver ? item.personStatusOver : item.personStatus[0].groupTeamStatus }}</div>
+            <div class="md-subhead">{{ item.personStatusOver ? item.personStatusOver : item.personStatus[0].groupTeamStatus }}<br/>{{ item.relatedServices|length ? item.relatedServices[0].title}}</div>
+            {#<div class="md-subhead">{{ item.personStatusOver ? item.personStatusOver : item.personStatus[0].groupTeamStatus }}</div>#}
         </md-card-content>
     </md-card-area>
     <md-card-actions>
@@ -25,3 +26,4 @@
         </md-button>
     </md-card-actions>
 </md-card>
+</div>

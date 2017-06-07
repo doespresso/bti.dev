@@ -1,0 +1,44 @@
+#header-media-container {
+  overflow: hidden;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  //min-width: 100%;
+  //min-height:100%;
+  z-index: -1;
+}
+
+.subheader-filters {
+}
+
+.back-nav-container {
+  position: relative;
+}
+
+#back-nav {
+  position: absolute;
+  top: -40px;
+  left: 4px;
+  @include layout-large-and-up {
+    top: 30px;
+    left: -80px;
+  }
+  .md-button {
+    .md-icon {
+      opacity: 0.6;
+      transition:opacity 0.2s ease;
+    }
+    &:hover{
+      .md-icon{
+        opacity:1;
+      }
+    }
+  }
+}
+
+.back-nav.md-menu-content {
+  //max-width: 300px;
+  //width: auto;
+}

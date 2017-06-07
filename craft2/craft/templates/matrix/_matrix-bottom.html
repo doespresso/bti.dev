@@ -1,6 +1,6 @@
 
 {% if matrix is defined %}
-    {% if matrix.blocks|length>1 %}<md-tabs :md-dynamic-height="false" class="md-transparent tabs-inline tabs-full tabs-no-border tabs-mono" md-fixed>{% endif %}
+    {#{% if matrix.blocks|length>1 %}<md-tabs class="md-transparent tabs-inline tabs-full- tabs-no-border- tabs-mono-">{% endif %}#}
     {% for block in matrix %}
 
         {% set bTheme = block['blockTheme'] is defined and block.blockTheme|length ? 'md-theme-ct' ~ block.blockTheme[0].id : '' %}
@@ -36,7 +36,7 @@
         {% else %}
 
 
-{% if matrix.blocks|length>1 %}<md-tab id="{{ block.type }}" name="{{ block.type }}" md-label="{{ block.blockTitle ? block.blockTitle : ''}}">{% endif %}
+{#{% if matrix.blocks|length>1 %}<md-tab id="{{ block.type }}" name="{{ block.type }}" md-label="{{ block.blockTitle ? block.blockTitle : ''}}">{% endif %}#}
 
             <section class="section bottom-section {{ pv is defined and pv is not empty ? 'p-v-' ~ pv }} {{ mv is defined and mv is not empty ? 'm-v-' ~ mv }} {{ bTheme }}">
 
@@ -70,7 +70,7 @@
                         {% endif %}
                     {% endif %}
 
-                    {% if block.type == "sectionPublications" and cot != 'category'%}
+                    {% if block.type == "sectionPublications" and cot != 'category' and not hideBottom %}
                         {% set perpage = block.blockPerPage is not empty ? block.blockPerPage : 3 %}
                         {% if block.blockSource == 'last' %}
                             {% set news = craft.entries.section('publications').limit(perpage) %}
@@ -147,8 +147,8 @@
                 {% endif %}
 
             </section>
-        {% if matrix.blocks|length>1 %}</md-tab>{% endif %}
+        {#{% if matrix.blocks|length>1 %}</md-tab>{% endif %}#}
         {% endif %}
     {% endfor %}
-    {% if matrix.blocks|length>1 %}</md-tabs>{% endif %}
+    {#{% if matrix.blocks|length>1 %}</md-tabs>{% endif %}#}
 {% endif %}

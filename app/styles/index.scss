@@ -1,18 +1,7 @@
 @import "./../node_modules/vue-material/src/core/stylesheets/variables.scss";
 @import "./../node_modules/vue-material/src/core/stylesheets/mixins.scss";
 
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s ease 0.2s;
-  //transform: translateY(0);
-}
-
-.fade-enter, .fade-leave-to /* .fade-leave-active для <2.1.8 */
-{
-  opacity: 0;
-  //transform: translateY(200px);
-}
-
+@import "transitions";
 @import "bti_colors";
 @import "grid/gridlex.scss";
 @import "paddings";
@@ -40,12 +29,18 @@
 @import "chip";
 @import "collapse";
 @import "tabs";
+@import "header";
+@import "filter";
 
 
 [class*='-icon']:not(.md-icon) svg {
   line, path, rect, circle, polygon, ellipse, polyline {
     fill: none!important;
     vector-effect: non-scaling-stroke !important;
+    &.wing{
+      fill:#fff!important;
+      stroke: #fff!important;
+    }
   }
 }
 

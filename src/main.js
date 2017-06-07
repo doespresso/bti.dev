@@ -13,17 +13,35 @@ Vue.use(Collapse)
 Vue.material.registerTheme(window.themes);
 Vue.material.setCurrentTheme(window.theme);
 
+Vue.directive("person", {
+    update: function(el, bindings, vnode) {
+        var ina = false;
+        const s = JSON.parse(el.getAttribute("spec"))[0];
+        const br = JSON.parse(el.getAttribute("spec"))[1];
+        var in_s = (vnode.context.$data.s_service==0) ? true : (s.indexOf(parseInt(vnode.context.$data.s_service)) != -1);
+        var in_b = (vnode.context.$data.s_branch==0) ? true : (br.indexOf(parseInt(vnode.context.$data.s_branch)) != -1);
+        var ina = in_s && in_b;
+        if (ina) {
+            el.classList.add("found");
+        } else {
+            el.classList.remove("found");
+        };
+    }
+});
 
 var app = new Vue({
     components: {Collapse},
     delimiters: ['${', '}'],
     el: '#app',
     data: {
+        feedbackServices:[],
         message: 'You loaded this page on ' + new Date(),
         show: false,
+        searchQuery:'',
         loaded: false,
-        fservice:String,
-        fbranch:String,
+        showSearchbar:false,
+        s_service:0,
+        s_branch:0,
     },
     created: function () {
         this.loaded = true;
@@ -37,6 +55,12 @@ var app = new Vue({
             console.log("TABB");
             window.location.href = tab;
         },
+        showSearch:function(){
+            this.showSearchbar = true;
+        },
+        hideSearch:function(){
+            this.showSearchbar = false;
+        },
         toggleLeftSidenav: function () {
             this.$refs.leftSidenav.toggle();
         },
@@ -47,12 +71,12 @@ var app = new Vue({
         closeRightSidenav: function () {
             this.$refs.rightSidenav.close();
         },
-        //open: function (ref) {
-        //    console.log('Opened: ' + ref);
-        //},
-        //close: function (ref) {
-        //    console.log('Closed: ' + ref);
-        //},
+        open: function (ref) {
+            console.log('Opened: ' + ref);
+        },
+        close: function (ref) {
+            console.log('Closed: ' + ref);
+        },
         openDialog: function (ref) {
             this.$refs[ref].open();
         },
