@@ -56,8 +56,8 @@
                     </div>
                 {% endif %}
                 {% if entry is defined and entry.type == 'typePublication' %}
-                    <div class="ctr">
-                        <div class="grid-noWrap-middle article-info">
+                    <div class="ctr article-info">
+                        <div class="grid-noWrap-middle">
                             <div class="col-9">
                                 <span class="date">{{ entry.postDate.localeDate() }}</span><a href="{{ entry.publicationCategory[0].url }}">{{ entry.publicationCategory[0].title }}</a>
                             </div>

@@ -28,8 +28,6 @@ body {
   top:0;
 }
 
-.page-header {
-}
 
 .header-title, h1.header-title, .banner-title {
   //color: rgba(#fff, 0.99) !important;
@@ -38,6 +36,7 @@ body {
   line-height: 1.2;
   margin-bottom: 8px;
   font-weight: 500;
+  padding-top:80px;
   @include layout-small-and-up {
     font-weight: 500;
     font-size: 40px;

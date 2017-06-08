@@ -22,19 +22,19 @@
                         <md-tabs class="md-transparent no-h-p">
                             {% if entry.personBio|length %}
                                 <md-tab id="p_bio" md-label="{{ 'Biography' | t }}">
-                                    <div class="html-content person-bio">{{ entry.personBio }}</div>
+                                    <div class="html-content person-bio m-t-20">{{ entry.personBio }}</div>
                                 </md-tab>
                             {% endif %}
                             {% if entry.relatedServices|length %}
                                 <md-tab id="p_services" md-label="{{ 'Services' | t }}">
                                     {#<p>{{ entry.personFirstname }} оказывает следующие услуги:</p>#}
-                                    {{ include ("lists/_list-simple.html",{'items':entry.relatedServices.level(1),'classes':'md-dense','links':true, 'divider':true}) }}
+                                    {{ include ("lists/_list-simple.html",{'items':entry.relatedServices.level(1,2),'classes':'md-medium md-inline','links':true, 'divider':true}) }}
                                 </md-tab>
                             {% endif %}
                             {% if entry.relatedBranches|length %}
                                 <md-tab id="p_branches" md-label="{{ 'Industries' | t }}">
                                     {#<p>{{ entry.personFirstname }} обладает расширенной отраслевой экспертизой:</p>#}
-                                    {{ include ("lists/_list-simple.html",{'items':entry.relatedBranches,'classes':'md-dense','links':true, 'divider':true}) }}
+                                    {{ include ("lists/_list-simple.html",{'items':entry.relatedBranches,'classes':'md-medium md-inline','links':true, 'divider':true}) }}
                                 </md-tab>
                             {% endif %}
                         </md-tabs>

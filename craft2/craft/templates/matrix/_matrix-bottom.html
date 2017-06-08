@@ -1,4 +1,3 @@
-
 {% if matrix is defined %}
     {#{% if matrix.blocks|length>1 %}<md-tabs class="md-transparent tabs-inline tabs-full- tabs-no-border- tabs-mono-">{% endif %}#}
     {% for block in matrix %}
@@ -44,11 +43,11 @@
                     <div class="block-icon bg-icon icons--themed {{ mono }} icon-color--{{ iconTheme.styleIconColor and bTheme != '' ? iconTheme.styleIconColor : 'ht' }} scale--{{ iconTheme.styleIconSize | default('x1') }} icon-sw--{{ iconTheme.styleIconLine | default('x1') }} icon-ani--{{ iconTheme.styleIconAnimation | default('draw') }} animated align--{{ iconTheme.styleIconAlign | default('left') }} valign--{{ iconTheme.styleIconAlignV | default('bottom') }}">{{ iconTheme.styleIcon ? iconTheme.styleIcon.inline }}</div>
                 {% endif %}
 
-                {#{% if bTitle|length and not (tmpl == '_list.html') %}#}
-                    {#<div class="ctr wrapper t-color">#}
-                        {#<div class="section-title">{{ bTitle }}</div>#}
-                    {#</div>#}
-                {#{% endif %}#}
+                {% if bTitle|length and not (tmpl == '_list.html') %}
+                    <div class="ctr wrapper t-color">
+                        <div class="section-title aside-title">{{ bTitle }}</div>
+                    </div>
+                {% endif %}
 
                 {% if bContainer == 1 or block.type == "sectionJobs" %}
                 <div class="ctr section-content">{% endif %}
@@ -125,26 +124,6 @@
                     {% endif %}
 
 
-
-
-                {% if bContainer == 1 or block.type == "sectionJobs"%}
-                </div>
-                {% endif %}
-
-                {% if bLink|length or bRequest == 1 %}
-                    <div class="ctr">
-                        <div class="grid">
-                            <div class="col-12 actions">
-                                {% for item in bLink %}
-                                    <md-button class="md-raised" href="{{ item.url }}">{{ item.title }}</md-button>
-                                {% endfor %}
-                                {% if bRequest ==1 %}
-                                    {% include 'inc/_request-button.html' %}
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
 
             </section>
         {#{% if matrix.blocks|length>1 %}</md-tab>{% endif %}#}

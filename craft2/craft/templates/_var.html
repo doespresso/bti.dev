@@ -36,11 +36,13 @@
 
     {% if category is defined %}
 
+
         {% set cot = 'category' %}
         {% set hideDate= 0 %}
         {% set hideShort= 0 %}
         {% set current = category %}
-        {% set currentType = current.group %}
+        {% set currentType = current.group.handle %}
+        {% set headerTitle =  current.title %}
 
 
         {% if current.styleThemeObject|length %}
@@ -81,7 +83,7 @@
 
         {% set cot = 'entry' %}
         {% set current = entry %}
-        {% set currentType = current.type %}
+        {% set currentType = current.type.handle %}
 
         {% if current.publicationCategory|length %}
             {% set ep = current.publicationCategory[0] %}

@@ -1,94 +1,85 @@
-{#{% cache %}#}
+{% cache %}
 {% extends "_var.html" %}
-
-{% block all %}
-
-    {% spaceless %}
-        <!DOCTYPE html>
-        <html>
-        <head>
-            {% include 'inc/_head' %}
-            {% include 'inc/_meta' %}
-            {% block scripted %}
-            {% endblock %}
-            {% include "inc/_md-themes.html" %}
-        </head>
-
-        <body>
-
-        <div id="app" v-cloak>
-            {#<div id="navbar" class="is-fixed">#}
-            {#<md-toolbar class="md-transparent">#}
-            {#<div class="md-toolbar-container">#}
-            {#<div id="logo">#}
-            {#<a href="{{ siteUrl }}" class="logo logo-l" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/logo_full-w.svg')"></a>#}
-            {#&#123;&#35;<a href="{{ siteUrl }}" class="logo logo-m" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/logo-w.svg')"></a>&#35;&#125;#}
-            {#</div>#}
-            {#<span class="md-flex"></span>#}
-            {#{{ include("menus/_navbar-menu.html") }}#}
-            {#<md-button class="md-icon-button">#}
-            {#<md-icon>search</md-icon>#}
-            {#</md-button>#}
-            {#<md-menu md-direction="bottom left" md-size="3">#}
-            {#{{ include("inc/_lang.html") }}#}
-            {#</md-menu>#}
-            {#<md-button class="md-icon-button md-hide-medium-and-up" @click.native="toggleLeftSidenav">#}
-            {#<md-icon>menu</md-icon>#}
-            {#</md-button>#}
-            {#</div>#}
-            {#</md-toolbar>#}
-            {#</div>#}
-
-            <div class="app-content">
-                {{ include ("inc/_sidenav_list-collapse.html") }}
-                {{ include ("form/_feedback-side.html") }}
-                {{ include ("inc/_searchbar.html") }}
-
-                <div v-if="!loaded" style="position:fixed; left:0; top:0; right:0; bottom:0; background-color: white; z-index:1000;"></div>
-
-                <transition appear name="fade">
-                    {{ include ("header/_header.html") }}
-                </transition>
-                {#<md-button @click.native="toggleRightSidenav">side</md-button>#}
+  {% spaceless %}
+      {% block all %}
 
 
+          <!DOCTYPE html>
+          <html>
+          <head>
+              {% include 'inc/_head' %}
+              {% include 'inc/_meta' %}
+              {% block scripted %}
+              {% endblock %}
+              {% include "inc/_md-themes.html" %}
+          </head>
 
+          <body>
 
-                {#{% cache %}#}
+          <div id="app" v-cloak>
+              {#<div id="navbar" class="is-fixed">#}
+              {#<md-toolbar class="md-transparent">#}
+              {#<div class="md-toolbar-container">#}
+              {#<div id="logo">#}
+              {#<a href="{{ siteUrl }}" class="logo logo-l" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/logo_full-w.svg')"></a>#}
+              {#&#123;&#35;<a href="{{ siteUrl }}" class="logo logo-m" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/logo-w.svg')"></a>&#35;&#125;#}
+              {#</div>#}
+              {#<span class="md-flex"></span>#}
+              {#{{ include("menus/_navbar-menu.html") }}#}
+              {#<md-button class="md-icon-button">#}
+              {#<md-icon>search</md-icon>#}
+              {#</md-button>#}
+              {#<md-menu md-direction="bottom left" md-size="3">#}
+              {#{{ include("inc/_lang.html") }}#}
+              {#</md-menu>#}
+              {#<md-button class="md-icon-button md-hide-medium-and-up" @click.native="toggleLeftSidenav">#}
+              {#<md-icon>menu</md-icon>#}
+              {#</md-button>#}
+              {#</div>#}
+              {#</md-toolbar>#}
+              {#</div>#}
+              <div class="app-content">
+                  {{ include ("inc/_sidenav_list-collapse.html") }}
+                  {{ include ("form/_feedback-side.html") }}
+                  {{ include ("inc/_searchbar.html") }}
 
-                {% set left_column=true %}
-                <div class="page-content">
-                    {% block content %}
-                    {% endblock %}
-                </div>
+                  <div v-if="!loaded" style="position:fixed; left:0; top:0; right:0; bottom:0; background-color: white; z-index:1000;"></div>
 
-                <div class="page-pager">
-                    {% block pager %}
-                    {% endblock %}
-                </div>
+                  <transition appear name="fade">
+                      {{ include ("header/_header.html") }}
+                  </transition>
 
-                {#{% endcache %}#}
+                  {% set left_column=true %}
+                  <div class="page-content">
+                      {% block content %}
+                      {% endblock %}
+                  </div>
 
+                  <div class="page-pager">
+                      {% block pager %}
+                      {% endblock %}
+                  </div>
 
-                <aside class="aside-bottom">
-                    {% set matrix = globalBottom.bottomMatrix %}
-                    {{ include ("matrix/_matrix-bottom.html") }}
-                </aside>
+                  {#{% endcache %}#}
 
-                {% cache %}
-                {% include 'inc/_footer' %}
-                {% endcache %}
+                  <aside class="aside-bottom">
+                      {% set matrix = globalBottom.bottomMatrix %}
+                      {{ include ("matrix/_matrix-bottom.html") }}
+                  </aside>
 
+                  {% cache %}
+                  {% include 'inc/_footer' %}
+                  {% endcache %}
 
-            </div>
-            {% cache %}
-            {% include('inc/_speed-dial.html') %}
-            {% endcache %}
-        </div>
-        {% include 'inc/_scripts' %}
-        </body>
-        </html>
-    {% endspaceless %}
-{% endblock %}
+              </div>
+              {% cache %}
+              {% include('inc/_speed-dial.html') %}
+              {% endcache %}
+          </div>
+          {% include 'inc/_scripts' %}
+          </body>
+          </html>
 
-{#{% endcache %}#}
+      {% endblock %}
+  {% endspaceless %}
+{% endcache %}

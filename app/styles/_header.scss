@@ -25,17 +25,15 @@
 
 #back-nav {
   position: absolute;
-  //top: -40px;
+  top: -40px;
   left:8px;
-  top:-30px;
+  //top:30px;
 
-  @include layout-medium-and-up {
-    top:30px;
-  }
   @include layout-large-and-up {
     top: 30px;
     left: 40px;
   }
+
   .md-button {
     .md-icon {
       //opacity: 0.6;

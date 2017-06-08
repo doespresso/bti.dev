@@ -5,7 +5,7 @@
 {% paginate craft.entries.section('publications').relatedTo(category).limit(perPage) as pageInfo, news %}
 
 {% block content %}
-    <section class="section p-v- m-v-">
+    <section class="section">
         {% if news|length %}
             {% include "publications/_list-cards.html" %}
         {% endif %}

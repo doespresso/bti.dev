@@ -128,10 +128,11 @@
             </div>
 
             <aside class="col-4_xs-12_sm-12_md-3 m-t-40 aside-right">
+
                 <section class="aside-section">
                     {% set _related = craft.entries({ section: ['services', 'branches','persons'] }).relatedTo(tagged).level(1).id('not ' ~ entry.id).limit(5) %}
                     {% if _related|length %}
-                        <div class="section-title md-sec">
+                        <div class="section-title aside-title">
                             <md-icon class="md-size-">link</md-icon> {{ 'On the topic' |t }}
                         </div>
                         <div class="section-content">
@@ -140,13 +141,14 @@
                     {% endif %}
                 </section>
                 <section class="aside-section">
-                    <div class="section-title md-sec">
+                    <div class="section-title aside-title">
                         <md-icon class="md-size-">bookmark_border</md-icon> {{ 'Social' |t }}
                     </div>
                     <div class="section-content">
                         {% include "inc/_social-icons.html" %}
                     </div>
                 </section>
+
             </aside>
         </div>
     </div>

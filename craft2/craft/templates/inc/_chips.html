@@ -5,7 +5,9 @@
                 {% set photo = item.personPhoto.first() %}
                 <img src="{{ photo.getUrl('resizeMicro') }}"/>
             {% endif %}
+            {{ item.personFirstname }} {{ item.personLastname }}
+        {% else %}
+            {{ item.title }}
         {% endif %}
-        {{ item.title }}
     </a>
 {% endfor %}

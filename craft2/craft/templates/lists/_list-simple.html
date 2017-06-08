@@ -1,6 +1,10 @@
 <md-list class="{{ classes }} md-transparent">
     {% for item in items %}
-        <md-list-item {{ "href=#{item.url}" }}>
+        {% set url = item.url %}
+        {% if item.type == 'typeService' and item.level > 1 %}
+            {% set url = item.parent.url %}
+        {% endif %}
+        <md-list-item href="{{url}}">
             {% if divider is defined %}
                 <md-divider></md-divider>
             {% endif %}
