@@ -1,0 +1,25 @@
+{% if block.blockSource == 'related' and entry.relatedPersons|length %}
+    {% set persons = entry['relatedPersons'] is defined and entry.relatedPersons|length ? entry.relatedPersons %}
+{% elseif block.blockSource == 'added' and block.blockContent|length %}
+    {% set persons = block.blockContent|length ? block.blockContent %}
+{% endif %}
+
+{% if persons is defined %}
+    {% if block['isSwiper'] is defined and block.isSwiper == 1 %}
+
+        {% set classes = ' swiper--cards ' %}
+        {% set arrows = 0 %}
+        {% set perview = 'auto' %}
+        {% set centered = 1 %}
+        {% set loop = 'false' %}
+        {% set swiperData = persons %}
+        {% set cardTemplate = 'persons/_card.html' %}
+
+        {% include "_swiper/_swiper.html" %}
+
+    {% else %}
+        {% set tmpl = '_list-cards.html' %}
+        {% set templ = "persons/" ~ tmpl %}
+        {% include templ %}
+    {% endif %}
+{% endif %}

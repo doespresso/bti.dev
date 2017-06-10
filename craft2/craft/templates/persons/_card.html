@@ -1,5 +1,5 @@
 <div class="col" {% include "persons/_for-filter.html" %}>
-<md-card class="has-ripple" md-with-hover>
+<md-card class="has-ripple card--person" md-with-hover>
     <md-card-area class="md-flex">
         {% if item.personPhoto|length %}
             {% set photo = item.personPhoto.first() %}

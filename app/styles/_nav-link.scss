@@ -70,7 +70,13 @@ $isize: 100px;
       }
     }
   }
-
+}
+div:last-child{
+  >.nav-link{
+    &:before {
+      display: none;
+    }
+  }
 }
 
 .nav-link-text {
@@ -80,6 +86,8 @@ $isize: 100px;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  padding-top:16px;
+  padding-bottom:16px;
   .md-title {
     font-size: 16px;
     line-height: 1.2;

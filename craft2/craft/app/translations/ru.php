@@ -29,7 +29,7 @@ return array(
 	'of'=>'из',
 	'Page'=>'Страница',
 	'Send Request'=>'Запрос',
-	'Make Request'=>'Сделать запрос',
+	'Make Request'=>'Запрос',
 	'Make Team'=>'Подобрать команду',
 	'Request'=>'Запрос',
 	'Show More'=>'Подробности',

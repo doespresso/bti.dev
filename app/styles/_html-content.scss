@@ -1,5 +1,10 @@
-
+.html-card{
+  margin-bottom:40px;
+}
 .html-content {
+  .html-card &{
+    padding:24px;
+  }
   color:#000;
   opacity: 0.78;
 
@@ -54,6 +59,25 @@
     }
     li{
       margin-bottom: 8px;
+    }
+  }
+  ul{
+    list-style: none;
+    padding-left:0;
+    li{
+      padding-left:24px;
+      position:relative;
+      &:before{
+        content:'';
+        position:absolute;
+        left:0;
+        top:0.5em;
+        width:10px;
+        height:2px;
+        display: block;
+        background-color:#000;
+        opacity:0.2;
+      }
     }
   }
 }

@@ -131,7 +131,7 @@
   right: 0;
   bottom: -40px;
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction:column;
   justify-content: flex-end;
   transform-origin: 50% 100%;
   align-items: center;
@@ -149,9 +149,21 @@
     }
   }
   @include layout-xsmall{
+    //transform: none!important;
+    //align-items: center!important;
+    //justify-content: flex-end!important;
+  }
+  @media (max-width: 720px){
     transform: none!important;
-    align-items: center!important;
+    align-items: flex-start!important;
     justify-content: flex-end!important;
+    left: -40px!important;
+    top: auto!important;
+    right: auto!important;
+    width: 280px;
+    height: 480px;
+    bottom: -40px!important;
+    overflow: visible;
   }
 }
 
@@ -233,6 +245,8 @@
   transform: scale(3);
   //}
 }
+
+
 
 .icon-sw--x1 svg *:not(g) {
   stroke-width: 4px !important;

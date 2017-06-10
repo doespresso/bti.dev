@@ -20,7 +20,8 @@ $gl-lg:        "screen and (max-width: #{$breakpoint-large})" !default; // max 1
 
 .ctr{
   width:100%;
-  max-width:480px;
+  //max-width:480px;
+  max-width:1200px;
   padding-left:$gl-gutter/2;
   padding-right:$gl-gutter/2;
   margin-left:auto;
@@ -29,18 +30,18 @@ $gl-lg:        "screen and (max-width: #{$breakpoint-large})" !default; // max 1
     padding-left:0;
     padding-right:0;
   }
-  @include layout-small-and-up{
-    max-width:540px;
-  }
-  @include layout-small-and-up{
-    max-width:800px;
-  }
-  @include layout-medium-and-up{
-    max-width:1000px;
-  }
-  @include layout-large-and-up{
-    max-width:1200px;
-  }
+  //@include layout-small-and-up{
+  //  max-width:540px;
+  //}
+  //@include layout-small-and-up{
+  //  max-width:800px;
+  //}
+  //@include layout-medium-and-up{
+  //  max-width:1000px;
+  //}
+  //@include layout-large-and-up{
+  //  max-width:1200px;
+  //}
 }
 
 .aside-left{

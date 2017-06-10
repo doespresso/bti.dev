@@ -1,4 +1,4 @@
-{% cache %}
+{#{% cache %}#}
 {% extends "_var.html" %}
   {% spaceless %}
       {% block all %}
@@ -17,27 +17,6 @@
           <body>
 
           <div id="app" v-cloak>
-              {#<div id="navbar" class="is-fixed">#}
-              {#<md-toolbar class="md-transparent">#}
-              {#<div class="md-toolbar-container">#}
-              {#<div id="logo">#}
-              {#<a href="{{ siteUrl }}" class="logo logo-l" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/logo_full-w.svg')"></a>#}
-              {#&#123;&#35;<a href="{{ siteUrl }}" class="logo logo-m" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/logo-w.svg')"></a>&#35;&#125;#}
-              {#</div>#}
-              {#<span class="md-flex"></span>#}
-              {#{{ include("menus/_navbar-menu.html") }}#}
-              {#<md-button class="md-icon-button">#}
-              {#<md-icon>search</md-icon>#}
-              {#</md-button>#}
-              {#<md-menu md-direction="bottom left" md-size="3">#}
-              {#{{ include("inc/_lang.html") }}#}
-              {#</md-menu>#}
-              {#<md-button class="md-icon-button md-hide-medium-and-up" @click.native="toggleLeftSidenav">#}
-              {#<md-icon>menu</md-icon>#}
-              {#</md-button>#}
-              {#</div>#}
-              {#</md-toolbar>#}
-              {#</div>#}
               <div class="app-content">
                   {{ include ("inc/_sidenav_list-collapse.html") }}
                   {{ include ("form/_feedback-side.html") }}
@@ -60,8 +39,6 @@
                       {% endblock %}
                   </div>
 
-                  {#{% endcache %}#}
-
                   <aside class="aside-bottom">
                       {% set matrix = globalBottom.bottomMatrix %}
                       {{ include ("matrix/_matrix-bottom.html") }}
@@ -82,4 +59,4 @@
 
       {% endblock %}
   {% endspaceless %}
-{% endcache %}
+{#{% endcache %}#}

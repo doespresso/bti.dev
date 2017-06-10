@@ -1,0 +1,5 @@
+{% set offices = block.blockContent|length ? block.blockContent %}
+{% if offices is defined %}
+    {% set templ = "offices/_list-cards.html" %}
+    {% include templ %}
+{% endif %}

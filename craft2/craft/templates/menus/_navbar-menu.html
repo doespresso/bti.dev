@@ -1,15 +1,17 @@
-{% cache %}
+{#{% cache %}#}
 {% set topmenu_items = craft.entries.section('menus').search(('showTop:1')).level(1) %}
 <nav class="nav-menu" role="navigation">
     {% for item in topmenu_items %}
-        {% if item.getDescendants().total() == 0 %}
+        {% if item.children.total() == 0 %}
             {% set cUrl = '' %}
-            {% if subitem.menuItem.blocks[0].type != "Url" and item.menuItem.blocks[0].obj %}
-                {% set cUrl = subitem.menuItem.blocks[0].obj[0] is defined ? subitem.menuItem.blocks[0].obj[0].url %}
+            {% if item.menuItem|length and item.menuItem.blocks[0].type != "Url" and item.menuItem.blocks[0].obj %}
+                {% set cUrl = item.menuItem.blocks[0].obj[0] is defined ? item.menuItem.blocks[0].obj[0].url %}
                 <a href="{{ cUrl }}">{{ item.title }}</a>
-            {% else %}
+            {% elseif item.menuItem|length and item.menuItem.blocks[0].obj|length%}
                 {% set cUrl = item.menuItem.blocks[0].obj %}
                 <a href="{{ cUrl }}">{{ item.title }}</a>
+                {% else %}
+                <a href="#123">{{ item.title }}</a>
             {% endif %}
         {% elseif item.menuItem.block|length and item.getDescendants().total() != 0 %}
             <md-menu md-size="auto" md-direction="bottom left" md-offset-y="60">
@@ -30,7 +32,7 @@
         {% endif %}
     {% endfor %}
 </nav>
-{% endcache %}
+{#{% endcache %}#}
 
 
 

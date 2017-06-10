@@ -1,0 +1,5 @@
+{% set jobs = block.blockContent|length ? block.blockContent %}
+{% if jobs is defined %}
+    {% set templ = tmpl is defined and tmpl is not empty ? "jobs/" ~ tmpl : "jobs/_list-collapse.html" %}
+    {% include templ %}
+{% endif %}

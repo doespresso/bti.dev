@@ -1,0 +1,8 @@
+{% set banners = block.relatedItems|length ? block.relatedItems %}
+{% if banners is defined and banners|length > 1 %}
+    {% include "banners/_swiper.html" with {'banners':banners} %}
+{% elseif block.relatedItems|length == 1 %}
+    {% set many = false %}
+    {% set banner = banners[0] %}
+    {% include "banners/_block.html" with {'banner':banner} %}
+{% endif %}

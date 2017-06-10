@@ -1,0 +1,29 @@
+{% if block.blockSource == 'bytag' %}
+    {% set infogs = craft.entries.section('infogs').relatedTo(tagged).limit(10) %}
+{% elseif block.blockSource == 'related' and entry.relatedInfogs|length %}
+    {% set infogs = entry['relatedInfogs'] is defined and entry.relatedInfogs is defined and entry.relatedInfogs|length ? entry.relatedInfogs %}
+{% elseif block.blockSource == 'added' and block.blockContent|length %}
+    {% set infogs = block.blockContent|length ? block.blockContent %}
+{% else %}
+    {% set infogs = craft.entries.section('infogs').relatedTo(tagged).limit(10) %}
+{% endif %}
+
+{% if infogs is defined %}
+
+    {% if infogs is defined %}
+        {% if block['isSwiper'] is defined and block.isSwiper == 1 %}
+            {% set classes = 'swiper--infogs title-size-' ~ block.blockDigitSize ~ ' icons-' ~ block.blockShowIcons ~ ' icon-size-' ~ block.blockIconSize ~ ' i-center-' ~ block.blockCenter %}
+            {% set arrows = 0 %}
+            {% set perview = '1' %}
+            {% set centered = block.blockCenter %}
+            {% set loop = 'true' %}
+            {% set swiperData = infogs %}
+            {% set cardTemplate = 'infogs/_item.html' %}
+            {% include "_swiper/_swiper.html" %}
+
+        {% else %}
+            {% set templ = "infogs/_grid.html" %}
+            {% include templ %}
+        {% endif %}
+    {% endif %}
+{% endif %}

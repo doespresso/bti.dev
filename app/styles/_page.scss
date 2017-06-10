@@ -29,20 +29,7 @@ body {
 }
 
 
-.header-title, h1.header-title, .banner-title {
-  //color: rgba(#fff, 0.99) !important;
-  text-shadow: 1px 0 1px rgba(#000, 0.05);
-  font-size: 24px;
-  line-height: 1.2;
-  margin-bottom: 8px;
-  font-weight: 500;
-  padding-top:80px;
-  @include layout-small-and-up {
-    font-weight: 500;
-    font-size: 40px;
-    margin-bottom: 40px;
-  }
-}
+
 
 .publication-title, h1.publication-title, .publication-title.header-title{
   //color: rgba(#fff, 0.99) !important;
@@ -123,16 +110,6 @@ body {
     margin-right:20px;
 
   }
-  //span:not(:last-child){
-  //  width:20px;
-  //  text-align: center;
-  //  &:after{
-  //    color:rgba(#000,0.2);
-  //    font-size: 24px;
-  //    line-height:1px;
-  //    content:'.';
-  //  }
-  //}
 }
 
 

@@ -21,6 +21,7 @@
 
     {% set headerTitle =  siteName %}
     {% set headerTheme = 'ct' ~ globalDesign.styleThemeObject[0].id %}
+    {% set headerThemeFull = 'md-theme-' ~ headerTheme %}
     {% set headerHeight = globalDesign.styleHeight %}
     {% set hBanners = false %}
     {% set headerIcon = globalDesign.styleIcon %}
@@ -47,6 +48,7 @@
 
         {% if current.styleThemeObject|length %}
             {% set headerTheme = 'ct' ~ current.styleThemeObject[0].id %}
+            {% set headerThemeFull = 'md-theme-' ~ headerTheme %}
         {% endif %}
         {% if current.styleHeight is not empty %}
             {% set headerHeight = current.styleHeight %}
@@ -74,7 +76,7 @@
         {% endif %}
         {% if current.styleImg|length %}
             {% set headerImg =  current.styleImg[0] %}
-            {% set headerIcon =  '' %}
+            {#{% set headerIcon =  '' %}#}
         {% endif %}
 
 
@@ -90,13 +92,15 @@
         {% elseif current.personStatus|length %}
             {% set ep = current.personStatus[0] %}
         {% elseif current.type == 'typePage' and current.ancestors|length %}
-            {% set ep = craft.entries.ancestorOf(entry).first() %}
+            {% set ep = current.parent %}
         {% endif %}
+
         {% if ep is defined %}
 
             {% set headerTitle =  ep.title %}
             {% if ep.styleThemeObject|length %}
                 {% set headerTheme = 'ct' ~ ep.styleThemeObject[0].id %}
+                {% set headerThemeFull = 'md-theme-' ~ headerTheme %}
             {% endif %}
             {% if ep.styleHeight is not empty %}
                 {% set headerHeight = ep.styleHeight %}
@@ -124,7 +128,7 @@
             {% endif %}
             {% if ep.styleImg|length %}
                 {% set headerImg =  ep.styleImg[0] %}
-                {% set headerIcon =  '' %}
+                {#{% set headerIcon =  '' %}#}
             {% endif %}
 
         {% endif %}
@@ -137,6 +141,7 @@
 
         {% if current.styleThemeObject|length %}
             {% set headerTheme = 'ct' ~ current.styleThemeObject[0].id %}
+            {% set headerThemeFull = 'md-theme-' ~ headerTheme %}
         {% endif %}
         {% if current.styleHeight is not empty %}
             {% set headerHeight = current.styleHeight %}
@@ -164,7 +169,7 @@
         {% endif %}
         {% if current.styleImg|length %}
             {% set headerImg =  current.styleImg[0] %}
-            {% set headerIcon =  '' %}
+            {#{% set headerIcon =  '' %}#}
         {% endif %}
 
         {% set hBanners = entry['styleHeaderBanners'] is defined and current.styleHeaderBanners|length ? current.styleHeaderBanners : false %}
@@ -223,6 +228,7 @@
 
 
 {% set bc = [] %}
+{% set cmenu = [] %}
 
 {% if m_current %}
     {% if not noSubmenu %}
@@ -236,28 +242,21 @@
             {#PARENT: {{ m_current.parent.title }}<br/>#}
             {% set m_parent =  m_current.parent %}
             {% set tosub = m_parent.showInSub %}
-            {% set plevel = m_parent.level %}
-            {% set clevel = m_current.level %}
+            {#{% set plevel = m_parent.level %}#}
+            {#{% set clevel = m_current.level %}#}
             {#{{ m_parent.title }} {{ m_parent.showInSub }}<br/>#}
             {% if tosub == "children" %}
-                {% set submenu = m_parent.children.level(clevel) %}
+                {% set submenu = m_parent.children.level(m_current.level) %}
             {% elseif tosub == "parent" %}
                 {% if m_parent.parent %}
-                    {% set submenu =  m_parent.parent.children.level(plevel) %}
+                    {% set submenu =  m_parent.parent.children.level(m_parent.level) %}
                 {% else %}
-                    {% set submenu =  craft.entries.section('menus').level(plevel) %}
+                    {% set submenu =  craft.entries.section('menus').level(m_parent.level) %}
                 {% endif %}
             {% endif %}
-            {#<hr>#}
-            {#{% if submenu|length %}#}
-            {#{% for s in submenu %}#}
-            {#{{ s.title }}#}
-            {#{% endfor %}#}
-            {#{% endif %}#}
-            {#<hr>#}
         {% elseif m_current.level == 1 and m_current.showSub == 1 %}
-            {% set clevel = m_current.level %}
-            {% set submenu = m_current.children.level(clevel+1) %}
+            {#{% set clevel = m_current.level %}#}
+            {% set submenu = m_current.children.level(m_current.level +1) %}
             {#current children#}
             {#<hr>#}
             {#{% if submenu|length %}#}
@@ -266,6 +265,19 @@
             {#{% endfor %}#}
             {#{% endif %}#}
             {#<hr>#}
+        {% endif %}
+        {% if submenu is defined and submenu|length %}
+            {% for item in submenu %}
+                {% if item.menuItem.blocks[0].type != "Url" %}
+                    {% set cObj = item.menuItem.blocks[0].obj[0] is defined ? item.menuItem.blocks[0].obj[0] %}
+                {% else %}
+                    {% set cObj = {'title':item.title, 'url': item.menuItem.blocks[0].obj } %}
+                {% endif %}
+                {% set mitem = [] %}
+                {#{% set mitem = mitem|merge({'title':item.title}) %}#}
+                {#{% set mitem = mitem|merge({'obj':cUrl}) %}#}
+                {% set cmenu = cmenu|merge([cObj]) %}
+            {% endfor %}
         {% endif %}
     {% endif %}
 

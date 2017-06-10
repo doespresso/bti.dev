@@ -1,0 +1,31 @@
+{% if block.blockSource == 'added' %}
+    {% set navs = block.blockContent|length ? block.blockContent %}
+{% elseif block.blockSource == 'services' %}
+    {% set navs = craft.entries.section('services').level(1).id('not ' ~ entry.id) %}
+{% elseif block.blockSource == 'branches' %}
+    {% set navs = craft.entries.section('branches').level(1).id('not ' ~ entry.id) %}
+{% elseif block.blockSource == 'submenu' and cmenu|length %}
+    {% set navs = cmenu %}
+{% else %}
+    {% set navs = block.blockContent|length ? block.blockContent %}
+{% endif %}
+{% if navs is defined %}
+    {% if block['isSwiper'] is defined and block.isSwiper == 1 %}
+        {% set classes = ' swiper--cards ' %}
+        {% set arrows = 1 %}
+        {% set pagination = 0 %}
+        {% set perview = 'auto' %}
+        {% set centered = 0 %}
+        {% set loop = 'true' %}
+        {% set swiperData = navs %}
+        {% set cardTemplate = 'nav/_card.html' %}
+        {% include "_swiper/_swiper.html" %}
+
+    {% else %}
+        {% set list_subhead=bTitle %}
+        {% set templ = "nav/" ~ tmpl %}
+        {% include templ %}
+    {% endif %}
+{% endif %}
+
+

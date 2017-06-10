@@ -1,8 +1,8 @@
-<div class="ctr section-content">
-    <div class="grid-1">
-        <div class="col">
-            <md-subheader>{{ 'Service Line'|t }}</md-subheader>
-            {% for item in subservices %}
+<div class="ctr">
+    <div class="grid-1-noBottom">
+        {#<md-subheader>{{ 'Service Line'|t }}</md-subheader>#}
+        {% for item in subservices %}
+            <div class="col">
                 {% if item.Short|length or item.fullText|length %}
                     <collapse :selected=false class="md-whiteframe md-whiteframe-1dp">
                         <div slot="collapse-header">
@@ -39,7 +39,8 @@
                         </div>
                     </div>
                 {% endif %}
-            {% endfor %}
-        </div>
+            </div>
+        {% endfor %}
+
     </div>
 </div>

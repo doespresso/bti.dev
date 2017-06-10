@@ -1,13 +1,26 @@
-#header-media-container {
+.media-container {
   overflow: hidden;
   position: absolute;
   left: 0px;
   top: 0px;
   bottom: 0px;
   right: 0px;
-  //min-width: 100%;
-  //min-height:100%;
-  z-index: -1;
+  z-index: 0;
+}
+
+.col-container{
+  //background-color: red;
+  margin-left:auto;
+  margin-right:auto;
+
+}
+
+.title-holder{
+  [class*='col']{
+    padding-bottom:0;
+    position: relative;
+  }
+  padding-top:120px;
 }
 
 
@@ -24,14 +37,15 @@
 }
 
 #back-nav {
-  position: absolute;
-  top: -40px;
-  left:8px;
+  margin-top:28px;
+  //position: absolute;
+  //top: -40px;
+  //left:8px;
   //top:30px;
 
   @include layout-large-and-up {
-    top: 30px;
-    left: 40px;
+    //top: 30px;
+    //left: 40px;
   }
 
   .md-button {
@@ -50,4 +64,20 @@
 .back-nav.md-menu-content {
   //max-width: 300px;
   //width: auto;
+}
+
+
+.header-title, h1.header-title, .banner-title {
+  //color: rgba(#fff, 0.99) !important;
+  text-shadow: 1px 0 1px rgba(#000, 0.05);
+  font-size: 24px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  font-weight: 500;
+  //padding-top:80px;
+  @include layout-small-and-up {
+    font-weight: 500;
+    font-size: 40px;
+    margin-bottom: 40px;
+  }
 }
