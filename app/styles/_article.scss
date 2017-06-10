@@ -1,8 +1,50 @@
+.article-in-list {
+  @include layout-small-and-up {
+    article, .article {
+      box-shadow:$material-shadow-3dp;
+      padding-top: 0;
+      z-index: 2;
+      margin-top: -40px;
+      background-color: #fff;
+      margin-bottom:40px;
+      .html-content, .section-title {
+        padding-left: 20px;
+        padding-right: 20px;
+        @include layout-small-and-up {
+          padding-left: 24px;
+          padding-right: 24px;
+        }
+        @include layout-medium-and-up {
+          padding-left: 72px;
+          padding-right: 72px;
+        }
+      }
+      .content{
+        .section,section{
+          &:first-child{
+            &.article-short,&.article-full{
+              padding-top:40px;
+            }
+          }
+        }
+      }
+      .article-info {
+        margin-bottom: 0;
+        padding-left:16px;
+        padding-right:16px;
+      }
+      .event-options{
+        box-shadow: none;
+        background-color: transparent;
+      }
+    }
+  }
+}
 
-article, .article, .aside-column{
+article, .article, .aside-column {
   position: relative;
   margin-top: 40px;
-  .content,.aside-content {
+  .content, .aside-content {
     .section:first-child, section:first-child {
       margin-top: 0;
       padding-top: 0;
@@ -19,12 +61,11 @@ article, .article, .aside-column{
   }
 }
 
-
-.aside-titles{
-  .section-title{
+.aside-titles {
+  .section-title {
     font-size: 14px;
     font-weight: 500;
-    opacity:0.47;
+    opacity: 0.47;
   }
 }
 
@@ -52,6 +93,12 @@ article, .article, .aside-column{
   span:not(:last-child) {
     margin-right: 24px;
   }
+  .md-button:first-child {
+    margin-left: 0;
+  }
+  .md-button:last-child {
+    margin-right: 0;
+  }
   .md-icon {
     opacity: 0.4;
     margin-right: 8px;
@@ -69,32 +116,6 @@ article, .article, .aside-column{
     margin-right: 0;
   }
   margin-bottom: 40px;
-}
-
-.article-list {
-  padding-top: 0;
-  z-index: 2;
-  margin-top: -40px;
-  background-color: #fff;
-  .html-content, .section-title {
-    padding-left: 20px;
-    padding-right: 20px;
-    @include layout-small-and-up {
-      padding-left: 24px;
-      padding-right: 24px;
-    }
-    @include layout-medium-and-up {
-      padding-left: 72px;
-      padding-right: 72px;
-    }
-  }
-  .article-info {
-    //padding-left: 24px;
-    .md-icon-button:last-child {
-      //margin-right: 8px;
-    }
-    margin-bottom: 0;
-  }
 }
 
 .section.article-section {
@@ -147,6 +168,7 @@ article .content {
 }
 
 .event-options {
+  box-shadow:$material-shadow-1dp;
   background-color: #fff;
   margin-bottom: 0 !important;
   margin-top: 0 !important;
@@ -169,6 +191,7 @@ article .content {
   }
   .actions {
     padding: 16px;
+    padding-left:72px;
   }
 }
 

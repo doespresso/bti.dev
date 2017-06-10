@@ -1,38 +1,13 @@
-{#<div class="ctr article-info">#}
-    {#<div class="grid-noWrap-middle">#}
-        {#<div class="col-9">#}
-            {#<span class="date">{{ entry.postDate.localeDate() }}</span><a href="{{ entry.publicationCategory[0].url }}">{{ entry.publicationCategory[0].title }}</a>#}
-        {#</div>#}
-        {#<div class="col-3 text-right">#}
-            {#<md-button class="md-icon-button">#}
-                {#<md-icon>share</md-icon>#}
-            {#</md-button>#}
-        {#</div>#}
-    {#</div>#}
-{#</div>#}
-
-{#<div class="ctr article-info">#}
-    {#<div class="grid-noWrap-middle">#}
-        {#<div class="col">#}
-            {#<a href="{{ entry.publicationCategory[0].url }}">{{ entry.publicationCategory[0].title }}</a>#}
-        {#</div>#}
-        {#<div class="col text-right">#}
-            {#<span class="date">{{ entry.postDate.localeDate() }}</span>#}
-        {#</div>#}
-    {#</div>#}
-{#</div>#}
 
 <div class="ctr">
     <div class="article-info">
-
         <div>
             <span><md-icon>access_time</md-icon>{{ entry.postDate.localeDate() }}</span>
         </div>
         <span class="md-flex"></span>
-
         <div>
             <md-button href="{{ entry.publicationCategory[0].url }}">
-                <md-icon>subdirectory_arrow_right</md-icon>
+                <md-icon>arrow_forward</md-icon>
                 {{ entry.publicationCategory[0].title }}
             </md-button>
         </div>

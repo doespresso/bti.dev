@@ -64,7 +64,7 @@
 
                         {% if entry.videoCodeYT %}
                             <div class="video-container m-b-20">
-                                <iframe class="aspect" width="560" height="315" src="https://www.youtube.com/embed/{{ entry.videoCodeYT }}?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0"
+                                <iframe class="aspect" src="https://www.youtube.com/embed/{{ entry.videoCodeYT }}?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0"
                                         allowfullscreen></iframe>
                             </div>
                         {% endif %}
@@ -110,7 +110,7 @@
                         <div>
                             <span><md-icon>access_time</md-icon>{{ entry.postDate.localeDate() }}</span>
                             <md-button href="{{ entry.publicationCategory[0].url }}">
-                                <md-icon class="icon-time">subdirectory_arrow_right</md-icon>
+                                <md-icon class="icon-time">arrow_forward</md-icon>
                                 {{ entry.publicationCategory[0].title }}
                             </md-button>
                         </div>
