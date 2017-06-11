@@ -15,7 +15,7 @@
 {#page#}
 {#page#}
 
-
+{#{% cache %}#}
 
     {% set homepage = craft.entries.slug('homepage').first() %}
 
@@ -199,6 +199,7 @@
 {#nav#}
 {#nav#}
 
+{#{% cache %}#}
 
 {% set noSubmenu = false %}
 {% set addLast = true %}
@@ -312,11 +313,11 @@
                     {% set cUrl = m_current.menuItem.blocks[0].obj %}
                 {% endif %}
                 {#{% if cUrl != oUrl %}#}
-                    {% set ci = [] %}
-                    {% set ci = ci|merge([m_current]) %}
-                    {% set ci = ci|merge([cUrl]) %}
-                    {% set bc = bc|merge([ci]) %}
-                    {#{% set oUrl = cUrl %}#}
+                {% set ci = [] %}
+                {% set ci = ci|merge([m_current]) %}
+                {% set ci = ci|merge([cUrl]) %}
+                {% set bc = bc|merge([ci]) %}
+                {#{% set oUrl = cUrl %}#}
                 {#{% endif %}#}
             {% endif %}
         {% endif %}
@@ -333,7 +334,7 @@
                 <div id="back-nav">
                     <md-menu md-size="5" md-disabled="true">
                         <md-button class="md-icon-button" md-menu-trigger>
-                            <md-icon class="md-size-1x">arrow_back</md-icon>
+                            <md-icon class="big-icon">arrow_back</md-icon>
                         </md-button>
                         <md-menu-content class="back-nav">
                             <md-menu-item href="{{ siteUrl }}">
@@ -356,5 +357,9 @@
 
 
 
+{#{% endcache %}#}
+
 {% block all %}
 {% endblock %}
+
+{#{% endcache %}#}

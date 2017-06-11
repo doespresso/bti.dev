@@ -1,5 +1,4 @@
 <?php
-ini_set('memory_limit', '512M');
 // Path to your craft/ folder
 $craftPath = '../craft';
 

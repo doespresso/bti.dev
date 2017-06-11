@@ -10,4 +10,6 @@
 {% if qts is defined and qts|length %}
     {% set templ = "quotes/_swiper.html" %}
     {% include templ %}
+{% else %}
+    {% set be = true %}
 {% endif %}

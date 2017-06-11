@@ -1,5 +1,9 @@
+{% cache %}
 {% set subservices = entry.descendants() %}
-                        {% if subservices is defined and subservices|length %}
-                            {% set templ = "services/" ~ "_sub-list.html" %}
-                            {% include templ %}
-                        {% endif %}
+{% endcache %}
+{% if subservices is defined and subservices|length %}
+    {% set templ = "services/_list-collapse.html" %}
+    {% include templ %}
+{% else %}
+    {% set be = true %}
+{% endif %}

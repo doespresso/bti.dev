@@ -147,3 +147,16 @@ $bti-grey: #9fa1a4;
     padding: 10px !important;
   }
 }
+
+$fb-color:#3b5998;
+$tw-color:#4099FF;
+$li-color:#03659a;
+.facebook-color svg{
+  fill:$fb-color!important;
+}
+.twitter-color svg{
+  fill:$tw-color!important;
+}
+.linkedin-color svg{
+  fill:$li-color!important;
+}

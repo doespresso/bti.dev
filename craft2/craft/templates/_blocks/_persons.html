@@ -5,7 +5,7 @@
 {% endif %}
 
 {% if persons is defined %}
-    {% if block['isSwiper'] is defined and block.isSwiper == 1 %}
+    {% if block['isSwiper'] is defined and block.isSwiper == 1 and not intabs %}
 
         {% set classes = ' swiper--cards ' %}
         {% set arrows = 0 %}
@@ -22,4 +22,6 @@
         {% set templ = "persons/" ~ tmpl %}
         {% include templ %}
     {% endif %}
+{% else %}
+    {% set be = true %}
 {% endif %}

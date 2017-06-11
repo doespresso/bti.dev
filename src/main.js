@@ -6,7 +6,8 @@ import Collapse from 'vue-collapse'
 //AIzaSyBBrn0a7rWAu93NAFSXQtV1Hkvjv_pIiHo
 import inViewportDirective from 'vue-in-viewport-directive'
 Vue.directive('in-viewport', inViewportDirective)
-
+import SocialSharing from 'vue-social-sharing'
+Vue.use(SocialSharing);
 Vue.use(VueMaterial)
 Vue.use(VueAwesomeSwiper)
 Vue.use(Collapse)

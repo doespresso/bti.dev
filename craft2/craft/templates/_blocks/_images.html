@@ -5,6 +5,8 @@
 {% if block.blockContent|length == 1 %}
     {% set img = images[0] %}
     {% include "images/_image.html" %}
-{% else %}
+{% elseif block.blockContent > 1 %}
     {% include "images/_swiper.html" %}
+{% else %}
+    {% set be = true %}
 {% endif %}

@@ -41,17 +41,7 @@
 
 
             <div class="header-bottom">
-                {#{% if backNav is defined %}#}
-                    {#<transition appear name="fadetoleft">{{ backNav }}</transition>#}
-                {#{% endif %}#}
                 {% if not hBanners %}
-                    {#<div class="ctr header-title-container">#}
-                        {#<div class="grid">#}
-                            {#<div class="col-12_xs-12_sm-12 back-nav-container">#}
-                                {#<h1 class="header-title {{ entry is defined and (entry.type == 'typePublication' or entry.type == 'typeEvent') ? 'publication-title' }}">{% if headerTitle is defined %}{{ headerTitle }}{% else %}{{ siteName }}{% endif %}</h1>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
                     <div class="grid title-holder">
                         <div class="col_md-12">
                             {% if backNav is defined %}

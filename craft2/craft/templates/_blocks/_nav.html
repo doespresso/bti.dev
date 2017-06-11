@@ -20,12 +20,16 @@
         {% set swiperData = navs %}
         {% set cardTemplate = 'nav/_card.html' %}
         {% include "_swiper/_swiper.html" %}
-
     {% else %}
         {% set list_subhead=bTitle %}
+        {% if tmpl == '_list.html' or tmpl == '_list-white.html' or tmpl == '_list-small.html' or tmpl == '_list-small-white.html' %}
+            {% set innerTitle = true %}
+        {% endif %}
         {% set templ = "nav/" ~ tmpl %}
         {% include templ %}
     {% endif %}
+{% else %}
+    {% set be = true %}
 {% endif %}
 
 

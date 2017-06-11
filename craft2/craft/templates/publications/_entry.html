@@ -12,6 +12,13 @@
                             </div>
                         {% endif %}
 
+                        {% if entry.videoCodeYT %}
+                            <div class="video-container m-b-20">
+                                <iframe class="aspect" src="https://www.youtube.com/embed/{{ entry.videoCodeYT }}?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0"
+                                        allowfullscreen></iframe>
+                            </div>
+                        {% endif %}
+
                         {% if entry.eventDate is defined and entry.eventDate is not empty and entry.eventOn == '1' %}
                             <section class="section event-options">
                                 <div class="md-subheader">
@@ -62,14 +69,6 @@
                             </section>
                         {% endif %}
 
-                        {% if entry.videoCodeYT %}
-                            <div class="video-container m-b-20">
-                                <iframe class="aspect" src="https://www.youtube.com/embed/{{ entry.videoCodeYT }}?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0"
-                                        allowfullscreen></iframe>
-                            </div>
-                        {% endif %}
-
-
 
                         {% if entry.fullText is defined and entry.fullText is not empty %}
                             <section class="section article-full">
@@ -82,7 +81,7 @@
                         {% if entry.eventTimetable is defined and entry.eventTimetable is not empty and entry.eventOn == '1' %}
                             <section class="section event-timetable">
                                 <md-table>
-                                    <md-subheader>{{ 'Schedule'|t }}:</md-subheader>
+                                    <md-subheader>{{ 'Schedule'|t }}</md-subheader>
                                     <md-table-body>
                                         {% for item in entry.eventTimetable %}
                                             <md-table-row>
@@ -108,14 +107,14 @@
 
                     <div class="article-info article-info-bottom">
                         <div>
-                            <span><md-icon>access_time</md-icon>{{ entry.postDate.localeDate() }}</span>
-                            <md-button href="{{ entry.publicationCategory[0].url }}">
+                            <span class="date-time"><md-icon>access_time</md-icon>{{ entry.postDate.localeDate() }}</span>
+                            <md-button href="{{ entry.publicationCategory[0].url }}" class="parent-category">
                                 <md-icon class="icon-time">arrow_forward</md-icon>
                                 {{ entry.publicationCategory[0].title }}
                             </md-button>
                         </div>
                         <div>
-
+                            {% include "inc/_share-inline.html" %}
                         </div>
                     </div>
 

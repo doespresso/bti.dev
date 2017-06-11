@@ -5,4 +5,6 @@
     {% set many = false %}
     {% set banner = banners[0] %}
     {% include "banners/_block.html" with {'banner':banner} %}
+{% else %}
+    {% set be = true %}
 {% endif %}

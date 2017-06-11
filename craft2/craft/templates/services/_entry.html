@@ -1,18 +1,31 @@
 {% extends "_page.html" %}
 {% block content %}
     <div class="main-column full-width service">
-        {% if entry.Short|length or entry.fullText|length %}
-            <section class="section">
-                <div class="ctr">
-                    <div class="grid">
-                        <div class="col-12">
-                            <div class="section-title">{{ entry.Short }}</div>
-                            <div class="section-content html-content">{{ entry.fullText }}</div>
-                        </div>
+        <section class="section">
+            <div class="ctr">
+                {% set subservices = entry.descendants() %}
+                {% if globalService.service2c == 1 and subservices|length and entry.Short|length or entry.fullText|length %}
+                <div class="grid-2_xs-1_sm-1_md-1_lg-2">
+                    {% else %}
+                    <div class="grid-1">
+                        {% endif %}
+                        {% if entry.Short|length or entry.fullText|length %}
+                            <div class="col">
+                                <div class="section-title">{{ entry.Short }}</div>
+                                <div class="section-content html-content">{{ entry.fullText }}</div>
+                            </div>
+                        {% endif %}
+                        {% if subservices|length %}
+                            <div class="col">
+                                <div class="section-content">
+                                    {% include "services/_list-collapse.html" %}
+                                </div>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
-            </section>
-        {% endif %}
+        </section>
+
 
         {% set matrix = globalService.serviceMatrix %}
         {% include('matrix/_matrix.html') %}

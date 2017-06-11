@@ -19,7 +19,21 @@
       stroke-dashoffset: 4000;
     }
   }
+  &.animated,&.in-viewport {
+    svg {
+      line, path, rect, circle {
+        animation-name: dash-in;
+        animation-duration: 4s;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
+        animation-delay: 1.2s;
+      }
+    }
+  }
 }
+
+
+
 
 .swiper-slide {
   .icon-ani--draw, .ani--draw {
@@ -49,14 +63,4 @@
   }
 }
 
-.icon-ani--draw.animated, .ani--draw.animated {
-  svg {
-    line, path, rect, circle {
-      animation-name: dash-in;
-      animation-duration: 4s;
-      animation-timing-function: ease;
-      animation-fill-mode: forwards;
-      animation-delay: 1.2s;
-    }
-  }
-}
+

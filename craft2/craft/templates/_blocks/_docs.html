@@ -1,13 +1,13 @@
 {% if block.blockSource == 'added' and block.blockContent|length %}
-    {% set docs = block.blockContent %}
+    {% set docs = block.blockContent|length ? block.blockContent %}
 {% elseif block.blockSource == 'related' %}
-    {% set docs = entry.relatedDocs is defined and entry.relatedDocs|length ? entry.relatedDocs %}
-{% else %}
+    {#{% set docs = entry.relatedDocs is defined and entry.relatedDocs|length ? entry.relatedDocs %}#}
+    {% set docs = entry['relatedDocs'] is defined and entry.relatedDocs|length ? entry.relatedDocs %}
 {% endif %}
 
 
-{#{% set docs = block.blockContent|length ? block.blockContent %}#}
-{% if docs is defined %}
+
+{% if docs is defined and docs|length %}
     {% if block['isSwiper'] is defined and block.isSwiper == 1 %}
         {% set classes = ' swiper--cards ' %}
         {% set arrows = 0 %}
@@ -16,11 +16,12 @@
         {% set loop = 'false' %}
         {% set swiperData = docs %}
         {% set cardTemplate = 'docs/_card.html' %}
-
         {% include "_swiper/_swiper.html" %}
-
     {% else %}
         {% set templ = "docs/" ~ tmpl %}
         {% include templ %}
     {% endif %}
+    {% set be = true %}
+{% else %}
+    {% set be = true %}
 {% endif %}

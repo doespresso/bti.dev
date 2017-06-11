@@ -1,3 +1,4 @@
+
 {% if block.blockSource == 'bytag' %}
     {% set projects = craft.entries.section('projects').relatedTo(tagged).limit(10) %}
 {% elseif block.blockSource == 'related' and entry.relatedProjects|length %}
@@ -7,6 +8,7 @@
 {% else %}
     {% set projects = craft.entries.section('projects').relatedTo(tagged).limit(10) %}
 {% endif %}
+
 
 {% if projects is defined %}
     {% if block['isSwiper'] is defined and block.isSwiper == 1 %}
@@ -18,5 +20,6 @@
         {% set templ = tmpl is not empty ? "projects/" ~ tmpl : "projects/_list-collapse.html" %}
         {% include templ %}
     {% endif %}
-
+{% else %}
+    {% set be = true %}
 {% endif %}
