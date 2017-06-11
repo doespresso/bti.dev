@@ -15,7 +15,7 @@
 {#page#}
 {#page#}
 
-{#{% cache %}#}
+
 
     {% set homepage = craft.entries.slug('homepage').first() %}
 
@@ -36,7 +36,6 @@
     {% set hideBottom = false %}
 
     {% if category is defined %}
-
 
         {% set cot = 'category' %}
         {% set hideDate= 0 %}
@@ -199,7 +198,7 @@
 {#nav#}
 {#nav#}
 
-{#{% cache %}#}
+
 
 {% set noSubmenu = false %}
 {% set addLast = true %}
@@ -357,9 +356,9 @@
 
 
 
-{#{% endcache %}#}
+
+
 
 {% block all %}
-{% endblock %}
 
-{#{% endcache %}#}
+{% endblock %}
