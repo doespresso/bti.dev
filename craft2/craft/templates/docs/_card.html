@@ -1,18 +1,19 @@
 <div class="col">
     <md-card class="card--news {{ item.cardColor|length and item.cardFullColor ? 'md-primary'}}" md-with-hover md-theme="{{ item.cardColor|length ? 'ct'~item.cardColor[0].id }}">
-        <md-card-area class="md-flex has-ripple">
+        <md-card-area class="md-flex">
             {% if item.cardImg|length or item.styleIcon %}
                 {% if item.cardImg|length %}
                     {% set photo = item.cardImg[0].getUrl('resizeNewsList') %}
                 {% else %}
                     {% set photo = '' %}
                 {% endif %}
-                <md-card-media style="background-image:url({{ photo }})">
+                <md-card-media class="has-ripple" style="background-image:url({{ photo }})">
                     <a class="cover-link" href="{{ item.url }}">
                         {% if item.styleIcon %}
                             <div class="card-icon">{{ item.styleIcon.inline }}</div>
                         {% endif %}
                     </a>
+                    <md-ink-ripple/>
                 </md-card-media>
             {% endif %}
             <md-card-content>
@@ -21,7 +22,6 @@
                     <div class="md-subhead">{{ item.docShort }}</div>
                 {% endif %}
             </md-card-content>
-            <md-ink-ripple/>
         </md-card-area>
         <md-card-actions>
             <md-button href="{{ item.url }}">{{ 'Download'|t }} {{ item.kind }}</md-button>

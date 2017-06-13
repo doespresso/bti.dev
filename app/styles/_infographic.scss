@@ -30,12 +30,13 @@
   z-index: 1;
   line-height: 1;
   font-size: 48px;
-  font-weight: 300;
-  opacity: 0.87;
-  //font-family: 'roboto mono';
+  //font-weight: bold;
+  opacity: 0.94;
+  font-family: 'helvetica';
   display: flex;
   flex-direction: column;
   span {
+    display:none!important;
     font-size: 11px;
     font-weight: 500;
     //letter-spacing: 3px;
@@ -54,11 +55,11 @@
 
 .title-size-1 {
   .teaser-title {
-    font-size: 42px;
-    font-weight: 400;
+    font-size: 52px;
+    //font-weight: bold;
     @include layout-small-and-up {
-      font-size: 84px;
-      font-weight: 300;
+      font-size: 94px;
+      //font-weight: bold;
     }
   }
 }

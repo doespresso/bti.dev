@@ -1,35 +1,40 @@
-{% if block.blockSource == 'added' %}
-    {% set navs = block.blockContent|length ? block.blockContent %}
-{% elseif block.blockSource == 'services' %}
-    {% set navs = craft.entries.section('services').level(1).id('not ' ~ entry.id) %}
-{% elseif block.blockSource == 'branches' %}
-    {% set navs = craft.entries.section('branches').level(1).id('not ' ~ entry.id) %}
-{% elseif block.blockSource == 'submenu' and cmenu|length %}
-    {% set navs = cmenu %}
+{% if block['isSwiper'] is defined and block.isSwiper == 1 %}
+    {% set classes = ' swiper--cards ' %}
+    {% set arrows = 1 %}
+    {% set centered = 1 %}
+    {% set loop = 'false' %}
+    {% set swiperData = navs %}
+    {% set cardTemplate = 'docs/_card.html' %}
+    {% set spb ="
+            spaceBetween: 0,
+            slidesPerView: 4,
+            slidesPerGroup:4,
+            centeredSlides:false,
+            breakpoints: {
+            640: {
+            slidesPerView: 1,
+            slidesPerGroup:1,
+            },
+            840: {
+            slidesPerView: 2,
+            slidesPerGroup:2,
+            },
+            1300: {
+            slidesPerView: 3,
+            slidesPerGroup:3,
+            },
+            1600: {
+            slidesPerView: 4,
+            slidesPerGroup:4,
+            },
+            1800: {
+            slidesPerView: 5,
+            slidesPerGroup:5,
+            }
+            }" %}
+    {% set cardTemplate = 'nav/_card.html' %}
+    {% include "_swiper/_swiper.html" %}
 {% else %}
-    {% set navs = block.blockContent|length ? block.blockContent %}
+    {% set templ = "nav/" ~ tmpl %}
+    {% include templ %}
 {% endif %}
-{% if navs is defined %}
-    {% if block['isSwiper'] is defined and block.isSwiper == 1 %}
-        {% set classes = ' swiper--cards ' %}
-        {% set arrows = 1 %}
-        {% set pagination = 0 %}
-        {% set perview = 'auto' %}
-        {% set centered = 0 %}
-        {% set loop = 'true' %}
-        {% set swiperData = navs %}
-        {% set cardTemplate = 'nav/_card.html' %}
-        {% include "_swiper/_swiper.html" %}
-    {% else %}
-        {% set list_subhead=bTitle %}
-        {% if tmpl == '_list.html' or tmpl == '_list-white.html' or tmpl == '_list-small.html' or tmpl == '_list-small-white.html' %}
-            {% set innerTitle = true %}
-        {% endif %}
-        {% set templ = "nav/" ~ tmpl %}
-        {% include templ %}
-    {% endif %}
-{% else %}
-    {% set be = true %}
-{% endif %}
-
-

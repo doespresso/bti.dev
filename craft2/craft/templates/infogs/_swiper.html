@@ -1,4 +1,4 @@
-<swiper class="section-content swiper--items arrows--t-25p i-digit-{{ block is defined and block.blockDigitSize is not empty ? block.blockDigitSize : 'lg' }} i-icon-{{ block is defined and block.blockIconSize is not empty ? block.blockIconSize : 'lg'}} i-center-{{ block is defined and block.blockCenter ? block.blockCenter : '1'}} i-line-{{ block is defined and  block.blockLine }} i-actions-{{ block is defined and  block.blockShowLink }} i-icon-ani-0 i-icon-color-0" :options="{
+<swiper class="section-content swiper--items arrows--t-25p arrows-1 i-digit-{{ block is defined and block.blockDigitSize is not empty ? block.blockDigitSize : 'lg' }} i-icon-{{ block is defined and block.blockIconSize is not empty ? block.blockIconSize : 'lg'}} i-center-{{ block is defined and block.blockCenter ? block.blockCenter : '1'}} i-line-{{ block is defined and  block.blockLine }} i-actions-{{ block is defined and  block.blockShowLink }} i-icon-ani-0 i-icon-color-0" :options="{
         roundLengths: true,
         {#slidesPerView:{{ block is defined and block.blockSwiperCount ? block.blockSwiperCount : 'auto' }},#}
         slidesPerView:'auto',
@@ -19,6 +19,14 @@
         </swiper-slide>
     {% endfor %}
     <div class="swiper-pagination" slot="pagination"></div>
-    <div class="swiper-button-prev" slot="button-prev"><md-icon>arraw_back</md-icon></div>
-    <div class="swiper-button-next" slot="button-next"></div>
+    <div class="swiper-button-prev" slot="button-prev">
+        <md-button class="md-icon-button t-color">
+            <md-icon>arrow_back</md-icon>
+        </md-button>
+    </div>
+    <div class="swiper-button-next" slot="button-next">
+        <md-button class="md-icon-button t-color">
+            <md-icon>arrow_forward</md-icon>
+        </md-button>
+    </div>
 </swiper>

@@ -12,7 +12,7 @@
         <div class="block-img" style="background-image:url({{ banner.styleImg|length ? banner.styleImg[0].getUrl() }})"></div>
     {% endif %}
     {% if banner.styleIcon and not banner.styleImg|length %}
-        <div class="block-icon icons--themed {{ bannerIconTheme }} icon-color--{{ banner.styleIconColor | default('2c') }} icon-ani--{{ banner.styleIconAnimation | default('draw') }} {{ not many ? 'animated' }} align--{{ banner.styleIconAlign | default('center') }} valign--{{ banner.styleIconAlignV | default('center') }} scale--{{ banner.styleIconSize | default('x1') }} icon-sw--{{ banner.styleIconLine | default('x2') }}">{{ banner.styleIcon.inline }}</div>
+        <div v-in-viewport class="block-icon icons--themed {{ bannerIconTheme }} icon-color--{{ banner.styleIconColor | default('2c') }} icon-ani--{{ banner.styleIconAnimation | default('draw') }} align--{{ banner.styleIconAlign | default('center') }} valign--{{ banner.styleIconAlignV | default('center') }} scale--{{ banner.styleIconSize | default('x1') }} icon-sw--{{ banner.styleIconLine | default('x2') }}">{{ banner.styleIcon.inline }}</div>
     {% endif %}
 
 
@@ -22,9 +22,13 @@
                 <div class="col-7_xs-12_sm-9_md-8 text-{{ banner.blockContentAlign}}">
                     <div class="banner-title">{{ banner.blockTitle }}</div>
                     <div class="banner-short">{{ banner.blockShort }}</div>
-                    {% if banner.blockLink|length %}
+                    {% if banner.blockLink|length or banner.docLink|length %}
                         <div class="actions">
+                            {% if banner.docLink|length %}
+                            <md-button class="md-raised" href="{{ banner.docLink[0].url }}">{{ banner.blockButtonText|default('Show More'|t) }}</md-button>
+                            {% else %}
                             <md-button class="md-raised" href="{{ banner.blockLink[0].url }}">{{ banner.blockButtonText|default('Show More'|t) }}</md-button>
+                            {% endif %}
                         </div>
                     {% endif %}
                 </div>

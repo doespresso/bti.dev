@@ -1,17 +1,30 @@
-{% if block.blockSource == 'related' and entry.relatedPersons|length %}
-    {% set persons = entry['relatedPersons'] is defined and entry.relatedPersons|length ? entry.relatedPersons %}
-{% elseif block.blockSource == 'added' and block.blockContent|length %}
-    {% set persons = block.blockContent|length ? block.blockContent %}
-{% endif %}
-
-{% if persons is defined %}
-    {% if block['isSwiper'] is defined and block.isSwiper == 1 and not intabs %}
+{% if block['isSwiper'] is defined and block.isSwiper == 1 and not intabs %}
 
         {% set classes = ' swiper--cards ' %}
-        {% set arrows = 0 %}
-        {% set perview = 'auto' %}
-        {% set centered = 1 %}
+        {% set arrows = 1 %}
         {% set loop = 'false' %}
+        {#{% set swiperData = docs %}#}
+        {% set cardTemplate = 'docs/_card.html' %}
+        {% set spb ="
+            spaceBetween: 0,
+            slidesPerView: 4,
+            slidesPerGroup:2,
+            centeredSlides:true,
+            breakpoints: {
+            640: {
+            slidesPerView: 1,
+            slidesPerGroup:1,
+            },
+            840: {
+            slidesPerView: 2,
+            slidesPerGroup:1,
+            },
+            1300: {
+            slidesPerView: 3,
+            slidesPerGroup:1,
+            },
+            }"
+        %}
         {% set swiperData = persons %}
         {% set cardTemplate = 'persons/_card.html' %}
 
@@ -22,6 +35,4 @@
         {% set templ = "persons/" ~ tmpl %}
         {% include templ %}
     {% endif %}
-{% else %}
-    {% set be = true %}
-{% endif %}
+

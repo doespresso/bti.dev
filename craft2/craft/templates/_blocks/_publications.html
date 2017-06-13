@@ -1,42 +1,45 @@
-{% set perpage = block.blockPerPage is not empty ? block.blockPerPage : 3 %}
-{% if block.blockSource == 'last' %}
-    {% set news = craft.entries.section('publications').limit(perpage) %}
-{% elseif block.blockSource == 'added' and block.blockContent|length %}
-    {% set news = block.blockContent|length ? block.blockContent %}
-{% elseif block.blockSource == 'tagged' %}
-    {% set news = craft.entries.section('publications').relatedTo(tagged).id('not ' ~ entry.id).limit(perpage) %}
-    {% if news|length<2 %}
-        {% set news = craft.entries.section('publications').id('not ' ~ entry.id).limit(3) %}
-    {% endif %}
-{% endif %}
-{% if news is defined %}
-    {% set nox2 = true %}
-
-
-
-    {% if block['isSwiper'] is defined and block.isSwiper == 1 %}
-        {% set classes = ' swiper--cards ' %}
-        {% set arrows = 1 %}
-        {% set perview = 'auto' %}
-        {% set centered = 1 %}
-        {% set loop = 'false' %}
-        {% set swiperData = news %}
-        {% set cardTemplate = 'publications/_card.html' %}
-
-        {% include "_swiper/_swiper.html" %}
-
-    {% else %}
-        {% if news|length<4 %}
-            {% set templ = "publications/_list-cards.html" %}
-        {% else %}
-            {% set templ = "publications/" ~ tmpl %}
-        {% endif %}
-
-        {% include templ %}
-    {% endif %}
+{% if block['isSwiper'] is defined and block.isSwiper == 1 and news|length>3%}
+    {% set classes = ' swiper--cards ' %}
+    {% set arrows = 1 %}
+    {% set centered = 1 %}
+    {% set loop = 'false' %}
+    {% set swiperData = news %}
+    {% set cardTemplate = 'publications/_card.html' %}
+    {% set spb ="
+            spaceBetween: 0,
+            slidesPerView: 4,
+            slidesPerGroup:4,
+            centeredSlides:false,
+            breakpoints: {
+            640: {
+            slidesPerView: 1,
+            slidesPerGroup:1,
+            },
+            920: {
+            slidesPerView: 2,
+            slidesPerGroup:2,
+            },
+            1400: {
+            slidesPerView: 3,
+            slidesPerGroup:3,
+            },
+            1600: {
+            slidesPerView: 4,
+            slidesPerGroup:4,
+            },
+            1800: {
+            slidesPerView: 4,
+            slidesPerGroup:4,
+            }
+            }" %}
+    {% include "_swiper/_swiper.html" %}
 {% else %}
-    {% set be = true %}
+    {% if news|length<4 %}
+        {% set templ = "publications/_list-cards.html" %}
+    {% else %}
+        {% set templ = "publications/" ~ tmpl %}
+    {% endif %}
 
+    {% include templ %}
 {% endif %}
-
 

@@ -1,25 +1,29 @@
 {% set list_divider=true %}
 {% set list_classes='' %}
-<md-whiteframe md-elevation="1">
-    <md-list class="md-primary{{ list_classes }} list--nav">
-        {% if list_subhead is defined and list_subhead|length %}
-            <md-subheader>{{ list_subhead }}</md-subheader>
-        {% endif %}
-        {% for item in navs %}
-            <md-list-item {{ "href=#{item.url}" }}>
-                {% if list_divider is defined  and list_divider == true %}
-                    <md-divider></md-divider>
+<div class="section-content">
+    <md-whiteframe md-elevation="1">
+        <md-list class="md-primary{{ list_classes }} list--nav">
+            {% if list_subhead is defined and list_subhead|length %}
+                <md-subheader>{{ list_subhead }}</md-subheader>
+            {% endif %}
+            {% for item in navs %}
+                {% if item.id != current.id or showCurrent %}
+                    <md-list-item {{ "href=#{item.url}" }}>
+                        {% if list_divider is defined  and list_divider == true %}
+                            <md-divider></md-divider>
+                        {% endif %}
+                        <div class="md-list-text-container">{{ item.title }}</div>
+                        {% if item.url is defined %}
+                            <md-button class="md-icon-button md-list-action">
+                                <md-icon>chevron_right</md-icon>
+                            </md-button>
+                        {% endif %}
+                    </md-list-item>
                 {% endif %}
-                <div class="md-list-text-container">{{ item.title }}</div>
-                {% if item.url is defined %}
-                    <md-button class="md-icon-button md-list-action">
-                        <md-icon>chevron_right</md-icon>
-                    </md-button>
-                {% endif %}
-            </md-list-item>
-        {% endfor %}
-    </md-list>
-</md-whiteframe>
+            {% endfor %}
+        </md-list>
+    </md-whiteframe>
+</div>
 
 
 

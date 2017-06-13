@@ -47,15 +47,19 @@
                 <label>{{ 'Your E-mail'|t }}</label>
                 <md-input placeholder="{{ 'Your E-mail'|t }}"></md-input>
             </md-input-container>
+            <md-input-container>
+                <label>Ваши комментарии</label>
+                <md-textarea></md-textarea>
+            </md-input-container>
             <div class="actions">
                 <md-button class="md-primary md-raised" @click.native="closeRightSidenav">{{ 'Submit'| t }}</md-button>
             </div>
         </form>
     </div>
     <md-bottom-bar>
-        <md-bottom-bar-item md-icon="call" href="{{ 'tel:' ~ globalContacts.contactTel1| replace (' ','') }}">{{ 'Call'|translate }}</md-bottom-bar-item>
         <md-bottom-bar-item md-icon="email" href="{{ 'mailto:' ~ globalContacts.contactEmail| replace (' ','') }}">{{ 'E-mail'|translate }}</md-bottom-bar-item>
-        <md-bottom-bar-item md-icon="place">{{ 'Offices' | t }}</md-bottom-bar-item>
+        <md-bottom-bar-item md-icon="place" href="/offices">{{ 'Offices' | t }}</md-bottom-bar-item>
+        <md-bottom-bar-item md-icon="language" href="{{ globalContacts.btiUrl }}" target="_blank">{{ 'World'|translate }}</md-bottom-bar-item>
     </md-bottom-bar>
 
     {#<md-button class="md-raised md-accent" @click.native="closeRightSidenav">{{ 'Close' | translate }}</md-button>#}

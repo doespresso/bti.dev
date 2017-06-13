@@ -1,9 +1,11 @@
 .html-card{
   margin-bottom:40px;
+  .md-title{margin-top:0!important;}
 }
 .html-content {
   .html-card &{
-    padding:24px;
+    padding:0;
+    padding-right:24px;
   }
   color:#000;
   opacity: 0.78;
@@ -67,6 +69,7 @@
     li{
       padding-left:24px;
       position:relative;
+      line-height: 1.7;
       &:before{
         content:'';
         position:absolute;

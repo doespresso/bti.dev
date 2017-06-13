@@ -2,7 +2,7 @@
   {% spaceless %}
       {% block all %}
 
-          {#{% cache %}#}
+          {% cache %}
 
           <!DOCTYPE html>
           <html>
@@ -27,29 +27,36 @@
 
                   <div v-if="!loaded" style="position:fixed; left:0; top:0; right:0; bottom:0; background-color: white; z-index:1000;"></div>
 
+                  {% cache %}
                   <transition appear name="fade">
                       {{ include ("header/_header.html") }}
                   </transition>
+                  {% endcache %}
 
                   {% set left_column=true %}
 
                   {#{% cache %}#}
 
-
+                  {#<transition appear name="liftup">#}
                   <div class="page-content">
                       {% block content %}
                       {% endblock %}
                   </div>
+                  {#</transition>#}
 
                   <div class="page-pager">
                       {% block pager %}
                       {% endblock %}
                   </div>
 
-                  <aside class="aside-bottom">
-                      {% set matrix = globalBottom.bottomMatrix %}
-                      {{ include ("matrix/_matrix-bottom.html") }}
-                  </aside>
+                  {% if cot != 'category' and not ishomepage %}
+                      <aside class="aside-bottom">
+                          {% set matrix = globalBottom.bottomMatrix %}
+                          {{ include ("matrix/_matrix.html") }}
+                      </aside>
+                  {% endif %}
+
+
                   {#{% endcache %}#}
 
                   {% cache %}
@@ -58,13 +65,13 @@
 
               </div>
               {% cache %}
-              {% include('inc/_speed-dial.html') %}
+              {#{% include('inc/_speed-dial.html') %}#}
               {% endcache %}
           </div>
           {% include 'inc/_scripts' %}
           </body>
           </html>
 
-          {#{% endcache %}#}
+          {% endcache %}
       {% endblock %}
   {% endspaceless %}

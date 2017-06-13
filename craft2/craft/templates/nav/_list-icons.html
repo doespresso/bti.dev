@@ -1,4 +1,4 @@
-<div class="grid-2_xs-1_sm-1_md-2_lg-2-equalHeight navs navs--circle-">
+<div class="grid-2_xs-1_sm-1_md-2_lg-2-equalHeight navs navs--circle- section-content">
     {% for item in navs %}
         <div class="col">
             <a href="{{ item.url }}" class="nav-link">
@@ -7,7 +7,7 @@
                 {% endif %}
                 <div class="nav-link-text b-color">
                     <div class="md-title t-color">{{ item.title }}</div>
-                    {% if item.navShort|length %}<date class="description md-subhead">{{ item.navShort }}</date>{% endif %}
+                    {% if item.navShort|length and showShort%}<date class="description md-subhead">{{ item.navShort }}</date>{% endif %}
                 </div>
             </a>
         </div>

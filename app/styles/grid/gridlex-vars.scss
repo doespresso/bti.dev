@@ -44,11 +44,23 @@ $gl-lg:        "screen and (max-width: #{$breakpoint-large})" !default; // max 1
   //}
 }
 
-.aside-left{
+.aside-column{
   .cards{
     [class^='col']{
       min-width:100%;
     }
+  }
+}
+
+.main-column:not(.full-width){
+  .cards{
+    [class^='col']{
+      min-width:100%;
+    }
+  }
+  [class^="col-"]{
+    min-width:100%;
+    width:100%;
   }
 }
 

@@ -1,4 +1,4 @@
-{% set persons = craft.entries.section('persons').order('personLastname') %}
+{% set persons = craft.entries.section('persons').notInTeam('not 1').order('personLastname') %}
 
 {% block content %}
     {% include "_filter/_filter.html" %}

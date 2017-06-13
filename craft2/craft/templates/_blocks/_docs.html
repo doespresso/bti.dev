@@ -1,27 +1,41 @@
-{% if block.blockSource == 'added' and block.blockContent|length %}
-    {% set docs = block.blockContent|length ? block.blockContent %}
-{% elseif block.blockSource == 'related' %}
-    {#{% set docs = entry.relatedDocs is defined and entry.relatedDocs|length ? entry.relatedDocs %}#}
-    {% set docs = entry['relatedDocs'] is defined and entry.relatedDocs|length ? entry.relatedDocs %}
-{% endif %}
+{% if block['isSwiper'] is defined and block.isSwiper == 1 and docs|length>3 %}
+    {% set classes = ' swiper--cards ' %}
+    {% set arrows = 1 %}
+    {% set centered = 1 %}
+    {% set loop = 'false' %}
+    {% set swiperData = docs %}
+    {% set cardTemplate = 'docs/_card.html' %}
+    {% set spb ="
+            spaceBetween: 0,
+            slidesPerView: 4,
+            slidesPerGroup:4,
+            centeredSlides:true,
+            breakpoints: {
+            640: {
+            slidesPerView: 1,
+            slidesPerGroup:1,
+            },
+            920: {
+            slidesPerView: 2,
+            slidesPerGroup:2,
+            },
+            1400: {
+            slidesPerView: 3,
+            slidesPerGroup:3,
+            },
+            1600: {
+            slidesPerView: 4,
+            slidesPerGroup:4,
+            },
+            1800: {
+            slidesPerView: 4,
+            slidesPerGroup:4,
+            }
+            }" %}
+    {% include "_swiper/_swiper.html" %}
 
-
-
-{% if docs is defined and docs|length %}
-    {% if block['isSwiper'] is defined and block.isSwiper == 1 %}
-        {% set classes = ' swiper--cards ' %}
-        {% set arrows = 0 %}
-        {% set perview = 'auto' %}
-        {% set centered = 1 %}
-        {% set loop = 'false' %}
-        {% set swiperData = docs %}
-        {% set cardTemplate = 'docs/_card.html' %}
-        {% include "_swiper/_swiper.html" %}
-    {% else %}
-        {% set templ = "docs/" ~ tmpl %}
-        {% include templ %}
-    {% endif %}
-    {% set be = true %}
 {% else %}
-    {% set be = true %}
+    {% set templ = "docs/" ~ tmpl %}
+    {% include templ %}
 {% endif %}
+

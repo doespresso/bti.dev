@@ -8,8 +8,9 @@
                 {% if block.blockShort is not empty %}
                     <div class="md-subhead">{{ block.blockShort }}</div>{% endif %}
             </md-card-header>
+            <hr class="line"/>
             <md-card-content>
-                {{ block.blockContent }}
+                <div class="html-content">{{ block.blockContent }}</div>
             </md-card-content>
             </md-card-area>
             {% if bLink|length or bRequest == 1 %}

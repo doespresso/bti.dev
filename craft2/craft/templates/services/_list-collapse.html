@@ -2,7 +2,8 @@
     <div class="grid-1-noBottom">
         {% for item in subservices %}
             <div class="col">
-                {% if item.Short|length or item.fullText|length %}
+                {#{% if item.Short|length or item.fullText|length %}#}
+                {% if true %}
                     <collapse :selected=false class="md-whiteframe md-whiteframe-1dp">
                         <div slot="collapse-header">
                             <div class="md-collapse-header-text">
@@ -13,6 +14,7 @@
                         <div slot="collapse-body">
                             <div class="html-content">{{ item.Short }}</div>
                             <div class="html-content">{{ item.fullText }}</div>
+                            <div class="actions">{% include "inc/_request-button-card.html" with {'label':'Send Request'|t}%}</div>
                         </div>
                     </collapse>
                 {% else %}

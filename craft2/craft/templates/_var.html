@@ -17,13 +17,14 @@
 
 
 
-    {% set homepage = craft.entries.slug('homepage').first() %}
 
+    {% set homepage = craft.entries.slug('homepage').first() %}
+    {% set ishomepage = false %}
     {% set headerTitle =  siteName %}
+
+    {#{% cache %}#}
     {% set headerTheme = 'ct' ~ globalDesign.styleThemeObject[0].id %}
-    {% set headerThemeFull = 'md-theme-' ~ headerTheme %}
     {% set headerHeight = globalDesign.styleHeight %}
-    {% set hBanners = false %}
     {% set headerIcon = globalDesign.styleIcon %}
     {% set headerIconAlign = globalDesign.styleIconAlign %}
     {% set headerIconAlignV = globalDesign.styleIconAlignV %}
@@ -31,9 +32,16 @@
     {% set headerIconAnimation = globalDesign.styleIconAnimation %}
     {% set headerIconColor = globalDesign.styleIconColor %}
     {% set headerIconLine = globalDesign.styleIconLine %}
+    {#{% endcache %}#}
 
+    {% set hBanners = false %}
     {% set nox2 = false %}
     {% set hideBottom = false %}
+    {% set headerThemeFull = 'md-theme-' ~ headerTheme %}
+
+
+
+
 
     {% if category is defined %}
 
@@ -177,156 +185,89 @@
     {% endif %}
 
 
-{#nav#}
-{#nav#}
-{#nav#}
-{#nav#}
-{#nav#}
-{#nav#}
-{#nav#}
-{#nav#}
-{#nav#}
-{#nav#}
-{#nav#}
-{#nav#}
-{#nav#}
-{#nav#}
-{#nav#}
-{#nav#}
-{#nav#}
-{#nav#}
-{#nav#}
-{#nav#}
-
-
-
-{% set noSubmenu = false %}
-{% set addLast = true %}
-
+{% set bc = [] %}
+{% set sm = [] %}
+{% set cm = [] %}
 
 {% if cot != 'category' and current.type == 'typePerson' %}
-    {% set pcat = current.personStatus[0] %}
-    {% set m_current = craft.entries.section('menus').relatedTo({
-    targetElement: pcat,
+    {% set e_parent = current.personStatus[0] %}
+    {% set m_parent = craft.entries.section('menus').relatedTo({
+    targetElement: e_parent,
     field: 'menuItem.obj'
-    }).first %}
+    }).last %}
+    {% set inmenu = m_parent|length ? true : false %}
 {% elseif cot != 'category' and current.type == 'typePublication' %}
-    {% set pcat = current.publicationCategory[0] %}
-    {% set m_current = craft.entries.section('menus').relatedTo({
-    targetElement: pcat,
+    {#PUBL#}
+    {#<hr>#}
+    {% set e_parent = current.publicationCategory[0] %}
+    {% set m_parent = craft.entries.section('menus').relatedTo({
+    targetElement: e_parent,
     field: 'menuItem.obj'
-    }).first %}
-    {% set noSubmenu = true %}
+    }).last %}
+    {% set inmenu = m_parent|length ? true : false %}
 {% else %}
-    {% set m_current = craft.entries.section('menus').relatedTo({
+    {% set m_item = craft.entries.section('menus').relatedTo({
     targetElement: current,
     field: 'menuItem.obj'
-    }).first %}
-    {% set addLast = false %}
+    }).last %}
+    {% set inmenu = m_item|length ? true : false %}
 {% endif %}
 
-
-
-{% set bc = [] %}
-{% set cmenu = [] %}
-
-{% if m_current %}
-    {% if not noSubmenu %}
-        {#SUBMENU#}
-        {#SUBMENU#}
-        {#SUBMENU#}
-        {#{{ m_current.level }}#}
-        {#{{ m_current.showSub }}#}
-        {% if m_current.parent %}
-            {#CURRENT: {{ m_current.title }}<br/>#}
-            {#PARENT: {{ m_current.parent.title }}<br/>#}
-            {% set m_parent =  m_current.parent %}
-            {% set tosub = m_parent.showInSub %}
-            {#{% set plevel = m_parent.level %}#}
-            {#{% set clevel = m_current.level %}#}
-            {#{{ m_parent.title }} {{ m_parent.showInSub }}<br/>#}
-            {% if tosub == "children" %}
-                {% set submenu = m_parent.children.level(m_current.level) %}
-            {% elseif tosub == "parent" %}
-                {% if m_parent.parent %}
-                    {% set submenu =  m_parent.parent.children.level(m_parent.level) %}
-                {% else %}
-                    {% set submenu =  craft.entries.section('menus').level(m_parent.level) %}
-                {% endif %}
-            {% endif %}
-        {% elseif m_current.level == 1 and m_current.showSub == 1 %}
-            {#{% set clevel = m_current.level %}#}
-            {% set submenu = m_current.children.level(m_current.level +1) %}
-            {#current children#}
-            {#<hr>#}
-            {#{% if submenu|length %}#}
-            {#{% for s in submenu %}#}
-            {#{{ s.title }}#}
-            {#{% endfor %}#}
-            {#{% endif %}#}
-            {#<hr>#}
-        {% endif %}
-        {% if submenu is defined and submenu|length %}
-            {% for item in submenu %}
-                {% if item.menuItem.blocks[0].type != "Url" %}
-                    {% set cObj = item.menuItem.blocks[0].obj[0] is defined ? item.menuItem.blocks[0].obj[0] %}
-                {% else %}
-                    {% set cObj = {'title':item.title, 'url': item.menuItem.blocks[0].obj } %}
-                {% endif %}
-                {% set mitem = [] %}
-                {#{% set mitem = mitem|merge({'title':item.title}) %}#}
-                {#{% set mitem = mitem|merge({'obj':cUrl}) %}#}
-                {% set cmenu = cmenu|merge([cObj]) %}
-            {% endfor %}
-        {% endif %}
-    {% endif %}
-
-    {#ADD TO BC#}
-    {#ADD TO BC#}
-    {#ADD TO BC#}
-
-    {% if m_current.hideBc !=1 %}
-        {% if m_current.menuItem.blocks[0].type != "Url" %}
-            {% set cUrl = m_current.menuItem.blocks[0].obj[0] is defined ? m_current.menuItem.blocks[0].obj[0].url %}
+{% if inmenu %}
+    {% if m_parent is defined %}
+        {#MPARENT#}
+        {#<hr>#}
+        {#{{ m_parent.title }} LEVEL {{ m_parent.level }}#}
+        {% set bc = bc|merge([m_parent]) %}
+        {% if m_parent.level>1 %}
+            {% set m_parent_parent = m_parent.parent %}
+            {% set bc = bc|merge([m_parent_parent]) %}
+            {% set sm = m_parent_parent.children.level(m_parent.level) %}
+            {% set cm = m_parent.children.level(m_parent.level + 1) %}
         {% else %}
-            {% set cUrl = m_current.menuItem.blocks[0].obj %}
+            {% set cm = m_parent.children.level(2) %}
         {% endif %}
-        {#{% set oUrl = cUrl %}#}
-        {% set ci = [] %}
-        {% set ci = ci|merge([m_current]) %}
-        {% set ci = ci|merge([cUrl]) %}
-        {% set bc = bc|merge([ci]) %}
+
+    {% elseif m_item is defined %}
+        {#MITEM#}
+        {#<hr>#}
+        {#{{ m_item.title }} LEVEL {{ m_item.level }}#}
+        {#<hr>#}
+        {% set bc = bc|merge([m_item]) %}
+        {% if m_item.level>1 %}
+            {% set m_parent = m_item.parent %}
+            {% set bc = bc|merge([m_parent]) %}
+            {% set sm = m_parent.children.level(m_item.level) %}
+            {% set cm = m_item.children.level(m_item.level + 1) %}
+        {% else %}
+            {% set cm = m_item.children.level(2) %}
+        {% endif %}
     {% endif %}
 
-    {% set menu_level = m_current.level %}
-    {% set m_level = m_current.level %}
-    {#<b>{{ m_current.title }}</b> / initial level: {{ menu_level }}<br/>#}
-
-    {% for l in 1 .. m_level-1 if m_level>1 %}
-        {% set m_current = m_current.parent is defined ? m_current.parent %}
-        {% if m_current is defined %}
-            {% if m_current.hideBc !=1 %}
-                {% if m_current.menuItem.blocks[0].type != "Url" %}
-                    {% set cUrl = m_current.menuItem.blocks[0].obj[0] is defined ? m_current.menuItem.blocks[0].obj[0].url %}
-                {% else %}
-                    {% set cUrl = m_current.menuItem.blocks[0].obj %}
-                {% endif %}
-                {#{% if cUrl != oUrl %}#}
-                {% set ci = [] %}
-                {% set ci = ci|merge([m_current]) %}
-                {% set ci = ci|merge([cUrl]) %}
-                {% set bc = bc|merge([ci]) %}
-                {#{% set oUrl = cUrl %}#}
-                {#{% endif %}#}
-            {% endif %}
-        {% endif %}
-    {% endfor %}
-
-    {#ADD TO BC#}
-    {#ADD TO BC#}
-    {#ADD TO BC#}
-
+{% else %}
+    {#NOT IN MENU#}
 {% endif %}
+
+
+{#{% for item in bc %}#}
+    {#{{ item.title }}#}
+{#{% endfor %}#}
+{#&#123;&#35;{% if sm %}&#35;&#125;#}
+{#<hr/>SM:#}
+{#&#123;&#35;{% endif %}&#35;&#125;#}
+{#{% for item in sm %}#}
+    {#{{ item.title }}#}
+{#{% endfor %}#}
+{#<hr/>CM:#}
+{#{% for item in cm %}#}
+    {#{{ item.title }}#}
+{#{% endfor %}#}
+
+{#<hr/>BC:#}
+{#{% for item in bc %}#}
+    {#{{ item.title }}#}
+{#{% endfor %}#}
+
 
         {% if bc|length>0 %}
             {% set backNav %}
@@ -338,12 +279,17 @@
                         <md-menu-content class="back-nav">
                             <md-menu-item href="{{ siteUrl }}">
                                 <md-icon>home</md-icon>
-                                {#<span>{{ 'Homepage'|t }}</span>#}
+                                <span>{{ 'Homepage'|t }}</span>
                             </md-menu-item>
-                            {% for item in bc | reverse %}
+                            {% for item in bc if item.hideBc !=1 | reverse %}
                                 {#{% if not loop.last or not addLast %}#}
-                                <md-menu-item href="{{ item[1] }}">
-                                    <span>{{ item[0].title }}</span>
+                                {% if item.menuItem.blocks[0].type != "Url" %}
+                                    {% set mUrl = item.menuItem.blocks[0].obj[0] is defined ? item.menuItem.blocks[0].obj[0].url %}
+                                {% else %}
+                                    {% set mUrl = item.menuItem.blocks[0].obj %}
+                                {% endif %}
+                                <md-menu-item href="{{ mUrl }}">
+                                    <span>{{ item.title }}</span>
                                     <md-icon>chevron_left</md-icon>
                                 </md-menu-item>
                                 {#{% endif %}#}
@@ -354,11 +300,44 @@
             {% endset %}
         {% endif %}
 
+{% set cnav = [] %}
+{% set snav = [] %}
+
+        {% if cm|length>0 %}
+            {% for item in cm if item.hideBc !=1 %}
+                {% if item.menuItem.blocks[0].type != "Url" %}
+                    {% set mItem = item.menuItem.blocks[0].obj[0] is defined ? item.menuItem.blocks[0].obj[0] %}
+                {% else %}
+                    {% set mItem = {'title':item.title, 'url': item.menuItem.blocks[0].obj } %}
+                {% endif %}
+                {% set cnav = cnav|merge([mItem]) %}
+            {% endfor %}
+        {% endif %}
+
+        {% if sm|length>0 %}
+            {% for item in sm if item.hideBc !=1 %}
+                {% if item.menuItem.blocks[0].type != "Url" %}
+                    {% set mItem = item.menuItem.blocks[0].obj[0] is defined ? item.menuItem.blocks[0].obj[0] %}
+                {% else %}
+                    {% set mItem = {'title':item.title, 'url': item.menuItem.blocks[0].obj } %}
+                {% endif %}
+                {% set snav = snav|merge([mItem]) %}
+            {% endfor %}
+        {% endif %}
 
 
+{#<hr/>SNAV:#}
+{#{% for item in snav %}#}
+    {#{{ item.title }}#}
+{#{% endfor %}#}
+{#<hr/>CNAV:#}
+{#{% for item in cnav %}#}
+    {#{{ item.title }}#}
+{#{% endfor %}#}
 
 
 
 {% block all %}
 
 {% endblock %}
+
