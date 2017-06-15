@@ -1,3 +1,4 @@
+{% cache %}
 {% set sfilter = craft.entries.section('services').level(1) %}
 {% set bfilter = craft.entries.section('branches').level(1) %}
 {#[[{% for i in sfilter %}{{ i.id }}{{ not loop.last ? ','}}{% endfor %}],[{% for i in bfilter %}{{ i.id }}{{ not loop.last ? ','}}{% endfor %}]]#}
@@ -28,7 +29,7 @@
         </div>
     </div>
 </div>
-
+{% endcache %}
 
 
 

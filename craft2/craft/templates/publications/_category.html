@@ -2,7 +2,13 @@
 {% set perPage = category.listPerPage ? category.listPerPage : 10 %}
 
 
-{% paginate craft.entries.section('publications').relatedTo(category).limit(perPage) as pageInfo, news %}
+{#{% paginate craft.entries.section('publications').relatedTo(category).limit(perPage) as pageInfo, news %}#}
+{% paginate craft.entries({
+section:'publications',
+'relatedTo':category,
+'with':['cardColor','cardImg','publicationCategory']
+}).limit(perPage) as pageInfo, news
+%}
 
 {% block content %}
     <section class="section">

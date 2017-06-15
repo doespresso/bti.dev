@@ -1,8 +1,8 @@
 {% for item in _related %}
     <a href="{{ item.url }}" class="chip">
         {% if item.type == 'typePerson' %}
-            {% if item.personPhoto|length %}
-                {% set photo = item.personPhoto.first() %}
+            {% if item.personPhoto %}
+                {% set photo = item.personPhoto[0] %}
                 <img src="{{ photo.getUrl('resizeMicro') }}"/>
             {% endif %}
             {{ item.personFirstname }} {{ item.personLastname }}

@@ -74,24 +74,38 @@
                         {% endif %}
                     {% endif %}
 
-                    {% if block.type == "sectionPublications" and cot != 'category' %}
-                        {% set perpage = block.blockPerPage is not empty ? block.blockPerPage : 3 %}
-                        {% if block.blockSource == 'last' %}
-                            {% set news = craft.entries.section('publications').limit(perpage) %}
-                        {% elseif block.blockSource == 'added' and block.blockContent|length %}
-                            {% set news = block.blockContent|length ? block.blockContent %}
-                        {% elseif block.blockSource == 'tagged' %}
-                            {% set news = craft.entries.section('publications').relatedTo(tagged).id('not ' ~ entry.id).limit(perpage) %}
-                            {% if news|length<2 %}
-                                {% set news = craft.entries.section('publications').id('not ' ~ entry.id).limit(perpage) %}
-                            {% endif %}
-                        {% endif %}
-                        {% if news is defined %}
-                            {% include "_blocks/_publications.html" %}
-                        {% else %}
-                            {% set be = true %}
-                        {% endif %}
-                    {% endif %}
+                    {#{% if block.type == "sectionPublications" and cot != 'category' %}#}
+                        {#{% set perpage = block.blockPerPage is not empty ? block.blockPerPage : 3 %}#}
+                        {#{% if block.blockSource == 'last' %}#}
+                            {#{% set news = craft.entries({#}
+                            {#'section':'publications',#}
+                            {#'with':['cardColor','cardImg','publicationCategory']#}
+                            {#}).limit(perpage)#}
+                            {#%}#}
+                        {#{% elseif block.blockSource == 'added' and block.blockContent|length %}#}
+                            {#{% set news = block.blockContent|length ? block.blockContent %}#}
+                        {#{% elseif block.blockSource == 'tagged' %}#}
+                            {#{% set news = craft.entries.section('publications').relatedTo(tagged).id('not ' ~ entry.id).limit(perpage) %}#}
+                            {#{% set news = craft.entries({#}
+                            {#'section':'publications',#}
+                            {#'relatedTo':tagged,#}
+                            {#'id':'not '~entry.id,#}
+                            {#'with':['cardColor','cardImg','publicationCategory']#}
+                            {#}).limit(perpage) %}#}
+                            {#{% if news|length<2 %}#}
+                                {#{% set news = craft.entries({#}
+                                {#'section':'publications',#}
+                                {#'id':'not '~entry.id,#}
+                                {#'with':['cardColor','cardImg','publicationCategory']#}
+                                {#}).limit(perpage) %}#}
+                            {#{% endif %}#}
+                        {#{% endif %}#}
+                        {#{% if news is defined %}#}
+                            {#{% include "_blocks/_publications.html" %}#}
+                        {#{% else %}#}
+                            {#{% set be = true %}#}
+                        {#{% endif %}#}
+                    {#{% endif %}#}
 
                     {% if block.type == "sectionProjects" %}
 
@@ -279,15 +293,32 @@
             {% endif %}
 
             {% if block.type == "sectionPublications" and cot != 'category' %}
+                {% set news = [] %}
                 {% set perpage = block.blockPerPage is not empty ? block.blockPerPage : 3 %}
                 {% if block.blockSource == 'last' %}
-                    {% set news = craft.entries.section('publications').limit(perpage) %}
+                    {% set news = craft.entries({
+                    section:'publications',
+                    with:['cardColor','cardImg','publicationCategory']
+                    }).limit(perpage)
+                    %}
                 {% elseif block.blockSource == 'added' and block.blockContent|length %}
                     {% set news = block.blockContent|length ? block.blockContent %}
                 {% elseif block.blockSource == 'tagged' %}
-                    {% set news = craft.entries.section('publications').relatedTo(tagged).id('not ' ~ entry.id).limit(perpage) %}
+                    {#{% set news = craft.entries.section('publications').relatedTo(tagged).id('not ' ~ entry.id).limit(perpage) %}#}
+
+                    {% set news = craft.entries({
+                    section:'publications',
+                    relatedTo:tagged,
+                    id:'not '~entry.id,
+                    with:['cardColor','cardImg','publicationCategory']
+                    }).limit(perpage) %}
+
                     {% if news|length<2 %}
-                        {% set news = craft.entries.section('publications').id('not ' ~ entry.id).limit(perpage) %}
+                        {% set news = craft.entries({
+                        section:'publications',
+                        id:'not '~entry.id,
+                        with:['cardColor','cardImg','publicationCategory']
+                        }).limit(perpage) %}
                     {% endif %}
                 {% endif %}
                 {% if news is defined %}

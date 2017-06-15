@@ -24,7 +24,7 @@
             </md-card-content>
         </md-card-area>
         <md-card-actions>
-            <md-button href="{{ item.publicationCategory[0].url }}">{{ item.publicationCategory[0] }}</md-button>
+            <md-button href="{{ item.publicationCategory[0].url ?? null }}">{{ item.publicationCategory[0].title ?? null }}</md-button>
             <span class="md-flex"></span>
             <md-button class="md-icon-button" href="{{ item.url }}">
                 {% if item.videoCodeYT|length %}

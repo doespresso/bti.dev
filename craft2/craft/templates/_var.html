@@ -1,38 +1,21 @@
-{#page#}
-{#page#}
-{#page#}
-{#page#}
-{#page#}
-{#page#}
-{#page#}
-{#page#}
-{#page#}
-{#page#}
-{#page#}
-{#page#}
-{#page#}
-{#page#}
-{#page#}
-{#page#}
 
-
-
+{#{% cache globally using key craft.request.path %}#}
 
     {% set homepage = craft.entries.slug('homepage').first() %}
     {% set ishomepage = false %}
     {% set headerTitle =  siteName %}
 
-    {#{% cache %}#}
-    {% set headerTheme = 'ct' ~ globalDesign.styleThemeObject[0].id %}
-    {% set headerHeight = globalDesign.styleHeight %}
-    {% set headerIcon = globalDesign.styleIcon %}
-    {% set headerIconAlign = globalDesign.styleIconAlign %}
-    {% set headerIconAlignV = globalDesign.styleIconAlignV %}
-    {% set headerIconSize = globalDesign.styleIconSize %}
-    {% set headerIconAnimation = globalDesign.styleIconAnimation %}
-    {% set headerIconColor = globalDesign.styleIconColor %}
-    {% set headerIconLine = globalDesign.styleIconLine %}
-    {#{% endcache %}#}
+    {% set gDes = globalDesign %}
+    {% set headerTheme = 'ct' ~ gDes.styleThemeObject[0].id %}
+    {% set headerHeight = gDes.styleHeight %}
+    {% set headerIcon = gDes.styleIcon %}
+    {% set headerIconAlign = gDes.styleIconAlign %}
+    {% set headerIconAlignV = gDes.styleIconAlignV %}
+    {% set headerIconSize = gDes.styleIconSize %}
+    {% set headerIconAnimation = gDes.styleIconAnimation %}
+    {% set headerIconColor = gDes.styleIconColor %}
+    {% set headerIconLine = gDes.styleIconLine %}
+    
 
     {% set hBanners = false %}
     {% set nox2 = false %}
@@ -268,7 +251,7 @@
     {#{{ item.title }}#}
 {#{% endfor %}#}
 
-
+{% cache globally using key craft.request.path %}
         {% if bc|length>0 %}
             {% set backNav %}
                 <div id="back-nav">
@@ -299,6 +282,7 @@
                 </div>
             {% endset %}
         {% endif %}
+{% endcache %}
 
 {% set cnav = [] %}
 {% set snav = [] %}
@@ -341,3 +325,4 @@
 
 {% endblock %}
 
+{#{% endcache %}#}

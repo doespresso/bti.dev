@@ -1,7 +1,7 @@
 .article-in-list {
   @include layout-small-and-up {
     article, .article {
-      box-shadow:$material-shadow-3dp;
+      box-shadow:$material-shadow-16dp;
       padding-top: 0;
       z-index: 2;
       margin-top: -40px;
@@ -45,6 +45,8 @@
     }
   }
 }
+
+
 
 article, .article, .aside-column {
   position: relative;

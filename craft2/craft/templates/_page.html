@@ -1,17 +1,19 @@
+{% spaceless %}
 {% extends "_var.html" %}
-  {% spaceless %}
+{#{% cache globally %}#}
       {% block all %}
 
-          {% cache %}
+
 
           <!DOCTYPE html>
           <html>
           <head>
               {% include 'inc/_head' %}
               {% include 'inc/_meta' %}
-              {% block scripted %}
-              {% endblock %}
+              {#{% block scripted %}#}
+              {#{% endblock %}#}
               {% include "inc/_md-themes.html" %}
+              {#{{ getFootHtml() }}#}
           </head>
 
           <body>
@@ -19,23 +21,23 @@
           <div id="app" v-cloak>
               <div class="app-content article-in-list">
 
-                  {% cache %}
-                  {{ include ("inc/_sidenav_list-collapse.html") }}
+
+                  {{ include ("menus/_sidenav_list-collapse.html") }}
                   {{ include ("form/_feedback-side.html") }}
                   {{ include ("inc/_searchbar.html") }}
-                  {% endcache %}
+
 
                   <div v-if="!loaded" style="position:fixed; left:0; top:0; right:0; bottom:0; background-color: white; z-index:1000;"></div>
 
-                  {% cache %}
+
                   <transition appear name="fade">
                       {{ include ("header/_header.html") }}
                   </transition>
-                  {% endcache %}
+
 
                   {% set left_column=true %}
 
-                  {#{% cache %}#}
+                  {##}
 
                   {#<transition appear name="liftup">#}
                   <div class="page-content">
@@ -57,21 +59,22 @@
                   {% endif %}
 
 
-                  {#{% endcache %}#}
+                  {##}
 
-                  {% cache %}
+
                   {% include 'inc/_footer' %}
-                  {% endcache %}
+
 
               </div>
-              {% cache %}
+
               {#{% include('inc/_speed-dial.html') %}#}
-              {% endcache %}
+
           </div>
           {% include 'inc/_scripts' %}
           </body>
           </html>
 
-          {% endcache %}
       {% endblock %}
-  {% endspaceless %}
+{#{% endcache %}#}
+{% endspaceless %}
+

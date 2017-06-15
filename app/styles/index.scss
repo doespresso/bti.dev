@@ -1,6 +1,7 @@
 @import "./../node_modules/vue-material/src/core/stylesheets/variables.scss";
 @import "./../node_modules/vue-material/src/core/stylesheets/mixins.scss";
 
+
 @import "transitions";
 @import "bti_colors";
 @import "grid/gridlex.scss";
@@ -33,18 +34,10 @@
 @import "filter";
 @import "typo";
 @import "share";
+@import "svg";
 
 
-[class*='-icon']:not(.md-icon) svg {
-  line, path, rect, circle, polygon, ellipse, polyline {
-    fill: none!important;
-    vector-effect: non-scaling-stroke !important;
-    &.wing{
-      fill:#fff!important;
-      stroke: #fff!important;
-    }
-  }
-}
+
 
 //@import "var";
 

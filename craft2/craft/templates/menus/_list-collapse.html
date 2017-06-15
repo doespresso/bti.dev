@@ -1,6 +1,6 @@
+{% cache globally %}
 <md-list>
     {% set items = craft.entries.section('menus').search(('showMobile:1')).level(1) %}
-    {#{% set items = craft.entries.section('menus').level(1) %}#}
     {% for item in items %}
         {% if item.menuItem.block|length and item.getDescendants().total() == 0 %}
             {% set cUrl = '' %}
@@ -32,4 +32,5 @@
         {% endif %}
     {% endfor %}
 </md-list>
+{% endcache %}
 

@@ -1,4 +1,4 @@
-{#{% cache %}#}
+{% cache globally %}
 {% set topmenu_items = craft.entries.section('menus').search(('showTop:1')).level(1) %}
 <nav class="nav-menu" role="navigation">
     {% for item in topmenu_items %}
@@ -32,7 +32,7 @@
         {% endif %}
     {% endfor %}
 </nav>
-{#{% endcache %}#}
+{% endcache %}
 
 
 
