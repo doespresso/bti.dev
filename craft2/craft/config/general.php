@@ -7,6 +7,10 @@ return array(
         'enableCsrfProtection' => true,
         'omitScriptNameInUrls' => true,
         'cpTrigger' => 'admin',
+        'siteName' => array(
+            'ru' => 'Бейкер Тилли Россия',
+            'en_us' => 'Baker Tilly Russia',
+        ),
     ),
     '.dev' => array(
         //	'cacheMethod' => "db",
@@ -14,10 +18,6 @@ return array(
         'siteUrl' => array(
             'ru' => 'http://bti2.dev/',
             'en_us' => 'http://bti2.dev/en/',
-        ),
-        'siteName' => array(
-            'ru' => 'Бейкер Тилли Россия',
-            'en_us' => 'Baker Tilly Russia',
         ),
         'environmentVariables' => array(
             'basePath' => '/users/jd/vh/bti.dev/craft2/public/',
@@ -29,20 +29,16 @@ return array(
         //		208=>'A'
         //	),
     ),
-    '.ip'  => array(
+    '128.199.51.224'  => array(
         //	'cacheMethod' => "db",
 
         'siteUrl' => array(
-            'ru' => 'http://bti2.dev/',
-            'en_us' => 'http://bti2.dev/en/',
-        ),
-        'siteName' => array(
-            'ru' => 'Бейкер Тилли Россия',
-            'en_us' => 'Baker Tilly Russia',
+            'ru' => 'http://128.199.51.224/',
+            'en_us' => 'http://128.199.51.224/en/',
         ),
         'environmentVariables' => array(
-            'basePath' => '/users/jd/vh/bti.dev/craft2/public/',
-            'baseUrl' => 'http://bti2.dev/',
+            'basePath' => '/var/www/html/bti.dev/craft2/public/',
+            'baseUrl' => 'http://128.199.51.224/',
         ),
         'devMode' => true,
         //	'limitAutoSlugsToAscii' => true,

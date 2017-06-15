@@ -6,23 +6,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2822010-800c-48b6-87d5-50f7b85dd028" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/craft2/public/img/persons/_resizeMicro/kalametdinov.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/craft2/public/img/persons/_resizeMicro/larichev.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/craft2/public/img/persons/_resizeMicro/panina.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/craft2/public/img/persons/_resizePersonsList/borovikova.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/craft2/public/img/persons/_resizePersonsList/kalametdinov.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/craft2/public/img/persons/_resizePersonsList/larichev.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/craft2/public/img/persons/_resizePersonsList/panina.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/craft2/public/img/persons/_resizePersonsList/petrova.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/craft2/public/img/persons/borovikova.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/craft2/public/img/persons/kalametdinov.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/craft2/public/img/persons/larichev.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/craft2/public/img/persons/panina.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/craft2/public/img/persons/petrova.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/craft2/craft/plugins/slugcharmap/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/craft2/craft/plugins/slugcharmap/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/craft2/craft/templates/menus/_sidenav_list-collapse.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/craft2/craft/app/resources/images/widgets/get-help.svg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/craft2/craft/app/resources/js/GetHelpWidget.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/craft2/craft/app/resources/js/compressed/GetHelpWidget.js" afterPath="" />
@@ -30,264 +13,10 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/craft2/craft/app/templates/_components/widgets/GetHelp/body.html" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/craft2/craft/app/templates/_components/widgets/GetHelp/response.html" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/craft2/craft/templates/inc/_sidenav_list-collapse.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/craft2/craft/templates/matrix/_aside-matrix.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/craft2/craft/templates/matrix/_matrix-bottom.html" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/coffeeglass.ai" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/BTI CRAFT.iml" afterPath="$PROJECT_DIR$/.idea/BTI CRAFT.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/_article.scss" afterPath="$PROJECT_DIR$/app/styles/_article.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/_card.scss" afterPath="$PROJECT_DIR$/app/styles/_card.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/index.scss" afterPath="$PROJECT_DIR$/app/styles/index.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/app/helpers/StringHelper.php" afterPath="$PROJECT_DIR$/craft2/craft/app/helpers/StringHelper.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/palnt1-01.svg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/config/db.php" afterPath="$PROJECT_DIR$/craft2/craft/config/db.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/config/general.php" afterPath="$PROJECT_DIR$/craft2/craft/config/general.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/plugins/slugcharmap/SlugCharMapPlugin.php" afterPath="$PROJECT_DIR$/craft2/craft/plugins/slugcharmap/SlugCharMapPlugin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/templates/_filter/_filter.html" afterPath="$PROJECT_DIR$/craft2/craft/templates/_filter/_filter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/templates/_filter/_index.html" afterPath="$PROJECT_DIR$/craft2/craft/templates/_filter/_index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/templates/_page.html" afterPath="$PROJECT_DIR$/craft2/craft/templates/_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/templates/_var.html" afterPath="$PROJECT_DIR$/craft2/craft/templates/_var.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/templates/header/_header.html" afterPath="$PROJECT_DIR$/craft2/craft/templates/header/_header.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/templates/inc/_chips.html" afterPath="$PROJECT_DIR$/craft2/craft/templates/inc/_chips.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/templates/inc/_md-themes.html" afterPath="$PROJECT_DIR$/craft2/craft/templates/inc/_md-themes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/templates/inc/_social-icons.html" afterPath="$PROJECT_DIR$/craft2/craft/templates/inc/_social-icons.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/templates/matrix/_matrix.html" afterPath="$PROJECT_DIR$/craft2/craft/templates/matrix/_matrix.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/templates/menus/_header-fab.html" afterPath="$PROJECT_DIR$/craft2/craft/templates/menus/_header-fab.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/templates/menus/_list-collapse.html" afterPath="$PROJECT_DIR$/craft2/craft/templates/menus/_list-collapse.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/templates/menus/_navbar-menu.html" afterPath="$PROJECT_DIR$/craft2/craft/templates/menus/_navbar-menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/templates/persons/_card.html" afterPath="$PROJECT_DIR$/craft2/craft/templates/persons/_card.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/templates/persons/_entry.html" afterPath="$PROJECT_DIR$/craft2/craft/templates/persons/_entry.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/templates/publications/_card.html" afterPath="$PROJECT_DIR$/craft2/craft/templates/publications/_card.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/templates/publications/_category.html" afterPath="$PROJECT_DIR$/craft2/craft/templates/publications/_category.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/craft/templates/publications/_entry.html" afterPath="$PROJECT_DIR$/craft2/craft/templates/publications/_entry.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/_bti_logo-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/_bti_logo-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/_logo-01-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/_logo-01-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/_logo-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/_logo-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/_logo.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/_logo.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/_logo2-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/_logo2-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/agri1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/agri1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/all.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/all.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/atom-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/atom-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/audit-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/audit-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/badge-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/badge-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/badge1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/badge1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/baloon.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/baloon.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/bars-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/bars-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/barsup-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/barsup-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/bear-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/bear-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/beer-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/beer-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/beerpack-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/beerpack-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/book-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/book-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/book1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/book1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/book2-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/book2-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/books-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/books-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/bottle-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/bottle-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/brain-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/brain-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/bricks-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/bricks-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/browsepeople-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/browsepeople-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/browser-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/browser-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/browserplay-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/browserplay-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/browsersearch-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/browsersearch-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/build-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/build-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/building-01-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/building-01-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/building-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/building-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/buildroad-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/buildroad-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/calc-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/calc-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/calc.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/calc.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/calend-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/calend-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/can-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/can-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/cannes-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/cannes-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/cart-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/cart-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/case-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/case-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/cert-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/cert-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chart1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chart1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chart2-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chart2-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chart3-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chart3-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chart4-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chart4-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chart5-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chart5-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chartupdraw-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chartupdraw-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chartupdraw-ifrs.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chartupdraw-ifrs.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chat1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chat1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chat3-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chat3-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chess-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chess-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chess2-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chess2-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chess_1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/chess_1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/cinema-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/cinema-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/cinemaroom.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/cinemaroom.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/clinic-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/clinic-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/cocktail1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/cocktail1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/coctail-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/coctail-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/coffeebean-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/coffeebean-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/coffeemake-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/coffeemake-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/coins-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/coins-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/collage.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/collage.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/column-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/column-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/comment1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/comment1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/communictower-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/communictower-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/compass-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/compass-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/connectworld-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/connectworld-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/constr1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/constr1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/constr2-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/constr2-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/contract-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/contract-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/corn.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/corn.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/cow-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/cow-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/cup-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/cup-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/cup1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/cup1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/dna-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/dna-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/doc-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/doc-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/docbox-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/docbox-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/doccurve-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/doccurve-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/dollar-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/dollar-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/dollars-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/dollars-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/dollars-pack-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/dollars-pack-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/dollarworld-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/dollarworld-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/drink-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/drink-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/earth-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/earth-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/education-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/education-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/electro-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/electro-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/electrocycle-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/electrocycle-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/electroplug-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/electroplug-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/employees-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/employees-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/exchange-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/exchange-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/film-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/film-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/fingerprint.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/fingerprint.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/folders-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/folders-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/gasstation-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/gasstation-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/gasstation1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/gasstation1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/gears-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/gears-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/glasses-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/glasses-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/global-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/global-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/global1.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/global1.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/globe-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/globe-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/gold-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/gold-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphcurve-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphcurve-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphcurvedots-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphcurvedots-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphdash-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphdash-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphdots-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphdots-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphflash-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphflash-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphlist-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphlist-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphmany-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphmany-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphn-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphn-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphpoly-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphpoly-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphup-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphup-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphup1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphup1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphup2-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/graphup2-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/handshake-01-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/handshake-01-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/handshake-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/handshake-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/heard-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/heard-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/homecycle-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/homecycle-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/hotel-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/hotel-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/hotelbed-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/hotelbed-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/hotelcase-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/hotelcase-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/hoteldnd-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/hoteldnd-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/hoteltowel-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/hoteltowel-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/ifrs-01-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/ifrs-01-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/ifrs-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/ifrs-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/it.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/it.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/lamp-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/lamp-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/law-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/law-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/list-zoom-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/list-zoom-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/listbookmark-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/listbookmark-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/logistics-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/logistics-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/machines1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/machines1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/machines2-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/machines2-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/mapon1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/mapon1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/mapon2-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/mapon2-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/mapon3-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/mapon3-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/maproads-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/maproads-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/mapworld-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/mapworld-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/medcase-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/medcase-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/medscope-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/medscope-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/milk-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/milk-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/milk1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/milk1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/mineral-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/mineral-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/money-hand-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/money-hand-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/mouse-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/mouse-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/mouse1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/mouse1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/mouse2-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/mouse2-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/network-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/network-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/nuclear-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/nuclear-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/number1.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/number1.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/number12-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/number12-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/number13-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/number13-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/oil-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/oil-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/overwiorld-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/overwiorld-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/pack-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/pack-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/palnt1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/palnt1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/palnt6-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/palnt6-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/panteon-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/panteon-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/party-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/party-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/pen-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/pen-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/pen1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/pen1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/people-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/people-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/phone-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/phone-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/phone1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/phone1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/phoneworld-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/phoneworld-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/pie3-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/pie3-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/pillpack-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/pillpack-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/pillpack2-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/pillpack2-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/pillpack3-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/pillpack3-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/pills-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/pills-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/pizza-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/pizza-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/plane-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/plane-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/plane.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/plane.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/plant-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/plant-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/plant2-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/plant2-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/plant3-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/plant3-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/plant4-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/plant4-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/plant5-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/plant5-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/plug-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/plug-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/prize.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/prize.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/prize1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/prize1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/puzzle-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/puzzle-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/rabbit-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/rabbit-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/radioactive-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/radioactive-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/rest-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/rest-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/resume-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/resume-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/resume1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/resume1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/resume2-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/resume2-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/retail-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/retail-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/ribbon-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/ribbon-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/robot1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/robot1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/robot3-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/robot3-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/russia-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/russia-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/safe-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/safe-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/sat-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/sat-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/sat.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/sat.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/see-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/see-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/servers-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/servers-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/servers1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/servers1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/ship-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/ship-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/ship.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/ship.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/shopping-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/shopping-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/shopping1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/shopping1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/shopping2-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/shopping2-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/skr-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/skr-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/skr1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/skr1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/star-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/star-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/target-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/target-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/tea-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/tea-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/telecom-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/telecom-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/telecom1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/telecom1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/telecom3-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/telecom3-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/tets-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/tets-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/tie-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/tie-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/top-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/top-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/tower-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/tower-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/train-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/train-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/transport1-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/transport1-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/truck-oil-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/truck-oil-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/tshirt-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/tshirt-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/umbrella-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/umbrella-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/videoframe-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/videoframe-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/videoframe.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/videoframe.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/water-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/water-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/watercycle-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/watercycle-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/ways-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/ways-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/wine-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/wine-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/winepack-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/winepack-01.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/write-01.svg" afterPath="$PROJECT_DIR$/craft2/public/assets/svgicons/branches/write-01.svg" />
     </list>
     <ignored path="bti3.dev.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -359,6 +88,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="general.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/craft2/craft/config/general.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="10" lean-forward="false" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="_svg.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/styles/_svg.scss">
           <provider selected="true" editor-type-id="text-editor">
@@ -369,11 +108,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_matrix.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_matrix.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/craft2/craft/templates/matrix/_matrix.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-814">
-              <caret line="492" column="50" lean-forward="true" selection-start-line="492" selection-start-column="50" selection-end-line="492" selection-end-column="50" />
+              <caret line="492" column="50" lean-forward="false" selection-start-line="492" selection-start-column="50" selection-end-line="492" selection-end-column="50" />
               <folding>
                 <marker date="1497540541000" expanded="true" signature="4408:6473" ph="{% if block.type == &quot;sectionPublications&quot; and cot != 'category' ...%}" />
                 <marker date="1497540541000" expanded="true" signature="4503:4579" ph="{% set perpage = block.blockPerPage is not empty ? block.blockPerPage : 3 ...%}" />
@@ -394,31 +133,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="db.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/craft2/craft/config/db.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="_persons.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/craft2/craft/templates/_blocks/_persons.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/styles/index.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="36" column="14" lean-forward="false" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_article.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/styles/_article.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="36" lean-forward="false" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -442,6 +171,7 @@
       <find>cach</find>
       <find>public</find>
       <find>svg</find>
+      <find>exper</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -482,8 +212,6 @@
         <option value="$PROJECT_DIR$/craft2/craft/templates/menus/_sidenav_list-collapse.html" />
         <option value="$PROJECT_DIR$/craft2/craft/app/resources/js/craft.js" />
         <option value="$PROJECT_DIR$/craft2/craft/app/helpers/StringHelper.php" />
-        <option value="$PROJECT_DIR$/craft2/craft/config/general.php" />
-        <option value="$PROJECT_DIR$/craft2/craft/config/db.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/craft2/craft/templates/publications/_category.html" />
         <option value="$PROJECT_DIR$/craft2/craft/templates/persons/_for-filter.html" />
@@ -504,6 +232,8 @@
         <option value="$PROJECT_DIR$/craft2/craft/templates/matrix/_matrix.html" />
         <option value="$PROJECT_DIR$/craft2/craft/templates/publications/_card.html" />
         <option value="$PROJECT_DIR$/craft2/craft/templates/publications/_entry.html" />
+        <option value="$PROJECT_DIR$/craft2/craft/config/db.php" />
+        <option value="$PROJECT_DIR$/craft2/craft/config/general.php" />
       </list>
     </option>
   </component>
@@ -773,85 +503,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BTI CRAFT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bti.dev" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="craft2" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="craft" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="publications" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BTI CRAFT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bti.dev" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="craft2" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="craft" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="menus" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BTI CRAFT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bti.dev" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="craft2" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="craft" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="matrix" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -866,24 +518,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BTI CRAFT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bti.dev" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -1031,12 +665,12 @@
       <option name="presentableId" value="Default" />
       <updated>1497514995414</updated>
       <workItem from="1497515002174" duration="1264000" />
-      <workItem from="1497516369951" duration="6864000" />
+      <workItem from="1497516369951" duration="8632000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8128000" />
+    <option name="totallyTimeSpent" value="9896000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1057,7 +691,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15509039" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3463368" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17365906" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1093,22 +727,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/vue-collapse/src/components/Collapse.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/vue-material/src/components/mdCard/mdCardExpand.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/vue-material/src/components/mdTabs/mdTabs.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3900">
@@ -1538,7 +1156,7 @@
     <entry file="file://$PROJECT_DIR$/craft2/craft/templates/matrix/_matrix.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-814">
-          <caret line="492" column="50" lean-forward="true" selection-start-line="492" selection-start-column="50" selection-end-line="492" selection-end-column="50" />
+          <caret line="492" column="50" lean-forward="false" selection-start-line="492" selection-start-column="50" selection-end-line="492" selection-end-column="50" />
           <folding>
             <marker date="1497540541000" expanded="true" signature="4408:6473" ph="{% if block.type == &quot;sectionPublications&quot; and cot != 'category' ...%}" />
             <marker date="1497540541000" expanded="true" signature="4503:4579" ph="{% set perpage = block.blockPerPage is not empty ? block.blockPerPage : 3 ...%}" />
@@ -1555,6 +1173,22 @@
             <marker date="1497540541000" expanded="true" signature="24413:25001" ph="..." />
             <marker date="1497540541000" expanded="true" signature="24478:24962" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/craft2/craft/config/db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/craft2/craft/config/general.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="10" lean-forward="false" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>

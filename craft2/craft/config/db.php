@@ -18,7 +18,7 @@ return array(
         'password' => 'bti2.dev',
         'tablePrefix' => 'craft',
     ),
-    '.ip' => array(
+    '128.199.51.224' => array(
         'server' => 'localhost',
         'database' => 'bti2.dev',
         'user' => 'bti2.dev',
